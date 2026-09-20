@@ -1,0 +1,242 @@
+name: car-rental
+
+services:
+
+  customer-db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: ${CUSTOMER_DB_NAME:?Set CUSTOMER_DB_NAME in .env}
+      POSTGRES_USER: ${CUSTOMER_DB_USER:?Set CUSTOMER_DB_USER in .env}
+      POSTGRES_PASSWORD: ${CUSTOMER_DB_PASSWORD:?Set CUSTOMER_DB_PASSWORD in .env}
+    volumes:
+      - customer-data:/var/lib/postgresql/data
+    networks:
+      - customer-data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+      start_period: 10s
+    mem_limit: 256m
+    cpus: 0.5
+
+  customer-service:
+    image: car-rental/customer-service:1.0.0
+    build:
+      context: .
+      args:
+        SERVICE: customer-service
+    environment:
+      DB_URL: jdbc:postgresql://customer-db:5432/${CUSTOMER_DB_NAME}
+      DB_USER: ${CUSTOMER_DB_USER}
+      DB_PASSWORD: ${CUSTOMER_DB_PASSWORD}
+    ports:
+      - "127.0.0.1:${CUSTOMER_PORT:-8081}:8080"
+    depends_on:
+      customer-db:
+        condition: service_healthy
+    networks:
+      - services
+      - customer-data
+    healthcheck:
+      test: ["CMD", "curl", "--fail", "--silent", "http://localhost:8080/actuator/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 20
+      start_period: 40s
+    mem_limit: 512m
+    cpus: 1.0
+    read_only: true
+    tmpfs:
+      - /tmp:size=64m,mode=1777
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    stop_grace_period: 30s
+
+  fleet-db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: ${FLEET_DB_NAME:?Set FLEET_DB_NAME in .env}
+      POSTGRES_USER: ${FLEET_DB_USER:?Set FLEET_DB_USER in .env}
+      POSTGRES_PASSWORD: ${FLEET_DB_PASSWORD:?Set FLEET_DB_PASSWORD in .env}
+    volumes:
+      - fleet-data:/var/lib/postgresql/data
+    networks:
+      - fleet-data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+      start_period: 10s
+    mem_limit: 256m
+    cpus: 0.5
+
+  fleet-service:
+    image: car-rental/fleet-service:1.0.0
+    build:
+      context: .
+      args:
+        SERVICE: fleet-service
+    environment:
+      DB_URL: jdbc:postgresql://fleet-db:5432/${FLEET_DB_NAME}
+      DB_USER: ${FLEET_DB_USER}
+      DB_PASSWORD: ${FLEET_DB_PASSWORD}
+    ports:
+      - "127.0.0.1:${FLEET_PORT:-8082}:8080"
+    depends_on:
+      fleet-db:
+        condition: service_healthy
+    networks:
+      - services
+      - fleet-data
+    healthcheck:
+      test: ["CMD", "curl", "--fail", "--silent", "http://localhost:8080/actuator/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 20
+      start_period: 40s
+    mem_limit: 512m
+    cpus: 1.0
+    read_only: true
+    tmpfs:
+      - /tmp:size=64m,mode=1777
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    stop_grace_period: 30s
+
+  booking-db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: ${BOOKING_DB_NAME:?Set BOOKING_DB_NAME in .env}
+      POSTGRES_USER: ${BOOKING_DB_USER:?Set BOOKING_DB_USER in .env}
+      POSTGRES_PASSWORD: ${BOOKING_DB_PASSWORD:?Set BOOKING_DB_PASSWORD in .env}
+    volumes:
+      - booking-data:/var/lib/postgresql/data
+    networks:
+      - booking-data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+      start_period: 10s
+    mem_limit: 256m
+    cpus: 0.5
+
+  booking-service:
+    image: car-rental/booking-service:1.0.0
+    build:
+      context: .
+      args:
+        SERVICE: booking-service
+    environment:
+      DB_URL: jdbc:postgresql://booking-db:5432/${BOOKING_DB_NAME}
+      DB_USER: ${BOOKING_DB_USER}
+      DB_PASSWORD: ${BOOKING_DB_PASSWORD}
+      CUSTOMER_URL: http://customer-service:8080
+      FLEET_URL: http://fleet-service:8080
+    ports:
+      - "127.0.0.1:${BOOKING_PORT:-8083}:8080"
+    depends_on:
+      booking-db:
+        condition: service_healthy
+      customer-service:
+        condition: service_healthy
+      fleet-service:
+        condition: service_healthy
+    networks:
+      - services
+      - booking-data
+    healthcheck:
+      test: ["CMD", "curl", "--fail", "--silent", "http://localhost:8080/actuator/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 20
+      start_period: 40s
+    mem_limit: 512m
+    cpus: 1.0
+    read_only: true
+    tmpfs:
+      - /tmp:size=64m,mode=1777
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    stop_grace_period: 30s
+
+  payment-db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: ${PAYMENT_DB_NAME:?Set PAYMENT_DB_NAME in .env}
+      POSTGRES_USER: ${PAYMENT_DB_USER:?Set PAYMENT_DB_USER in .env}
+      POSTGRES_PASSWORD: ${PAYMENT_DB_PASSWORD:?Set PAYMENT_DB_PASSWORD in .env}
+    volumes:
+      - payment-data:/var/lib/postgresql/data
+    networks:
+      - payment-data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+      start_period: 10s
+    mem_limit: 256m
+    cpus: 0.5
+
+  payment-service:
+    image: car-rental/payment-service:1.0.0
+    build:
+      context: .
+      args:
+        SERVICE: payment-service
+    environment:
+      DB_URL: jdbc:postgresql://payment-db:5432/${PAYMENT_DB_NAME}
+      DB_USER: ${PAYMENT_DB_USER}
+      DB_PASSWORD: ${PAYMENT_DB_PASSWORD}
+    ports:
+      - "127.0.0.1:${PAYMENT_PORT:-8084}:8080"
+    depends_on:
+      payment-db:
+        condition: service_healthy
+    networks:
+      - services
+      - payment-data
+    healthcheck:
+      test: ["CMD", "curl", "--fail", "--silent", "http://localhost:8080/actuator/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 20
+      start_period: 40s
+    mem_limit: 512m
+    cpus: 1.0
+    read_only: true
+    tmpfs:
+      - /tmp:size=64m,mode=1777
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    stop_grace_period: 30s
+
+volumes:
+  customer-data:
+  fleet-data:
+  booking-data:
+  payment-data:
+
+networks:
+  services:
+  customer-data:
+    internal: true
+  fleet-data:
+    internal: true
+  booking-data:
+    internal: true
+  payment-data:
+    internal: true
