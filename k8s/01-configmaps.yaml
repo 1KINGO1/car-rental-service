@@ -1,0 +1,61 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: customer-config
+  namespace: car-rental
+  labels:
+    app: customer-service
+data:
+  DB_NAME: customers
+  DB_USER: customer
+  DB_HOST: customer-db
+  DB_PORT: "5432"
+  DB_URL: jdbc:postgresql://customer-db:5432/customers
+  SERVER_PORT: "8080"
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: fleet-config
+  namespace: car-rental
+  labels:
+    app: fleet-service
+data:
+  DB_NAME: fleet
+  DB_USER: fleet
+  DB_HOST: fleet-db
+  DB_PORT: "5432"
+  DB_URL: jdbc:postgresql://fleet-db:5432/fleet
+  SERVER_PORT: "8080"
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: booking-config
+  namespace: car-rental
+  labels:
+    app: booking-service
+data:
+  DB_NAME: bookings
+  DB_USER: booking
+  DB_HOST: booking-db
+  DB_PORT: "5432"
+  DB_URL: jdbc:postgresql://booking-db:5432/bookings
+  SERVER_PORT: "8080"
+  CUSTOMER_URL: http://customer-service:8080
+  FLEET_URL: http://fleet-service:8080
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: payment-config
+  namespace: car-rental
+  labels:
+    app: payment-service
+data:
+  DB_NAME: payments
+  DB_USER: payment
+  DB_HOST: payment-db
+  DB_PORT: "5432"
+  DB_URL: jdbc:postgresql://payment-db:5432/payments
+  SERVER_PORT: "8080"

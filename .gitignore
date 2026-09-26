@@ -6,3 +6,7 @@
 *.log
 dist/
 .tools/
+
+k8s/02-secrets.yaml
+k8s/**/*.secret.yaml
+k8s/secrets.local.yaml
