@@ -1,4 +1,4 @@
-FROM maven:3.9.11-eclipse-temurin-21 AS build
+FROM maven:3.9.11-eclipse-temurin-25 AS build
 WORKDIR /workspace
 COPY pom.xml ./
 COPY customer-service/pom.xml customer-service/pom.xml
@@ -12,7 +12,7 @@ COPY booking-service/src booking-service/src
 COPY payment-service/src payment-service/src
 RUN --mount=type=cache,target=/root/.m2 mvn -B package
 
-FROM eclipse-temurin:21-jre-jammy
+FROM eclipse-temurin:25-jre-noble
 RUN groupadd --gid 10001 rental && useradd --uid 10001 --gid rental --no-create-home rental
 WORKDIR /app
 ARG SERVICE
