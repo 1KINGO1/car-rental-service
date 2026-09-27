@@ -1,0 +1,77 @@
+﻿=== nodes ===
+NAME                    STATUS   ROLES           AGE     VERSION   INTERNAL-IP   EXTERNAL-IP   OS-IMAGE                       KERNEL-VERSION                             CONTAINER-RUNTIME
+desktop-control-plane   Ready    control-plane   4m41s   v1.36.1   172.18.0.2    <none>        Debian GNU/Linux 13 (trixie)   6.6.87.2-microsoft-standard-WSL2 (amd64)   containerd://2.3.1
+
+=== pods/svc/deploy ===
+NAME                                   READY   STATUS    RESTARTS      AGE     IP            NODE                    NOMINATED NODE   READINESS GATES
+pod/booking-db-bbfc4ccd9-h2dtv         1/1     Running   0             2m40s   10.244.0.10   desktop-control-plane   <none>           <none>
+pod/booking-service-64867b45-jv4kj     1/1     Running   0             74s     10.244.0.18   desktop-control-plane   <none>           <none>
+pod/booking-service-64867b45-rph46     1/1     Running   0             74s     10.244.0.17   desktop-control-plane   <none>           <none>
+pod/customer-db-75c567fb6-bxt7t        1/1     Running   0             2m41s   10.244.0.12   desktop-control-plane   <none>           <none>
+pod/customer-service-86758fddc-bxmdd   1/1     Running   0             74s     10.244.0.14   desktop-control-plane   <none>           <none>
+pod/customer-service-86758fddc-lq6pj   1/1     Running   1 (65s ago)   74s     10.244.0.13   desktop-control-plane   <none>           <none>
+pod/fleet-db-6fd7974766-gqc6n          1/1     Running   0             2m40s   10.244.0.9    desktop-control-plane   <none>           <none>
+pod/fleet-service-79876ccfb5-59w6f     1/1     Running   0             74s     10.244.0.15   desktop-control-plane   <none>           <none>
+pod/fleet-service-79876ccfb5-npc6s     1/1     Running   0             74s     10.244.0.16   desktop-control-plane   <none>           <none>
+pod/payment-db-9d499f4dd-4965t         1/1     Running   0             2m40s   10.244.0.11   desktop-control-plane   <none>           <none>
+pod/payment-service-85fbd76bd9-6jl5l   1/1     Running   0             74s     10.244.0.20   desktop-control-plane   <none>           <none>
+pod/payment-service-85fbd76bd9-sfzgk   1/1     Running   0             74s     10.244.0.19   desktop-control-plane   <none>           <none>
+
+NAME                       TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)    AGE     SELECTOR
+service/booking-db         ClusterIP   10.96.201.83    <none>        5432/TCP   2m40s   app=booking-db
+service/booking-service    ClusterIP   10.96.150.248   <none>        8080/TCP   74s     app=booking-service
+service/customer-db        ClusterIP   10.96.132.242   <none>        5432/TCP   2m41s   app=customer-db
+service/customer-service   ClusterIP   10.96.107.204   <none>        8080/TCP   74s     app=customer-service
+service/fleet-db           ClusterIP   10.96.53.82     <none>        5432/TCP   2m40s   app=fleet-db
+service/fleet-service      ClusterIP   10.96.141.201   <none>        8080/TCP   74s     app=fleet-service
+service/payment-db         ClusterIP   10.96.96.254    <none>        5432/TCP   2m40s   app=payment-db
+service/payment-service    ClusterIP   10.96.114.148   <none>        8080/TCP   74s     app=payment-service
+
+NAME                               READY   UP-TO-DATE   AVAILABLE   AGE     CONTAINERS         IMAGES                              SELECTOR
+deployment.apps/booking-db         1/1     1            1           2m40s   postgres           postgres:16-alpine                  app=booking-db
+deployment.apps/booking-service    2/2     2            2           74s     booking-service    car-rental/booking-service:1.0.0    app=booking-service
+deployment.apps/customer-db        1/1     1            1           2m41s   postgres           postgres:16-alpine                  app=customer-db
+deployment.apps/customer-service   2/2     2            2           74s     customer-service   car-rental/customer-service:1.0.0   app=customer-service
+deployment.apps/fleet-db           1/1     1            1           2m40s   postgres           postgres:16-alpine                  app=fleet-db
+deployment.apps/fleet-service      2/2     2            2           74s     fleet-service      car-rental/fleet-service:1.0.0      app=fleet-service
+deployment.apps/payment-db         1/1     1            1           2m40s   postgres           postgres:16-alpine                  app=payment-db
+deployment.apps/payment-service    2/2     2            2           74s     payment-service    car-rental/payment-service:1.0.0    app=payment-service
+
+=== secrets ===
+NAME                 TYPE     DATA   AGE
+booking-db-secret    Opaque   2      2m50s
+customer-db-secret   Opaque   2      2m51s
+fleet-db-secret      Opaque   2      2m51s
+payment-db-secret    Opaque   2      2m50s
+
+=== resources ===
+NAME               READY   CPU_REQ   MEM_REQ   CPU_LIM   MEM_LIM
+booking-db         1       100m      128Mi     500m      256Mi
+booking-service    2       250m      256Mi     1         512Mi
+customer-db        1       100m      128Mi     500m      256Mi
+customer-service   2       250m      256Mi     1         512Mi
+fleet-db           1       100m      128Mi     500m      256Mi
+fleet-service      2       250m      256Mi     1         512Mi
+payment-db         1       100m      128Mi     500m      256Mi
+payment-service    2       250m      256Mi     1         512Mi
+
+=== inter-service health ===
+kubectl : All commands and output from this session will be recorded in container logs, including credentials and 
+sensitive information passed through the command prompt.
+At C:\Users\spent\AppData\Local\Temp\ps-script-85e4fffa-67c9-4111-8cf5-17eacb129baa.ps1:100 char:10
++ $out += (kubectl run health-check2 --rm -i --restart=Never -n car-ren ...
++          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (All commands an...command prompt.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+If you don't see a command prompt, try pressing enter.
+warning: couldn't attach to pod/health-check2, falling back to streaming logs: Internal error occurred: Internal error 
+occurred: error attaching to container: container is in CONTAINER_EXITED state
+customer-service:customer-service:pod "health-check2" deleted from car-rental namespace
+
+
+=== inter-service health (confirmed) ===
+customer-service: {"status":"UP"}
+fleet-service:    {"status":"UP"}
+booking-service:  {"status":"UP"}
+payment-service:  {"status":"UP"}
