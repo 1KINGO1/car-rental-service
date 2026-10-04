@@ -15,16 +15,16 @@ import org.springframework.web.server.ResponseStatusException;
 @Profile("!http-demo")
 public class BookingController {
     private final BookingRepository repository;
-    private final BookingService service;
+    private final IdempotentCreation creation;
 
-    public BookingController(BookingRepository repository, BookingService service) {
+    public BookingController(BookingRepository repository, IdempotentCreation creation) {
         this.repository = repository;
-        this.service = service;
+        this.creation = creation;
     }
 
     @PostMapping
-    public ResponseEntity<Booking> create(@Valid @RequestBody CreateBookingRequest request) {
-        Booking result = service.create(request);
+    public ResponseEntity<Booking> create(@RequestHeader("Idempotency-Key") String key, @Valid @RequestBody CreateBookingRequest request) {
+        Booking result = creation.create(key, request);
         return ResponseEntity.created(URI.create("/api/bookings/" + result.id())).body(result);
     }
 

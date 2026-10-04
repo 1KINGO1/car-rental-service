@@ -13,14 +13,16 @@ import org.springframework.web.server.ResponseStatusException;
 @RequestMapping("/api/payments")
 public class PaymentController {
     private final PaymentRepository repository;
+    private final IdempotentCreation creation;
 
-    public PaymentController(PaymentRepository repository) {
+    public PaymentController(PaymentRepository repository, IdempotentCreation creation) {
         this.repository = repository;
+        this.creation = creation;
     }
 
     @PostMapping
-    public ResponseEntity<Payment> create(@Valid @RequestBody CreatePaymentRequest request) {
-        Payment result = repository.create(request);
+    public ResponseEntity<Payment> create(@RequestHeader("Idempotency-Key") String key, @Valid @RequestBody CreatePaymentRequest request) {
+        Payment result = creation.create(key, request);
         return ResponseEntity.created(URI.create("/api/payments/" + result.id())).body(result);
     }
 

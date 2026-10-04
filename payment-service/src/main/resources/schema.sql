@@ -5,3 +5,9 @@ CREATE TABLE IF NOT EXISTS payments (
     currency VARCHAR(3) NOT NULL CHECK (currency IN ('UAH','EUR','USD')),
     status VARCHAR(20) NOT NULL CHECK (status = 'PENDING')
 );
+
+CREATE TABLE IF NOT EXISTS idempotency_keys (
+    request_key VARCHAR(128) PRIMARY KEY,
+    fingerprint TEXT NOT NULL,
+    result_id UUID REFERENCES payments(id)
+);

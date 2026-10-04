@@ -13,3 +13,9 @@ CREATE TABLE IF NOT EXISTS bookings (
     status VARCHAR(20) NOT NULL CHECK (status = 'REQUESTED'),
     CHECK (end_date > start_date AND end_date <= start_date + 365)
 );
+
+CREATE TABLE IF NOT EXISTS idempotency_keys (
+    request_key VARCHAR(128) PRIMARY KEY,
+    fingerprint TEXT NOT NULL,
+    result_id UUID REFERENCES bookings(id)
+);
