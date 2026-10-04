@@ -1,41 +1,31 @@
-package ua.carrental.booking;
+package ua.carrental.booking.catalog;
 
 import java.math.BigDecimal;
-import java.net.http.HttpClient;
-import java.time.Duration;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.UUID;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.client.JdkClientHttpRequestFactory;
 import org.springframework.stereotype.Component;
-import org.springframework.web.client.RestClient;
 import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestClientResponseException;
 import org.springframework.web.server.ResponseStatusException;
 
 @Component
 public class RentalCatalog {
-    private final RestClient customers;
-    private final RestClient fleet;
+    private final CustomerClient customers;
+    private final CatalogClient fleet;
 
-    public RentalCatalog(@Value("${CUSTOMER_URL}") String customerUrl,
-                         @Value("${FLEET_URL}") String fleetUrl) {
-        HttpClient http = HttpClient.newBuilder().connectTimeout(Duration.ofSeconds(3)).build();
-        JdkClientHttpRequestFactory factory = new JdkClientHttpRequestFactory(http);
-        factory.setReadTimeout(Duration.ofSeconds(5));
-        customers = RestClient.builder().baseUrl(customerUrl).requestFactory(factory).build();
-        fleet = RestClient.builder().baseUrl(fleetUrl).requestFactory(factory).build();
+    public RentalCatalog(CustomerClient customers, CatalogClient fleet) {
+        this.customers = customers;
+        this.fleet = fleet;
     }
 
     public Vehicle vehicleFor(UUID customerId, UUID vehicleId) {
         try {
-            Eligibility customer = customers.get().uri("/api/customers/{id}/eligibility", customerId)
-                    .retrieve().body(Eligibility.class);
+            Eligibility customer = customers.getEligibility(customerId);
             if (customer == null || !customer.allowed()) {
                 throw new ResponseStatusException(HttpStatus.UNPROCESSABLE_ENTITY, "Customer is not verified");
             }
-            Vehicle vehicle = fleet.get().uri("/api/vehicles/{id}", vehicleId)
-                    .retrieve().body(Vehicle.class);
+            Vehicle vehicle = fleet.getVehicle(vehicleId);
             if (vehicle == null) {
                 throw new ResponseStatusException(HttpStatus.SERVICE_UNAVAILABLE, "Fleet returned an empty response");
             }
@@ -50,9 +40,11 @@ public class RentalCatalog {
         }
     }
 
+    @JsonIgnoreProperties(ignoreUnknown = true)
     public record Eligibility(UUID customerId, boolean allowed) {
     }
 
+    @JsonIgnoreProperties(ignoreUnknown = true)
     public record Vehicle(UUID id, String brand, String model, String plate, BigDecimal dailyRate) {
     }
 }

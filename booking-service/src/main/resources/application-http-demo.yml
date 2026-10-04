@@ -1,0 +1,10 @@
+server:
+  port: 8090
+spring:
+  autoconfigure:
+    exclude: org.springframework.boot.jdbc.autoconfigure.DataSourceAutoConfiguration
+FLEET_URL: http://localhost:${server.port}/mock
+CUSTOMER_URL: http://localhost:${server.port}/mock
+logging:
+  pattern:
+    console: "%d{HH:mm:ss.SSS} %-5level [%X{X-Correlation-Id}] %logger{24} - %msg%n"

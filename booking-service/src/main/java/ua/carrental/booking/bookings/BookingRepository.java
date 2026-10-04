@@ -1,13 +1,15 @@
-package ua.carrental.booking;
+package ua.carrental.booking.bookings;
 
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
+import org.springframework.context.annotation.Profile;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.simple.JdbcClient;
 import org.springframework.stereotype.Repository;
 
 @Repository
+@Profile("!http-demo")
 public class BookingRepository {
     private static final RowMapper<Booking> MAPPER = (rs, row) -> new Booking(
             rs.getObject("id", UUID.class), rs.getObject("customer_id", UUID.class),

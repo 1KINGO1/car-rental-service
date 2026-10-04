@@ -1,9 +1,10 @@
-package ua.carrental.booking;
+package ua.carrental.booking.bookings;
 
 import jakarta.validation.Valid;
 import java.net.URI;
 import java.util.List;
 import java.util.UUID;
+import org.springframework.context.annotation.Profile;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,6 +12,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 @RestController
 @RequestMapping("/api/bookings")
+@Profile("!http-demo")
 public class BookingController {
     private final BookingRepository repository;
     private final BookingService service;

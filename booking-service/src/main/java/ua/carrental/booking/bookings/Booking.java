@@ -1,4 +1,4 @@
-package ua.carrental.booking;
+package ua.carrental.booking.bookings;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;

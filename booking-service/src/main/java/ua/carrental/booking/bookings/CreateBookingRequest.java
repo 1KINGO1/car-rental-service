@@ -1,4 +1,4 @@
-package ua.carrental.booking;
+package ua.carrental.booking.bookings;
 
 import jakarta.validation.constraints.AssertTrue;
 import jakarta.validation.constraints.FutureOrPresent;

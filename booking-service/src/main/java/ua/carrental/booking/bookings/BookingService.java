@@ -1,11 +1,14 @@
-package ua.carrental.booking;
+package ua.carrental.booking.bookings;
 
 import java.math.BigDecimal;
 import java.time.temporal.ChronoUnit;
 import java.util.UUID;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
+import ua.carrental.booking.catalog.RentalCatalog;
 
 @Service
+@Profile("!http-demo")
 public class BookingService {
     private final BookingRepository repository;
     private final RentalCatalog catalog;
