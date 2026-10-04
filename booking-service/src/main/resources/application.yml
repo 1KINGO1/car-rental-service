@@ -20,3 +20,10 @@ management:
       show-details: never
 server:
   shutdown: graceful
+
+remote-protection:
+  window-size: ${REMOTE_WINDOW_SIZE:10}
+  open-duration: ${REMOTE_OPEN_DURATION:10s}
+  max-attempts: ${REMOTE_MAX_ATTEMPTS:3}
+  initial-delay: ${REMOTE_INITIAL_DELAY:100ms}
+  max-concurrent-calls: ${REMOTE_MAX_CONCURRENT_CALLS:20}

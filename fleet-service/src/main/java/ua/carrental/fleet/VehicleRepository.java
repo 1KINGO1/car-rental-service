@@ -31,4 +31,12 @@ public class VehicleRepository {
         return jdbc.sql("SELECT * FROM vehicles ORDER BY id")
                 .query((rs, row) -> new Vehicle(rs.getObject("id", UUID.class), rs.getString("brand"), rs.getString("model"), rs.getString("plate"), rs.getBigDecimal("daily_rate"))).list();
     }
+
+    public List<Vehicle> findByIds(List<UUID> ids) {
+        if (ids.isEmpty()) return List.of();
+        return jdbc.sql("SELECT * FROM vehicles WHERE id IN (:ids) ORDER BY id")
+                .param("ids", ids.stream().distinct().toList())
+                .query((rs, row) -> new Vehicle(rs.getObject("id", UUID.class), rs.getString("brand"),
+                        rs.getString("model"), rs.getString("plate"), rs.getBigDecimal("daily_rate"))).list();
+    }
 }

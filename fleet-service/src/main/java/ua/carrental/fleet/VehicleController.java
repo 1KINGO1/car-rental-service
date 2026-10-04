@@ -29,6 +29,14 @@ public class VehicleController {
         return repository.find(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Vehicle not found"));
     }
 
+    @PostMapping("/batch")
+    public List<Vehicle> batch(@RequestBody List<UUID> ids) {
+        if (ids.size() > 100 || ids.contains(null)) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "At most 100 non-null vehicle IDs are allowed");
+        }
+        return repository.findByIds(ids);
+    }
+
     @GetMapping
     public List<Vehicle> findAll() {
         return repository.findAll();
