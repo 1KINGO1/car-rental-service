@@ -1,27 +1,26 @@
-# Client-side and (if cluster available) server-side dry-run validation.
+# Helm lint + template dry-run (client). Server dry-run if cluster is ready.
 $ErrorActionPreference = "Stop"
-$K8S_DIR = Split-Path -Parent $PSScriptRoot
+$ChartDir = Resolve-Path (Join-Path $PSScriptRoot "..")
+$Namespace = "car-rental"
+$Release = "car-rental"
+$ExampleSecrets = Join-Path $ChartDir "values.secrets.example.yaml"
 
-function Assert-KubectlOk([string]$Step) {
-    if ($LASTEXITCODE -ne 0) {
-        throw "FAILED: $Step (exit $LASTEXITCODE)"
-    }
+function Assert-Ok([string]$Step) {
+    if ($LASTEXITCODE -ne 0) { throw "FAILED: $Step (exit $LASTEXITCODE)" }
 }
 
-Write-Host "==> Client dry-run"
-kubectl apply --dry-run=client -f "$K8S_DIR/00-namespace.yaml"
-Assert-KubectlOk "client namespace"
-kubectl apply --dry-run=client -f "$K8S_DIR/01-configmaps.yaml"
-Assert-KubectlOk "client configmaps"
-kubectl apply --dry-run=client -f "$K8S_DIR/02-secrets.example.yaml"
-Assert-KubectlOk "client secrets"
-
-Get-ChildItem "$K8S_DIR\1*.yaml", "$K8S_DIR\2*.yaml" | ForEach-Object {
-    Write-Host "  validating $($_.Name)"
-    kubectl apply --dry-run=client -f $_.FullName
-    Assert-KubectlOk "client $($_.Name)"
+if (-not (Test-Path $ExampleSecrets)) {
+    throw "Missing $ExampleSecrets"
 }
-Write-Host "OK: client dry-run passed"
+
+Write-Host "==> helm lint"
+helm lint $ChartDir -f $ExampleSecrets
+Assert-Ok "helm lint"
+
+Write-Host "==> helm template (client render)"
+helm template $Release $ChartDir -n $Namespace -f $ExampleSecrets | Out-Null
+Assert-Ok "helm template"
+Write-Host "OK: helm lint + template passed"
 
 $clusterOk = $false
 try {
@@ -36,20 +35,8 @@ if (-not $clusterOk) {
     exit 0
 }
 
-Write-Host "==> Ensure namespace exists (required for server dry-run)"
-kubectl apply -f "$K8S_DIR/00-namespace.yaml"
-Assert-KubectlOk "apply namespace"
-
-Write-Host "==> Server dry-run"
-kubectl apply --dry-run=server -f "$K8S_DIR/01-configmaps.yaml"
-Assert-KubectlOk "server configmaps"
-kubectl apply --dry-run=server -f "$K8S_DIR/02-secrets.example.yaml"
-Assert-KubectlOk "server secrets"
-
-Get-ChildItem "$K8S_DIR\1*.yaml", "$K8S_DIR\2*.yaml" | ForEach-Object {
-    Write-Host "  validating $($_.Name)"
-    kubectl apply --dry-run=server -f $_.FullName
-    Assert-KubectlOk "server $($_.Name)"
-}
-
+Write-Host "==> helm template | kubectl apply --dry-run=server"
+helm template $Release $ChartDir -n $Namespace -f $ExampleSecrets |
+    kubectl apply --dry-run=server -f -
+Assert-Ok "server dry-run"
 Write-Host "OK: client + server dry-run passed"

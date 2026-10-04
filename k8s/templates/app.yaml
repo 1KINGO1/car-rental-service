@@ -1,0 +1,96 @@
+{{- range $name, $svc := .Values.services }}
+{{- $app := include "carrental.appName" (dict "name" $name) }}
+{{- $cfg := include "carrental.configMapName" (dict "name" $name) }}
+{{- $secret := include "carrental.secretName" (dict "name" $name) }}
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ $app }}
+  namespace: {{ include "carrental.namespace" $ }}
+  labels:
+    {{- include "carrental.componentLabels" (dict "root" $ "name" $app "component" "service") | nindent 4 }}
+spec:
+  replicas: {{ $.Values.app.replicas }}
+  selector:
+    matchLabels:
+      {{- include "carrental.selectorLabels" (dict "root" $ "name" $app) | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        {{- include "carrental.selectorLabels" (dict "root" $ "name" $app) | nindent 8 }}
+    spec:
+      containers:
+        - name: {{ $app }}
+          image: {{ include "carrental.appImage" (dict "Values" $.Values "name" $name) }}
+          imagePullPolicy: {{ $.Values.app.imagePullPolicy }}
+          ports:
+            - containerPort: {{ $.Values.app.port }}
+              name: http
+          env:
+            - name: DB_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: {{ $cfg }}
+                  key: DB_URL
+            - name: DB_USER
+              valueFrom:
+                configMapKeyRef:
+                  name: {{ $cfg }}
+                  key: DB_USER
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: {{ $secret }}
+                  key: DB_PASSWORD
+            {{- range $key, $_ := ($svc.env | default dict) }}
+            - name: {{ $key }}
+              valueFrom:
+                configMapKeyRef:
+                  name: {{ $cfg }}
+                  key: {{ $key }}
+            {{- end }}
+          livenessProbe:
+            httpGet:
+              path: {{ $.Values.app.probes.liveness.path }}
+              port: http
+            initialDelaySeconds: {{ $.Values.app.probes.liveness.initialDelaySeconds }}
+            periodSeconds: {{ $.Values.app.probes.liveness.periodSeconds }}
+            timeoutSeconds: {{ $.Values.app.probes.liveness.timeoutSeconds }}
+            failureThreshold: {{ $.Values.app.probes.liveness.failureThreshold }}
+          readinessProbe:
+            httpGet:
+              path: {{ $.Values.app.probes.readiness.path }}
+              port: http
+            initialDelaySeconds: {{ $.Values.app.probes.readiness.initialDelaySeconds }}
+            periodSeconds: {{ $.Values.app.probes.readiness.periodSeconds }}
+            timeoutSeconds: {{ $.Values.app.probes.readiness.timeoutSeconds }}
+            failureThreshold: {{ $.Values.app.probes.readiness.failureThreshold }}
+          resources:
+            {{- toYaml $.Values.app.resources | nindent 12 }}
+          securityContext:
+            {{- toYaml $.Values.app.securityContext | nindent 12 }}
+          volumeMounts:
+            - name: tmp
+              mountPath: /tmp
+      volumes:
+        - name: tmp
+          emptyDir:
+            sizeLimit: {{ $.Values.app.tmpSizeLimit }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ $app }}
+  namespace: {{ include "carrental.namespace" $ }}
+  labels:
+    {{- include "carrental.componentLabels" (dict "root" $ "name" $app "component" "service") | nindent 4 }}
+spec:
+  type: ClusterIP
+  selector:
+    {{- include "carrental.selectorLabels" (dict "root" $ "name" $app) | nindent 4 }}
+  ports:
+    - name: http
+      port: {{ $.Values.app.port }}
+      targetPort: http
+{{- end }}

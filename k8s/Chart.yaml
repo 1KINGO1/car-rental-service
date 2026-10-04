@@ -1,0 +1,12 @@
+apiVersion: v2
+name: car-rental
+description: Car rental microservices (customer, fleet, booking, payment) with per-service PostgreSQL
+type: application
+version: 1.0.0
+appVersion: "1.0.0"
+keywords:
+  - car-rental
+  - spring-boot
+  - microservices
+maintainers:
+  - name: car-rental-service

@@ -1,0 +1,107 @@
+{{- range $name, $svc := .Values.services }}
+{{- $db := include "carrental.dbName" (dict "name" $name) }}
+{{- $cfg := include "carrental.configMapName" (dict "name" $name) }}
+{{- $secret := include "carrental.secretName" (dict "name" $name) }}
+{{- $pvc := include "carrental.pvcName" (dict "name" $name) }}
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: {{ $pvc }}
+  namespace: {{ include "carrental.namespace" $ }}
+  labels:
+    {{- include "carrental.componentLabels" (dict "root" $ "name" $db "component" "database") | nindent 4 }}
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: {{ $.Values.postgres.storage }}
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ $db }}
+  namespace: {{ include "carrental.namespace" $ }}
+  labels:
+    {{- include "carrental.componentLabels" (dict "root" $ "name" $db "component" "database") | nindent 4 }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      {{- include "carrental.selectorLabels" (dict "root" $ "name" $db) | nindent 6 }}
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        {{- include "carrental.selectorLabels" (dict "root" $ "name" $db) | nindent 8 }}
+    spec:
+      containers:
+        - name: postgres
+          image: {{ $.Values.postgres.image }}
+          ports:
+            - containerPort: {{ $.Values.postgres.port }}
+              name: postgres
+          env:
+            - name: POSTGRES_DB
+              valueFrom:
+                configMapKeyRef:
+                  name: {{ $cfg }}
+                  key: DB_NAME
+            - name: POSTGRES_USER
+              valueFrom:
+                configMapKeyRef:
+                  name: {{ $cfg }}
+                  key: DB_USER
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: {{ $secret }}
+                  key: POSTGRES_PASSWORD
+          volumeMounts:
+            - name: data
+              mountPath: /var/lib/postgresql/data
+          livenessProbe:
+            exec:
+              command:
+                - /bin/sh
+                - -c
+                - pg_isready -U "$POSTGRES_USER" -d "$POSTGRES_DB"
+            initialDelaySeconds: {{ $.Values.postgres.probes.liveness.initialDelaySeconds }}
+            periodSeconds: {{ $.Values.postgres.probes.liveness.periodSeconds }}
+            timeoutSeconds: {{ $.Values.postgres.probes.liveness.timeoutSeconds }}
+            failureThreshold: {{ $.Values.postgres.probes.liveness.failureThreshold }}
+          readinessProbe:
+            exec:
+              command:
+                - /bin/sh
+                - -c
+                - pg_isready -U "$POSTGRES_USER" -d "$POSTGRES_DB"
+            initialDelaySeconds: {{ $.Values.postgres.probes.readiness.initialDelaySeconds }}
+            periodSeconds: {{ $.Values.postgres.probes.readiness.periodSeconds }}
+            timeoutSeconds: {{ $.Values.postgres.probes.readiness.timeoutSeconds }}
+            failureThreshold: {{ $.Values.postgres.probes.readiness.failureThreshold }}
+          resources:
+            {{- toYaml $.Values.postgres.resources | nindent 12 }}
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: {{ $pvc }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ $db }}
+  namespace: {{ include "carrental.namespace" $ }}
+  labels:
+    {{- include "carrental.componentLabels" (dict "root" $ "name" $db "component" "database") | nindent 4 }}
+spec:
+  type: ClusterIP
+  selector:
+    {{- include "carrental.selectorLabels" (dict "root" $ "name" $db) | nindent 4 }}
+  ports:
+    - name: postgres
+      port: {{ $.Values.postgres.port }}
+      targetPort: postgres
+{{- end }}

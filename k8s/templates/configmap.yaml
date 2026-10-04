@@ -1,0 +1,20 @@
+{{- range $name, $svc := .Values.services }}
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "carrental.configMapName" (dict "name" $name) }}
+  namespace: {{ include "carrental.namespace" $ }}
+  labels:
+    {{- include "carrental.componentLabels" (dict "root" $ "name" (printf "%s-service" $name) "component" "config") | nindent 4 }}
+data:
+  DB_NAME: {{ $svc.dbName | quote }}
+  DB_USER: {{ $svc.dbUser | quote }}
+  DB_HOST: {{ include "carrental.dbName" (dict "name" $name) | quote }}
+  DB_PORT: {{ $.Values.postgres.port | quote }}
+  DB_URL: {{ printf "jdbc:postgresql://%s-db:%v/%s" $name $.Values.postgres.port $svc.dbName | quote }}
+  SERVER_PORT: {{ $.Values.app.port | quote }}
+  {{- range $key, $value := ($svc.env | default dict) }}
+  {{ $key }}: {{ $value | quote }}
+  {{- end }}
+{{- end }}

@@ -1,33 +1,30 @@
 #!/usr/bin/env bash
-# Client-side and (if cluster available) server-side dry-run validation.
+# Helm lint + template dry-run (client). Server dry-run if cluster is ready.
 set -euo pipefail
 
-K8S_DIR="$(cd "$(dirname "$0")/.." && pwd)"
+CHART_DIR="$(cd "$(dirname "$0")/.." && pwd)"
+NAMESPACE="${NAMESPACE:-car-rental}"
+RELEASE="${RELEASE:-car-rental}"
+EXAMPLE_SECRETS="$CHART_DIR/values.secrets.example.yaml"
 
-echo "==> Client dry-run"
-kubectl apply --dry-run=client -f "$K8S_DIR/00-namespace.yaml"
-kubectl apply --dry-run=client -f "$K8S_DIR/01-configmaps.yaml"
-kubectl apply --dry-run=client -f "$K8S_DIR/02-secrets.example.yaml"
-for f in "$K8S_DIR"/1*.yaml "$K8S_DIR"/2*.yaml; do
-  echo "  validating $(basename "$f")"
-  kubectl apply --dry-run=client -f "$f"
-done
-echo "OK: client dry-run passed"
+if [[ ! -f "$EXAMPLE_SECRETS" ]]; then
+  echo "Missing $EXAMPLE_SECRETS" >&2
+  exit 1
+fi
+
+echo "==> helm lint"
+helm lint "$CHART_DIR" -f "$EXAMPLE_SECRETS"
+
+echo "==> helm template (client render)"
+helm template "$RELEASE" "$CHART_DIR" -n "$NAMESPACE" -f "$EXAMPLE_SECRETS" >/dev/null
+echo "OK: helm lint + template passed"
 
 if ! kubectl get --raw=/readyz --request-timeout=3s >/dev/null 2>&1; then
   echo "WARN: cluster unavailable - server dry-run skipped"
   exit 0
 fi
 
-echo "==> Ensure namespace exists (required for server dry-run)"
-kubectl apply -f "$K8S_DIR/00-namespace.yaml"
-
-echo "==> Server dry-run"
-kubectl apply --dry-run=server -f "$K8S_DIR/01-configmaps.yaml"
-kubectl apply --dry-run=server -f "$K8S_DIR/02-secrets.example.yaml"
-for f in "$K8S_DIR"/1*.yaml "$K8S_DIR"/2*.yaml; do
-  echo "  validating $(basename "$f")"
-  kubectl apply --dry-run=server -f "$f"
-done
-
+echo "==> helm template | kubectl apply --dry-run=server"
+helm template "$RELEASE" "$CHART_DIR" -n "$NAMESPACE" -f "$EXAMPLE_SECRETS" |
+  kubectl apply --dry-run=server -f -
 echo "OK: client + server dry-run passed"

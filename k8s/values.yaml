@@ -1,0 +1,77 @@
+# helm upgrade --install car-rental ./k8s -n car-rental --create-namespace
+
+postgres:
+  image: postgres:16-alpine
+  port: 5432
+  storage: 1Gi
+  resources:
+    requests:
+      cpu: 100m
+      memory: 128Mi
+    limits:
+      cpu: 500m
+      memory: 256Mi
+  probes:
+    liveness:
+      initialDelaySeconds: 15
+      periodSeconds: 10
+      timeoutSeconds: 5
+      failureThreshold: 6
+    readiness:
+      initialDelaySeconds: 5
+      periodSeconds: 5
+      timeoutSeconds: 3
+      failureThreshold: 6
+
+app:
+  imageRegistry: car-rental
+  imageTag: "1.0.1"
+  imagePullPolicy: IfNotPresent
+  replicas: 2
+  port: 8080
+  tmpSizeLimit: 64Mi
+  resources:
+    requests:
+      cpu: 250m
+      memory: 256Mi
+    limits:
+      cpu: 1000m
+      memory: 512Mi
+  probes:
+    liveness:
+      path: /actuator/health
+      initialDelaySeconds: 40
+      periodSeconds: 15
+      timeoutSeconds: 5
+      failureThreshold: 6
+    readiness:
+      path: /actuator/health
+      initialDelaySeconds: 20
+      periodSeconds: 10
+      timeoutSeconds: 5
+      failureThreshold: 6
+  securityContext:
+    allowPrivilegeEscalation: false
+    readOnlyRootFilesystem: true
+    runAsNonRoot: true
+    runAsUser: 10001
+    capabilities:
+      drop:
+        - ALL
+
+services:
+  customer:
+    dbName: customers
+    dbUser: customer
+  fleet:
+    dbName: fleet
+    dbUser: fleet
+  booking:
+    dbName: bookings
+    dbUser: booking
+    env:
+      CUSTOMER_URL: http://customer-service:8080
+      FLEET_URL: http://fleet-service:8080
+  payment:
+    dbName: payments
+    dbUser: payment

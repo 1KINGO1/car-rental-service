@@ -1,33 +1,30 @@
-# Deploy Car Rental to the current kubectl context.
-# Prerequisites: images built/loaded, secrets created.
+# Deploy Car Rental via Helm to the current kubectl context.
+# Prerequisites: images built/loaded; secrets created (or -ValuesFile with secrets.create=true).
+param(
+    [string]$Release = "car-rental",
+    [string]$Namespace = "car-rental",
+    [string]$ValuesFile = "",
+    [switch]$Wait
+)
+
 $ErrorActionPreference = "Stop"
-$K8S_DIR = Split-Path -Parent $PSScriptRoot
+$ChartDir = Resolve-Path (Join-Path $PSScriptRoot "..")
 
-Write-Host "==> Namespace + ConfigMaps"
-kubectl apply -f "$K8S_DIR/00-namespace.yaml"
-kubectl apply -f "$K8S_DIR/01-configmaps.yaml"
-
-Write-Host "==> Databases"
-Get-ChildItem "$K8S_DIR\1*.yaml" | ForEach-Object {
-    kubectl apply -f $_.FullName
+$helmArgs = @(
+    "upgrade", "--install", $Release, $ChartDir,
+    "--namespace", $Namespace,
+    "--create-namespace"
+)
+if ($ValuesFile) {
+    $helmArgs += @("-f", $ValuesFile)
+}
+if ($Wait) {
+    $helmArgs += @("--wait", "--timeout", "10m")
 }
 
-Write-Host "==> Waiting for databases"
-kubectl rollout status deployment/customer-db -n car-rental --timeout=180s
-kubectl rollout status deployment/fleet-db -n car-rental --timeout=180s
-kubectl rollout status deployment/booking-db -n car-rental --timeout=180s
-kubectl rollout status deployment/payment-db -n car-rental --timeout=180s
-
-Write-Host "==> Application services"
-Get-ChildItem "$K8S_DIR\2*.yaml" | ForEach-Object {
-    kubectl apply -f $_.FullName
-}
-
-Write-Host "==> Waiting for services"
-kubectl rollout status deployment/customer-service -n car-rental --timeout=300s
-kubectl rollout status deployment/fleet-service -n car-rental --timeout=300s
-kubectl rollout status deployment/booking-service -n car-rental --timeout=300s
-kubectl rollout status deployment/payment-service -n car-rental --timeout=300s
+Write-Host "==> helm $($helmArgs -join ' ')"
+helm @helmArgs
+if ($LASTEXITCODE -ne 0) { throw "helm upgrade failed (exit $LASTEXITCODE)" }
 
 Write-Host "==> Status"
-kubectl get pods,svc,deploy -n car-rental -o wide
+kubectl get pods,svc,deploy -n $Namespace -o wide
