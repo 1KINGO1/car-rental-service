@@ -14,6 +14,7 @@
         <java.version>25</java.version>
     </properties>
     <modules>
+        <module>event-contracts</module>
         <module>customer-service</module>
         <module>fleet-service</module>
         <module>booking-service</module>

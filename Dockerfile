@@ -1,11 +1,12 @@
 FROM maven:3.9.11-eclipse-temurin-25 AS build
 WORKDIR /workspace
 COPY pom.xml ./
+COPY event-contracts/pom.xml event-contracts/pom.xml
 COPY customer-service/pom.xml customer-service/pom.xml
 COPY fleet-service/pom.xml fleet-service/pom.xml
 COPY booking-service/pom.xml booking-service/pom.xml
 COPY payment-service/pom.xml payment-service/pom.xml
-RUN --mount=type=cache,target=/root/.m2 mvn -B dependency:go-offline
+COPY event-contracts/src event-contracts/src
 COPY customer-service/src customer-service/src
 COPY fleet-service/src fleet-service/src
 COPY booking-service/src booking-service/src

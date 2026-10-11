@@ -19,3 +19,12 @@ CREATE TABLE IF NOT EXISTS idempotency_keys (
     fingerprint TEXT NOT NULL,
     result_id UUID REFERENCES bookings(id)
 );
+
+CREATE TABLE IF NOT EXISTS outbox_events (
+    event_id UUID PRIMARY KEY,
+    aggregate_id UUID NOT NULL,
+    payload TEXT NOT NULL,
+    created_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    published_at TIMESTAMP WITH TIME ZONE
+);
+CREATE INDEX IF NOT EXISTS outbox_pending_idx ON outbox_events (published_at, created_at);

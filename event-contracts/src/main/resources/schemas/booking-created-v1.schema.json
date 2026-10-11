@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "BookingCreated v1",
+  "type": "object",
+  "required": ["eventId", "schemaVersion", "eventType", "occurredAt", "bookingId", "customerId", "amount", "currency"],
+  "properties": {
+    "eventId": {"type": "string", "format": "uuid"},
+    "schemaVersion": {"const": 1},
+    "eventType": {"const": "BookingCreated"},
+    "occurredAt": {"type": "string", "format": "date-time"},
+    "bookingId": {"type": "string", "format": "uuid"},
+    "customerId": {"type": "string", "format": "uuid"},
+    "amount": {"type": "number", "exclusiveMinimum": 0, "maximum": 9999999999.99, "multipleOf": 0.01},
+    "currency": {"enum": ["UAH", "EUR", "USD"]}
+  },
+  "additionalProperties": true
+}
