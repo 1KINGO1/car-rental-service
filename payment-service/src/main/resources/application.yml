@@ -1,4 +1,25 @@
 spring:
+  kafka:
+    bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS:localhost:9092}
+    admin:
+      auto-create: ${MESSAGING_ENABLED:false}
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      acks: all
+      properties:
+        enable.idempotence: true
+        max.in.flight.requests.per.connection: 5
+        delivery.timeout.ms: 10000
+        request.timeout.ms: 5000
+        max.block.ms: 5000
+    consumer:
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      enable-auto-commit: false
+      auto-offset-reset: earliest
+    listener:
+      ack-mode: record
   application:
     name: payment-service
   datasource:
@@ -20,3 +41,7 @@ management:
       show-details: never
 server:
   shutdown: graceful
+
+messaging:
+  enabled: ${MESSAGING_ENABLED:false}
+  replication-factor: ${KAFKA_REPLICATION_FACTOR:1}
