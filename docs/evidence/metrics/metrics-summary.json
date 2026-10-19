@@ -1,0 +1,66 @@
+{
+  "capturedAtUtc": "2026-10-18T14:38:40.664436+03:00",
+  "namespace": "car-rental-lab06",
+  "services": {
+    "customer": {
+      "counterBefore": 0.0,
+      "counterAfter": 8.0,
+      "gaugeActive": 1.0,
+      "gaugeAfter": 0.0,
+      "timerCountBefore": 0.0,
+      "timerCountAfter": 8.0,
+      "longTaskActiveCount": 1.0,
+      "longTaskActiveSeconds": 12.003488968,
+      "longTaskCountAfter": 0.0,
+      "summaryBytesBefore": 0.0,
+      "summaryBytesAfter": 83.0,
+      "committedCreations": 1.0,
+      "timerSecondsAfter": 35.149932553
+    },
+    "fleet": {
+      "counterBefore": 0.0,
+      "counterAfter": 8.0,
+      "gaugeActive": 1.0,
+      "gaugeAfter": 0.0,
+      "timerCountBefore": 0.0,
+      "timerCountAfter": 8.0,
+      "longTaskActiveCount": 1.0,
+      "longTaskActiveSeconds": 12.021724645,
+      "longTaskCountAfter": 0.0,
+      "summaryBytesBefore": 0.0,
+      "summaryBytesAfter": 82.0,
+      "committedCreations": 1.0,
+      "timerSecondsAfter": 35.10410825
+    },
+    "booking": {
+      "counterBefore": 0.0,
+      "counterAfter": 7.0,
+      "gaugeActive": 1.0,
+      "gaugeAfter": 0.0,
+      "timerCountBefore": 0.0,
+      "timerCountAfter": 7.0,
+      "longTaskActiveCount": 1.0,
+      "longTaskActiveSeconds": 12.04056079,
+      "longTaskCountAfter": 0.0,
+      "summaryBytesBefore": 0.0,
+      "summaryBytesAfter": 159.0,
+      "committedCreations": 1.0,
+      "timerSecondsAfter": 35.327398109
+    },
+    "payment": {
+      "counterBefore": 0.0,
+      "counterAfter": 7.0,
+      "gaugeActive": 1.0,
+      "gaugeAfter": 0.0,
+      "timerCountBefore": 0.0,
+      "timerCountAfter": 7.0,
+      "longTaskActiveCount": 1.0,
+      "longTaskActiveSeconds": 12.057608195,
+      "longTaskCountAfter": 0.0,
+      "summaryBytesBefore": 0.0,
+      "summaryBytesAfter": 88.0,
+      "committedCreations": 1.0,
+      "timerSecondsAfter": 35.156203985
+    }
+  }
+}

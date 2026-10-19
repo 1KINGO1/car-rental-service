@@ -1,0 +1,20 @@
+==> Linting C:\Users\onill\Documents\ChatGPT\spring\lab06-car-rental\car-rental-service-main\k8s
+[INFO] Chart.yaml: icon is recommended
+
+1 chart(s) linted, 0 chart(s) failed
+Checking /config/prometheus.yml
+ SUCCESS: /config/prometheus.yml is valid prometheus config file syntax
+
+Checking /config/alert-rules.yml
+  SUCCESS: 5 rules found
+
+  SUCCESS
+
+Checking '/config/alertmanager.yml'  SUCCESS
+Found:
+ - global config
+ - route
+ - 1 inhibit rules
+ - 2 receivers
+ - 0 templates
+

@@ -10,3 +10,7 @@ dist/
 k8s/02-secrets.yaml
 k8s/**/*.secret.yaml
 k8s/secrets.local.yaml
+
+# Keep lab evidence logs (webhook, validation, maven)
+!docs/evidence/**/*.log
+!docs/verification/**/*.log

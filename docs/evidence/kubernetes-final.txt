@@ -1,0 +1,12 @@
+NAME                               READY   STATUS    RESTARTS        AGE     IP          NODE             NOMINATED NODE   READINESS GATES
+alert-webhook-6646668cdc-j8h72     1/1     Running   0               4m31s   10.1.0.37   docker-desktop   <none>           <none>
+alertmanager-5b949d4659-ql89x      1/1     Running   0               4m31s   10.1.0.32   docker-desktop   <none>           <none>
+booking-db-84697f7476-4l8qk        1/1     Running   0               4m31s   10.1.0.36   docker-desktop   <none>           <none>
+booking-service-574bb6b458-sfs5b   1/1     Running   1 (4m22s ago)   4m31s   10.1.0.33   docker-desktop   <none>           <none>
+customer-db-54d4f884fb-q66cm       1/1     Running   0               4m31s   10.1.0.34   docker-desktop   <none>           <none>
+customer-service-5d96cdb8f-hgncd   1/1     Running   1 (4m22s ago)   4m30s   10.1.0.38   docker-desktop   <none>           <none>
+fleet-db-6b897b64bd-9l6lj          1/1     Running   0               4m31s   10.1.0.30   docker-desktop   <none>           <none>
+fleet-service-dd5c8b697-7dgvh      1/1     Running   1 (4m22s ago)   4m31s   10.1.0.31   docker-desktop   <none>           <none>
+payment-db-596fc686c6-8vqjg        1/1     Running   0               4m31s   10.1.0.29   docker-desktop   <none>           <none>
+payment-service-5d54bd4bcf-7b8rq   1/1     Running   1 (4m22s ago)   4m31s   10.1.0.35   docker-desktop   <none>           <none>
+prometheus-75776cc5b6-wjhcx        1/1     Running   0               4m31s   10.1.0.28   docker-desktop   <none>           <none>
