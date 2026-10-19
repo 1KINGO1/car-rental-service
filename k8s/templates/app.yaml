@@ -17,6 +17,10 @@ spec:
       {{- include "carrental.selectorLabels" (dict "root" $ "name" $app) | nindent 6 }}
   template:
     metadata:
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/path: "/actuator/prometheus"
+        prometheus.io/port: {{ $.Values.app.port | quote }}
       labels:
         {{- include "carrental.selectorLabels" (dict "root" $ "name" $app) | nindent 8 }}
     spec:
@@ -28,6 +32,10 @@ spec:
             - containerPort: {{ $.Values.app.port }}
               name: http
           env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: {{ $.Values.app.profiles | default "default" | quote }}
+            - name: SERVER_PORT
+              value: {{ $.Values.app.port | quote }}
             - name: DB_URL
               valueFrom:
                 configMapKeyRef:

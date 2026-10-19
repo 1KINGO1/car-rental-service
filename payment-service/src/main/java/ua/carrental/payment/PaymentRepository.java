@@ -9,9 +9,11 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class PaymentRepository {
     private final JdbcClient jdbc;
+    private final ua.carrental.observability.BusinessMetrics metrics;
 
-    public PaymentRepository(JdbcClient jdbc) {
+    public PaymentRepository(JdbcClient jdbc, ua.carrental.observability.BusinessMetrics metrics) {
         this.jdbc = jdbc;
+        this.metrics = metrics;
     }
 
     public Payment create(CreatePaymentRequest request) {
@@ -19,7 +21,9 @@ public class PaymentRepository {
         jdbc.sql("INSERT INTO payments (id, booking_id, amount, currency, status) VALUES (?, ?, ?, ?, ?)")
                 .params(id, request.bookingId(), request.amount(), request.currency(), "PENDING")
                 .update();
-        return find(id).orElseThrow();
+        Payment payment = find(id).orElseThrow();
+        metrics.created(ua.carrental.observability.BusinessMetrics.Entity.PAYMENT);
+        return payment;
     }
 
     public Optional<Payment> find(UUID id) {

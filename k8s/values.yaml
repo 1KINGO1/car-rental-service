@@ -39,13 +39,13 @@ app:
       memory: 512Mi
   probes:
     liveness:
-      path: /actuator/health
+      path: /actuator/health/liveness
       initialDelaySeconds: 40
       periodSeconds: 15
       timeoutSeconds: 5
       failureThreshold: 6
     readiness:
-      path: /actuator/health
+      path: /actuator/health/readiness
       initialDelaySeconds: 20
       periodSeconds: 10
       timeoutSeconds: 5
@@ -75,3 +75,10 @@ services:
   payment:
     dbName: payments
     dbUser: payment
+
+# Enabled by values.monitoring.yaml for laboratory 6.
+monitoring:
+  enabled: false
+  prometheusImage: prom/prometheus:v3.5.0
+  alertmanagerImage: prom/alertmanager:v0.28.1
+  receiverImage: python:3.13-alpine

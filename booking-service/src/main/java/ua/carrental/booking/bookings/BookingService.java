@@ -13,11 +13,14 @@ public class BookingService {
     private final BookingRepository repository;
     private final RentalCatalog catalog;
     private final ua.carrental.booking.messaging.OutboxRepository outbox;
+    private final ua.carrental.observability.BusinessMetrics metrics;
 
-    public BookingService(BookingRepository repository, RentalCatalog catalog, ua.carrental.booking.messaging.OutboxRepository outbox) {
+    public BookingService(BookingRepository repository, RentalCatalog catalog, ua.carrental.booking.messaging.OutboxRepository outbox,
+            ua.carrental.observability.BusinessMetrics metrics) {
         this.repository = repository;
         this.catalog = catalog;
         this.outbox = outbox;
+        this.metrics = metrics;
     }
 
     @org.springframework.transaction.annotation.Transactional
@@ -30,6 +33,7 @@ public class BookingService {
                 request.startDate(), request.endDate(), total, true, "REQUESTED"));
         outbox.append(new ua.carrental.events.BookingCreated(UUID.randomUUID(), 1, "BookingCreated",
                 java.time.Instant.now(), booking.id(), booking.customerId(), booking.total(), "UAH"));
+        metrics.created(ua.carrental.observability.BusinessMetrics.Entity.BOOKING);
         return booking;
     }
 }

@@ -9,9 +9,11 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class VehicleRepository {
     private final JdbcClient jdbc;
+    private final ua.carrental.observability.BusinessMetrics metrics;
 
-    public VehicleRepository(JdbcClient jdbc) {
+    public VehicleRepository(JdbcClient jdbc, ua.carrental.observability.BusinessMetrics metrics) {
         this.jdbc = jdbc;
+        this.metrics = metrics;
     }
 
     public Vehicle create(CreateVehicleRequest request) {
@@ -19,7 +21,9 @@ public class VehicleRepository {
         jdbc.sql("INSERT INTO vehicles (id, brand, model, plate, daily_rate) VALUES (?, ?, ?, ?, ?)")
                 .params(id, request.brand(), request.model(), request.plate(), request.dailyRate())
                 .update();
-        return find(id).orElseThrow();
+        Vehicle vehicle = find(id).orElseThrow();
+        metrics.created(ua.carrental.observability.BusinessMetrics.Entity.VEHICLE);
+        return vehicle;
     }
 
     public Optional<Vehicle> find(UUID id) {

@@ -7,6 +7,7 @@
     </parent>
     <artifactId>payment-service</artifactId>
     <dependencies>
+        <dependency><groupId>ua.carrental</groupId><artifactId>observability</artifactId><version>${project.version}</version></dependency>
         <dependency><groupId>ua.carrental</groupId><artifactId>event-contracts</artifactId><version>${project.version}</version></dependency>
         <dependency><groupId>org.springframework.boot</groupId><artifactId>spring-boot-starter-kafka</artifactId></dependency>
         <dependency><groupId>org.springframework.kafka</groupId><artifactId>spring-kafka-test</artifactId><scope>test</scope></dependency>
@@ -31,3 +32,4 @@
         </plugins>
     </build>
 </project>
+

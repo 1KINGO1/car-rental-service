@@ -35,10 +35,20 @@ management:
   endpoints:
     web:
       exposure:
-        include: health
+        include: health,prometheus,metrics
   endpoint:
     health:
       show-details: never
+      probes:
+        enabled: true
+  metrics:
+    tags:
+      application: ${spring.application.name}
+    distribution:
+      percentiles-histogram:
+        http.server.requests: true
+      slo:
+        http.server.requests: 100ms,500ms,1s,5s,10s
 server:
   shutdown: graceful
 
@@ -52,3 +62,4 @@ remote-protection:
 messaging:
   enabled: ${MESSAGING_ENABLED:false}
   replication-factor: ${KAFKA_REPLICATION_FACTOR:1}
+

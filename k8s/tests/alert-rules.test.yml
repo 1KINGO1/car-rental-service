@@ -1,0 +1,141 @@
+rule_files:
+  - ../files/monitoring/alert-rules.yml
+evaluation_interval: 5s
+tests:
+  - name: Down alert waits thirty seconds and resolves after recovery
+    interval: 5s
+    input_series:
+      - series: 'up{job="spring-boot",app="customer-service",namespace="test",pod="customer-1"}'
+        values: '1x1 0x7 1x12'
+    alert_rule_test:
+      - eval_time: 20s
+        alertname: MicroserviceDown
+        exp_alerts: []
+      - eval_time: 40s
+        alertname: MicroserviceDown
+        exp_alerts:
+          - exp_labels:
+              job: spring-boot
+              app: customer-service
+              namespace: test
+              pod: customer-1
+              severity: critical
+              team: car-rental
+            exp_annotations:
+              summary: 'Metrics endpoint unavailable: customer-service'
+              description: 'Prometheus cannot scrape pod customer-1 for at least 30 seconds.'
+      - eval_time: 60s
+        alertname: MicroserviceDown
+        exp_alerts: []
+  - name: Missing deployment is detected even when no up series exists
+    interval: 5s
+    input_series:
+      - series: 'up{job="spring-boot",app="customer-service"}'
+        values: '1x40'
+      - series: 'up{job="spring-boot",app="fleet-service"}'
+        values: '1x40'
+      - series: 'up{job="spring-boot",app="booking-service"}'
+        values: '1x40'
+    alert_rule_test:
+      - eval_time: 1m
+        alertname: MicroserviceTargetMissing
+        exp_alerts: []
+      - eval_time: 2m
+        alertname: MicroserviceTargetMissing
+        exp_alerts:
+          - exp_labels:
+              app: payment-service
+              job: spring-boot
+              severity: critical
+              team: car-rental
+            exp_annotations:
+              summary: 'No scrape targets discovered: payment-service'
+              description: 'All replicas are missing from discovery. Check deployment replicas and scrape annotations.'
+  - name: Error ratio above five percent fires with enough traffic
+    interval: 5s
+    input_series:
+      - series: 'http_server_requests_seconds_count{job="spring-boot",namespace="test",app="booking-service",status="500",uri="/api/bookings"}'
+        values: '0+1x40'
+      - series: 'http_server_requests_seconds_count{job="spring-boot",namespace="test",app="booking-service",status="200",uri="/api/bookings"}'
+        values: '0+9x40'
+    alert_rule_test:
+      - eval_time: 2m
+        alertname: MicroserviceHighErrorRate
+        exp_alerts:
+          - exp_labels:
+              namespace: test
+              app: booking-service
+              severity: warning
+              team: car-rental
+            exp_annotations:
+              summary: 'HTTP 5xx ratio exceeds 5%: booking-service'
+              description: 'Business requests have an error ratio above 5%, with at least 20 requests over two minutes.'
+  - name: Actuator failures and demo traffic do not trigger business error alerts
+    interval: 5s
+    input_series:
+      - series: 'http_server_requests_seconds_count{job="spring-boot",namespace="test",app="booking-service",status="500",uri="/actuator/health"}'
+        values: '0+100x40'
+      - series: 'http_server_requests_seconds_count{job="spring-boot",namespace="test",app="booking-service",status="500",uri="/api/monitoring/demo-work"}'
+        values: '0+100x40'
+      - series: 'http_server_requests_seconds_count{job="spring-boot",namespace="test",app="booking-service",status="500",uri="/api/bookings"}'
+        values: '0x40'
+      - series: 'http_server_requests_seconds_count{job="spring-boot",namespace="test",app="booking-service",status="200",uri="/api/bookings"}'
+        values: '0+10x40'
+    alert_rule_test:
+      - eval_time: 2m
+        alertname: MicroserviceHighErrorRate
+        exp_alerts: []
+  - name: Very low traffic does not page on a statistically weak ratio
+    interval: 5s
+    input_series:
+      - series: 'http_server_requests_seconds_count{job="spring-boot",namespace="test",app="booking-service",status="500",uri="/api/bookings"}'
+        values: '0+0.1x40'
+    alert_rule_test:
+      - eval_time: 2m
+        alertname: MicroserviceHighErrorRate
+        exp_alerts: []
+  - name: Histogram p95 over one second fires with enough traffic
+    interval: 5s
+    input_series:
+      - series: 'http_server_requests_seconds_bucket{job="spring-boot",namespace="test",app="fleet-service",uri="/api/cars",le="0.1"}'
+        values: '0+1x40'
+      - series: 'http_server_requests_seconds_bucket{job="spring-boot",namespace="test",app="fleet-service",uri="/api/cars",le="1.0"}'
+        values: '0+8x40'
+      - series: 'http_server_requests_seconds_bucket{job="spring-boot",namespace="test",app="fleet-service",uri="/api/cars",le="2.0"}'
+        values: '0+10x40'
+      - series: 'http_server_requests_seconds_bucket{job="spring-boot",namespace="test",app="fleet-service",uri="/api/cars",le="+Inf"}'
+        values: '0+10x40'
+      - series: 'http_server_requests_seconds_count{job="spring-boot",namespace="test",app="fleet-service",uri="/api/cars"}'
+        values: '0+10x40'
+    alert_rule_test:
+      - eval_time: 2m
+        alertname: MicroserviceHighLatency
+        exp_alerts:
+          - exp_labels:
+              namespace: test
+              app: fleet-service
+              severity: warning
+              team: car-rental
+            exp_annotations:
+              summary: 'HTTP p95 exceeds one second: fleet-service'
+              description: 'Histogram-based p95 of business requests is above one second for at least one minute.'
+  - name: Active long request fires and resolves without applying rate to gauge
+    interval: 5s
+    input_series:
+      - series: 'car_rental_http_active_requests_seconds_max{job="spring-boot",namespace="test",app="payment-service"}'
+        values: '0 20x5 0x5'
+    alert_rule_test:
+      - eval_time: 20s
+        alertname: MicroserviceLongRunningRequest
+        exp_alerts:
+          - exp_labels:
+              namespace: test
+              app: payment-service
+              severity: warning
+              team: car-rental
+            exp_annotations:
+              summary: 'Long-running active request: payment-service'
+              description: 'An active HTTP request has taken more than ten seconds; LongTaskTimer is a gauge, not a counter.'
+      - eval_time: 40s
+        alertname: MicroserviceLongRunningRequest
+        exp_alerts: []

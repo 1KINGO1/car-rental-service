@@ -1,0 +1,66 @@
+groups:
+  - name: car-rental-availability
+    rules:
+      - alert: MicroserviceDown
+        expr: up{job="spring-boot"} == 0
+        for: 30s
+        labels:
+          severity: critical
+          team: car-rental
+        annotations:
+          summary: 'Metrics endpoint unavailable: {{ $labels.app }}'
+          description: 'Prometheus cannot scrape pod {{ $labels.pod }} for at least 30 seconds.'
+      - alert: MicroserviceTargetMissing
+        expr: |
+          absent(up{job="spring-boot",app="customer-service"})
+          or absent(up{job="spring-boot",app="fleet-service"})
+          or absent(up{job="spring-boot",app="booking-service"})
+          or absent(up{job="spring-boot",app="payment-service"})
+        for: 2m
+        labels:
+          severity: critical
+          team: car-rental
+        annotations:
+          summary: 'No scrape targets discovered: {{ $labels.app }}'
+          description: 'All replicas are missing from discovery. Check deployment replicas and scrape annotations.'
+  - name: car-rental-user-experience
+    rules:
+      - alert: MicroserviceHighErrorRate
+        expr: |
+          (
+            sum by (namespace, app) (rate(http_server_requests_seconds_count{job="spring-boot",status=~"5..",uri!~"/actuator.*|/api/monitoring.*"}[2m]))
+            /
+            sum by (namespace, app) (rate(http_server_requests_seconds_count{job="spring-boot",uri!~"/actuator.*|/api/monitoring.*"}[2m]))
+          ) > 0.05
+          and on (namespace, app)
+          sum by (namespace, app) (increase(http_server_requests_seconds_count{job="spring-boot",uri!~"/actuator.*|/api/monitoring.*"}[2m])) >= 20
+        for: 1m
+        labels:
+          severity: warning
+          team: car-rental
+        annotations:
+          summary: 'HTTP 5xx ratio exceeds 5%: {{ $labels.app }}'
+          description: 'Business requests have an error ratio above 5%, with at least 20 requests over two minutes.'
+      - alert: MicroserviceHighLatency
+        expr: |
+          histogram_quantile(0.95,
+            sum by (le, namespace, app) (rate(http_server_requests_seconds_bucket{job="spring-boot",uri!~"/actuator.*|/api/monitoring.*"}[2m]))
+          ) > 1
+          and on (namespace, app)
+          sum by (namespace, app) (increase(http_server_requests_seconds_count{job="spring-boot",uri!~"/actuator.*|/api/monitoring.*"}[2m])) >= 20
+        for: 1m
+        labels:
+          severity: warning
+          team: car-rental
+        annotations:
+          summary: 'HTTP p95 exceeds one second: {{ $labels.app }}'
+          description: 'Histogram-based p95 of business requests is above one second for at least one minute.'
+      - alert: MicroserviceLongRunningRequest
+        expr: max by (namespace, app) (car_rental_http_active_requests_seconds_max{job="spring-boot"}) > 10
+        for: 10s
+        labels:
+          severity: warning
+          team: car-rental
+        annotations:
+          summary: 'Long-running active request: {{ $labels.app }}'
+          description: 'An active HTTP request has taken more than ten seconds; LongTaskTimer is a gauge, not a counter.'
