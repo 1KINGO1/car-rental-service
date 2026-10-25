@@ -20,6 +20,8 @@ RUN groupadd --gid 10001 rental && useradd --uid 10001 --gid rental --no-create-
 WORKDIR /app
 ARG SERVICE
 COPY --from=build --chown=10001:10001 /workspace/${SERVICE}/target/app.jar app.jar
+ADD --chmod=644 --chown=10001:10001 https://github.com/open-telemetry/opentelemetry-java-instrumentation/releases/download/v2.21.0/opentelemetry-javaagent.jar /app/opentelemetry-javaagent.jar
+ENV JAVA_TOOL_OPTIONS="-javaagent:/app/opentelemetry-javaagent.jar"
 USER 10001:10001
 EXPOSE 8080
 ENTRYPOINT ["java", "-XX:MaxRAMPercentage=75.0", "-XX:+ExitOnOutOfMemoryError", "-jar", "app.jar"]

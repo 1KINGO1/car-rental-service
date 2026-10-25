@@ -1,4 +1,4 @@
-.env
+﻿.env
 **/target/
 .idea/
 .vscode/
@@ -14,3 +14,5 @@ k8s/secrets.local.yaml
 # Keep lab evidence logs (webhook, validation, maven)
 !docs/evidence/**/*.log
 !docs/verification/**/*.log
+
+/scripts/

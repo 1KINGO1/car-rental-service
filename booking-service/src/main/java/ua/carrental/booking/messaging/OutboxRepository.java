@@ -18,7 +18,7 @@ public class OutboxRepository {
 
     @Transactional(propagation = Propagation.MANDATORY)
     public void append(BookingCreated event) {
-        jdbc.sql("INSERT INTO outbox_events (event_id, aggregate_id, payload) VALUES (?, ?, ?)")
-                .params(event.eventId(), event.bookingId(), mapper.writeValueAsString(event)).update();
+        jdbc.sql("INSERT INTO outbox_events (event_id, aggregate_id, payload, traceparent) VALUES (?, ?, ?, ?)")
+                .params(event.eventId(), event.bookingId(), mapper.writeValueAsString(event), ua.carrental.observability.TraceCarrier.capture()).update();
     }
 }

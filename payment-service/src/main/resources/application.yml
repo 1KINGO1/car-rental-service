@@ -56,3 +56,12 @@ messaging:
   enabled: ${MESSAGING_ENABLED:false}
   replication-factor: ${KAFKA_REPLICATION_FACTOR:1}
 
+
+logging:
+  structured:
+    format:
+      console: logstash
+    json:
+      rename:
+        trace_id: traceId
+        span_id: spanId

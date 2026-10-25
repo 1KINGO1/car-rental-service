@@ -51,7 +51,11 @@ class OutboxIntegrationTest {
 
     @Test
     void createsEntityAndOutboxThenPublishesWithAggregateKey() {
-        var booking = service.create(request());
+        String parent = "00-0123456789abcdef0123456789abcdef-0123456789abcdef-01";
+        Booking booking;
+        try (var scope = ua.carrental.observability.TraceCarrier.restore(parent).makeCurrent()) {
+            booking = service.create(request());
+        }
         assertThat(jdbc.sql("SELECT COUNT(*) FROM outbox_events WHERE published_at IS NULL").query(Integer.class).single()).isEqualTo(1);
         Map<String, Object> props = new HashMap<>(KafkaTestUtils.consumerProps("outbox-" + UUID.randomUUID(), "false", broker));
         props.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest");
@@ -66,6 +70,7 @@ class OutboxIntegrationTest {
                 }
             }
             assertThat(record).isNotNull();
+            assertThat(new String(record.headers().lastHeader("traceparent").value(), java.nio.charset.StandardCharsets.UTF_8)).isEqualTo(parent);
             assertThat(record.key()).isEqualTo(booking.id().toString());
             assertThat(record.value()).contains(booking.id().toString(), "BookingCreated", "2400.00");
             assertThat(jdbc.sql("SELECT COUNT(*) FROM outbox_events WHERE published_at IS NOT NULL").query(Integer.class).single()).isEqualTo(1);
@@ -89,7 +94,7 @@ class OutboxIntegrationTest {
         service.create(request());
         @SuppressWarnings("unchecked")
         org.springframework.kafka.core.KafkaTemplate<String, String> failedKafka = mock(org.springframework.kafka.core.KafkaTemplate.class);
-        when(failedKafka.send(anyString(), anyString(), anyString()))
+        when(failedKafka.send(any(org.apache.kafka.clients.producer.ProducerRecord.class)))
                 .thenReturn(java.util.concurrent.CompletableFuture.failedFuture(new IllegalStateException("Broker unavailable")));
         var failedRelay = new OutboxRelay(jdbc, failedKafka);
         assertThatThrownBy(() -> new TransactionTemplate(transactionManager).execute(status -> failedRelay.publishBatch()))

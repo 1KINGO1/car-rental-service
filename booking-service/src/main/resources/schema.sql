@@ -27,4 +27,5 @@ CREATE TABLE IF NOT EXISTS outbox_events (
     created_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT CURRENT_TIMESTAMP,
     published_at TIMESTAMP WITH TIME ZONE
 );
+ALTER TABLE outbox_events ADD COLUMN IF NOT EXISTS traceparent VARCHAR(55);
 CREATE INDEX IF NOT EXISTS outbox_pending_idx ON outbox_events (published_at, created_at);

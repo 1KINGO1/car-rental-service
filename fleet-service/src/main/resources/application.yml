@@ -31,3 +31,12 @@ management:
 server:
   shutdown: graceful
 
+
+logging:
+  structured:
+    format:
+      console: logstash
+    json:
+      rename:
+        trace_id: traceId
+        span_id: spanId

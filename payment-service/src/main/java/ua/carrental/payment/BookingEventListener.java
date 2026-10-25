@@ -27,6 +27,22 @@ public class BookingEventListener {
             exclude = IllegalArgumentException.class)
     @KafkaListener(topics = BookingCreated.TOPIC, groupId = "payment-bookings-v1")
     public void receive(ConsumerRecord<String, String> record) {
+        var header = record.headers().lastHeader("traceparent");
+        var parent = ua.carrental.observability.TraceCarrier.restore(header == null ? null :
+                new String(header.value(), java.nio.charset.StandardCharsets.UTF_8));
+        var span = io.opentelemetry.api.GlobalOpenTelemetry.getTracer("car-rental")
+                .spanBuilder("payment.process BookingCreated").setParent(parent)
+                .setSpanKind(io.opentelemetry.api.trace.SpanKind.CONSUMER).startSpan();
+        try (var scope = span.makeCurrent()) {
+            process(record);
+        } catch (RuntimeException failure) {
+            span.recordException(failure);
+            span.setStatus(io.opentelemetry.api.trace.StatusCode.ERROR, failure.getMessage());
+            throw failure;
+        } finally { span.end(); }
+    }
+
+    private void process(ConsumerRecord<String, String> record) {
         BookingCreated event;
         try {
             event = mapper.readValue(record.value(), BookingCreated.class);
@@ -34,6 +50,7 @@ public class BookingEventListener {
         } catch (RuntimeException exception) {
             throw new IllegalArgumentException("Invalid booking event", exception);
         }
+        org.slf4j.LoggerFactory.getLogger(BookingEventListener.class).info("Processing booking event {}", event.eventId());
         handler.handle(event);
     }
 

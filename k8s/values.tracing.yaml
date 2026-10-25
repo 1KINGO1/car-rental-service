@@ -1,0 +1,17 @@
+app:
+  replicas: 1
+  imageTag: lab07
+  resources:
+    limits:
+      memory: 768Mi
+tracing:
+  enabled: true
+services:
+  booking:
+    env:
+      MESSAGING_ENABLED: "true"
+      KAFKA_BOOTSTRAP_SERVERS: kafka:9092
+  payment:
+    env:
+      MESSAGING_ENABLED: "true"
+      KAFKA_BOOTSTRAP_SERVERS: kafka:9092

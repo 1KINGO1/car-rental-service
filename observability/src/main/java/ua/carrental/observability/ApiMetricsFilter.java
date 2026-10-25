@@ -83,6 +83,7 @@ public final class ApiMetricsFilter extends OncePerRequestFilter {
             failed = true;
             throw failure;
         } finally {
+            org.slf4j.LoggerFactory.getLogger(ApiMetricsFilter.class).info("HTTP {} {} status={}", request.getMethod(), request.getRequestURI(), response.getStatus());
             active.stop();
             inFlight.decrementAndGet();
             String outcome = failed ? "server_error" : outcome(response.getStatus());

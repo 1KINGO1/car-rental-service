@@ -24,11 +24,14 @@ public class OutboxRelay {
 
     @Transactional
     public int publishBatch() {
-        var pending = jdbc.sql("SELECT event_id, aggregate_id, payload FROM outbox_events WHERE published_at IS NULL ORDER BY created_at, event_id LIMIT 20 FOR UPDATE SKIP LOCKED")
-                .query((rs, row) -> new Pending(rs.getObject("event_id", UUID.class), rs.getObject("aggregate_id", UUID.class), rs.getString("payload"))).list();
+        var pending = jdbc.sql("SELECT event_id, aggregate_id, payload, traceparent FROM outbox_events WHERE published_at IS NULL ORDER BY created_at, event_id LIMIT 20 FOR UPDATE SKIP LOCKED")
+                .query((rs, row) -> new Pending(rs.getObject("event_id", UUID.class), rs.getObject("aggregate_id", UUID.class), rs.getString("payload"), rs.getString("traceparent"))).list();
         for (var event : pending) {
-            try {
-                kafka.send(BookingCreated.TOPIC, event.aggregateId().toString(), event.payload()).get(15, TimeUnit.SECONDS);
+            try (var scope = ua.carrental.observability.TraceCarrier.restore(event.traceparent()).makeCurrent()) {
+                var record = new org.apache.kafka.clients.producer.ProducerRecord<String, String>(BookingCreated.TOPIC, event.aggregateId().toString(), event.payload());
+                if (event.traceparent() != null && !event.traceparent().isEmpty())
+                    record.headers().add("traceparent", event.traceparent().getBytes(java.nio.charset.StandardCharsets.UTF_8));
+                kafka.send(record).get(15, TimeUnit.SECONDS);
             } catch (InterruptedException exception) {
                 Thread.currentThread().interrupt();
                 throw new IllegalStateException("Outbox publication interrupted", exception);
@@ -41,5 +44,5 @@ public class OutboxRelay {
         return pending.size();
     }
 
-    private record Pending(UUID eventId, UUID aggregateId, String payload) { }
+    private record Pending(UUID eventId, UUID aggregateId, String payload, String traceparent) { }
 }
