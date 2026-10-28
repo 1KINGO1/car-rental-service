@@ -1,0 +1,1601 @@
+---
+# Source: car-rental/templates/configmap.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: booking-config
+  namespace: car-rental-lab07
+  labels:
+    helm.sh/chart: car-rental-1.0.0
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/part-of: car-rental-service
+    app.kubernetes.io/version: "1.0.0"
+    app.kubernetes.io/name: booking-service
+    app.kubernetes.io/instance: car-rental
+    app.kubernetes.io/component: config
+    app: booking-service
+data:
+  DB_NAME: "bookings"
+  DB_USER: "booking"
+  DB_HOST: "booking-db"
+  DB_PORT: "5432"
+  DB_URL: "jdbc:postgresql://booking-db:5432/bookings"
+  SERVER_PORT: "8080"
+  CUSTOMER_URL: "http://customer-service:8080"
+  FLEET_URL: "http://fleet-service:8080"
+  KAFKA_BOOTSTRAP_SERVERS: "kafka:9092"
+  MESSAGING_ENABLED: "true"
+---
+# Source: car-rental/templates/configmap.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: customer-config
+  namespace: car-rental-lab07
+  labels:
+    helm.sh/chart: car-rental-1.0.0
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/part-of: car-rental-service
+    app.kubernetes.io/version: "1.0.0"
+    app.kubernetes.io/name: customer-service
+    app.kubernetes.io/instance: car-rental
+    app.kubernetes.io/component: config
+    app: customer-service
+data:
+  DB_NAME: "customers"
+  DB_USER: "customer"
+  DB_HOST: "customer-db"
+  DB_PORT: "5432"
+  DB_URL: "jdbc:postgresql://customer-db:5432/customers"
+  SERVER_PORT: "8080"
+---
+# Source: car-rental/templates/configmap.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: fleet-config
+  namespace: car-rental-lab07
+  labels:
+    helm.sh/chart: car-rental-1.0.0
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/part-of: car-rental-service
+    app.kubernetes.io/version: "1.0.0"
+    app.kubernetes.io/name: fleet-service
+    app.kubernetes.io/instance: car-rental
+    app.kubernetes.io/component: config
+    app: fleet-service
+data:
+  DB_NAME: "fleet"
+  DB_USER: "fleet"
+  DB_HOST: "fleet-db"
+  DB_PORT: "5432"
+  DB_URL: "jdbc:postgresql://fleet-db:5432/fleet"
+  SERVER_PORT: "8080"
+---
+# Source: car-rental/templates/configmap.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: payment-config
+  namespace: car-rental-lab07
+  labels:
+    helm.sh/chart: car-rental-1.0.0
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/part-of: car-rental-service
+    app.kubernetes.io/version: "1.0.0"
+    app.kubernetes.io/name: payment-service
+    app.kubernetes.io/instance: car-rental
+    app.kubernetes.io/component: config
+    app: payment-service
+data:
+  DB_NAME: "payments"
+  DB_USER: "payment"
+  DB_HOST: "payment-db"
+  DB_PORT: "5432"
+  DB_URL: "jdbc:postgresql://payment-db:5432/payments"
+  SERVER_PORT: "8080"
+  KAFKA_BOOTSTRAP_SERVERS: "kafka:9092"
+  MESSAGING_ENABLED: "true"
+---
+# Source: car-rental/templates/tracing.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: otel-collector-config
+data:
+  config.yaml: |
+    receivers:
+      otlp:
+        protocols:
+          grpc:
+            endpoint: 0.0.0.0:4317
+          http:
+            endpoint: 0.0.0.0:4318
+    processors:
+      memory_limiter:
+        check_interval: 1s
+        limit_mib: 384
+        spike_limit_mib: 96
+      tail_sampling:
+        decision_wait: 60s
+        num_traces: 20000
+        expected_new_traces_per_sec: 100
+        decision_cache:
+          sampled_cache_size: 100000
+        policies:
+          - name: all-errors
+            type: status_code
+            status_code:
+              status_codes: [ERROR]
+          - name: baseline
+            type: probabilistic
+            probabilistic:
+              sampling_percentage: 100
+      transform/json_logs:
+        error_mode: propagate
+        log_statements:
+          - context: log
+            statements:
+              - set(cache["message"], body)
+              - set(cache["traceId"], trace_id.string)
+              - set(cache["spanId"], span_id.string)
+              - set(cache["service"], resource.attributes["service.name"])
+              - set(body, cache)
+      batch:
+        send_batch_size: 256
+        send_batch_max_size: 512
+        timeout: 1s
+    exporters:
+      otlp/tempo:
+        endpoint: tempo:4317
+        tls:
+          insecure: true
+      otlphttp/loki:
+        endpoint: http://loki:3100/otlp
+    service:
+      pipelines:
+        traces:
+          receivers: [otlp]
+          processors: [memory_limiter, tail_sampling, batch]
+          exporters: [otlp/tempo]
+        logs:
+          receivers: [otlp]
+          processors: [memory_limiter, transform/json_logs, batch]
+          exporters: [otlphttp/loki]
+---
+# Source: car-rental/templates/tracing.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: tempo-config
+data:
+  config.yaml: |
+    server:
+      http_listen_port: 3200
+    distributor:
+      receivers:
+        otlp:
+          protocols:
+            grpc:
+              endpoint: 0.0.0.0:4317
+            http:
+              endpoint: 0.0.0.0:4318
+    storage:
+      trace:
+        backend: local
+        wal:
+          path: /var/tempo/wal
+        local:
+          path: /var/tempo/blocks
+    compactor:
+      compaction:
+        block_retention: 24h
+---
+# Source: car-rental/templates/tracing.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: loki-config
+data:
+  config.yaml: |
+    auth_enabled: false
+    server:
+      http_listen_port: 3100
+    common:
+      path_prefix: /var/loki
+      replication_factor: 1
+      ring:
+        kvstore:
+          store: inmemory
+      storage:
+        filesystem:
+          chunks_directory: /var/loki/chunks
+          rules_directory: /var/loki/rules
+    schema_config:
+      configs:
+        - from: 2024-01-01
+          store: tsdb
+          object_store: filesystem
+          schema: v13
+          index:
+            prefix: index_
+            period: 24h
+    limits_config:
+      allow_structured_metadata: true
+---
+# Source: car-rental/templates/tracing.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: grafana-config
+data:
+  config.yaml: |
+    apiVersion: 1
+    datasources:
+      - name: Tempo
+        uid: tempo
+        type: tempo
+        access: proxy
+        url: http://tempo:3200
+        jsonData:
+          tracesToLogsV2:
+            datasourceUid: loki
+            spanStartTimeShift: '-5m'
+            spanEndTimeShift: '5m'
+            tags:
+              - key: service.name
+                value: service_name
+            customQuery: true
+            query: '{$${__tags}} | trace_id = "$${__trace.traceId}"'
+      - name: Loki
+        uid: loki
+        type: loki
+        access: proxy
+        url: http://loki:3100
+---
+# Source: car-rental/templates/database.yaml
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: booking-db-pvc
+  namespace: car-rental-lab07
+  labels:
+    helm.sh/chart: car-rental-1.0.0
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/part-of: car-rental-service
+    app.kubernetes.io/version: "1.0.0"
+    app.kubernetes.io/name: booking-db
+    app.kubernetes.io/instance: car-rental
+    app.kubernetes.io/component: database
+    app: booking-db
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+---
+# Source: car-rental/templates/database.yaml
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: customer-db-pvc
+  namespace: car-rental-lab07
+  labels:
+    helm.sh/chart: car-rental-1.0.0
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/part-of: car-rental-service
+    app.kubernetes.io/version: "1.0.0"
+    app.kubernetes.io/name: customer-db
+    app.kubernetes.io/instance: car-rental
+    app.kubernetes.io/component: database
+    app: customer-db
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+---
+# Source: car-rental/templates/database.yaml
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: fleet-db-pvc
+  namespace: car-rental-lab07
+  labels:
+    helm.sh/chart: car-rental-1.0.0
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/part-of: car-rental-service
+    app.kubernetes.io/version: "1.0.0"
+    app.kubernetes.io/name: fleet-db
+    app.kubernetes.io/instance: car-rental
+    app.kubernetes.io/component: database
+    app: fleet-db
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+---
+# Source: car-rental/templates/database.yaml
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: payment-db-pvc
+  namespace: car-rental-lab07
+  labels:
+    helm.sh/chart: car-rental-1.0.0
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/part-of: car-rental-service
+    app.kubernetes.io/version: "1.0.0"
+    app.kubernetes.io/name: payment-db
+    app.kubernetes.io/instance: car-rental
+    app.kubernetes.io/component: database
+    app: payment-db
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+---
+# Source: car-rental/templates/app.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: booking-service
+  namespace: car-rental-lab07
+  labels:
+    helm.sh/chart: car-rental-1.0.0
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/part-of: car-rental-service
+    app.kubernetes.io/version: "1.0.0"
+    app.kubernetes.io/name: booking-service
+    app.kubernetes.io/instance: car-rental
+    app.kubernetes.io/component: service
+    app: booking-service
+spec:
+  type: ClusterIP
+  selector:
+    app: booking-service
+    app.kubernetes.io/name: booking-service
+    app.kubernetes.io/instance: car-rental
+  ports:
+    - name: http
+      port: 8080
+      targetPort: http
+---
+# Source: car-rental/templates/app.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: customer-service
+  namespace: car-rental-lab07
+  labels:
+    helm.sh/chart: car-rental-1.0.0
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/part-of: car-rental-service
+    app.kubernetes.io/version: "1.0.0"
+    app.kubernetes.io/name: customer-service
+    app.kubernetes.io/instance: car-rental
+    app.kubernetes.io/component: service
+    app: customer-service
+spec:
+  type: ClusterIP
+  selector:
+    app: customer-service
+    app.kubernetes.io/name: customer-service
+    app.kubernetes.io/instance: car-rental
+  ports:
+    - name: http
+      port: 8080
+      targetPort: http
+---
+# Source: car-rental/templates/app.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: fleet-service
+  namespace: car-rental-lab07
+  labels:
+    helm.sh/chart: car-rental-1.0.0
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/part-of: car-rental-service
+    app.kubernetes.io/version: "1.0.0"
+    app.kubernetes.io/name: fleet-service
+    app.kubernetes.io/instance: car-rental
+    app.kubernetes.io/component: service
+    app: fleet-service
+spec:
+  type: ClusterIP
+  selector:
+    app: fleet-service
+    app.kubernetes.io/name: fleet-service
+    app.kubernetes.io/instance: car-rental
+  ports:
+    - name: http
+      port: 8080
+      targetPort: http
+---
+# Source: car-rental/templates/app.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: payment-service
+  namespace: car-rental-lab07
+  labels:
+    helm.sh/chart: car-rental-1.0.0
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/part-of: car-rental-service
+    app.kubernetes.io/version: "1.0.0"
+    app.kubernetes.io/name: payment-service
+    app.kubernetes.io/instance: car-rental
+    app.kubernetes.io/component: service
+    app: payment-service
+spec:
+  type: ClusterIP
+  selector:
+    app: payment-service
+    app.kubernetes.io/name: payment-service
+    app.kubernetes.io/instance: car-rental
+  ports:
+    - name: http
+      port: 8080
+      targetPort: http
+---
+# Source: car-rental/templates/database.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: booking-db
+  namespace: car-rental-lab07
+  labels:
+    helm.sh/chart: car-rental-1.0.0
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/part-of: car-rental-service
+    app.kubernetes.io/version: "1.0.0"
+    app.kubernetes.io/name: booking-db
+    app.kubernetes.io/instance: car-rental
+    app.kubernetes.io/component: database
+    app: booking-db
+spec:
+  type: ClusterIP
+  selector:
+    app: booking-db
+    app.kubernetes.io/name: booking-db
+    app.kubernetes.io/instance: car-rental
+  ports:
+    - name: postgres
+      port: 5432
+      targetPort: postgres
+---
+# Source: car-rental/templates/database.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: customer-db
+  namespace: car-rental-lab07
+  labels:
+    helm.sh/chart: car-rental-1.0.0
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/part-of: car-rental-service
+    app.kubernetes.io/version: "1.0.0"
+    app.kubernetes.io/name: customer-db
+    app.kubernetes.io/instance: car-rental
+    app.kubernetes.io/component: database
+    app: customer-db
+spec:
+  type: ClusterIP
+  selector:
+    app: customer-db
+    app.kubernetes.io/name: customer-db
+    app.kubernetes.io/instance: car-rental
+  ports:
+    - name: postgres
+      port: 5432
+      targetPort: postgres
+---
+# Source: car-rental/templates/database.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: fleet-db
+  namespace: car-rental-lab07
+  labels:
+    helm.sh/chart: car-rental-1.0.0
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/part-of: car-rental-service
+    app.kubernetes.io/version: "1.0.0"
+    app.kubernetes.io/name: fleet-db
+    app.kubernetes.io/instance: car-rental
+    app.kubernetes.io/component: database
+    app: fleet-db
+spec:
+  type: ClusterIP
+  selector:
+    app: fleet-db
+    app.kubernetes.io/name: fleet-db
+    app.kubernetes.io/instance: car-rental
+  ports:
+    - name: postgres
+      port: 5432
+      targetPort: postgres
+---
+# Source: car-rental/templates/database.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: payment-db
+  namespace: car-rental-lab07
+  labels:
+    helm.sh/chart: car-rental-1.0.0
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/part-of: car-rental-service
+    app.kubernetes.io/version: "1.0.0"
+    app.kubernetes.io/name: payment-db
+    app.kubernetes.io/instance: car-rental
+    app.kubernetes.io/component: database
+    app: payment-db
+spec:
+  type: ClusterIP
+  selector:
+    app: payment-db
+    app.kubernetes.io/name: payment-db
+    app.kubernetes.io/instance: car-rental
+  ports:
+    - name: postgres
+      port: 5432
+      targetPort: postgres
+---
+# Source: car-rental/templates/kafka.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: kafka
+spec:
+  selector: {app: kafka}
+  ports:
+    - {port: 9092, targetPort: 9092}
+---
+# Source: car-rental/templates/tracing.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: otel-collector
+spec:
+  selector: {app: otel-collector}
+  ports:
+    - {name: http, port: 4318, targetPort: 4318}
+    - {name: grpc, port: 4317, targetPort: 4317}
+---
+# Source: car-rental/templates/tracing.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: tempo
+spec:
+  selector: {app: tempo}
+  ports:
+    - {name: http, port: 3200, targetPort: 3200}
+    - {name: grpc, port: 4317, targetPort: 4317}
+---
+# Source: car-rental/templates/tracing.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: loki
+spec:
+  selector: {app: loki}
+  ports:
+    - {name: http, port: 3100, targetPort: 3100}
+---
+# Source: car-rental/templates/tracing.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: grafana
+spec:
+  selector: {app: grafana}
+  ports:
+    - {name: http, port: 3000, targetPort: 3000}
+---
+# Source: car-rental/templates/app.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: booking-service
+  namespace: car-rental-lab07
+  labels:
+    helm.sh/chart: car-rental-1.0.0
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/part-of: car-rental-service
+    app.kubernetes.io/version: "1.0.0"
+    app.kubernetes.io/name: booking-service
+    app.kubernetes.io/instance: car-rental
+    app.kubernetes.io/component: service
+    app: booking-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: booking-service
+      app.kubernetes.io/name: booking-service
+      app.kubernetes.io/instance: car-rental
+  template:
+    metadata:
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/path: "/actuator/prometheus"
+        prometheus.io/port: "8080"
+      labels:
+        app: booking-service
+        app.kubernetes.io/name: booking-service
+        app.kubernetes.io/instance: car-rental
+    spec:
+      containers:
+        - name: booking-service
+          image: car-rental/booking-service:lab07
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+              name: http
+          env:
+            - name: OTEL_SERVICE_NAME
+              value: "booking-service"
+            - name: OTEL_EXPORTER_OTLP_ENDPOINT
+              value: http://otel-collector:4318
+            - name: OTEL_EXPORTER_OTLP_PROTOCOL
+              value: http/protobuf
+            - name: OTEL_TRACES_SAMPLER
+              value: always_on
+            - name: OTEL_PROPAGATORS
+              value: tracecontext,baggage
+            - name: OTEL_METRICS_EXPORTER
+              value: none
+            - name: OTEL_LOGS_EXPORTER
+              value: otlp
+            - name: SPRING_PROFILES_ACTIVE
+              value: "default"
+            - name: SERVER_PORT
+              value: "8080"
+            - name: DB_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: booking-config
+                  key: DB_URL
+            - name: DB_USER
+              valueFrom:
+                configMapKeyRef:
+                  name: booking-config
+                  key: DB_USER
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: booking-db-secret
+                  key: DB_PASSWORD
+            - name: CUSTOMER_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: booking-config
+                  key: CUSTOMER_URL
+            - name: FLEET_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: booking-config
+                  key: FLEET_URL
+            - name: KAFKA_BOOTSTRAP_SERVERS
+              valueFrom:
+                configMapKeyRef:
+                  name: booking-config
+                  key: KAFKA_BOOTSTRAP_SERVERS
+            - name: MESSAGING_ENABLED
+              valueFrom:
+                configMapKeyRef:
+                  name: booking-config
+                  key: MESSAGING_ENABLED
+          livenessProbe:
+            httpGet:
+              path: /actuator/health/liveness
+              port: http
+            initialDelaySeconds: 40
+            periodSeconds: 15
+            timeoutSeconds: 5
+            failureThreshold: 6
+          readinessProbe:
+            httpGet:
+              path: /actuator/health/readiness
+              port: http
+            initialDelaySeconds: 20
+            periodSeconds: 10
+            timeoutSeconds: 5
+            failureThreshold: 6
+          resources:
+            limits:
+              cpu: 1000m
+              memory: 768Mi
+            requests:
+              cpu: 250m
+              memory: 256Mi
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+              - ALL
+            readOnlyRootFilesystem: true
+            runAsNonRoot: true
+            runAsUser: 10001
+          volumeMounts:
+            - name: tmp
+              mountPath: /tmp
+      volumes:
+        - name: tmp
+          emptyDir:
+            sizeLimit: 64Mi
+---
+# Source: car-rental/templates/app.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: customer-service
+  namespace: car-rental-lab07
+  labels:
+    helm.sh/chart: car-rental-1.0.0
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/part-of: car-rental-service
+    app.kubernetes.io/version: "1.0.0"
+    app.kubernetes.io/name: customer-service
+    app.kubernetes.io/instance: car-rental
+    app.kubernetes.io/component: service
+    app: customer-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: customer-service
+      app.kubernetes.io/name: customer-service
+      app.kubernetes.io/instance: car-rental
+  template:
+    metadata:
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/path: "/actuator/prometheus"
+        prometheus.io/port: "8080"
+      labels:
+        app: customer-service
+        app.kubernetes.io/name: customer-service
+        app.kubernetes.io/instance: car-rental
+    spec:
+      containers:
+        - name: customer-service
+          image: car-rental/customer-service:lab07
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+              name: http
+          env:
+            - name: OTEL_SERVICE_NAME
+              value: "customer-service"
+            - name: OTEL_EXPORTER_OTLP_ENDPOINT
+              value: http://otel-collector:4318
+            - name: OTEL_EXPORTER_OTLP_PROTOCOL
+              value: http/protobuf
+            - name: OTEL_TRACES_SAMPLER
+              value: always_on
+            - name: OTEL_PROPAGATORS
+              value: tracecontext,baggage
+            - name: OTEL_METRICS_EXPORTER
+              value: none
+            - name: OTEL_LOGS_EXPORTER
+              value: otlp
+            - name: SPRING_PROFILES_ACTIVE
+              value: "default"
+            - name: SERVER_PORT
+              value: "8080"
+            - name: DB_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: customer-config
+                  key: DB_URL
+            - name: DB_USER
+              valueFrom:
+                configMapKeyRef:
+                  name: customer-config
+                  key: DB_USER
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: customer-db-secret
+                  key: DB_PASSWORD
+          livenessProbe:
+            httpGet:
+              path: /actuator/health/liveness
+              port: http
+            initialDelaySeconds: 40
+            periodSeconds: 15
+            timeoutSeconds: 5
+            failureThreshold: 6
+          readinessProbe:
+            httpGet:
+              path: /actuator/health/readiness
+              port: http
+            initialDelaySeconds: 20
+            periodSeconds: 10
+            timeoutSeconds: 5
+            failureThreshold: 6
+          resources:
+            limits:
+              cpu: 1000m
+              memory: 768Mi
+            requests:
+              cpu: 250m
+              memory: 256Mi
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+              - ALL
+            readOnlyRootFilesystem: true
+            runAsNonRoot: true
+            runAsUser: 10001
+          volumeMounts:
+            - name: tmp
+              mountPath: /tmp
+      volumes:
+        - name: tmp
+          emptyDir:
+            sizeLimit: 64Mi
+---
+# Source: car-rental/templates/app.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fleet-service
+  namespace: car-rental-lab07
+  labels:
+    helm.sh/chart: car-rental-1.0.0
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/part-of: car-rental-service
+    app.kubernetes.io/version: "1.0.0"
+    app.kubernetes.io/name: fleet-service
+    app.kubernetes.io/instance: car-rental
+    app.kubernetes.io/component: service
+    app: fleet-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fleet-service
+      app.kubernetes.io/name: fleet-service
+      app.kubernetes.io/instance: car-rental
+  template:
+    metadata:
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/path: "/actuator/prometheus"
+        prometheus.io/port: "8080"
+      labels:
+        app: fleet-service
+        app.kubernetes.io/name: fleet-service
+        app.kubernetes.io/instance: car-rental
+    spec:
+      containers:
+        - name: fleet-service
+          image: car-rental/fleet-service:lab07
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+              name: http
+          env:
+            - name: OTEL_SERVICE_NAME
+              value: "fleet-service"
+            - name: OTEL_EXPORTER_OTLP_ENDPOINT
+              value: http://otel-collector:4318
+            - name: OTEL_EXPORTER_OTLP_PROTOCOL
+              value: http/protobuf
+            - name: OTEL_TRACES_SAMPLER
+              value: always_on
+            - name: OTEL_PROPAGATORS
+              value: tracecontext,baggage
+            - name: OTEL_METRICS_EXPORTER
+              value: none
+            - name: OTEL_LOGS_EXPORTER
+              value: otlp
+            - name: SPRING_PROFILES_ACTIVE
+              value: "default"
+            - name: SERVER_PORT
+              value: "8080"
+            - name: DB_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: fleet-config
+                  key: DB_URL
+            - name: DB_USER
+              valueFrom:
+                configMapKeyRef:
+                  name: fleet-config
+                  key: DB_USER
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: fleet-db-secret
+                  key: DB_PASSWORD
+          livenessProbe:
+            httpGet:
+              path: /actuator/health/liveness
+              port: http
+            initialDelaySeconds: 40
+            periodSeconds: 15
+            timeoutSeconds: 5
+            failureThreshold: 6
+          readinessProbe:
+            httpGet:
+              path: /actuator/health/readiness
+              port: http
+            initialDelaySeconds: 20
+            periodSeconds: 10
+            timeoutSeconds: 5
+            failureThreshold: 6
+          resources:
+            limits:
+              cpu: 1000m
+              memory: 768Mi
+            requests:
+              cpu: 250m
+              memory: 256Mi
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+              - ALL
+            readOnlyRootFilesystem: true
+            runAsNonRoot: true
+            runAsUser: 10001
+          volumeMounts:
+            - name: tmp
+              mountPath: /tmp
+      volumes:
+        - name: tmp
+          emptyDir:
+            sizeLimit: 64Mi
+---
+# Source: car-rental/templates/app.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: payment-service
+  namespace: car-rental-lab07
+  labels:
+    helm.sh/chart: car-rental-1.0.0
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/part-of: car-rental-service
+    app.kubernetes.io/version: "1.0.0"
+    app.kubernetes.io/name: payment-service
+    app.kubernetes.io/instance: car-rental
+    app.kubernetes.io/component: service
+    app: payment-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: payment-service
+      app.kubernetes.io/name: payment-service
+      app.kubernetes.io/instance: car-rental
+  template:
+    metadata:
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/path: "/actuator/prometheus"
+        prometheus.io/port: "8080"
+      labels:
+        app: payment-service
+        app.kubernetes.io/name: payment-service
+        app.kubernetes.io/instance: car-rental
+    spec:
+      containers:
+        - name: payment-service
+          image: car-rental/payment-service:lab07
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+              name: http
+          env:
+            - name: OTEL_SERVICE_NAME
+              value: "payment-service"
+            - name: OTEL_EXPORTER_OTLP_ENDPOINT
+              value: http://otel-collector:4318
+            - name: OTEL_EXPORTER_OTLP_PROTOCOL
+              value: http/protobuf
+            - name: OTEL_TRACES_SAMPLER
+              value: always_on
+            - name: OTEL_PROPAGATORS
+              value: tracecontext,baggage
+            - name: OTEL_METRICS_EXPORTER
+              value: none
+            - name: OTEL_LOGS_EXPORTER
+              value: otlp
+            - name: SPRING_PROFILES_ACTIVE
+              value: "default"
+            - name: SERVER_PORT
+              value: "8080"
+            - name: DB_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: payment-config
+                  key: DB_URL
+            - name: DB_USER
+              valueFrom:
+                configMapKeyRef:
+                  name: payment-config
+                  key: DB_USER
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: payment-db-secret
+                  key: DB_PASSWORD
+            - name: KAFKA_BOOTSTRAP_SERVERS
+              valueFrom:
+                configMapKeyRef:
+                  name: payment-config
+                  key: KAFKA_BOOTSTRAP_SERVERS
+            - name: MESSAGING_ENABLED
+              valueFrom:
+                configMapKeyRef:
+                  name: payment-config
+                  key: MESSAGING_ENABLED
+          livenessProbe:
+            httpGet:
+              path: /actuator/health/liveness
+              port: http
+            initialDelaySeconds: 40
+            periodSeconds: 15
+            timeoutSeconds: 5
+            failureThreshold: 6
+          readinessProbe:
+            httpGet:
+              path: /actuator/health/readiness
+              port: http
+            initialDelaySeconds: 20
+            periodSeconds: 10
+            timeoutSeconds: 5
+            failureThreshold: 6
+          resources:
+            limits:
+              cpu: 1000m
+              memory: 768Mi
+            requests:
+              cpu: 250m
+              memory: 256Mi
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+              - ALL
+            readOnlyRootFilesystem: true
+            runAsNonRoot: true
+            runAsUser: 10001
+          volumeMounts:
+            - name: tmp
+              mountPath: /tmp
+      volumes:
+        - name: tmp
+          emptyDir:
+            sizeLimit: 64Mi
+---
+# Source: car-rental/templates/database.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: booking-db
+  namespace: car-rental-lab07
+  labels:
+    helm.sh/chart: car-rental-1.0.0
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/part-of: car-rental-service
+    app.kubernetes.io/version: "1.0.0"
+    app.kubernetes.io/name: booking-db
+    app.kubernetes.io/instance: car-rental
+    app.kubernetes.io/component: database
+    app: booking-db
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: booking-db
+      app.kubernetes.io/name: booking-db
+      app.kubernetes.io/instance: car-rental
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: booking-db
+        app.kubernetes.io/name: booking-db
+        app.kubernetes.io/instance: car-rental
+    spec:
+      containers:
+        - name: postgres
+          image: postgres:16-alpine
+          ports:
+            - containerPort: 5432
+              name: postgres
+          env:
+            - name: POSTGRES_DB
+              valueFrom:
+                configMapKeyRef:
+                  name: booking-config
+                  key: DB_NAME
+            - name: POSTGRES_USER
+              valueFrom:
+                configMapKeyRef:
+                  name: booking-config
+                  key: DB_USER
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: booking-db-secret
+                  key: POSTGRES_PASSWORD
+          volumeMounts:
+            - name: data
+              mountPath: /var/lib/postgresql/data
+          livenessProbe:
+            exec:
+              command:
+                - /bin/sh
+                - -c
+                - pg_isready -U "$POSTGRES_USER" -d "$POSTGRES_DB"
+            initialDelaySeconds: 15
+            periodSeconds: 10
+            timeoutSeconds: 5
+            failureThreshold: 6
+          readinessProbe:
+            exec:
+              command:
+                - /bin/sh
+                - -c
+                - pg_isready -U "$POSTGRES_USER" -d "$POSTGRES_DB"
+            initialDelaySeconds: 5
+            periodSeconds: 5
+            timeoutSeconds: 3
+            failureThreshold: 6
+          resources:
+            limits:
+              cpu: 500m
+              memory: 256Mi
+            requests:
+              cpu: 100m
+              memory: 128Mi
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: booking-db-pvc
+---
+# Source: car-rental/templates/database.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: customer-db
+  namespace: car-rental-lab07
+  labels:
+    helm.sh/chart: car-rental-1.0.0
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/part-of: car-rental-service
+    app.kubernetes.io/version: "1.0.0"
+    app.kubernetes.io/name: customer-db
+    app.kubernetes.io/instance: car-rental
+    app.kubernetes.io/component: database
+    app: customer-db
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: customer-db
+      app.kubernetes.io/name: customer-db
+      app.kubernetes.io/instance: car-rental
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: customer-db
+        app.kubernetes.io/name: customer-db
+        app.kubernetes.io/instance: car-rental
+    spec:
+      containers:
+        - name: postgres
+          image: postgres:16-alpine
+          ports:
+            - containerPort: 5432
+              name: postgres
+          env:
+            - name: POSTGRES_DB
+              valueFrom:
+                configMapKeyRef:
+                  name: customer-config
+                  key: DB_NAME
+            - name: POSTGRES_USER
+              valueFrom:
+                configMapKeyRef:
+                  name: customer-config
+                  key: DB_USER
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: customer-db-secret
+                  key: POSTGRES_PASSWORD
+          volumeMounts:
+            - name: data
+              mountPath: /var/lib/postgresql/data
+          livenessProbe:
+            exec:
+              command:
+                - /bin/sh
+                - -c
+                - pg_isready -U "$POSTGRES_USER" -d "$POSTGRES_DB"
+            initialDelaySeconds: 15
+            periodSeconds: 10
+            timeoutSeconds: 5
+            failureThreshold: 6
+          readinessProbe:
+            exec:
+              command:
+                - /bin/sh
+                - -c
+                - pg_isready -U "$POSTGRES_USER" -d "$POSTGRES_DB"
+            initialDelaySeconds: 5
+            periodSeconds: 5
+            timeoutSeconds: 3
+            failureThreshold: 6
+          resources:
+            limits:
+              cpu: 500m
+              memory: 256Mi
+            requests:
+              cpu: 100m
+              memory: 128Mi
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: customer-db-pvc
+---
+# Source: car-rental/templates/database.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fleet-db
+  namespace: car-rental-lab07
+  labels:
+    helm.sh/chart: car-rental-1.0.0
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/part-of: car-rental-service
+    app.kubernetes.io/version: "1.0.0"
+    app.kubernetes.io/name: fleet-db
+    app.kubernetes.io/instance: car-rental
+    app.kubernetes.io/component: database
+    app: fleet-db
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fleet-db
+      app.kubernetes.io/name: fleet-db
+      app.kubernetes.io/instance: car-rental
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: fleet-db
+        app.kubernetes.io/name: fleet-db
+        app.kubernetes.io/instance: car-rental
+    spec:
+      containers:
+        - name: postgres
+          image: postgres:16-alpine
+          ports:
+            - containerPort: 5432
+              name: postgres
+          env:
+            - name: POSTGRES_DB
+              valueFrom:
+                configMapKeyRef:
+                  name: fleet-config
+                  key: DB_NAME
+            - name: POSTGRES_USER
+              valueFrom:
+                configMapKeyRef:
+                  name: fleet-config
+                  key: DB_USER
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: fleet-db-secret
+                  key: POSTGRES_PASSWORD
+          volumeMounts:
+            - name: data
+              mountPath: /var/lib/postgresql/data
+          livenessProbe:
+            exec:
+              command:
+                - /bin/sh
+                - -c
+                - pg_isready -U "$POSTGRES_USER" -d "$POSTGRES_DB"
+            initialDelaySeconds: 15
+            periodSeconds: 10
+            timeoutSeconds: 5
+            failureThreshold: 6
+          readinessProbe:
+            exec:
+              command:
+                - /bin/sh
+                - -c
+                - pg_isready -U "$POSTGRES_USER" -d "$POSTGRES_DB"
+            initialDelaySeconds: 5
+            periodSeconds: 5
+            timeoutSeconds: 3
+            failureThreshold: 6
+          resources:
+            limits:
+              cpu: 500m
+              memory: 256Mi
+            requests:
+              cpu: 100m
+              memory: 128Mi
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: fleet-db-pvc
+---
+# Source: car-rental/templates/database.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: payment-db
+  namespace: car-rental-lab07
+  labels:
+    helm.sh/chart: car-rental-1.0.0
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/part-of: car-rental-service
+    app.kubernetes.io/version: "1.0.0"
+    app.kubernetes.io/name: payment-db
+    app.kubernetes.io/instance: car-rental
+    app.kubernetes.io/component: database
+    app: payment-db
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: payment-db
+      app.kubernetes.io/name: payment-db
+      app.kubernetes.io/instance: car-rental
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: payment-db
+        app.kubernetes.io/name: payment-db
+        app.kubernetes.io/instance: car-rental
+    spec:
+      containers:
+        - name: postgres
+          image: postgres:16-alpine
+          ports:
+            - containerPort: 5432
+              name: postgres
+          env:
+            - name: POSTGRES_DB
+              valueFrom:
+                configMapKeyRef:
+                  name: payment-config
+                  key: DB_NAME
+            - name: POSTGRES_USER
+              valueFrom:
+                configMapKeyRef:
+                  name: payment-config
+                  key: DB_USER
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: payment-db-secret
+                  key: POSTGRES_PASSWORD
+          volumeMounts:
+            - name: data
+              mountPath: /var/lib/postgresql/data
+          livenessProbe:
+            exec:
+              command:
+                - /bin/sh
+                - -c
+                - pg_isready -U "$POSTGRES_USER" -d "$POSTGRES_DB"
+            initialDelaySeconds: 15
+            periodSeconds: 10
+            timeoutSeconds: 5
+            failureThreshold: 6
+          readinessProbe:
+            exec:
+              command:
+                - /bin/sh
+                - -c
+                - pg_isready -U "$POSTGRES_USER" -d "$POSTGRES_DB"
+            initialDelaySeconds: 5
+            periodSeconds: 5
+            timeoutSeconds: 3
+            failureThreshold: 6
+          resources:
+            limits:
+              cpu: 500m
+              memory: 256Mi
+            requests:
+              cpu: 100m
+              memory: 128Mi
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: payment-db-pvc
+---
+# Source: car-rental/templates/kafka.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kafka
+spec:
+  replicas: 1
+  selector:
+    matchLabels: {app: kafka}
+  template:
+    metadata:
+      labels: {app: kafka}
+    spec:
+      containers:
+        - name: kafka
+          image: apache/kafka:4.0.0
+          ports:
+            - {containerPort: 9092}
+          env:
+            - {name: KAFKA_NODE_ID, value: '1'}
+            - {name: KAFKA_PROCESS_ROLES, value: 'broker,controller'}
+            - {name: KAFKA_LISTENERS, value: 'PLAINTEXT://:9092,CONTROLLER://:9093'}
+            - {name: KAFKA_ADVERTISED_LISTENERS, value: 'PLAINTEXT://kafka:9092'}
+            - {name: KAFKA_CONTROLLER_LISTENER_NAMES, value: CONTROLLER}
+            - {name: KAFKA_LISTENER_SECURITY_PROTOCOL_MAP, value: 'CONTROLLER:PLAINTEXT,PLAINTEXT:PLAINTEXT'}
+            - {name: KAFKA_CONTROLLER_QUORUM_VOTERS, value: '1@localhost:9093'}
+            - {name: KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR, value: '1'}
+            - {name: KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR, value: '1'}
+            - {name: KAFKA_TRANSACTION_STATE_LOG_MIN_ISR, value: '1'}
+          resources:
+            requests: {cpu: 250m, memory: 512Mi}
+            limits: {cpu: '2', memory: 1Gi}
+---
+# Source: car-rental/templates/tracing.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: otel-collector
+spec:
+  replicas: 1
+  selector:
+    matchLabels: {app: otel-collector}
+  template:
+    metadata:
+      labels: {app: otel-collector}
+    spec:
+      securityContext:
+        fsGroup: 10001
+      containers:
+        - name: otel-collector
+          image: otel/opentelemetry-collector-contrib:0.135.0
+          args: ["--config=/etc/config/config.yaml"]
+          ports:
+            - {containerPort: 4318}
+          resources:
+            requests: {cpu: 100m, memory: 128Mi}
+            limits: {cpu: '1', memory: 512Mi}
+          volumeMounts:
+            - {name: config, mountPath: /etc/config/config.yaml, subPath: config.yaml}
+            - {name: data, mountPath: /tmp/data}
+      volumes:
+        - name: config
+          configMap: {name: otel-collector-config}
+        - name: data
+          emptyDir: {}
+---
+# Source: car-rental/templates/tracing.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tempo
+spec:
+  replicas: 1
+  selector:
+    matchLabels: {app: tempo}
+  template:
+    metadata:
+      labels: {app: tempo}
+    spec:
+      securityContext:
+        fsGroup: 10001
+      containers:
+        - name: tempo
+          image: grafana/tempo:2.8.2
+          args: ["-config.file=/etc/config/config.yaml"]
+          ports:
+            - {containerPort: 3200}
+          resources:
+            requests: {cpu: 100m, memory: 128Mi}
+            limits: {cpu: '1', memory: 512Mi}
+          volumeMounts:
+            - {name: config, mountPath: /etc/config/config.yaml, subPath: config.yaml}
+            - {name: data, mountPath: /var/tempo}
+      volumes:
+        - name: config
+          configMap: {name: tempo-config}
+        - name: data
+          emptyDir: {}
+---
+# Source: car-rental/templates/tracing.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: loki
+spec:
+  replicas: 1
+  selector:
+    matchLabels: {app: loki}
+  template:
+    metadata:
+      labels: {app: loki}
+    spec:
+      securityContext:
+        fsGroup: 10001
+      containers:
+        - name: loki
+          image: grafana/loki:3.5.5
+          args: ["-config.file=/etc/config/config.yaml"]
+          ports:
+            - {containerPort: 3100}
+          resources:
+            requests: {cpu: 100m, memory: 128Mi}
+            limits: {cpu: '1', memory: 512Mi}
+          volumeMounts:
+            - {name: config, mountPath: /etc/config/config.yaml, subPath: config.yaml}
+            - {name: data, mountPath: /var/loki}
+      volumes:
+        - name: config
+          configMap: {name: loki-config}
+        - name: data
+          emptyDir: {}
+---
+# Source: car-rental/templates/tracing.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: grafana
+spec:
+  replicas: 1
+  selector:
+    matchLabels: {app: grafana}
+  template:
+    metadata:
+      labels: {app: grafana}
+    spec:
+      securityContext:
+        fsGroup: 10001
+      containers:
+        - name: grafana
+          image: grafana/grafana:12.1.1
+          args: []
+          ports:
+            - {containerPort: 3000}
+          resources:
+            requests: {cpu: 100m, memory: 128Mi}
+            limits: {cpu: '1', memory: 512Mi}
+          volumeMounts:
+            - {name: config, mountPath: /etc/grafana/provisioning/datasources/datasources.yaml, subPath: config.yaml}
+            - {name: data, mountPath: /var/lib/grafana}
+      volumes:
+        - name: config
+          configMap: {name: grafana-config}
+        - name: data
+          emptyDir: {}

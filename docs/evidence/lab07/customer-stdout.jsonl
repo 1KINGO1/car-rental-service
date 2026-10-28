@@ -1,0 +1,123 @@
+Picked up JAVA_TOOL_OPTIONS: -javaagent:/app/opentelemetry-javaagent.jar
+OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+[otel.javaagent 2026-10-24 10:20:11:242 +0000] [main] INFO io.opentelemetry.javaagent.tooling.VersionLogger - opentelemetry-javaagent - version: 2.21.0
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by net.bytebuddy.dynamic.loading.ClassInjector$UsingUnsafe$Dispatcher$CreationAction (file:/app/opentelemetry-javaagent.jar)
+WARNING: Please consider reporting this to the maintainers of class net.bytebuddy.dynamic.loading.ClassInjector$UsingUnsafe$Dispatcher$CreationAction
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+{"@timestamp":"2026-10-24T10:20:19.394258177Z","@version":"1","message":"Starting CustomerApplication v1.0.0 using Java 25.0.4.1 with PID 1 (/app/app.jar started by ? in /app)","logger_name":"ua.carrental.customer.CustomerApplication","thread_name":"main","level":"INFO","level_value":20000,"tags":["COMMONS-LOGGING"]}
+{"@timestamp":"2026-10-24T10:20:19.419277372Z","@version":"1","message":"The following 1 profile is active: \"default\"","logger_name":"ua.carrental.customer.CustomerApplication","thread_name":"main","level":"INFO","level_value":20000,"tags":["COMMONS-LOGGING"]}
+{"@timestamp":"2026-10-24T10:20:23.605865814Z","@version":"1","message":"Tomcat initialized with port 8080 (http)","logger_name":"org.springframework.boot.tomcat.TomcatWebServer","thread_name":"main","level":"INFO","level_value":20000,"tags":["COMMONS-LOGGING"]}
+{"@timestamp":"2026-10-24T10:20:23.701451004Z","@version":"1","message":"Starting service [Tomcat]","logger_name":"org.apache.catalina.core.StandardService","thread_name":"main","level":"INFO","level_value":20000}
+{"@timestamp":"2026-10-24T10:20:23.702031892Z","@version":"1","message":"Starting Servlet engine: [Apache Tomcat/11.0.24]","logger_name":"org.apache.catalina.core.StandardEngine","thread_name":"main","level":"INFO","level_value":20000}
+{"@timestamp":"2026-10-24T10:20:23.81962695Z","@version":"1","message":"Root WebApplicationContext: initialization completed in 4303 ms","logger_name":"org.springframework.boot.web.context.servlet.WebApplicationContextInitializer","thread_name":"main","level":"INFO","level_value":20000,"tags":["COMMONS-LOGGING"]}
+{"@timestamp":"2026-10-24T10:20:25.520498994Z","@version":"1","message":"HikariPool-1 - Starting...","logger_name":"com.zaxxer.hikari.HikariDataSource","thread_name":"main","level":"INFO","level_value":20000}
+{"@timestamp":"2026-10-24T10:20:26.487440514Z","@version":"1","message":"HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@57ab5033","logger_name":"com.zaxxer.hikari.pool.HikariPool","thread_name":"main","level":"INFO","level_value":20000}
+{"@timestamp":"2026-10-24T10:20:26.507544299Z","@version":"1","message":"HikariPool-1 - Start completed.","logger_name":"com.zaxxer.hikari.HikariDataSource","thread_name":"main","level":"INFO","level_value":20000}
+[otel.javaagent 2026-10-24 10:20:29:109 +0000] [OkHttp http://otel-collector:4318/...] ERROR io.opentelemetry.exporter.internal.http.HttpExporter - Failed to export logs. The request could not be executed. Full error message: Failed to connect to otel-collector/10.102.95.108:4318
+java.net.ConnectException: Failed to connect to otel-collector/10.102.95.108:4318
+	at okhttp3.internal.connection.ConnectPlan.connectSocket(ConnectPlan.kt:275)
+	at okhttp3.internal.connection.ConnectPlan.connectTcp(ConnectPlan.kt:134)
+	at okhttp3.internal.connection.FastFallbackExchangeFinder$launchTcpConnect$1.runOnce(FastFallbackExchangeFinder.kt:141)
+	at okhttp3.internal.concurrent.TaskRunner$runnable$1.run(TaskRunner.kt:81)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.base/java.lang.Thread.run(Unknown Source)
+Caused by: java.net.ConnectException: Connection refused (connect failed)
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Unknown Source)
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(Unknown Source)
+	at java.base/sun.nio.ch.NioSocketImpl.connect(Unknown Source)
+	at java.base/java.net.SocksSocketImpl.connect(Unknown Source)
+	at java.base/java.net.Socket.connect(Unknown Source)
+	at okhttp3.internal.platform.Platform.connectSocket(Platform.kt:148)
+	at okhttp3.internal.connection.ConnectPlan.connectSocket(ConnectPlan.kt:273)
+	... 6 more
+{"@timestamp":"2026-10-24T10:20:29.640423417Z","@version":"1","message":"Exposing 3 endpoints beneath base path '/actuator'","logger_name":"org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver","thread_name":"main","level":"INFO","level_value":20000,"tags":["COMMONS-LOGGING"]}
+{"@timestamp":"2026-10-24T10:20:30.088064497Z","@version":"1","message":"Tomcat started on port 8080 (http) with context path '/'","logger_name":"org.springframework.boot.tomcat.TomcatWebServer","thread_name":"main","level":"INFO","level_value":20000,"tags":["COMMONS-LOGGING"]}
+{"@timestamp":"2026-10-24T10:20:30.107528072Z","@version":"1","message":"Started CustomerApplication in 11.92 seconds (process running for 19.316)","logger_name":"ua.carrental.customer.CustomerApplication","thread_name":"main","level":"INFO","level_value":20000,"tags":["COMMONS-LOGGING"]}
+{"@timestamp":"2026-10-24T10:20:32.092129621Z","@version":"1","message":"Initializing Spring DispatcherServlet 'dispatcherServlet'","logger_name":"org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]","thread_name":"http-nio-8080-exec-1","level":"INFO","level_value":20000,"traceId":"746226f8881ff815da76cdcf3524455b","trace_flags":"01","spanId":"737aba034a8cd689"}
+{"@timestamp":"2026-10-24T10:20:32.092862632Z","@version":"1","message":"Initializing Servlet 'dispatcherServlet'","logger_name":"org.springframework.web.servlet.DispatcherServlet","thread_name":"http-nio-8080-exec-1","level":"INFO","level_value":20000,"traceId":"746226f8881ff815da76cdcf3524455b","trace_flags":"01","spanId":"737aba034a8cd689","tags":["COMMONS-LOGGING"]}
+{"@timestamp":"2026-10-24T10:20:32.101652722Z","@version":"1","message":"Completed initialization in 1 ms","logger_name":"org.springframework.web.servlet.DispatcherServlet","thread_name":"http-nio-8080-exec-1","level":"INFO","level_value":20000,"traceId":"746226f8881ff815da76cdcf3524455b","trace_flags":"01","spanId":"737aba034a8cd689","tags":["COMMONS-LOGGING"]}
+[otel.javaagent 2026-10-24 10:20:36:322 +0000] [OkHttp http://otel-collector:4318/...] ERROR io.opentelemetry.exporter.internal.http.HttpExporter - Failed to export spans. The request could not be executed. Full error message: Failed to connect to otel-collector/10.102.95.108:4318
+java.net.ConnectException: Failed to connect to otel-collector/10.102.95.108:4318
+	at okhttp3.internal.connection.ConnectPlan.connectSocket(ConnectPlan.kt:275)
+	at okhttp3.internal.connection.ConnectPlan.connectTcp(ConnectPlan.kt:134)
+	at okhttp3.internal.connection.FastFallbackExchangeFinder$launchTcpConnect$1.runOnce(FastFallbackExchangeFinder.kt:141)
+	at okhttp3.internal.concurrent.TaskRunner$runnable$1.run(TaskRunner.kt:81)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.base/java.lang.Thread.run(Unknown Source)
+Caused by: java.net.ConnectException: Connection refused (connect failed)
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Unknown Source)
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(Unknown Source)
+	at java.base/sun.nio.ch.NioSocketImpl.connect(Unknown Source)
+	at java.base/java.net.SocksSocketImpl.connect(Unknown Source)
+	at java.base/java.net.Socket.connect(Unknown Source)
+	at okhttp3.internal.platform.Platform.connectSocket(Platform.kt:148)
+	at okhttp3.internal.connection.ConnectPlan.connectSocket(ConnectPlan.kt:273)
+	... 6 more
+[otel.javaagent 2026-10-24 10:20:38:098 +0000] [OkHttp http://otel-collector:4318/...] ERROR io.opentelemetry.exporter.internal.http.HttpExporter - Failed to export logs. The request could not be executed. Full error message: Failed to connect to otel-collector/10.102.95.108:4318
+java.net.ConnectException: Failed to connect to otel-collector/10.102.95.108:4318
+	at okhttp3.internal.connection.ConnectPlan.connectSocket(ConnectPlan.kt:275)
+	at okhttp3.internal.connection.ConnectPlan.connectTcp(ConnectPlan.kt:134)
+	at okhttp3.internal.connection.FastFallbackExchangeFinder$launchTcpConnect$1.runOnce(FastFallbackExchangeFinder.kt:141)
+	at okhttp3.internal.concurrent.TaskRunner$runnable$1.run(TaskRunner.kt:81)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.base/java.lang.Thread.run(Unknown Source)
+Caused by: java.net.ConnectException: Connection refused (connect failed)
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Unknown Source)
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(Unknown Source)
+	at java.base/sun.nio.ch.NioSocketImpl.connect(Unknown Source)
+	at java.base/java.net.SocksSocketImpl.connect(Unknown Source)
+	at java.base/java.net.Socket.connect(Unknown Source)
+	at okhttp3.internal.platform.Platform.connectSocket(Platform.kt:148)
+	at okhttp3.internal.connection.ConnectPlan.connectSocket(ConnectPlan.kt:273)
+	... 6 more
+[otel.javaagent 2026-10-24 10:20:46:543 +0000] [OkHttp http://otel-collector:4318/...] ERROR io.opentelemetry.exporter.internal.http.HttpExporter - Failed to export logs. The request could not be executed. Full error message: Failed to connect to otel-collector/10.102.95.108:4318
+java.net.ConnectException: Failed to connect to otel-collector/10.102.95.108:4318
+	at okhttp3.internal.connection.ConnectPlan.connectSocket(ConnectPlan.kt:275)
+	at okhttp3.internal.connection.ConnectPlan.connectTcp(ConnectPlan.kt:134)
+	at okhttp3.internal.connection.FastFallbackExchangeFinder$launchTcpConnect$1.runOnce(FastFallbackExchangeFinder.kt:141)
+	at okhttp3.internal.concurrent.TaskRunner$runnable$1.run(TaskRunner.kt:81)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.base/java.lang.Thread.run(Unknown Source)
+Caused by: java.net.ConnectException: Connection refused (connect failed)
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Unknown Source)
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(Unknown Source)
+	at java.base/sun.nio.ch.NioSocketImpl.connect(Unknown Source)
+	at java.base/java.net.SocksSocketImpl.connect(Unknown Source)
+	at java.base/java.net.Socket.connect(Unknown Source)
+	at okhttp3.internal.platform.Platform.connectSocket(Platform.kt:148)
+	at okhttp3.internal.connection.ConnectPlan.connectSocket(ConnectPlan.kt:273)
+	... 6 more
+[otel.javaagent 2026-10-24 10:20:48:233 +0000] [OkHttp http://otel-collector:4318/...] ERROR io.opentelemetry.exporter.internal.http.HttpExporter - Failed to export spans. The request could not be executed. Full error message: Failed to connect to otel-collector/10.102.95.108:4318
+java.net.ConnectException: Failed to connect to otel-collector/10.102.95.108:4318
+	at okhttp3.internal.connection.ConnectPlan.connectSocket(ConnectPlan.kt:275)
+	at okhttp3.internal.connection.ConnectPlan.connectTcp(ConnectPlan.kt:134)
+	at okhttp3.internal.connection.FastFallbackExchangeFinder$launchTcpConnect$1.runOnce(FastFallbackExchangeFinder.kt:141)
+	at okhttp3.internal.concurrent.TaskRunner$runnable$1.run(TaskRunner.kt:81)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.base/java.lang.Thread.run(Unknown Source)
+Caused by: java.net.ConnectException: Connection refused (connect failed)
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Unknown Source)
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(Unknown Source)
+	at java.base/sun.nio.ch.NioSocketImpl.connect(Unknown Source)
+	at java.base/java.net.SocksSocketImpl.connect(Unknown Source)
+	at java.base/java.net.Socket.connect(Unknown Source)
+	at okhttp3.internal.platform.Platform.connectSocket(Platform.kt:148)
+	at okhttp3.internal.connection.ConnectPlan.connectSocket(ConnectPlan.kt:273)
+	... 6 more
+{"@timestamp":"2026-10-24T10:22:21.141586732Z","@version":"1","message":"HTTP POST /api/customers status=201","logger_name":"ua.carrental.observability.ApiMetricsFilter","thread_name":"http-nio-8080-exec-8","level":"INFO","level_value":20000,"traceId":"f1bbe812324c3825f9aaedb270ff15a9","trace_flags":"01","spanId":"4f4abc7a087dd444"}
+{"@timestamp":"2026-10-24T10:22:21.7543508Z","@version":"1","message":"HTTP GET /api/customers/4aead73b-dc9d-4d40-a034-a6cd070e2677/eligibility status=200","logger_name":"ua.carrental.observability.ApiMetricsFilter","thread_name":"http-nio-8080-exec-9","level":"INFO","level_value":20000,"traceId":"45f432cf5cd04ed9b6d073df035423eb","trace_flags":"01","spanId":"473bcbf418e76931"}
+{"@timestamp":"2026-10-24T10:22:49.802037289Z","@version":"1","message":"HTTP GET /api/customers/4aead73b-dc9d-4d40-a034-a6cd070e2677/eligibility status=200","logger_name":"ua.carrental.observability.ApiMetricsFilter","thread_name":"http-nio-8080-exec-5","level":"INFO","level_value":20000,"traceId":"6c85ab66b16447609bd01c0b6985ff17","trace_flags":"01","spanId":"f75d58dbec0c0db5"}
+{"@timestamp":"2026-10-24T10:24:22.225916787Z","@version":"1","message":"HTTP POST /api/customers status=201","logger_name":"ua.carrental.observability.ApiMetricsFilter","thread_name":"http-nio-8080-exec-3","level":"INFO","level_value":20000,"traceId":"16bdc0e3bec6594909d24dd508fc2922","trace_flags":"01","spanId":"e8d6e032668f2ca4"}
+{"@timestamp":"2026-10-24T10:24:22.481367777Z","@version":"1","message":"HTTP GET /api/customers/56f61ce4-b495-4db5-a78f-0c1aa6feeb89/eligibility status=200","logger_name":"ua.carrental.observability.ApiMetricsFilter","thread_name":"http-nio-8080-exec-4","level":"INFO","level_value":20000,"traceId":"fbb68428807a48009bba03aceb43f1cb","trace_flags":"01","spanId":"0ae7ba7c53a1ce54"}
+{"@timestamp":"2026-10-24T10:25:50.849340288Z","@version":"1","message":"HTTP GET /api/customers/56f61ce4-b495-4db5-a78f-0c1aa6feeb89/eligibility status=200","logger_name":"ua.carrental.observability.ApiMetricsFilter","thread_name":"http-nio-8080-exec-10","level":"INFO","level_value":20000,"traceId":"38fdfa68346b46d9aac245ad0209ddd6","trace_flags":"01","spanId":"a96ddcee34fead91"}

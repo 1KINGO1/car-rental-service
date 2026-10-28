@@ -1,0 +1,254 @@
+{
+  "traceId": "38fdfa68346b46d9aac245ad0209ddd6",
+  "spans": 11,
+  "errors": [
+    {
+      "name": "POST /api/bookings",
+      "status": {
+        "code": "STATUS_CODE_ERROR"
+      },
+      "attributes": [
+        {
+          "key": "http.route",
+          "value": {
+            "stringValue": "/api/bookings"
+          }
+        },
+        {
+          "key": "http.request.method",
+          "value": {
+            "stringValue": "POST"
+          }
+        },
+        {
+          "key": "url.path",
+          "value": {
+            "stringValue": "/api/bookings"
+          }
+        },
+        {
+          "key": "error.type",
+          "value": {
+            "stringValue": "503"
+          }
+        },
+        {
+          "key": "server.address",
+          "value": {
+            "stringValue": "127.0.0.1"
+          }
+        },
+        {
+          "key": "client.address",
+          "value": {
+            "stringValue": "127.0.0.1"
+          }
+        },
+        {
+          "key": "network.peer.address",
+          "value": {
+            "stringValue": "127.0.0.1"
+          }
+        },
+        {
+          "key": "network.peer.port",
+          "value": {
+            "intValue": "44556"
+          }
+        },
+        {
+          "key": "network.protocol.version",
+          "value": {
+            "stringValue": "1.1"
+          }
+        },
+        {
+          "key": "user_agent.original",
+          "value": {
+            "stringValue": "Python-urllib/3.13"
+          }
+        },
+        {
+          "key": "thread.id",
+          "value": {
+            "intValue": "36"
+          }
+        },
+        {
+          "key": "url.scheme",
+          "value": {
+            "stringValue": "http"
+          }
+        },
+        {
+          "key": "thread.name",
+          "value": {
+            "stringValue": "http-nio-8080-exec-3"
+          }
+        },
+        {
+          "key": "http.response.status_code",
+          "value": {
+            "intValue": "503"
+          }
+        },
+        {
+          "key": "server.port",
+          "value": {
+            "intValue": "18093"
+          }
+        }
+      ]
+    },
+    {
+      "name": "GET",
+      "status": {
+        "code": "STATUS_CODE_ERROR"
+      },
+      "attributes": [
+        {
+          "key": "http.request.method",
+          "value": {
+            "stringValue": "GET"
+          }
+        },
+        {
+          "key": "error.type",
+          "value": {
+            "stringValue": "java.net.ConnectException"
+          }
+        },
+        {
+          "key": "server.address",
+          "value": {
+            "stringValue": "fleet-service"
+          }
+        },
+        {
+          "key": "thread.id",
+          "value": {
+            "intValue": "36"
+          }
+        },
+        {
+          "key": "thread.name",
+          "value": {
+            "stringValue": "http-nio-8080-exec-3"
+          }
+        },
+        {
+          "key": "url.full",
+          "value": {
+            "stringValue": "http://fleet-service:8080/api/vehicles/a34c3888-42fa-4950-b7fa-e0970bf39f61"
+          }
+        },
+        {
+          "key": "server.port",
+          "value": {
+            "intValue": "8080"
+          }
+        }
+      ]
+    },
+    {
+      "name": "GET",
+      "status": {
+        "code": "STATUS_CODE_ERROR"
+      },
+      "attributes": [
+        {
+          "key": "http.request.method",
+          "value": {
+            "stringValue": "GET"
+          }
+        },
+        {
+          "key": "error.type",
+          "value": {
+            "stringValue": "java.net.ConnectException"
+          }
+        },
+        {
+          "key": "server.address",
+          "value": {
+            "stringValue": "fleet-service"
+          }
+        },
+        {
+          "key": "thread.id",
+          "value": {
+            "intValue": "36"
+          }
+        },
+        {
+          "key": "thread.name",
+          "value": {
+            "stringValue": "http-nio-8080-exec-3"
+          }
+        },
+        {
+          "key": "url.full",
+          "value": {
+            "stringValue": "http://fleet-service:8080/api/vehicles/a34c3888-42fa-4950-b7fa-e0970bf39f61"
+          }
+        },
+        {
+          "key": "server.port",
+          "value": {
+            "intValue": "8080"
+          }
+        }
+      ]
+    },
+    {
+      "name": "GET",
+      "status": {
+        "code": "STATUS_CODE_ERROR"
+      },
+      "attributes": [
+        {
+          "key": "http.request.method",
+          "value": {
+            "stringValue": "GET"
+          }
+        },
+        {
+          "key": "error.type",
+          "value": {
+            "stringValue": "java.net.ConnectException"
+          }
+        },
+        {
+          "key": "server.address",
+          "value": {
+            "stringValue": "fleet-service"
+          }
+        },
+        {
+          "key": "thread.id",
+          "value": {
+            "intValue": "36"
+          }
+        },
+        {
+          "key": "thread.name",
+          "value": {
+            "stringValue": "http-nio-8080-exec-3"
+          }
+        },
+        {
+          "key": "url.full",
+          "value": {
+            "stringValue": "http://fleet-service:8080/api/vehicles/a34c3888-42fa-4950-b7fa-e0970bf39f61"
+          }
+        },
+        {
+          "key": "server.port",
+          "value": {
+            "intValue": "8080"
+          }
+        }
+      ]
+    }
+  ]
+}

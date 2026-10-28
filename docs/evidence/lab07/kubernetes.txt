@@ -1,0 +1,14 @@
+NAME                                READY   STATUS    RESTARTS   AGE     IP          NODE             NOMINATED NODE   READINESS GATES
+booking-db-77887d5864-h2m9r         1/1     Running   0          6m23s   10.1.0.59   docker-desktop   <none>           <none>
+booking-service-759686b899-pxqqm    1/1     Running   0          4m57s   10.1.0.74   docker-desktop   <none>           <none>
+customer-db-5b44499d6d-stf8j        1/1     Running   0          6m23s   10.1.0.63   docker-desktop   <none>           <none>
+customer-service-6db846c8b7-26bqq   1/1     Running   0          6m23s   10.1.0.64   docker-desktop   <none>           <none>
+fleet-db-5db56466fb-v74tt           1/1     Running   0          6m23s   10.1.0.61   docker-desktop   <none>           <none>
+fleet-service-5589dfc4d7-c9b82      1/1     Running   0          41s     10.1.0.79   docker-desktop   <none>           <none>
+grafana-565b5677d8-rt59h            1/1     Running   0          47s     10.1.0.78   docker-desktop   <none>           <none>
+kafka-79cb8d7f57-k8drv              1/1     Running   0          4m57s   10.1.0.73   docker-desktop   <none>           <none>
+loki-75f675cb4d-7ktb2               1/1     Running   0          5m39s   10.1.0.72   docker-desktop   <none>           <none>
+otel-collector-588748f959-kl8s8     1/1     Running   0          2m45s   10.1.0.77   docker-desktop   <none>           <none>
+payment-db-574478f4d-tql7f          1/1     Running   0          6m23s   10.1.0.65   docker-desktop   <none>           <none>
+payment-service-7645d87865-5z8dk    1/1     Running   0          4m57s   10.1.0.75   docker-desktop   <none>           <none>
+tempo-57b5dbc84b-5vdwp              1/1     Running   0          5m39s   10.1.0.70   docker-desktop   <none>           <none>

@@ -1,0 +1,12 @@
+{
+  "traceId": "dffa5f08ae2b46c6ba34ad5731c66709",
+  "services": [
+    "booking-service",
+    "customer-service",
+    "fleet-service",
+    "payment-service"
+  ],
+  "spans": 20,
+  "roots": 1,
+  "rootName": "POST /api/bookings"
+}

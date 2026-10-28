@@ -1,0 +1,17 @@
+{
+  "mavenTests": 48,
+  "failures": 0,
+  "httpKafkaTrace": "PASS",
+  "jsonLogsAllServices": "PASS",
+  "incidentErrorTrace": "PASS",
+  "recoveryScenario": "PASS",
+  "grafanaClickThrough": "PASS",
+  "screenshots": "PASS",
+  "incidentReproduction": "manual_kubectl_scale_fleet",
+  "screenshotsPaths": [
+    "docs/evidence/success-trace.png",
+    "docs/evidence/logs-for-span-1.png",
+    "docs/evidence/logs-for-span-2.png",
+    "docs/evidence/incident-trace.jpg"
+  ]
+}

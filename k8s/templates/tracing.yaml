@@ -79,8 +79,8 @@ spec:
           ports:
             - {containerPort: 3200}
           resources:
-            requests: {cpu: 100m, memory: 128Mi}
-            limits: {cpu: '1', memory: 512Mi}
+            requests: {cpu: 100m, memory: 256Mi}
+            limits: {cpu: '1', memory: 1Gi}
           volumeMounts:
             - {name: config, mountPath: /etc/config/config.yaml, subPath: config.yaml}
             - {name: data, mountPath: /var/tempo}

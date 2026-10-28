@@ -1,0 +1,197 @@
+{
+  "status": "success",
+  "data": {
+    "resultType": "streams",
+    "result": [
+      {
+        "stream": {
+          "container_id": "c802ffe980245c4c5686e8e58983f9826d1acf06eef517f54841f3bb7756558a",
+          "detected_level": "INFO",
+          "flags": "1",
+          "host_arch": "amd64",
+          "host_name": "payment-service-7645d87865-5z8dk",
+          "observed_timestamp": "1792837717828865791",
+          "os_description": "Linux 6.18.33.2-microsoft-standard-WSL2",
+          "os_type": "linux",
+          "process_command_args": "[\"/opt/java/openjdk/bin/java\",\"-XX:MaxRAMPercentage=75.0\",\"-jar\",\"app.jar\"]",
+          "process_executable_path": "/opt/java/openjdk/bin/java",
+          "process_pid": "1",
+          "process_runtime_description": "Eclipse Adoptium OpenJDK 64-Bit Server VM 25.0.4.1+1-LTS",
+          "process_runtime_name": "OpenJDK Runtime Environment",
+          "process_runtime_version": "25.0.4.1+1-LTS",
+          "scope_name": "ua.carrental.payment.BookingEventListener",
+          "service_instance_id": "1a46ec05-7974-43a3-b9ff-3edd157f1736",
+          "service_name": "payment-service",
+          "service_version": "1.0.0",
+          "severity_number": "9",
+          "severity_text": "INFO",
+          "span_id": "a726b35012d3a100",
+          "telemetry_distro_name": "opentelemetry-java-instrumentation",
+          "telemetry_distro_version": "2.21.0",
+          "telemetry_sdk_language": "java",
+          "telemetry_sdk_name": "opentelemetry",
+          "telemetry_sdk_version": "1.55.0",
+          "trace_id": "dffa5f08ae2b46c6ba34ad5731c66709"
+        },
+        "values": [
+          [
+            "1792837717828805755",
+            "{\"message\":\"Processing booking event 1c07a504-af17-43f6-9bb3-37020f151763\",\"service\":\"payment-service\",\"spanId\":\"a726b35012d3a100\",\"traceId\":\"dffa5f08ae2b46c6ba34ad5731c66709\"}"
+          ]
+        ]
+      }
+    ],
+    "stats": {
+      "summary": {
+        "bytesProcessedPerSecond": 96735827,
+        "linesProcessedPerSecond": 129380,
+        "totalBytesProcessed": 4054692,
+        "totalLinesProcessed": 5423,
+        "execTime": 0.041915,
+        "queueTime": 0.000269,
+        "subqueries": 0,
+        "totalEntriesReturned": 1,
+        "splits": 0,
+        "shards": 1,
+        "totalPostFilterLines": 1,
+        "totalStructuredMetadataBytesProcessed": 2357744
+      },
+      "querier": {
+        "store": {
+          "totalChunksRef": 0,
+          "totalChunksDownloaded": 0,
+          "chunksDownloadTime": 0,
+          "queryReferencedStructuredMetadata": false,
+          "chunk": {
+            "headChunkBytes": 0,
+            "headChunkLines": 0,
+            "decompressedBytes": 0,
+            "decompressedLines": 0,
+            "compressedBytes": 0,
+            "totalDuplicates": 0,
+            "postFilterLines": 0,
+            "headChunkStructuredMetadataBytes": 0,
+            "decompressedStructuredMetadataBytes": 0
+          },
+          "chunkRefsFetchTime": 0,
+          "congestionControlLatency": 0,
+          "pipelineWrapperFilteredLines": 0
+        }
+      },
+      "ingester": {
+        "totalReached": 1,
+        "totalChunksMatched": 2,
+        "totalBatches": 2,
+        "totalLinesSent": 1,
+        "store": {
+          "totalChunksRef": 0,
+          "totalChunksDownloaded": 0,
+          "chunksDownloadTime": 0,
+          "queryReferencedStructuredMetadata": true,
+          "chunk": {
+            "headChunkBytes": 196828,
+            "headChunkLines": 367,
+            "decompressedBytes": 3857864,
+            "decompressedLines": 5056,
+            "compressedBytes": 57152,
+            "totalDuplicates": 0,
+            "postFilterLines": 1,
+            "headChunkStructuredMetadataBytes": 64904,
+            "decompressedStructuredMetadataBytes": 2292840
+          },
+          "chunkRefsFetchTime": 290693,
+          "congestionControlLatency": 0,
+          "pipelineWrapperFilteredLines": 0
+        }
+      },
+      "cache": {
+        "chunk": {
+          "entriesFound": 0,
+          "entriesRequested": 0,
+          "entriesStored": 0,
+          "bytesReceived": 0,
+          "bytesSent": 0,
+          "requests": 0,
+          "downloadTime": 0,
+          "queryLengthServed": 0
+        },
+        "index": {
+          "entriesFound": 0,
+          "entriesRequested": 0,
+          "entriesStored": 0,
+          "bytesReceived": 0,
+          "bytesSent": 0,
+          "requests": 0,
+          "downloadTime": 0,
+          "queryLengthServed": 0
+        },
+        "result": {
+          "entriesFound": 0,
+          "entriesRequested": 0,
+          "entriesStored": 0,
+          "bytesReceived": 0,
+          "bytesSent": 0,
+          "requests": 0,
+          "downloadTime": 0,
+          "queryLengthServed": 0
+        },
+        "statsResult": {
+          "entriesFound": 0,
+          "entriesRequested": 0,
+          "entriesStored": 0,
+          "bytesReceived": 0,
+          "bytesSent": 0,
+          "requests": 0,
+          "downloadTime": 0,
+          "queryLengthServed": 0
+        },
+        "volumeResult": {
+          "entriesFound": 0,
+          "entriesRequested": 0,
+          "entriesStored": 0,
+          "bytesReceived": 0,
+          "bytesSent": 0,
+          "requests": 0,
+          "downloadTime": 0,
+          "queryLengthServed": 0
+        },
+        "seriesResult": {
+          "entriesFound": 0,
+          "entriesRequested": 0,
+          "entriesStored": 0,
+          "bytesReceived": 0,
+          "bytesSent": 0,
+          "requests": 0,
+          "downloadTime": 0,
+          "queryLengthServed": 0
+        },
+        "labelResult": {
+          "entriesFound": 0,
+          "entriesRequested": 0,
+          "entriesStored": 0,
+          "bytesReceived": 0,
+          "bytesSent": 0,
+          "requests": 0,
+          "downloadTime": 0,
+          "queryLengthServed": 0
+        },
+        "instantMetricResult": {
+          "entriesFound": 0,
+          "entriesRequested": 0,
+          "entriesStored": 0,
+          "bytesReceived": 0,
+          "bytesSent": 0,
+          "requests": 0,
+          "downloadTime": 0,
+          "queryLengthServed": 0
+        }
+      },
+      "index": {
+        "totalChunks": 0,
+        "postFilterChunks": 0,
+        "shardsDuration": 0,
+        "usedBloomFilters": false
+      }
+    }
+  }
+}

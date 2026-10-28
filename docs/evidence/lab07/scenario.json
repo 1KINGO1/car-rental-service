@@ -1,0 +1,17 @@
+{
+  "traceId": "dffa5f08ae2b46c6ba34ad5731c66709",
+  "booking": {
+    "id": "2820b248-6a31-4fb2-9c13-e3d25253f430",
+    "customerId": "14c08b98-33e5-44bd-96d4-ba279e035d02",
+    "vehicleId": "11ddc822-0064-4031-b156-6e11829987d6",
+    "vehicleBrand": "Lab",
+    "vehicleModel": "Tracing",
+    "vehiclePlate": "LAB0a9f8b5b",
+    "dailyRate": 1000.0,
+    "startDate": "2026-10-25",
+    "endDate": "2026-10-27",
+    "total": 2000.0,
+    "customerVerified": true,
+    "status": "REQUESTED"
+  }
+}

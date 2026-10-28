@@ -1,0 +1,2971 @@
+{
+  "batches": [
+    {
+      "resource": {
+        "attributes": [
+          {
+            "key": "container.id",
+            "value": {
+              "stringValue": "c802ffe980245c4c5686e8e58983f9826d1acf06eef517f54841f3bb7756558a"
+            }
+          },
+          {
+            "key": "host.arch",
+            "value": {
+              "stringValue": "amd64"
+            }
+          },
+          {
+            "key": "host.name",
+            "value": {
+              "stringValue": "payment-service-7645d87865-5z8dk"
+            }
+          },
+          {
+            "key": "os.description",
+            "value": {
+              "stringValue": "Linux 6.18.33.2-microsoft-standard-WSL2"
+            }
+          },
+          {
+            "key": "os.type",
+            "value": {
+              "stringValue": "linux"
+            }
+          },
+          {
+            "key": "process.command_args",
+            "value": {
+              "arrayValue": {
+                "values": [
+                  {
+                    "stringValue": "/opt/java/openjdk/bin/java"
+                  },
+                  {
+                    "stringValue": "-XX:MaxRAMPercentage=75.0"
+                  },
+                  {
+                    "stringValue": "-jar"
+                  },
+                  {
+                    "stringValue": "app.jar"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "key": "process.executable.path",
+            "value": {
+              "stringValue": "/opt/java/openjdk/bin/java"
+            }
+          },
+          {
+            "key": "process.pid",
+            "value": {
+              "intValue": "1"
+            }
+          },
+          {
+            "key": "process.runtime.description",
+            "value": {
+              "stringValue": "Eclipse Adoptium OpenJDK 64-Bit Server VM 25.0.4.1+1-LTS"
+            }
+          },
+          {
+            "key": "process.runtime.name",
+            "value": {
+              "stringValue": "OpenJDK Runtime Environment"
+            }
+          },
+          {
+            "key": "process.runtime.version",
+            "value": {
+              "stringValue": "25.0.4.1+1-LTS"
+            }
+          },
+          {
+            "key": "service.instance.id",
+            "value": {
+              "stringValue": "1a46ec05-7974-43a3-b9ff-3edd157f1736"
+            }
+          },
+          {
+            "key": "service.name",
+            "value": {
+              "stringValue": "payment-service"
+            }
+          },
+          {
+            "key": "service.version",
+            "value": {
+              "stringValue": "1.0.0"
+            }
+          },
+          {
+            "key": "telemetry.distro.name",
+            "value": {
+              "stringValue": "opentelemetry-java-instrumentation"
+            }
+          },
+          {
+            "key": "telemetry.distro.version",
+            "value": {
+              "stringValue": "2.21.0"
+            }
+          },
+          {
+            "key": "telemetry.sdk.language",
+            "value": {
+              "stringValue": "java"
+            }
+          },
+          {
+            "key": "telemetry.sdk.name",
+            "value": {
+              "stringValue": "opentelemetry"
+            }
+          },
+          {
+            "key": "telemetry.sdk.version",
+            "value": {
+              "stringValue": "1.55.0"
+            }
+          }
+        ]
+      },
+      "scopeSpans": [
+        {
+          "scope": {
+            "name": "car-rental"
+          },
+          "spans": [
+            {
+              "traceId": "3/pfCK4rRsa6NK1XMcZnCQ==",
+              "spanId": "pyazUBLToQA=",
+              "parentSpanId": "Zs+pjDxMBUk=",
+              "flags": 769,
+              "name": "payment.process BookingCreated",
+              "kind": "SPAN_KIND_CONSUMER",
+              "startTimeUnixNano": "1792837717828186495",
+              "endTimeUnixNano": "1792837717832766393",
+              "attributes": [
+                {
+                  "key": "thread.id",
+                  "value": {
+                    "intValue": "62"
+                  }
+                },
+                {
+                  "key": "thread.name",
+                  "value": {
+                    "stringValue": "org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1"
+                  }
+                }
+              ],
+              "status": {}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "resource": {
+        "attributes": [
+          {
+            "key": "container.id",
+            "value": {
+              "stringValue": "c802ffe980245c4c5686e8e58983f9826d1acf06eef517f54841f3bb7756558a"
+            }
+          },
+          {
+            "key": "host.arch",
+            "value": {
+              "stringValue": "amd64"
+            }
+          },
+          {
+            "key": "host.name",
+            "value": {
+              "stringValue": "payment-service-7645d87865-5z8dk"
+            }
+          },
+          {
+            "key": "os.description",
+            "value": {
+              "stringValue": "Linux 6.18.33.2-microsoft-standard-WSL2"
+            }
+          },
+          {
+            "key": "os.type",
+            "value": {
+              "stringValue": "linux"
+            }
+          },
+          {
+            "key": "process.command_args",
+            "value": {
+              "arrayValue": {
+                "values": [
+                  {
+                    "stringValue": "/opt/java/openjdk/bin/java"
+                  },
+                  {
+                    "stringValue": "-XX:MaxRAMPercentage=75.0"
+                  },
+                  {
+                    "stringValue": "-jar"
+                  },
+                  {
+                    "stringValue": "app.jar"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "key": "process.executable.path",
+            "value": {
+              "stringValue": "/opt/java/openjdk/bin/java"
+            }
+          },
+          {
+            "key": "process.pid",
+            "value": {
+              "intValue": "1"
+            }
+          },
+          {
+            "key": "process.runtime.description",
+            "value": {
+              "stringValue": "Eclipse Adoptium OpenJDK 64-Bit Server VM 25.0.4.1+1-LTS"
+            }
+          },
+          {
+            "key": "process.runtime.name",
+            "value": {
+              "stringValue": "OpenJDK Runtime Environment"
+            }
+          },
+          {
+            "key": "process.runtime.version",
+            "value": {
+              "stringValue": "25.0.4.1+1-LTS"
+            }
+          },
+          {
+            "key": "service.instance.id",
+            "value": {
+              "stringValue": "1a46ec05-7974-43a3-b9ff-3edd157f1736"
+            }
+          },
+          {
+            "key": "service.name",
+            "value": {
+              "stringValue": "payment-service"
+            }
+          },
+          {
+            "key": "service.version",
+            "value": {
+              "stringValue": "1.0.0"
+            }
+          },
+          {
+            "key": "telemetry.distro.name",
+            "value": {
+              "stringValue": "opentelemetry-java-instrumentation"
+            }
+          },
+          {
+            "key": "telemetry.distro.version",
+            "value": {
+              "stringValue": "2.21.0"
+            }
+          },
+          {
+            "key": "telemetry.sdk.language",
+            "value": {
+              "stringValue": "java"
+            }
+          },
+          {
+            "key": "telemetry.sdk.name",
+            "value": {
+              "stringValue": "opentelemetry"
+            }
+          },
+          {
+            "key": "telemetry.sdk.version",
+            "value": {
+              "stringValue": "1.55.0"
+            }
+          }
+        ]
+      },
+      "scopeSpans": [
+        {
+          "scope": {
+            "name": "io.opentelemetry.jdbc",
+            "version": "2.21.0-alpha"
+          },
+          "spans": [
+            {
+              "traceId": "3/pfCK4rRsa6NK1XMcZnCQ==",
+              "spanId": "usXCw+9AqJE=",
+              "parentSpanId": "pyazUBLToQA=",
+              "flags": 257,
+              "name": "INSERT payments.processed_events",
+              "kind": "SPAN_KIND_CLIENT",
+              "startTimeUnixNano": "1792837717829421196",
+              "endTimeUnixNano": "1792837717829877460",
+              "attributes": [
+                {
+                  "key": "db.system",
+                  "value": {
+                    "stringValue": "postgresql"
+                  }
+                },
+                {
+                  "key": "db.statement",
+                  "value": {
+                    "stringValue": "INSERT INTO processed_events (event_id, booking_id) VALUES (?, ?) ON CONFLICT DO NOTHING"
+                  }
+                },
+                {
+                  "key": "db.user",
+                  "value": {
+                    "stringValue": "payment"
+                  }
+                },
+                {
+                  "key": "server.address",
+                  "value": {
+                    "stringValue": "payment-db"
+                  }
+                },
+                {
+                  "key": "db.connection_string",
+                  "value": {
+                    "stringValue": "postgresql://payment-db:5432"
+                  }
+                },
+                {
+                  "key": "db.name",
+                  "value": {
+                    "stringValue": "payments"
+                  }
+                },
+                {
+                  "key": "thread.id",
+                  "value": {
+                    "intValue": "62"
+                  }
+                },
+                {
+                  "key": "thread.name",
+                  "value": {
+                    "stringValue": "org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1"
+                  }
+                },
+                {
+                  "key": "db.sql.table",
+                  "value": {
+                    "stringValue": "processed_events"
+                  }
+                },
+                {
+                  "key": "server.port",
+                  "value": {
+                    "intValue": "5432"
+                  }
+                },
+                {
+                  "key": "db.operation",
+                  "value": {
+                    "stringValue": "INSERT"
+                  }
+                }
+              ],
+              "status": {}
+            },
+            {
+              "traceId": "3/pfCK4rRsa6NK1XMcZnCQ==",
+              "spanId": "AeXFk7lMZSA=",
+              "parentSpanId": "pyazUBLToQA=",
+              "flags": 257,
+              "name": "INSERT payments.payments",
+              "kind": "SPAN_KIND_CLIENT",
+              "startTimeUnixNano": "1792837717830088839",
+              "endTimeUnixNano": "1792837717830449337",
+              "attributes": [
+                {
+                  "key": "db.system",
+                  "value": {
+                    "stringValue": "postgresql"
+                  }
+                },
+                {
+                  "key": "db.statement",
+                  "value": {
+                    "stringValue": "INSERT INTO payments (id, booking_id, amount, currency, status) VALUES (?, ?, ?, ?, ?) ON CONFLICT DO NOTHING"
+                  }
+                },
+                {
+                  "key": "db.user",
+                  "value": {
+                    "stringValue": "payment"
+                  }
+                },
+                {
+                  "key": "server.address",
+                  "value": {
+                    "stringValue": "payment-db"
+                  }
+                },
+                {
+                  "key": "db.connection_string",
+                  "value": {
+                    "stringValue": "postgresql://payment-db:5432"
+                  }
+                },
+                {
+                  "key": "db.name",
+                  "value": {
+                    "stringValue": "payments"
+                  }
+                },
+                {
+                  "key": "thread.id",
+                  "value": {
+                    "intValue": "62"
+                  }
+                },
+                {
+                  "key": "thread.name",
+                  "value": {
+                    "stringValue": "org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1"
+                  }
+                },
+                {
+                  "key": "db.sql.table",
+                  "value": {
+                    "stringValue": "payments"
+                  }
+                },
+                {
+                  "key": "server.port",
+                  "value": {
+                    "intValue": "5432"
+                  }
+                },
+                {
+                  "key": "db.operation",
+                  "value": {
+                    "stringValue": "INSERT"
+                  }
+                }
+              ],
+              "status": {}
+            },
+            {
+              "traceId": "3/pfCK4rRsa6NK1XMcZnCQ==",
+              "spanId": "zVgp6ODWokk=",
+              "parentSpanId": "pyazUBLToQA=",
+              "flags": 257,
+              "name": "SELECT payments.payments",
+              "kind": "SPAN_KIND_CLIENT",
+              "startTimeUnixNano": "1792837717830531196",
+              "endTimeUnixNano": "1792837717830860383",
+              "attributes": [
+                {
+                  "key": "db.system",
+                  "value": {
+                    "stringValue": "postgresql"
+                  }
+                },
+                {
+                  "key": "db.statement",
+                  "value": {
+                    "stringValue": "SELECT id FROM payments WHERE booking_id = ?"
+                  }
+                },
+                {
+                  "key": "db.user",
+                  "value": {
+                    "stringValue": "payment"
+                  }
+                },
+                {
+                  "key": "server.address",
+                  "value": {
+                    "stringValue": "payment-db"
+                  }
+                },
+                {
+                  "key": "db.connection_string",
+                  "value": {
+                    "stringValue": "postgresql://payment-db:5432"
+                  }
+                },
+                {
+                  "key": "db.name",
+                  "value": {
+                    "stringValue": "payments"
+                  }
+                },
+                {
+                  "key": "thread.id",
+                  "value": {
+                    "intValue": "62"
+                  }
+                },
+                {
+                  "key": "thread.name",
+                  "value": {
+                    "stringValue": "org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1"
+                  }
+                },
+                {
+                  "key": "db.sql.table",
+                  "value": {
+                    "stringValue": "payments"
+                  }
+                },
+                {
+                  "key": "server.port",
+                  "value": {
+                    "intValue": "5432"
+                  }
+                },
+                {
+                  "key": "db.operation",
+                  "value": {
+                    "stringValue": "SELECT"
+                  }
+                }
+              ],
+              "status": {}
+            },
+            {
+              "traceId": "3/pfCK4rRsa6NK1XMcZnCQ==",
+              "spanId": "5VpJY2tPXqU=",
+              "parentSpanId": "pyazUBLToQA=",
+              "flags": 257,
+              "name": "SELECT payments.payments",
+              "kind": "SPAN_KIND_CLIENT",
+              "startTimeUnixNano": "1792837717831036043",
+              "endTimeUnixNano": "1792837717831353867",
+              "attributes": [
+                {
+                  "key": "db.system",
+                  "value": {
+                    "stringValue": "postgresql"
+                  }
+                },
+                {
+                  "key": "db.statement",
+                  "value": {
+                    "stringValue": "SELECT * FROM payments WHERE id = ?"
+                  }
+                },
+                {
+                  "key": "db.user",
+                  "value": {
+                    "stringValue": "payment"
+                  }
+                },
+                {
+                  "key": "server.address",
+                  "value": {
+                    "stringValue": "payment-db"
+                  }
+                },
+                {
+                  "key": "db.connection_string",
+                  "value": {
+                    "stringValue": "postgresql://payment-db:5432"
+                  }
+                },
+                {
+                  "key": "db.name",
+                  "value": {
+                    "stringValue": "payments"
+                  }
+                },
+                {
+                  "key": "thread.id",
+                  "value": {
+                    "intValue": "62"
+                  }
+                },
+                {
+                  "key": "thread.name",
+                  "value": {
+                    "stringValue": "org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1"
+                  }
+                },
+                {
+                  "key": "db.sql.table",
+                  "value": {
+                    "stringValue": "payments"
+                  }
+                },
+                {
+                  "key": "server.port",
+                  "value": {
+                    "intValue": "5432"
+                  }
+                },
+                {
+                  "key": "db.operation",
+                  "value": {
+                    "stringValue": "SELECT"
+                  }
+                }
+              ],
+              "status": {}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "resource": {
+        "attributes": [
+          {
+            "key": "container.id",
+            "value": {
+              "stringValue": "4c5ac32a3ca500b80ccd9157aa0816e6c80e61eab119b7ae8a7147944e1f7cfa"
+            }
+          },
+          {
+            "key": "host.arch",
+            "value": {
+              "stringValue": "amd64"
+            }
+          },
+          {
+            "key": "host.name",
+            "value": {
+              "stringValue": "booking-service-759686b899-pxqqm"
+            }
+          },
+          {
+            "key": "os.description",
+            "value": {
+              "stringValue": "Linux 6.18.33.2-microsoft-standard-WSL2"
+            }
+          },
+          {
+            "key": "os.type",
+            "value": {
+              "stringValue": "linux"
+            }
+          },
+          {
+            "key": "process.command_args",
+            "value": {
+              "arrayValue": {
+                "values": [
+                  {
+                    "stringValue": "/opt/java/openjdk/bin/java"
+                  },
+                  {
+                    "stringValue": "-XX:MaxRAMPercentage=75.0"
+                  },
+                  {
+                    "stringValue": "-jar"
+                  },
+                  {
+                    "stringValue": "app.jar"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "key": "process.executable.path",
+            "value": {
+              "stringValue": "/opt/java/openjdk/bin/java"
+            }
+          },
+          {
+            "key": "process.pid",
+            "value": {
+              "intValue": "1"
+            }
+          },
+          {
+            "key": "process.runtime.description",
+            "value": {
+              "stringValue": "Eclipse Adoptium OpenJDK 64-Bit Server VM 25.0.4.1+1-LTS"
+            }
+          },
+          {
+            "key": "process.runtime.name",
+            "value": {
+              "stringValue": "OpenJDK Runtime Environment"
+            }
+          },
+          {
+            "key": "process.runtime.version",
+            "value": {
+              "stringValue": "25.0.4.1+1-LTS"
+            }
+          },
+          {
+            "key": "service.instance.id",
+            "value": {
+              "stringValue": "848fdd6b-18f9-4887-950f-30f100c7dc78"
+            }
+          },
+          {
+            "key": "service.name",
+            "value": {
+              "stringValue": "booking-service"
+            }
+          },
+          {
+            "key": "service.version",
+            "value": {
+              "stringValue": "1.0.0"
+            }
+          },
+          {
+            "key": "telemetry.distro.name",
+            "value": {
+              "stringValue": "opentelemetry-java-instrumentation"
+            }
+          },
+          {
+            "key": "telemetry.distro.version",
+            "value": {
+              "stringValue": "2.21.0"
+            }
+          },
+          {
+            "key": "telemetry.sdk.language",
+            "value": {
+              "stringValue": "java"
+            }
+          },
+          {
+            "key": "telemetry.sdk.name",
+            "value": {
+              "stringValue": "opentelemetry"
+            }
+          },
+          {
+            "key": "telemetry.sdk.version",
+            "value": {
+              "stringValue": "1.55.0"
+            }
+          }
+        ]
+      },
+      "scopeSpans": [
+        {
+          "scope": {
+            "name": "io.opentelemetry.kafka-clients-0.11",
+            "version": "2.21.0-alpha"
+          },
+          "spans": [
+            {
+              "traceId": "3/pfCK4rRsa6NK1XMcZnCQ==",
+              "spanId": "Zs+pjDxMBUk=",
+              "parentSpanId": "f291Gz83GkI=",
+              "flags": 769,
+              "name": "rental.booking-created.v1 publish",
+              "kind": "SPAN_KIND_PRODUCER",
+              "startTimeUnixNano": "1792837717817701800",
+              "endTimeUnixNano": "1792837717826738702",
+              "attributes": [
+                {
+                  "key": "messaging.kafka.message.offset",
+                  "value": {
+                    "intValue": "1"
+                  }
+                },
+                {
+                  "key": "messaging.kafka.message.key",
+                  "value": {
+                    "stringValue": "2820b248-6a31-4fb2-9c13-e3d25253f430"
+                  }
+                },
+                {
+                  "key": "messaging.destination.partition.id",
+                  "value": {
+                    "stringValue": "1"
+                  }
+                },
+                {
+                  "key": "messaging.system",
+                  "value": {
+                    "stringValue": "kafka"
+                  }
+                },
+                {
+                  "key": "thread.id",
+                  "value": {
+                    "intValue": "46"
+                  }
+                },
+                {
+                  "key": "messaging.destination.name",
+                  "value": {
+                    "stringValue": "rental.booking-created.v1"
+                  }
+                },
+                {
+                  "key": "messaging.operation",
+                  "value": {
+                    "stringValue": "publish"
+                  }
+                },
+                {
+                  "key": "messaging.client_id",
+                  "value": {
+                    "stringValue": "booking-service-producer-1"
+                  }
+                },
+                {
+                  "key": "thread.name",
+                  "value": {
+                    "stringValue": "scheduling-1"
+                  }
+                }
+              ],
+              "status": {}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "resource": {
+        "attributes": [
+          {
+            "key": "container.id",
+            "value": {
+              "stringValue": "4c5ac32a3ca500b80ccd9157aa0816e6c80e61eab119b7ae8a7147944e1f7cfa"
+            }
+          },
+          {
+            "key": "host.arch",
+            "value": {
+              "stringValue": "amd64"
+            }
+          },
+          {
+            "key": "host.name",
+            "value": {
+              "stringValue": "booking-service-759686b899-pxqqm"
+            }
+          },
+          {
+            "key": "os.description",
+            "value": {
+              "stringValue": "Linux 6.18.33.2-microsoft-standard-WSL2"
+            }
+          },
+          {
+            "key": "os.type",
+            "value": {
+              "stringValue": "linux"
+            }
+          },
+          {
+            "key": "process.command_args",
+            "value": {
+              "arrayValue": {
+                "values": [
+                  {
+                    "stringValue": "/opt/java/openjdk/bin/java"
+                  },
+                  {
+                    "stringValue": "-XX:MaxRAMPercentage=75.0"
+                  },
+                  {
+                    "stringValue": "-jar"
+                  },
+                  {
+                    "stringValue": "app.jar"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "key": "process.executable.path",
+            "value": {
+              "stringValue": "/opt/java/openjdk/bin/java"
+            }
+          },
+          {
+            "key": "process.pid",
+            "value": {
+              "intValue": "1"
+            }
+          },
+          {
+            "key": "process.runtime.description",
+            "value": {
+              "stringValue": "Eclipse Adoptium OpenJDK 64-Bit Server VM 25.0.4.1+1-LTS"
+            }
+          },
+          {
+            "key": "process.runtime.name",
+            "value": {
+              "stringValue": "OpenJDK Runtime Environment"
+            }
+          },
+          {
+            "key": "process.runtime.version",
+            "value": {
+              "stringValue": "25.0.4.1+1-LTS"
+            }
+          },
+          {
+            "key": "service.instance.id",
+            "value": {
+              "stringValue": "848fdd6b-18f9-4887-950f-30f100c7dc78"
+            }
+          },
+          {
+            "key": "service.name",
+            "value": {
+              "stringValue": "booking-service"
+            }
+          },
+          {
+            "key": "service.version",
+            "value": {
+              "stringValue": "1.0.0"
+            }
+          },
+          {
+            "key": "telemetry.distro.name",
+            "value": {
+              "stringValue": "opentelemetry-java-instrumentation"
+            }
+          },
+          {
+            "key": "telemetry.distro.version",
+            "value": {
+              "stringValue": "2.21.0"
+            }
+          },
+          {
+            "key": "telemetry.sdk.language",
+            "value": {
+              "stringValue": "java"
+            }
+          },
+          {
+            "key": "telemetry.sdk.name",
+            "value": {
+              "stringValue": "opentelemetry"
+            }
+          },
+          {
+            "key": "telemetry.sdk.version",
+            "value": {
+              "stringValue": "1.55.0"
+            }
+          }
+        ]
+      },
+      "scopeSpans": [
+        {
+          "scope": {
+            "name": "io.opentelemetry.tomcat-10.0",
+            "version": "2.21.0-alpha"
+          },
+          "spans": [
+            {
+              "traceId": "3/pfCK4rRsa6NK1XMcZnCQ==",
+              "spanId": "f291Gz83GkI=",
+              "parentSpanId": "ASNFZ4mrze8=",
+              "flags": 769,
+              "name": "POST /api/bookings",
+              "kind": "SPAN_KIND_SERVER",
+              "startTimeUnixNano": "1792837717708156278",
+              "endTimeUnixNano": "1792837717771973185",
+              "attributes": [
+                {
+                  "key": "http.route",
+                  "value": {
+                    "stringValue": "/api/bookings"
+                  }
+                },
+                {
+                  "key": "http.request.method",
+                  "value": {
+                    "stringValue": "POST"
+                  }
+                },
+                {
+                  "key": "url.path",
+                  "value": {
+                    "stringValue": "/api/bookings"
+                  }
+                },
+                {
+                  "key": "server.address",
+                  "value": {
+                    "stringValue": "127.0.0.1"
+                  }
+                },
+                {
+                  "key": "client.address",
+                  "value": {
+                    "stringValue": "127.0.0.1"
+                  }
+                },
+                {
+                  "key": "network.peer.address",
+                  "value": {
+                    "stringValue": "127.0.0.1"
+                  }
+                },
+                {
+                  "key": "network.peer.port",
+                  "value": {
+                    "intValue": "35782"
+                  }
+                },
+                {
+                  "key": "network.protocol.version",
+                  "value": {
+                    "stringValue": "1.1"
+                  }
+                },
+                {
+                  "key": "user_agent.original",
+                  "value": {
+                    "stringValue": "Python-urllib/3.13"
+                  }
+                },
+                {
+                  "key": "thread.id",
+                  "value": {
+                    "intValue": "35"
+                  }
+                },
+                {
+                  "key": "url.scheme",
+                  "value": {
+                    "stringValue": "http"
+                  }
+                },
+                {
+                  "key": "thread.name",
+                  "value": {
+                    "stringValue": "http-nio-8080-exec-2"
+                  }
+                },
+                {
+                  "key": "http.response.status_code",
+                  "value": {
+                    "intValue": "201"
+                  }
+                },
+                {
+                  "key": "server.port",
+                  "value": {
+                    "intValue": "18083"
+                  }
+                }
+              ],
+              "status": {}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "resource": {
+        "attributes": [
+          {
+            "key": "container.id",
+            "value": {
+              "stringValue": "4c5ac32a3ca500b80ccd9157aa0816e6c80e61eab119b7ae8a7147944e1f7cfa"
+            }
+          },
+          {
+            "key": "host.arch",
+            "value": {
+              "stringValue": "amd64"
+            }
+          },
+          {
+            "key": "host.name",
+            "value": {
+              "stringValue": "booking-service-759686b899-pxqqm"
+            }
+          },
+          {
+            "key": "os.description",
+            "value": {
+              "stringValue": "Linux 6.18.33.2-microsoft-standard-WSL2"
+            }
+          },
+          {
+            "key": "os.type",
+            "value": {
+              "stringValue": "linux"
+            }
+          },
+          {
+            "key": "process.command_args",
+            "value": {
+              "arrayValue": {
+                "values": [
+                  {
+                    "stringValue": "/opt/java/openjdk/bin/java"
+                  },
+                  {
+                    "stringValue": "-XX:MaxRAMPercentage=75.0"
+                  },
+                  {
+                    "stringValue": "-jar"
+                  },
+                  {
+                    "stringValue": "app.jar"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "key": "process.executable.path",
+            "value": {
+              "stringValue": "/opt/java/openjdk/bin/java"
+            }
+          },
+          {
+            "key": "process.pid",
+            "value": {
+              "intValue": "1"
+            }
+          },
+          {
+            "key": "process.runtime.description",
+            "value": {
+              "stringValue": "Eclipse Adoptium OpenJDK 64-Bit Server VM 25.0.4.1+1-LTS"
+            }
+          },
+          {
+            "key": "process.runtime.name",
+            "value": {
+              "stringValue": "OpenJDK Runtime Environment"
+            }
+          },
+          {
+            "key": "process.runtime.version",
+            "value": {
+              "stringValue": "25.0.4.1+1-LTS"
+            }
+          },
+          {
+            "key": "service.instance.id",
+            "value": {
+              "stringValue": "848fdd6b-18f9-4887-950f-30f100c7dc78"
+            }
+          },
+          {
+            "key": "service.name",
+            "value": {
+              "stringValue": "booking-service"
+            }
+          },
+          {
+            "key": "service.version",
+            "value": {
+              "stringValue": "1.0.0"
+            }
+          },
+          {
+            "key": "telemetry.distro.name",
+            "value": {
+              "stringValue": "opentelemetry-java-instrumentation"
+            }
+          },
+          {
+            "key": "telemetry.distro.version",
+            "value": {
+              "stringValue": "2.21.0"
+            }
+          },
+          {
+            "key": "telemetry.sdk.language",
+            "value": {
+              "stringValue": "java"
+            }
+          },
+          {
+            "key": "telemetry.sdk.name",
+            "value": {
+              "stringValue": "opentelemetry"
+            }
+          },
+          {
+            "key": "telemetry.sdk.version",
+            "value": {
+              "stringValue": "1.55.0"
+            }
+          }
+        ]
+      },
+      "scopeSpans": [
+        {
+          "scope": {
+            "name": "io.opentelemetry.java-http-client",
+            "version": "2.21.0-alpha"
+          },
+          "spans": [
+            {
+              "traceId": "3/pfCK4rRsa6NK1XMcZnCQ==",
+              "spanId": "vK+4Lo2h4jQ=",
+              "parentSpanId": "f291Gz83GkI=",
+              "flags": 257,
+              "name": "GET",
+              "kind": "SPAN_KIND_CLIENT",
+              "startTimeUnixNano": "1792837717712371922",
+              "endTimeUnixNano": "1792837717719179707",
+              "attributes": [
+                {
+                  "key": "network.protocol.version",
+                  "value": {
+                    "stringValue": "1.1"
+                  }
+                },
+                {
+                  "key": "http.request.method",
+                  "value": {
+                    "stringValue": "GET"
+                  }
+                },
+                {
+                  "key": "server.address",
+                  "value": {
+                    "stringValue": "customer-service"
+                  }
+                },
+                {
+                  "key": "thread.id",
+                  "value": {
+                    "intValue": "35"
+                  }
+                },
+                {
+                  "key": "thread.name",
+                  "value": {
+                    "stringValue": "http-nio-8080-exec-2"
+                  }
+                },
+                {
+                  "key": "url.full",
+                  "value": {
+                    "stringValue": "http://customer-service:8080/api/customers/14c08b98-33e5-44bd-96d4-ba279e035d02/eligibility"
+                  }
+                },
+                {
+                  "key": "http.response.status_code",
+                  "value": {
+                    "intValue": "200"
+                  }
+                },
+                {
+                  "key": "server.port",
+                  "value": {
+                    "intValue": "8080"
+                  }
+                }
+              ],
+              "status": {}
+            },
+            {
+              "traceId": "3/pfCK4rRsa6NK1XMcZnCQ==",
+              "spanId": "6Z1EZmUnKb8=",
+              "parentSpanId": "f291Gz83GkI=",
+              "flags": 257,
+              "name": "GET",
+              "kind": "SPAN_KIND_CLIENT",
+              "startTimeUnixNano": "1792837717720260490",
+              "endTimeUnixNano": "1792837717765264843",
+              "attributes": [
+                {
+                  "key": "network.protocol.version",
+                  "value": {
+                    "stringValue": "1.1"
+                  }
+                },
+                {
+                  "key": "http.request.method",
+                  "value": {
+                    "stringValue": "GET"
+                  }
+                },
+                {
+                  "key": "server.address",
+                  "value": {
+                    "stringValue": "fleet-service"
+                  }
+                },
+                {
+                  "key": "thread.id",
+                  "value": {
+                    "intValue": "35"
+                  }
+                },
+                {
+                  "key": "thread.name",
+                  "value": {
+                    "stringValue": "http-nio-8080-exec-2"
+                  }
+                },
+                {
+                  "key": "url.full",
+                  "value": {
+                    "stringValue": "http://fleet-service:8080/api/vehicles/11ddc822-0064-4031-b156-6e11829987d6"
+                  }
+                },
+                {
+                  "key": "http.response.status_code",
+                  "value": {
+                    "intValue": "200"
+                  }
+                },
+                {
+                  "key": "server.port",
+                  "value": {
+                    "intValue": "8080"
+                  }
+                }
+              ],
+              "status": {}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "resource": {
+        "attributes": [
+          {
+            "key": "container.id",
+            "value": {
+              "stringValue": "4c5ac32a3ca500b80ccd9157aa0816e6c80e61eab119b7ae8a7147944e1f7cfa"
+            }
+          },
+          {
+            "key": "host.arch",
+            "value": {
+              "stringValue": "amd64"
+            }
+          },
+          {
+            "key": "host.name",
+            "value": {
+              "stringValue": "booking-service-759686b899-pxqqm"
+            }
+          },
+          {
+            "key": "os.description",
+            "value": {
+              "stringValue": "Linux 6.18.33.2-microsoft-standard-WSL2"
+            }
+          },
+          {
+            "key": "os.type",
+            "value": {
+              "stringValue": "linux"
+            }
+          },
+          {
+            "key": "process.command_args",
+            "value": {
+              "arrayValue": {
+                "values": [
+                  {
+                    "stringValue": "/opt/java/openjdk/bin/java"
+                  },
+                  {
+                    "stringValue": "-XX:MaxRAMPercentage=75.0"
+                  },
+                  {
+                    "stringValue": "-jar"
+                  },
+                  {
+                    "stringValue": "app.jar"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "key": "process.executable.path",
+            "value": {
+              "stringValue": "/opt/java/openjdk/bin/java"
+            }
+          },
+          {
+            "key": "process.pid",
+            "value": {
+              "intValue": "1"
+            }
+          },
+          {
+            "key": "process.runtime.description",
+            "value": {
+              "stringValue": "Eclipse Adoptium OpenJDK 64-Bit Server VM 25.0.4.1+1-LTS"
+            }
+          },
+          {
+            "key": "process.runtime.name",
+            "value": {
+              "stringValue": "OpenJDK Runtime Environment"
+            }
+          },
+          {
+            "key": "process.runtime.version",
+            "value": {
+              "stringValue": "25.0.4.1+1-LTS"
+            }
+          },
+          {
+            "key": "service.instance.id",
+            "value": {
+              "stringValue": "848fdd6b-18f9-4887-950f-30f100c7dc78"
+            }
+          },
+          {
+            "key": "service.name",
+            "value": {
+              "stringValue": "booking-service"
+            }
+          },
+          {
+            "key": "service.version",
+            "value": {
+              "stringValue": "1.0.0"
+            }
+          },
+          {
+            "key": "telemetry.distro.name",
+            "value": {
+              "stringValue": "opentelemetry-java-instrumentation"
+            }
+          },
+          {
+            "key": "telemetry.distro.version",
+            "value": {
+              "stringValue": "2.21.0"
+            }
+          },
+          {
+            "key": "telemetry.sdk.language",
+            "value": {
+              "stringValue": "java"
+            }
+          },
+          {
+            "key": "telemetry.sdk.name",
+            "value": {
+              "stringValue": "opentelemetry"
+            }
+          },
+          {
+            "key": "telemetry.sdk.version",
+            "value": {
+              "stringValue": "1.55.0"
+            }
+          }
+        ]
+      },
+      "scopeSpans": [
+        {
+          "scope": {
+            "name": "io.opentelemetry.jdbc",
+            "version": "2.21.0-alpha"
+          },
+          "spans": [
+            {
+              "traceId": "3/pfCK4rRsa6NK1XMcZnCQ==",
+              "spanId": "JB0Csq4kCAg=",
+              "parentSpanId": "f291Gz83GkI=",
+              "flags": 257,
+              "name": "bookings",
+              "kind": "SPAN_KIND_CLIENT",
+              "startTimeUnixNano": "1792837717710026370",
+              "endTimeUnixNano": "1792837717710264922",
+              "attributes": [
+                {
+                  "key": "db.system",
+                  "value": {
+                    "stringValue": "postgresql"
+                  }
+                },
+                {
+                  "key": "db.statement",
+                  "value": {}
+                },
+                {
+                  "key": "db.user",
+                  "value": {
+                    "stringValue": "booking"
+                  }
+                },
+                {
+                  "key": "server.address",
+                  "value": {
+                    "stringValue": "booking-db"
+                  }
+                },
+                {
+                  "key": "db.connection_string",
+                  "value": {
+                    "stringValue": "postgresql://booking-db:5432"
+                  }
+                },
+                {
+                  "key": "db.name",
+                  "value": {
+                    "stringValue": "bookings"
+                  }
+                },
+                {
+                  "key": "thread.id",
+                  "value": {
+                    "intValue": "35"
+                  }
+                },
+                {
+                  "key": "thread.name",
+                  "value": {
+                    "stringValue": "http-nio-8080-exec-2"
+                  }
+                },
+                {
+                  "key": "server.port",
+                  "value": {
+                    "intValue": "5432"
+                  }
+                }
+              ],
+              "status": {}
+            },
+            {
+              "traceId": "3/pfCK4rRsa6NK1XMcZnCQ==",
+              "spanId": "xEUJeG47X08=",
+              "parentSpanId": "f291Gz83GkI=",
+              "flags": 257,
+              "name": "INSERT bookings.idempotency_keys",
+              "kind": "SPAN_KIND_CLIENT",
+              "startTimeUnixNano": "1792837717710576926",
+              "endTimeUnixNano": "1792837717711091302",
+              "attributes": [
+                {
+                  "key": "db.system",
+                  "value": {
+                    "stringValue": "postgresql"
+                  }
+                },
+                {
+                  "key": "db.statement",
+                  "value": {
+                    "stringValue": "INSERT INTO idempotency_keys (request_key, fingerprint) VALUES (?, ?) ON CONFLICT DO NOTHING"
+                  }
+                },
+                {
+                  "key": "db.user",
+                  "value": {
+                    "stringValue": "booking"
+                  }
+                },
+                {
+                  "key": "server.address",
+                  "value": {
+                    "stringValue": "booking-db"
+                  }
+                },
+                {
+                  "key": "db.connection_string",
+                  "value": {
+                    "stringValue": "postgresql://booking-db:5432"
+                  }
+                },
+                {
+                  "key": "db.name",
+                  "value": {
+                    "stringValue": "bookings"
+                  }
+                },
+                {
+                  "key": "thread.id",
+                  "value": {
+                    "intValue": "35"
+                  }
+                },
+                {
+                  "key": "thread.name",
+                  "value": {
+                    "stringValue": "http-nio-8080-exec-2"
+                  }
+                },
+                {
+                  "key": "db.sql.table",
+                  "value": {
+                    "stringValue": "idempotency_keys"
+                  }
+                },
+                {
+                  "key": "server.port",
+                  "value": {
+                    "intValue": "5432"
+                  }
+                },
+                {
+                  "key": "db.operation",
+                  "value": {
+                    "stringValue": "INSERT"
+                  }
+                }
+              ],
+              "status": {}
+            },
+            {
+              "traceId": "3/pfCK4rRsa6NK1XMcZnCQ==",
+              "spanId": "XNUxSLQS+wA=",
+              "parentSpanId": "f291Gz83GkI=",
+              "flags": 257,
+              "name": "SELECT bookings.idempotency_keys",
+              "kind": "SPAN_KIND_CLIENT",
+              "startTimeUnixNano": "1792837717711187599",
+              "endTimeUnixNano": "1792837717711517608",
+              "attributes": [
+                {
+                  "key": "db.system",
+                  "value": {
+                    "stringValue": "postgresql"
+                  }
+                },
+                {
+                  "key": "db.statement",
+                  "value": {
+                    "stringValue": "SELECT fingerprint, result_id FROM idempotency_keys WHERE request_key = ? FOR UPDATE"
+                  }
+                },
+                {
+                  "key": "db.user",
+                  "value": {
+                    "stringValue": "booking"
+                  }
+                },
+                {
+                  "key": "server.address",
+                  "value": {
+                    "stringValue": "booking-db"
+                  }
+                },
+                {
+                  "key": "db.connection_string",
+                  "value": {
+                    "stringValue": "postgresql://booking-db:5432"
+                  }
+                },
+                {
+                  "key": "db.name",
+                  "value": {
+                    "stringValue": "bookings"
+                  }
+                },
+                {
+                  "key": "thread.id",
+                  "value": {
+                    "intValue": "35"
+                  }
+                },
+                {
+                  "key": "thread.name",
+                  "value": {
+                    "stringValue": "http-nio-8080-exec-2"
+                  }
+                },
+                {
+                  "key": "db.sql.table",
+                  "value": {
+                    "stringValue": "idempotency_keys"
+                  }
+                },
+                {
+                  "key": "server.port",
+                  "value": {
+                    "intValue": "5432"
+                  }
+                },
+                {
+                  "key": "db.operation",
+                  "value": {
+                    "stringValue": "SELECT"
+                  }
+                }
+              ],
+              "status": {}
+            },
+            {
+              "traceId": "3/pfCK4rRsa6NK1XMcZnCQ==",
+              "spanId": "d4aH8KbQDiY=",
+              "parentSpanId": "f291Gz83GkI=",
+              "flags": 257,
+              "name": "INSERT bookings.bookings",
+              "kind": "SPAN_KIND_CLIENT",
+              "startTimeUnixNano": "1792837717766257114",
+              "endTimeUnixNano": "1792837717766727575",
+              "attributes": [
+                {
+                  "key": "db.system",
+                  "value": {
+                    "stringValue": "postgresql"
+                  }
+                },
+                {
+                  "key": "db.statement",
+                  "value": {
+                    "stringValue": "INSERT INTO bookings (id, customer_id, vehicle_id, vehicle_brand, vehicle_model, vehicle_plate, daily_rate, start_date, end_date, total, customer_verified, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) "
+                  }
+                },
+                {
+                  "key": "db.user",
+                  "value": {
+                    "stringValue": "booking"
+                  }
+                },
+                {
+                  "key": "server.address",
+                  "value": {
+                    "stringValue": "booking-db"
+                  }
+                },
+                {
+                  "key": "db.connection_string",
+                  "value": {
+                    "stringValue": "postgresql://booking-db:5432"
+                  }
+                },
+                {
+                  "key": "db.name",
+                  "value": {
+                    "stringValue": "bookings"
+                  }
+                },
+                {
+                  "key": "thread.id",
+                  "value": {
+                    "intValue": "35"
+                  }
+                },
+                {
+                  "key": "thread.name",
+                  "value": {
+                    "stringValue": "http-nio-8080-exec-2"
+                  }
+                },
+                {
+                  "key": "db.sql.table",
+                  "value": {
+                    "stringValue": "bookings"
+                  }
+                },
+                {
+                  "key": "server.port",
+                  "value": {
+                    "intValue": "5432"
+                  }
+                },
+                {
+                  "key": "db.operation",
+                  "value": {
+                    "stringValue": "INSERT"
+                  }
+                }
+              ],
+              "status": {}
+            },
+            {
+              "traceId": "3/pfCK4rRsa6NK1XMcZnCQ==",
+              "spanId": "yIqbSv9akWs=",
+              "parentSpanId": "f291Gz83GkI=",
+              "flags": 257,
+              "name": "SELECT bookings.bookings",
+              "kind": "SPAN_KIND_CLIENT",
+              "startTimeUnixNano": "1792837717766847508",
+              "endTimeUnixNano": "1792837717767269836",
+              "attributes": [
+                {
+                  "key": "db.system",
+                  "value": {
+                    "stringValue": "postgresql"
+                  }
+                },
+                {
+                  "key": "db.statement",
+                  "value": {
+                    "stringValue": "SELECT * FROM bookings WHERE id = ?"
+                  }
+                },
+                {
+                  "key": "db.user",
+                  "value": {
+                    "stringValue": "booking"
+                  }
+                },
+                {
+                  "key": "server.address",
+                  "value": {
+                    "stringValue": "booking-db"
+                  }
+                },
+                {
+                  "key": "db.connection_string",
+                  "value": {
+                    "stringValue": "postgresql://booking-db:5432"
+                  }
+                },
+                {
+                  "key": "db.name",
+                  "value": {
+                    "stringValue": "bookings"
+                  }
+                },
+                {
+                  "key": "thread.id",
+                  "value": {
+                    "intValue": "35"
+                  }
+                },
+                {
+                  "key": "thread.name",
+                  "value": {
+                    "stringValue": "http-nio-8080-exec-2"
+                  }
+                },
+                {
+                  "key": "db.sql.table",
+                  "value": {
+                    "stringValue": "bookings"
+                  }
+                },
+                {
+                  "key": "server.port",
+                  "value": {
+                    "intValue": "5432"
+                  }
+                },
+                {
+                  "key": "db.operation",
+                  "value": {
+                    "stringValue": "SELECT"
+                  }
+                }
+              ],
+              "status": {}
+            },
+            {
+              "traceId": "3/pfCK4rRsa6NK1XMcZnCQ==",
+              "spanId": "pF3HTikDhmQ=",
+              "parentSpanId": "f291Gz83GkI=",
+              "flags": 257,
+              "name": "INSERT bookings.outbox_events",
+              "kind": "SPAN_KIND_CLIENT",
+              "startTimeUnixNano": "1792837717768006142",
+              "endTimeUnixNano": "1792837717768303828",
+              "attributes": [
+                {
+                  "key": "db.system",
+                  "value": {
+                    "stringValue": "postgresql"
+                  }
+                },
+                {
+                  "key": "db.statement",
+                  "value": {
+                    "stringValue": "INSERT INTO outbox_events (event_id, aggregate_id, payload, traceparent) VALUES (?, ?, ?, ?)"
+                  }
+                },
+                {
+                  "key": "db.user",
+                  "value": {
+                    "stringValue": "booking"
+                  }
+                },
+                {
+                  "key": "server.address",
+                  "value": {
+                    "stringValue": "booking-db"
+                  }
+                },
+                {
+                  "key": "db.connection_string",
+                  "value": {
+                    "stringValue": "postgresql://booking-db:5432"
+                  }
+                },
+                {
+                  "key": "db.name",
+                  "value": {
+                    "stringValue": "bookings"
+                  }
+                },
+                {
+                  "key": "thread.id",
+                  "value": {
+                    "intValue": "35"
+                  }
+                },
+                {
+                  "key": "thread.name",
+                  "value": {
+                    "stringValue": "http-nio-8080-exec-2"
+                  }
+                },
+                {
+                  "key": "db.sql.table",
+                  "value": {
+                    "stringValue": "outbox_events"
+                  }
+                },
+                {
+                  "key": "server.port",
+                  "value": {
+                    "intValue": "5432"
+                  }
+                },
+                {
+                  "key": "db.operation",
+                  "value": {
+                    "stringValue": "INSERT"
+                  }
+                }
+              ],
+              "status": {}
+            },
+            {
+              "traceId": "3/pfCK4rRsa6NK1XMcZnCQ==",
+              "spanId": "vKabO/88kMw=",
+              "parentSpanId": "f291Gz83GkI=",
+              "flags": 257,
+              "name": "UPDATE bookings.idempotency_keys",
+              "kind": "SPAN_KIND_CLIENT",
+              "startTimeUnixNano": "1792837717768376098",
+              "endTimeUnixNano": "1792837717768696909",
+              "attributes": [
+                {
+                  "key": "db.system",
+                  "value": {
+                    "stringValue": "postgresql"
+                  }
+                },
+                {
+                  "key": "db.statement",
+                  "value": {
+                    "stringValue": "UPDATE idempotency_keys SET result_id = ? WHERE request_key = ?"
+                  }
+                },
+                {
+                  "key": "db.user",
+                  "value": {
+                    "stringValue": "booking"
+                  }
+                },
+                {
+                  "key": "server.address",
+                  "value": {
+                    "stringValue": "booking-db"
+                  }
+                },
+                {
+                  "key": "db.connection_string",
+                  "value": {
+                    "stringValue": "postgresql://booking-db:5432"
+                  }
+                },
+                {
+                  "key": "db.name",
+                  "value": {
+                    "stringValue": "bookings"
+                  }
+                },
+                {
+                  "key": "thread.id",
+                  "value": {
+                    "intValue": "35"
+                  }
+                },
+                {
+                  "key": "thread.name",
+                  "value": {
+                    "stringValue": "http-nio-8080-exec-2"
+                  }
+                },
+                {
+                  "key": "db.sql.table",
+                  "value": {
+                    "stringValue": "idempotency_keys"
+                  }
+                },
+                {
+                  "key": "server.port",
+                  "value": {
+                    "intValue": "5432"
+                  }
+                },
+                {
+                  "key": "db.operation",
+                  "value": {
+                    "stringValue": "UPDATE"
+                  }
+                }
+              ],
+              "status": {}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "resource": {
+        "attributes": [
+          {
+            "key": "container.id",
+            "value": {
+              "stringValue": "3b90fceb0b5178d5ea0b4032b1d44bb8a03c041186f72bdb16c7caa4c905ece8"
+            }
+          },
+          {
+            "key": "host.arch",
+            "value": {
+              "stringValue": "amd64"
+            }
+          },
+          {
+            "key": "host.name",
+            "value": {
+              "stringValue": "fleet-service-5589dfc4d7-c9b82"
+            }
+          },
+          {
+            "key": "os.description",
+            "value": {
+              "stringValue": "Linux 6.18.33.2-microsoft-standard-WSL2"
+            }
+          },
+          {
+            "key": "os.type",
+            "value": {
+              "stringValue": "linux"
+            }
+          },
+          {
+            "key": "process.command_args",
+            "value": {
+              "arrayValue": {
+                "values": [
+                  {
+                    "stringValue": "/opt/java/openjdk/bin/java"
+                  },
+                  {
+                    "stringValue": "-XX:MaxRAMPercentage=75.0"
+                  },
+                  {
+                    "stringValue": "-jar"
+                  },
+                  {
+                    "stringValue": "app.jar"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "key": "process.executable.path",
+            "value": {
+              "stringValue": "/opt/java/openjdk/bin/java"
+            }
+          },
+          {
+            "key": "process.pid",
+            "value": {
+              "intValue": "1"
+            }
+          },
+          {
+            "key": "process.runtime.description",
+            "value": {
+              "stringValue": "Eclipse Adoptium OpenJDK 64-Bit Server VM 25.0.4.1+1-LTS"
+            }
+          },
+          {
+            "key": "process.runtime.name",
+            "value": {
+              "stringValue": "OpenJDK Runtime Environment"
+            }
+          },
+          {
+            "key": "process.runtime.version",
+            "value": {
+              "stringValue": "25.0.4.1+1-LTS"
+            }
+          },
+          {
+            "key": "service.instance.id",
+            "value": {
+              "stringValue": "60f36832-4269-4ff6-9b05-59dadceb6f41"
+            }
+          },
+          {
+            "key": "service.name",
+            "value": {
+              "stringValue": "fleet-service"
+            }
+          },
+          {
+            "key": "service.version",
+            "value": {
+              "stringValue": "1.0.0"
+            }
+          },
+          {
+            "key": "telemetry.distro.name",
+            "value": {
+              "stringValue": "opentelemetry-java-instrumentation"
+            }
+          },
+          {
+            "key": "telemetry.distro.version",
+            "value": {
+              "stringValue": "2.21.0"
+            }
+          },
+          {
+            "key": "telemetry.sdk.language",
+            "value": {
+              "stringValue": "java"
+            }
+          },
+          {
+            "key": "telemetry.sdk.name",
+            "value": {
+              "stringValue": "opentelemetry"
+            }
+          },
+          {
+            "key": "telemetry.sdk.version",
+            "value": {
+              "stringValue": "1.55.0"
+            }
+          }
+        ]
+      },
+      "scopeSpans": [
+        {
+          "scope": {
+            "name": "io.opentelemetry.tomcat-10.0",
+            "version": "2.21.0-alpha"
+          },
+          "spans": [
+            {
+              "traceId": "3/pfCK4rRsa6NK1XMcZnCQ==",
+              "spanId": "XafjCHTyjng=",
+              "parentSpanId": "6Z1EZmUnKb8=",
+              "flags": 769,
+              "name": "GET /api/vehicles/{id}",
+              "kind": "SPAN_KIND_SERVER",
+              "startTimeUnixNano": "1792837717723244639",
+              "endTimeUnixNano": "1792837717764759233",
+              "attributes": [
+                {
+                  "key": "http.route",
+                  "value": {
+                    "stringValue": "/api/vehicles/{id}"
+                  }
+                },
+                {
+                  "key": "http.request.method",
+                  "value": {
+                    "stringValue": "GET"
+                  }
+                },
+                {
+                  "key": "url.path",
+                  "value": {
+                    "stringValue": "/api/vehicles/11ddc822-0064-4031-b156-6e11829987d6"
+                  }
+                },
+                {
+                  "key": "server.address",
+                  "value": {
+                    "stringValue": "fleet-service"
+                  }
+                },
+                {
+                  "key": "client.address",
+                  "value": {
+                    "stringValue": "10.1.0.74"
+                  }
+                },
+                {
+                  "key": "network.peer.address",
+                  "value": {
+                    "stringValue": "10.1.0.74"
+                  }
+                },
+                {
+                  "key": "network.peer.port",
+                  "value": {
+                    "intValue": "47416"
+                  }
+                },
+                {
+                  "key": "network.protocol.version",
+                  "value": {
+                    "stringValue": "1.1"
+                  }
+                },
+                {
+                  "key": "user_agent.original",
+                  "value": {
+                    "stringValue": "Java-http-client/25.0.4.1"
+                  }
+                },
+                {
+                  "key": "thread.id",
+                  "value": {
+                    "intValue": "37"
+                  }
+                },
+                {
+                  "key": "url.scheme",
+                  "value": {
+                    "stringValue": "http"
+                  }
+                },
+                {
+                  "key": "thread.name",
+                  "value": {
+                    "stringValue": "http-nio-8080-exec-6"
+                  }
+                },
+                {
+                  "key": "http.response.status_code",
+                  "value": {
+                    "intValue": "200"
+                  }
+                },
+                {
+                  "key": "server.port",
+                  "value": {
+                    "intValue": "8080"
+                  }
+                }
+              ],
+              "status": {}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "resource": {
+        "attributes": [
+          {
+            "key": "container.id",
+            "value": {
+              "stringValue": "3b90fceb0b5178d5ea0b4032b1d44bb8a03c041186f72bdb16c7caa4c905ece8"
+            }
+          },
+          {
+            "key": "host.arch",
+            "value": {
+              "stringValue": "amd64"
+            }
+          },
+          {
+            "key": "host.name",
+            "value": {
+              "stringValue": "fleet-service-5589dfc4d7-c9b82"
+            }
+          },
+          {
+            "key": "os.description",
+            "value": {
+              "stringValue": "Linux 6.18.33.2-microsoft-standard-WSL2"
+            }
+          },
+          {
+            "key": "os.type",
+            "value": {
+              "stringValue": "linux"
+            }
+          },
+          {
+            "key": "process.command_args",
+            "value": {
+              "arrayValue": {
+                "values": [
+                  {
+                    "stringValue": "/opt/java/openjdk/bin/java"
+                  },
+                  {
+                    "stringValue": "-XX:MaxRAMPercentage=75.0"
+                  },
+                  {
+                    "stringValue": "-jar"
+                  },
+                  {
+                    "stringValue": "app.jar"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "key": "process.executable.path",
+            "value": {
+              "stringValue": "/opt/java/openjdk/bin/java"
+            }
+          },
+          {
+            "key": "process.pid",
+            "value": {
+              "intValue": "1"
+            }
+          },
+          {
+            "key": "process.runtime.description",
+            "value": {
+              "stringValue": "Eclipse Adoptium OpenJDK 64-Bit Server VM 25.0.4.1+1-LTS"
+            }
+          },
+          {
+            "key": "process.runtime.name",
+            "value": {
+              "stringValue": "OpenJDK Runtime Environment"
+            }
+          },
+          {
+            "key": "process.runtime.version",
+            "value": {
+              "stringValue": "25.0.4.1+1-LTS"
+            }
+          },
+          {
+            "key": "service.instance.id",
+            "value": {
+              "stringValue": "60f36832-4269-4ff6-9b05-59dadceb6f41"
+            }
+          },
+          {
+            "key": "service.name",
+            "value": {
+              "stringValue": "fleet-service"
+            }
+          },
+          {
+            "key": "service.version",
+            "value": {
+              "stringValue": "1.0.0"
+            }
+          },
+          {
+            "key": "telemetry.distro.name",
+            "value": {
+              "stringValue": "opentelemetry-java-instrumentation"
+            }
+          },
+          {
+            "key": "telemetry.distro.version",
+            "value": {
+              "stringValue": "2.21.0"
+            }
+          },
+          {
+            "key": "telemetry.sdk.language",
+            "value": {
+              "stringValue": "java"
+            }
+          },
+          {
+            "key": "telemetry.sdk.name",
+            "value": {
+              "stringValue": "opentelemetry"
+            }
+          },
+          {
+            "key": "telemetry.sdk.version",
+            "value": {
+              "stringValue": "1.55.0"
+            }
+          }
+        ]
+      },
+      "scopeSpans": [
+        {
+          "scope": {
+            "name": "io.opentelemetry.jdbc",
+            "version": "2.21.0-alpha"
+          },
+          "spans": [
+            {
+              "traceId": "3/pfCK4rRsa6NK1XMcZnCQ==",
+              "spanId": "I8xwFuYrMFM=",
+              "parentSpanId": "XafjCHTyjng=",
+              "flags": 257,
+              "name": "SELECT fleet.vehicles",
+              "kind": "SPAN_KIND_CLIENT",
+              "startTimeUnixNano": "1792837717760714880",
+              "endTimeUnixNano": "1792837717761221842",
+              "attributes": [
+                {
+                  "key": "db.system",
+                  "value": {
+                    "stringValue": "postgresql"
+                  }
+                },
+                {
+                  "key": "db.statement",
+                  "value": {
+                    "stringValue": "SELECT * FROM vehicles WHERE id = ?"
+                  }
+                },
+                {
+                  "key": "db.user",
+                  "value": {
+                    "stringValue": "fleet"
+                  }
+                },
+                {
+                  "key": "server.address",
+                  "value": {
+                    "stringValue": "fleet-db"
+                  }
+                },
+                {
+                  "key": "db.connection_string",
+                  "value": {
+                    "stringValue": "postgresql://fleet-db:5432"
+                  }
+                },
+                {
+                  "key": "db.name",
+                  "value": {
+                    "stringValue": "fleet"
+                  }
+                },
+                {
+                  "key": "thread.id",
+                  "value": {
+                    "intValue": "37"
+                  }
+                },
+                {
+                  "key": "thread.name",
+                  "value": {
+                    "stringValue": "http-nio-8080-exec-6"
+                  }
+                },
+                {
+                  "key": "db.sql.table",
+                  "value": {
+                    "stringValue": "vehicles"
+                  }
+                },
+                {
+                  "key": "server.port",
+                  "value": {
+                    "intValue": "5432"
+                  }
+                },
+                {
+                  "key": "db.operation",
+                  "value": {
+                    "stringValue": "SELECT"
+                  }
+                }
+              ],
+              "status": {}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "resource": {
+        "attributes": [
+          {
+            "key": "container.id",
+            "value": {
+              "stringValue": "369faac599b0a78bfcc5330d237e005207827053512c37ef7b865e49d6127d15"
+            }
+          },
+          {
+            "key": "host.arch",
+            "value": {
+              "stringValue": "amd64"
+            }
+          },
+          {
+            "key": "host.name",
+            "value": {
+              "stringValue": "customer-service-6db846c8b7-26bqq"
+            }
+          },
+          {
+            "key": "os.description",
+            "value": {
+              "stringValue": "Linux 6.18.33.2-microsoft-standard-WSL2"
+            }
+          },
+          {
+            "key": "os.type",
+            "value": {
+              "stringValue": "linux"
+            }
+          },
+          {
+            "key": "process.command_args",
+            "value": {
+              "arrayValue": {
+                "values": [
+                  {
+                    "stringValue": "/opt/java/openjdk/bin/java"
+                  },
+                  {
+                    "stringValue": "-XX:MaxRAMPercentage=75.0"
+                  },
+                  {
+                    "stringValue": "-jar"
+                  },
+                  {
+                    "stringValue": "app.jar"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "key": "process.executable.path",
+            "value": {
+              "stringValue": "/opt/java/openjdk/bin/java"
+            }
+          },
+          {
+            "key": "process.pid",
+            "value": {
+              "intValue": "1"
+            }
+          },
+          {
+            "key": "process.runtime.description",
+            "value": {
+              "stringValue": "Eclipse Adoptium OpenJDK 64-Bit Server VM 25.0.4.1+1-LTS"
+            }
+          },
+          {
+            "key": "process.runtime.name",
+            "value": {
+              "stringValue": "OpenJDK Runtime Environment"
+            }
+          },
+          {
+            "key": "process.runtime.version",
+            "value": {
+              "stringValue": "25.0.4.1+1-LTS"
+            }
+          },
+          {
+            "key": "service.instance.id",
+            "value": {
+              "stringValue": "066d8c23-7154-4e56-a3be-2cb2112be48a"
+            }
+          },
+          {
+            "key": "service.name",
+            "value": {
+              "stringValue": "customer-service"
+            }
+          },
+          {
+            "key": "service.version",
+            "value": {
+              "stringValue": "1.0.0"
+            }
+          },
+          {
+            "key": "telemetry.distro.name",
+            "value": {
+              "stringValue": "opentelemetry-java-instrumentation"
+            }
+          },
+          {
+            "key": "telemetry.distro.version",
+            "value": {
+              "stringValue": "2.21.0"
+            }
+          },
+          {
+            "key": "telemetry.sdk.language",
+            "value": {
+              "stringValue": "java"
+            }
+          },
+          {
+            "key": "telemetry.sdk.name",
+            "value": {
+              "stringValue": "opentelemetry"
+            }
+          },
+          {
+            "key": "telemetry.sdk.version",
+            "value": {
+              "stringValue": "1.55.0"
+            }
+          }
+        ]
+      },
+      "scopeSpans": [
+        {
+          "scope": {
+            "name": "io.opentelemetry.tomcat-10.0",
+            "version": "2.21.0-alpha"
+          },
+          "spans": [
+            {
+              "traceId": "3/pfCK4rRsa6NK1XMcZnCQ==",
+              "spanId": "OIZn/Eq2AtQ=",
+              "parentSpanId": "vK+4Lo2h4jQ=",
+              "flags": 769,
+              "name": "GET /api/customers/{id}/eligibility",
+              "kind": "SPAN_KIND_SERVER",
+              "startTimeUnixNano": "1792837717715292769",
+              "endTimeUnixNano": "1792837717718547593",
+              "attributes": [
+                {
+                  "key": "http.route",
+                  "value": {
+                    "stringValue": "/api/customers/{id}/eligibility"
+                  }
+                },
+                {
+                  "key": "http.request.method",
+                  "value": {
+                    "stringValue": "GET"
+                  }
+                },
+                {
+                  "key": "url.path",
+                  "value": {
+                    "stringValue": "/api/customers/14c08b98-33e5-44bd-96d4-ba279e035d02/eligibility"
+                  }
+                },
+                {
+                  "key": "server.address",
+                  "value": {
+                    "stringValue": "customer-service"
+                  }
+                },
+                {
+                  "key": "client.address",
+                  "value": {
+                    "stringValue": "10.1.0.74"
+                  }
+                },
+                {
+                  "key": "network.peer.address",
+                  "value": {
+                    "stringValue": "10.1.0.74"
+                  }
+                },
+                {
+                  "key": "network.peer.port",
+                  "value": {
+                    "intValue": "34064"
+                  }
+                },
+                {
+                  "key": "network.protocol.version",
+                  "value": {
+                    "stringValue": "1.1"
+                  }
+                },
+                {
+                  "key": "user_agent.original",
+                  "value": {
+                    "stringValue": "Java-http-client/25.0.4.1"
+                  }
+                },
+                {
+                  "key": "thread.id",
+                  "value": {
+                    "intValue": "33"
+                  }
+                },
+                {
+                  "key": "url.scheme",
+                  "value": {
+                    "stringValue": "http"
+                  }
+                },
+                {
+                  "key": "thread.name",
+                  "value": {
+                    "stringValue": "http-nio-8080-exec-1"
+                  }
+                },
+                {
+                  "key": "http.response.status_code",
+                  "value": {
+                    "intValue": "200"
+                  }
+                },
+                {
+                  "key": "server.port",
+                  "value": {
+                    "intValue": "8080"
+                  }
+                }
+              ],
+              "status": {}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "resource": {
+        "attributes": [
+          {
+            "key": "container.id",
+            "value": {
+              "stringValue": "369faac599b0a78bfcc5330d237e005207827053512c37ef7b865e49d6127d15"
+            }
+          },
+          {
+            "key": "host.arch",
+            "value": {
+              "stringValue": "amd64"
+            }
+          },
+          {
+            "key": "host.name",
+            "value": {
+              "stringValue": "customer-service-6db846c8b7-26bqq"
+            }
+          },
+          {
+            "key": "os.description",
+            "value": {
+              "stringValue": "Linux 6.18.33.2-microsoft-standard-WSL2"
+            }
+          },
+          {
+            "key": "os.type",
+            "value": {
+              "stringValue": "linux"
+            }
+          },
+          {
+            "key": "process.command_args",
+            "value": {
+              "arrayValue": {
+                "values": [
+                  {
+                    "stringValue": "/opt/java/openjdk/bin/java"
+                  },
+                  {
+                    "stringValue": "-XX:MaxRAMPercentage=75.0"
+                  },
+                  {
+                    "stringValue": "-jar"
+                  },
+                  {
+                    "stringValue": "app.jar"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "key": "process.executable.path",
+            "value": {
+              "stringValue": "/opt/java/openjdk/bin/java"
+            }
+          },
+          {
+            "key": "process.pid",
+            "value": {
+              "intValue": "1"
+            }
+          },
+          {
+            "key": "process.runtime.description",
+            "value": {
+              "stringValue": "Eclipse Adoptium OpenJDK 64-Bit Server VM 25.0.4.1+1-LTS"
+            }
+          },
+          {
+            "key": "process.runtime.name",
+            "value": {
+              "stringValue": "OpenJDK Runtime Environment"
+            }
+          },
+          {
+            "key": "process.runtime.version",
+            "value": {
+              "stringValue": "25.0.4.1+1-LTS"
+            }
+          },
+          {
+            "key": "service.instance.id",
+            "value": {
+              "stringValue": "066d8c23-7154-4e56-a3be-2cb2112be48a"
+            }
+          },
+          {
+            "key": "service.name",
+            "value": {
+              "stringValue": "customer-service"
+            }
+          },
+          {
+            "key": "service.version",
+            "value": {
+              "stringValue": "1.0.0"
+            }
+          },
+          {
+            "key": "telemetry.distro.name",
+            "value": {
+              "stringValue": "opentelemetry-java-instrumentation"
+            }
+          },
+          {
+            "key": "telemetry.distro.version",
+            "value": {
+              "stringValue": "2.21.0"
+            }
+          },
+          {
+            "key": "telemetry.sdk.language",
+            "value": {
+              "stringValue": "java"
+            }
+          },
+          {
+            "key": "telemetry.sdk.name",
+            "value": {
+              "stringValue": "opentelemetry"
+            }
+          },
+          {
+            "key": "telemetry.sdk.version",
+            "value": {
+              "stringValue": "1.55.0"
+            }
+          }
+        ]
+      },
+      "scopeSpans": [
+        {
+          "scope": {
+            "name": "io.opentelemetry.jdbc",
+            "version": "2.21.0-alpha"
+          },
+          "spans": [
+            {
+              "traceId": "3/pfCK4rRsa6NK1XMcZnCQ==",
+              "spanId": "dBUtuEYrco4=",
+              "parentSpanId": "OIZn/Eq2AtQ=",
+              "flags": 257,
+              "name": "SELECT customers.customers",
+              "kind": "SPAN_KIND_CLIENT",
+              "startTimeUnixNano": "1792837717716670478",
+              "endTimeUnixNano": "1792837717717081984",
+              "attributes": [
+                {
+                  "key": "db.system",
+                  "value": {
+                    "stringValue": "postgresql"
+                  }
+                },
+                {
+                  "key": "db.statement",
+                  "value": {
+                    "stringValue": "SELECT * FROM customers WHERE id = ?"
+                  }
+                },
+                {
+                  "key": "db.user",
+                  "value": {
+                    "stringValue": "customer"
+                  }
+                },
+                {
+                  "key": "server.address",
+                  "value": {
+                    "stringValue": "customer-db"
+                  }
+                },
+                {
+                  "key": "db.connection_string",
+                  "value": {
+                    "stringValue": "postgresql://customer-db:5432"
+                  }
+                },
+                {
+                  "key": "db.name",
+                  "value": {
+                    "stringValue": "customers"
+                  }
+                },
+                {
+                  "key": "thread.id",
+                  "value": {
+                    "intValue": "33"
+                  }
+                },
+                {
+                  "key": "thread.name",
+                  "value": {
+                    "stringValue": "http-nio-8080-exec-1"
+                  }
+                },
+                {
+                  "key": "db.sql.table",
+                  "value": {
+                    "stringValue": "customers"
+                  }
+                },
+                {
+                  "key": "server.port",
+                  "value": {
+                    "intValue": "5432"
+                  }
+                },
+                {
+                  "key": "db.operation",
+                  "value": {
+                    "stringValue": "SELECT"
+                  }
+                }
+              ],
+              "status": {}
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

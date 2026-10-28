@@ -1,0 +1,369 @@
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::staticFieldBase has been called by com.google.inject.internal.aop.HiddenClassDefiner (file:/C:/Users/onill/Documents/ChatGPT/spring/tools/apache-maven-3.9.11/lib/guice-5.1.0-classes.jar)
+WARNING: Please consider reporting this to the maintainers of class com.google.inject.internal.aop.HiddenClassDefiner
+WARNING: sun.misc.Unsafe::staticFieldBase will be removed in a future release
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] car-rental-service                                                 [pom]
+[INFO] event-contracts                                                    [jar]
+[INFO] observability                                                      [jar]
+[INFO] customer-service                                                   [jar]
+[INFO] fleet-service                                                      [jar]
+[INFO] booking-service                                                    [jar]
+[INFO] payment-service                                                    [jar]
+[INFO] 
+[INFO] ------------------< ua.carrental:car-rental-service >-------------------
+[INFO] Building car-rental-service 1.0.0                                  [1/7]
+[INFO]   from pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --------------------< ua.carrental:event-contracts >--------------------
+[INFO] Building event-contracts 1.0.0                                     [2/7]
+[INFO]   from event-contracts\pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.5.0:resources (default-resources) @ event-contracts ---
+[INFO] Copying 0 resource from src\main\resources to target\classes
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.15.0:compile (default-compile) @ event-contracts ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.5.0:testResources (default-testResources) @ event-contracts ---
+[INFO] skip non existing resourceDirectory C:\Users\onill\Documents\ChatGPT\spring\lab07-car-rental\car-rental-service\event-contracts\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.15.0:testCompile (default-testCompile) @ event-contracts ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ event-contracts ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] --- jar:3.5.1:jar (default-jar) @ event-contracts ---
+[INFO] 
+[INFO] ---------------------< ua.carrental:observability >---------------------
+[INFO] Building observability 1.0.0                                       [3/7]
+[INFO]   from observability\pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.5.0:resources (default-resources) @ observability ---
+[INFO] skip non existing resourceDirectory C:\Users\onill\Documents\ChatGPT\spring\lab07-car-rental\car-rental-service\observability\src\main\resources
+[INFO] skip non existing resourceDirectory C:\Users\onill\Documents\ChatGPT\spring\lab07-car-rental\car-rental-service\observability\src\main\resources
+[INFO] 
+[INFO] --- compiler:3.15.0:compile (default-compile) @ observability ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.5.0:testResources (default-testResources) @ observability ---
+[INFO] skip non existing resourceDirectory C:\Users\onill\Documents\ChatGPT\spring\lab07-car-rental\car-rental-service\observability\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.15.0:testCompile (default-testCompile) @ observability ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 4 source files with javac [debug parameters release 25] to target\test-classes
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ observability ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running ua.carrental.observability.ApiMetricsFilterTest
+13:17:45.809 [main] INFO ua.carrental.observability.ApiMetricsFilter -- HTTP GET /api/vehicles status=200
+13:17:45.833 [main] INFO ua.carrental.observability.ApiMetricsFilter -- HTTP CUSTOM-USER-ID /api/private-id status=405
+13:17:45.858 [pool-2-thread-1] INFO ua.carrental.observability.ApiMetricsFilter -- HTTP POST /api/customers status=200
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.206 s -- in ua.carrental.observability.ApiMetricsFilterTest
+[INFO] Running ua.carrental.observability.BusinessMetricsTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s -- in ua.carrental.observability.BusinessMetricsTest
+[INFO] Running ua.carrental.observability.DemoWorkControllerTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.191 s -- in ua.carrental.observability.DemoWorkControllerTest
+[INFO] Running ua.carrental.observability.TraceCarrierTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.010 s -- in ua.carrental.observability.TraceCarrierTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --- jar:3.5.1:jar (default-jar) @ observability ---
+[INFO] 
+[INFO] -------------------< ua.carrental:customer-service >--------------------
+[INFO] Building customer-service 1.0.0                                    [4/7]
+[INFO]   from customer-service\pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.5.0:resources (default-resources) @ customer-service ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.15.0:compile (default-compile) @ customer-service ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.5.0:testResources (default-testResources) @ customer-service ---
+[INFO] skip non existing resourceDirectory C:\Users\onill\Documents\ChatGPT\spring\lab07-car-rental\car-rental-service\customer-service\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.15.0:testCompile (default-testCompile) @ customer-service ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ customer-service ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running ua.carrental.customer.ObservabilityIntegrationTest
+{"@timestamp":"2026-10-24T13:17:46.9495134+03:00","@version":"1","message":"Starting ForkedBooter v3.5.6 using Java 25.0.4.1 with PID 3984 (started by onill in C:\\Users\\onill\\Documents\\ChatGPT\\spring\\lab07-car-rental\\car-rental-service\\customer-service)","logger_name":"org.apache.maven.surefire.booter.ForkedBooter","thread_name":"main","level":"INFO","level_value":20000,"tags":["COMMONS-LOGGING"]}
+{"@timestamp":"2026-10-24T13:17:46.9540794+03:00","@version":"1","message":"The following 1 profile is active: \"monitoring-demo\"","logger_name":"org.apache.maven.surefire.booter.ForkedBooter","thread_name":"main","level":"INFO","level_value":20000,"tags":["COMMONS-LOGGING"]}
+{"@timestamp":"2026-10-24T13:17:47.6726548+03:00","@version":"1","message":"Tomcat initialized with port 0 (http)","logger_name":"org.springframework.boot.tomcat.TomcatWebServer","thread_name":"main","level":"INFO","level_value":20000,"tags":["COMMONS-LOGGING"]}
+{"@timestamp":"2026-10-24T13:17:47.6812141+03:00","@version":"1","message":"Starting service [Tomcat]","logger_name":"org.apache.catalina.core.StandardService","thread_name":"main","level":"INFO","level_value":20000}
+{"@timestamp":"2026-10-24T13:17:47.6812141+03:00","@version":"1","message":"Starting Servlet engine: [Apache Tomcat/11.0.24]","logger_name":"org.apache.catalina.core.StandardEngine","thread_name":"main","level":"INFO","level_value":20000}
+{"@timestamp":"2026-10-24T13:17:47.719015+03:00","@version":"1","message":"Root WebApplicationContext: initialization completed in 739 ms","logger_name":"org.springframework.boot.web.context.servlet.WebApplicationContextInitializer","thread_name":"main","level":"INFO","level_value":20000,"tags":["COMMONS-LOGGING"]}
+{"@timestamp":"2026-10-24T13:17:47.9082493+03:00","@version":"1","message":"HikariPool-1 - Starting...","logger_name":"com.zaxxer.hikari.HikariDataSource","thread_name":"main","level":"INFO","level_value":20000}
+{"@timestamp":"2026-10-24T13:17:48.0339275+03:00","@version":"1","message":"HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:observability-customer user=SA","logger_name":"com.zaxxer.hikari.pool.HikariPool","thread_name":"main","level":"INFO","level_value":20000}
+{"@timestamp":"2026-10-24T13:17:48.0359322+03:00","@version":"1","message":"HikariPool-1 - Start completed.","logger_name":"com.zaxxer.hikari.HikariDataSource","thread_name":"main","level":"INFO","level_value":20000}
+{"@timestamp":"2026-10-24T13:17:48.3972328+03:00","@version":"1","message":"Exposing 3 endpoints beneath base path '/actuator'","logger_name":"org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver","thread_name":"main","level":"INFO","level_value":20000,"tags":["COMMONS-LOGGING"]}
+{"@timestamp":"2026-10-24T13:17:48.4419556+03:00","@version":"1","message":"Tomcat started on port 62322 (http) with context path '/'","logger_name":"org.springframework.boot.tomcat.TomcatWebServer","thread_name":"main","level":"INFO","level_value":20000,"tags":["COMMONS-LOGGING"]}
+{"@timestamp":"2026-10-24T13:17:48.4470185+03:00","@version":"1","message":"Started ForkedBooter in 1.73 seconds (process running for 2.141)","logger_name":"org.apache.maven.surefire.booter.ForkedBooter","thread_name":"main","level":"INFO","level_value":20000,"tags":["COMMONS-LOGGING"]}
+{"@timestamp":"2026-10-24T13:17:48.590997+03:00","@version":"1","message":"Initializing Spring DispatcherServlet 'dispatcherServlet'","logger_name":"org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]","thread_name":"http-nio-auto-1-exec-8","level":"INFO","level_value":20000}
+{"@timestamp":"2026-10-24T13:17:48.590997+03:00","@version":"1","message":"Initializing Servlet 'dispatcherServlet'","logger_name":"org.springframework.web.servlet.DispatcherServlet","thread_name":"http-nio-auto-1-exec-8","level":"INFO","level_value":20000,"tags":["COMMONS-LOGGING"]}
+{"@timestamp":"2026-10-24T13:17:48.590997+03:00","@version":"1","message":"Completed initialization in 0 ms","logger_name":"org.springframework.web.servlet.DispatcherServlet","thread_name":"http-nio-auto-1-exec-8","level":"INFO","level_value":20000,"tags":["COMMONS-LOGGING"]}
+{"@timestamp":"2026-10-24T13:17:48.7599859+03:00","@version":"1","message":"HTTP POST /api/customers status=400","logger_name":"ua.carrental.observability.ApiMetricsFilter","thread_name":"http-nio-auto-1-exec-3","level":"INFO","level_value":20000}
+{"@timestamp":"2026-10-24T13:17:50.7681649+03:00","@version":"1","message":"HTTP GET /api/monitoring/demo-work status=200","logger_name":"ua.carrental.observability.ApiMetricsFilter","thread_name":"http-nio-auto-1-exec-4","level":"INFO","level_value":20000}
+{"@timestamp":"2026-10-24T13:17:50.8149144+03:00","@version":"1","message":"Commencing graceful shutdown. Waiting for active requests to complete","logger_name":"org.springframework.boot.tomcat.GracefulShutdown","thread_name":"main","level":"INFO","level_value":20000,"tags":["COMMONS-LOGGING"]}
+{"@timestamp":"2026-10-24T13:17:50.8189558+03:00","@version":"1","message":"Graceful shutdown complete","logger_name":"org.springframework.boot.tomcat.GracefulShutdown","thread_name":"tomcat-shutdown","level":"INFO","level_value":20000,"tags":["COMMONS-LOGGING"]}
+{"@timestamp":"2026-10-24T13:17:50.8219564+03:00","@version":"1","message":"HikariPool-1 - Shutdown initiated...","logger_name":"com.zaxxer.hikari.HikariDataSource","thread_name":"main","level":"INFO","level_value":20000}
+{"@timestamp":"2026-10-24T13:17:50.8234594+03:00","@version":"1","message":"HikariPool-1 - Shutdown completed.","logger_name":"com.zaxxer.hikari.HikariDataSource","thread_name":"main","level":"INFO","level_value":20000}
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.230 s -- in ua.carrental.customer.ObservabilityIntegrationTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --- jar:3.5.1:jar (default-jar) @ customer-service ---
+[INFO] 
+[INFO] --- spring-boot:4.1.1:repackage (repackage) @ customer-service ---
+[INFO] Replacing main artifact C:\Users\onill\Documents\ChatGPT\spring\lab07-car-rental\car-rental-service\customer-service\target\app.jar with repackaged archive, adding nested dependencies in BOOT-INF/.
+[INFO] The original artifact has been renamed to C:\Users\onill\Documents\ChatGPT\spring\lab07-car-rental\car-rental-service\customer-service\target\app.jar.original
+[INFO] 
+[INFO] ---------------------< ua.carrental:fleet-service >---------------------
+[INFO] Building fleet-service 1.0.0                                       [5/7]
+[INFO]   from fleet-service\pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.5.0:resources (default-resources) @ fleet-service ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.15.0:compile (default-compile) @ fleet-service ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.5.0:testResources (default-testResources) @ fleet-service ---
+[INFO] skip non existing resourceDirectory C:\Users\onill\Documents\ChatGPT\spring\lab07-car-rental\car-rental-service\fleet-service\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.15.0:testCompile (default-testCompile) @ fleet-service ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ fleet-service ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running ua.carrental.fleet.ObservabilityIntegrationTest
+{"@timestamp":"2026-10-24T13:17:51.942595+03:00","@version":"1","message":"Starting ForkedBooter v3.5.6 using Java 25.0.4.1 with PID 3096 (started by onill in C:\\Users\\onill\\Documents\\ChatGPT\\spring\\lab07-car-rental\\car-rental-service\\fleet-service)","logger_name":"org.apache.maven.surefire.booter.ForkedBooter","thread_name":"main","level":"INFO","level_value":20000,"tags":["COMMONS-LOGGING"]}
+{"@timestamp":"2026-10-24T13:17:51.9476005+03:00","@version":"1","message":"The following 1 profile is active: \"monitoring-demo\"","logger_name":"org.apache.maven.surefire.booter.ForkedBooter","thread_name":"main","level":"INFO","level_value":20000,"tags":["COMMONS-LOGGING"]}
+{"@timestamp":"2026-10-24T13:17:52.676587+03:00","@version":"1","message":"Tomcat initialized with port 0 (http)","logger_name":"org.springframework.boot.tomcat.TomcatWebServer","thread_name":"main","level":"INFO","level_value":20000,"tags":["COMMONS-LOGGING"]}
+{"@timestamp":"2026-10-24T13:17:52.6877269+03:00","@version":"1","message":"Starting service [Tomcat]","logger_name":"org.apache.catalina.core.StandardService","thread_name":"main","level":"INFO","level_value":20000}
+{"@timestamp":"2026-10-24T13:17:52.6877269+03:00","@version":"1","message":"Starting Servlet engine: [Apache Tomcat/11.0.24]","logger_name":"org.apache.catalina.core.StandardEngine","thread_name":"main","level":"INFO","level_value":20000}
+{"@timestamp":"2026-10-24T13:17:52.7265462+03:00","@version":"1","message":"Root WebApplicationContext: initialization completed in 754 ms","logger_name":"org.springframework.boot.web.context.servlet.WebApplicationContextInitializer","thread_name":"main","level":"INFO","level_value":20000,"tags":["COMMONS-LOGGING"]}
+{"@timestamp":"2026-10-24T13:17:52.9355586+03:00","@version":"1","message":"HikariPool-1 - Starting...","logger_name":"com.zaxxer.hikari.HikariDataSource","thread_name":"main","level":"INFO","level_value":20000}
+{"@timestamp":"2026-10-24T13:17:53.0571944+03:00","@version":"1","message":"HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:observability-fleet user=SA","logger_name":"com.zaxxer.hikari.pool.HikariPool","thread_name":"main","level":"INFO","level_value":20000}
+{"@timestamp":"2026-10-24T13:17:53.0581993+03:00","@version":"1","message":"HikariPool-1 - Start completed.","logger_name":"com.zaxxer.hikari.HikariDataSource","thread_name":"main","level":"INFO","level_value":20000}
+{"@timestamp":"2026-10-24T13:17:53.4336463+03:00","@version":"1","message":"Exposing 3 endpoints beneath base path '/actuator'","logger_name":"org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver","thread_name":"main","level":"INFO","level_value":20000,"tags":["COMMONS-LOGGING"]}
+{"@timestamp":"2026-10-24T13:17:53.4906567+03:00","@version":"1","message":"Tomcat started on port 62328 (http) with context path '/'","logger_name":"org.springframework.boot.tomcat.TomcatWebServer","thread_name":"main","level":"INFO","level_value":20000,"tags":["COMMONS-LOGGING"]}
+{"@timestamp":"2026-10-24T13:17:53.4967433+03:00","@version":"1","message":"Started ForkedBooter in 1.801 seconds (process running for 2.252)","logger_name":"org.apache.maven.surefire.booter.ForkedBooter","thread_name":"main","level":"INFO","level_value":20000,"tags":["COMMONS-LOGGING"]}
+{"@timestamp":"2026-10-24T13:17:53.6485079+03:00","@version":"1","message":"Initializing Spring DispatcherServlet 'dispatcherServlet'","logger_name":"org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]","thread_name":"http-nio-auto-1-exec-1","level":"INFO","level_value":20000}
+{"@timestamp":"2026-10-24T13:17:53.6485079+03:00","@version":"1","message":"Initializing Servlet 'dispatcherServlet'","logger_name":"org.springframework.web.servlet.DispatcherServlet","thread_name":"http-nio-auto-1-exec-1","level":"INFO","level_value":20000,"tags":["COMMONS-LOGGING"]}
+{"@timestamp":"2026-10-24T13:17:53.6495117+03:00","@version":"1","message":"Completed initialization in 0 ms","logger_name":"org.springframework.web.servlet.DispatcherServlet","thread_name":"http-nio-auto-1-exec-1","level":"INFO","level_value":20000,"tags":["COMMONS-LOGGING"]}
+{"@timestamp":"2026-10-24T13:17:53.8194174+03:00","@version":"1","message":"HTTP POST /api/vehicles status=400","logger_name":"ua.carrental.observability.ApiMetricsFilter","thread_name":"http-nio-auto-1-exec-4","level":"INFO","level_value":20000}
+{"@timestamp":"2026-10-24T13:17:55.8279999+03:00","@version":"1","message":"HTTP GET /api/monitoring/demo-work status=200","logger_name":"ua.carrental.observability.ApiMetricsFilter","thread_name":"http-nio-auto-1-exec-5","level":"INFO","level_value":20000}
+{"@timestamp":"2026-10-24T13:17:55.8623346+03:00","@version":"1","message":"Commencing graceful shutdown. Waiting for active requests to complete","logger_name":"org.springframework.boot.tomcat.GracefulShutdown","thread_name":"main","level":"INFO","level_value":20000,"tags":["COMMONS-LOGGING"]}
+{"@timestamp":"2026-10-24T13:17:55.8653359+03:00","@version":"1","message":"Graceful shutdown complete","logger_name":"org.springframework.boot.tomcat.GracefulShutdown","thread_name":"tomcat-shutdown","level":"INFO","level_value":20000,"tags":["COMMONS-LOGGING"]}
+{"@timestamp":"2026-10-24T13:17:55.8683953+03:00","@version":"1","message":"HikariPool-1 - Shutdown initiated...","logger_name":"com.zaxxer.hikari.HikariDataSource","thread_name":"main","level":"INFO","level_value":20000}
+{"@timestamp":"2026-10-24T13:17:55.8683953+03:00","@version":"1","message":"HikariPool-1 - Shutdown completed.","logger_name":"com.zaxxer.hikari.HikariDataSource","thread_name":"main","level":"INFO","level_value":20000}
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.300 s -- in ua.carrental.fleet.ObservabilityIntegrationTest
+[INFO] Running ua.carrental.fleet.VehicleBatchIntegrationTest
+{"@timestamp":"2026-10-24T13:17:55.8987965+03:00","@version":"1","message":"Starting ForkedBooter v3.5.6 using Java 25.0.4.1 with PID 3096 (started by onill in C:\\Users\\onill\\Documents\\ChatGPT\\spring\\lab07-car-rental\\car-rental-service\\fleet-service)","logger_name":"org.apache.maven.surefire.booter.ForkedBooter","thread_name":"main","level":"INFO","level_value":20000,"tags":["COMMONS-LOGGING"]}
+{"@timestamp":"2026-10-24T13:17:55.9003056+03:00","@version":"1","message":"No active profile set, falling back to 1 default profile: \"default\"","logger_name":"org.apache.maven.surefire.booter.ForkedBooter","thread_name":"main","level":"INFO","level_value":20000,"tags":["COMMONS-LOGGING"]}
+{"@timestamp":"2026-10-24T13:17:56.0327672+03:00","@version":"1","message":"Tomcat initialized with port 0 (http)","logger_name":"org.springframework.boot.tomcat.TomcatWebServer","thread_name":"main","level":"INFO","level_value":20000,"tags":["COMMONS-LOGGING"]}
+{"@timestamp":"2026-10-24T13:17:56.033271+03:00","@version":"1","message":"Starting service [Tomcat]","logger_name":"org.apache.catalina.core.StandardService","thread_name":"main","level":"INFO","level_value":20000}
+{"@timestamp":"2026-10-24T13:17:56.033271+03:00","@version":"1","message":"Starting Servlet engine: [Apache Tomcat/11.0.24]","logger_name":"org.apache.catalina.core.StandardEngine","thread_name":"main","level":"INFO","level_value":20000}
+{"@timestamp":"2026-10-24T13:17:56.0530304+03:00","@version":"1","message":"Root WebApplicationContext: initialization completed in 152 ms","logger_name":"org.springframework.boot.web.context.servlet.WebApplicationContextInitializer","thread_name":"main","level":"INFO","level_value":20000,"tags":["COMMONS-LOGGING"]}
+{"@timestamp":"2026-10-24T13:17:56.077895+03:00","@version":"1","message":"HikariPool-2 - Starting...","logger_name":"com.zaxxer.hikari.HikariDataSource","thread_name":"main","level":"INFO","level_value":20000}
+{"@timestamp":"2026-10-24T13:17:56.0798959+03:00","@version":"1","message":"HikariPool-2 - Added connection conn5: url=jdbc:h2:mem:fleet user=SA","logger_name":"com.zaxxer.hikari.pool.HikariPool","thread_name":"main","level":"INFO","level_value":20000}
+{"@timestamp":"2026-10-24T13:17:56.0798959+03:00","@version":"1","message":"HikariPool-2 - Start completed.","logger_name":"com.zaxxer.hikari.HikariDataSource","thread_name":"main","level":"INFO","level_value":20000}
+{"@timestamp":"2026-10-24T13:17:56.1430823+03:00","@version":"1","message":"Exposing 3 endpoints beneath base path '/actuator'","logger_name":"org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver","thread_name":"main","level":"INFO","level_value":20000,"tags":["COMMONS-LOGGING"]}
+{"@timestamp":"2026-10-24T13:17:56.1532682+03:00","@version":"1","message":"Tomcat started on port 62333 (http) with context path '/'","logger_name":"org.springframework.boot.tomcat.TomcatWebServer","thread_name":"main","level":"INFO","level_value":20000,"tags":["COMMONS-LOGGING"]}
+{"@timestamp":"2026-10-24T13:17:56.1553427+03:00","@version":"1","message":"Started ForkedBooter in 0.272 seconds (process running for 4.91)","logger_name":"org.apache.maven.surefire.booter.ForkedBooter","thread_name":"main","level":"INFO","level_value":20000,"tags":["COMMONS-LOGGING"]}
+{"@timestamp":"2026-10-24T13:17:56.2091062+03:00","@version":"1","message":"Initializing Spring DispatcherServlet 'dispatcherServlet'","logger_name":"org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]","thread_name":"http-nio-auto-2-exec-1","level":"INFO","level_value":20000}
+{"@timestamp":"2026-10-24T13:17:56.2091062+03:00","@version":"1","message":"Initializing Servlet 'dispatcherServlet'","logger_name":"org.springframework.web.servlet.DispatcherServlet","thread_name":"http-nio-auto-2-exec-1","level":"INFO","level_value":20000,"tags":["COMMONS-LOGGING"]}
+{"@timestamp":"2026-10-24T13:17:56.2101079+03:00","@version":"1","message":"Completed initialization in 1 ms","logger_name":"org.springframework.web.servlet.DispatcherServlet","thread_name":"http-nio-auto-2-exec-1","level":"INFO","level_value":20000,"tags":["COMMONS-LOGGING"]}
+{"@timestamp":"2026-10-24T13:17:56.2142032+03:00","@version":"1","message":"HTTP GET /api/vehicles/7a6448ea-fb9c-499d-a170-f5764017cb90 status=404","logger_name":"ua.carrental.observability.ApiMetricsFilter","thread_name":"http-nio-auto-2-exec-1","level":"INFO","level_value":20000}
+{"@timestamp":"2026-10-24T13:17:56.2421115+03:00","@version":"1","message":"HTTP POST /api/vehicles/batch status=200","logger_name":"ua.carrental.observability.ApiMetricsFilter","thread_name":"http-nio-auto-2-exec-2","level":"INFO","level_value":20000}
+{"@timestamp":"2026-10-24T13:17:56.2529807+03:00","@version":"1","message":"HTTP POST /api/vehicles/batch status=200","logger_name":"ua.carrental.observability.ApiMetricsFilter","thread_name":"http-nio-auto-2-exec-3","level":"INFO","level_value":20000}
+{"@timestamp":"2026-10-24T13:17:56.2591358+03:00","@version":"1","message":"HTTP POST /api/vehicles/batch status=400","logger_name":"ua.carrental.observability.ApiMetricsFilter","thread_name":"http-nio-auto-2-exec-4","level":"INFO","level_value":20000}
+{"@timestamp":"2026-10-24T13:17:56.2631349+03:00","@version":"1","message":"HTTP POST /api/vehicles/batch status=400","logger_name":"ua.carrental.observability.ApiMetricsFilter","thread_name":"http-nio-auto-2-exec-5","level":"INFO","level_value":20000}
+{"@timestamp":"2026-10-24T13:17:56.2651904+03:00","@version":"1","message":"Commencing graceful shutdown. Waiting for active requests to complete","logger_name":"org.springframework.boot.tomcat.GracefulShutdown","thread_name":"main","level":"INFO","level_value":20000,"tags":["COMMONS-LOGGING"]}
+{"@timestamp":"2026-10-24T13:17:56.2692426+03:00","@version":"1","message":"Graceful shutdown complete","logger_name":"org.springframework.boot.tomcat.GracefulShutdown","thread_name":"tomcat-shutdown","level":"INFO","level_value":20000,"tags":["COMMONS-LOGGING"]}
+{"@timestamp":"2026-10-24T13:17:56.2712405+03:00","@version":"1","message":"HikariPool-2 - Shutdown initiated...","logger_name":"com.zaxxer.hikari.HikariDataSource","thread_name":"main","level":"INFO","level_value":20000}
+{"@timestamp":"2026-10-24T13:17:56.2803365+03:00","@version":"1","message":"HikariPool-2 - Shutdown completed.","logger_name":"com.zaxxer.hikari.HikariDataSource","thread_name":"main","level":"INFO","level_value":20000}
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.403 s -- in ua.carrental.fleet.VehicleBatchIntegrationTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --- jar:3.5.1:jar (default-jar) @ fleet-service ---
+[INFO] 
+[INFO] --- spring-boot:4.1.1:repackage (repackage) @ fleet-service ---
+[INFO] Replacing main artifact C:\Users\onill\Documents\ChatGPT\spring\lab07-car-rental\car-rental-service\fleet-service\target\app.jar with repackaged archive, adding nested dependencies in BOOT-INF/.
+[INFO] The original artifact has been renamed to C:\Users\onill\Documents\ChatGPT\spring\lab07-car-rental\car-rental-service\fleet-service\target\app.jar.original
+[INFO] 
+[INFO] --------------------< ua.carrental:booking-service >--------------------
+[INFO] Building booking-service 1.0.0                                     [6/7]
+[INFO]   from booking-service\pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.5.0:resources (default-resources) @ booking-service ---
+[INFO] Copying 3 resources from src\main\resources to target\classes
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.15.0:compile (default-compile) @ booking-service ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.5.0:testResources (default-testResources) @ booking-service ---
+[INFO] Copying 1 resource from src\test\resources to target\test-classes
+[INFO] 
+[INFO] --- compiler:3.15.0:testCompile (default-testCompile) @ booking-service ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 6 source files with javac [debug parameters release 25] to target\test-classes
+[WARNING] /C:/Users/onill/Documents/ChatGPT/spring/lab07-car-rental/car-rental-service/booking-service/src/test/java/ua/carrental/booking/bookings/OutboxIntegrationTest.java:[60,65] consumerProps(java.lang.String,java.lang.String,org.springframework.kafka.test.EmbeddedKafkaBroker) in org.springframework.kafka.test.utils.KafkaTestUtils has been deprecated and marked for removal
+[WARNING] /C:/Users/onill/Documents/ChatGPT/spring/lab07-car-rental/car-rental-service/booking-service/src/test/java/ua/carrental/booking/bookings/OutboxIntegrationTest.java:[115,65] consumerProps(java.lang.String,java.lang.String,org.springframework.kafka.test.EmbeddedKafkaBroker) in org.springframework.kafka.test.utils.KafkaTestUtils has been deprecated and marked for removal
+[INFO] /C:/Users/onill/Documents/ChatGPT/spring/lab07-car-rental/car-rental-service/booking-service/src/test/java/ua/carrental/booking/bookings/OutboxIntegrationTest.java: C:\Users\onill\Documents\ChatGPT\spring\lab07-car-rental\car-rental-service\booking-service\src\test\java\ua\carrental\booking\bookings\OutboxIntegrationTest.java uses unchecked or unsafe operations.
+[INFO] /C:/Users/onill/Documents/ChatGPT/spring/lab07-car-rental/car-rental-service/booking-service/src/test/java/ua/carrental/booking/bookings/OutboxIntegrationTest.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ booking-service ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running ua.carrental.booking.bookings.IdempotencyIntegrationTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.128 s -- in ua.carrental.booking.bookings.IdempotencyIntegrationTest
+[INFO] Running ua.carrental.booking.bookings.OutboxIntegrationTest
+Bootstrap metadata: BootstrapMetadata(records=[ApiMessageAndVersion(FeatureLevelRecord(name='metadata.version', featureLevel=30) at version 0), ApiMessageAndVersion(FeatureLevelRecord(name='eligible.leader.replicas.version', featureLevel=1) at version 0), ApiMessageAndVersion(FeatureLevelRecord(name='group.version', featureLevel=1) at version 0), ApiMessageAndVersion(FeatureLevelRecord(name='share.version', featureLevel=1) at version 0), ApiMessageAndVersion(FeatureLevelRecord(name='streams.version', featureLevel=1) at version 0), ApiMessageAndVersion(FeatureLevelRecord(name='transaction.version', featureLevel=2) at version 0)], metadataVersionLevel=30, source=format command)
+Formatting metadata directory C:\Users\onill\AppData\Local\Temp\kafka-11699799920786557660\combined_0_0 with metadata.version 4.3-IV0.
+Mockito is currently self-attaching to enable the inline-mock-maker. This will no longer work in future releases of the JDK. Please add Mockito as an agent to your build as described in Mockito's documentation: https://javadoc.io/doc/org.mockito/mockito-core/latest/org.mockito/org/mockito/Mockito.html#0.3
+OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+WARNING: A Java agent has been loaded dynamically (C:\Users\onill\.m2\repository\net\bytebuddy\byte-buddy-agent\1.18.11\byte-buddy-agent-1.18.11.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::invokeCleaner has been called by org.apache.kafka.common.utils.ByteBufferUnmapper (file:/C:/Users/onill/.m2/repository/org/apache/kafka/kafka-clients/4.2.1/kafka-clients-4.2.1.jar)
+WARNING: Please consider reporting this to the maintainers of class org.apache.kafka.common.utils.ByteBufferUnmapper
+WARNING: sun.misc.Unsafe::invokeCleaner will be removed in a future release
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.885 s -- in ua.carrental.booking.bookings.OutboxIntegrationTest
+[INFO] Running ua.carrental.booking.catalog.CatalogClientTest
+VERIFIED ResourceAccessException / HttpTimeoutException elapsedMs=3003
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.491 s -- in ua.carrental.booking.catalog.CatalogClientTest
+[INFO] Running ua.carrental.booking.ObservabilityIntegrationTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.508 s -- in ua.carrental.booking.ObservabilityIntegrationTest
+[INFO] Running ua.carrental.booking.resilience.ResilienceIntegrationTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.251 s -- in ua.carrental.booking.resilience.ResilienceIntegrationTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 24, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --- jar:3.5.1:jar (default-jar) @ booking-service ---
+[INFO] Building jar: C:\Users\onill\Documents\ChatGPT\spring\lab07-car-rental\car-rental-service\booking-service\target\app.jar
+[INFO] 
+[INFO] --- spring-boot:4.1.1:repackage (repackage) @ booking-service ---
+[INFO] Replacing main artifact C:\Users\onill\Documents\ChatGPT\spring\lab07-car-rental\car-rental-service\booking-service\target\app.jar with repackaged archive, adding nested dependencies in BOOT-INF/.
+[INFO] The original artifact has been renamed to C:\Users\onill\Documents\ChatGPT\spring\lab07-car-rental\car-rental-service\booking-service\target\app.jar.original
+[INFO] 
+[INFO] --------------------< ua.carrental:payment-service >--------------------
+[INFO] Building payment-service 1.0.0                                     [7/7]
+[INFO]   from payment-service\pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.5.0:resources (default-resources) @ payment-service ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.15.0:compile (default-compile) @ payment-service ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 10 source files with javac [debug parameters release 25] to target\classes
+[INFO] 
+[INFO] --- resources:3.5.0:testResources (default-testResources) @ payment-service ---
+[INFO] Copying 1 resource from src\test\resources to target\test-classes
+[INFO] 
+[INFO] --- compiler:3.15.0:testCompile (default-testCompile) @ payment-service ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 3 source files with javac [debug parameters release 25] to target\test-classes
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ payment-service ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running ua.carrental.payment.IdempotencyIntegrationTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.530 s -- in ua.carrental.payment.IdempotencyIntegrationTest
+[INFO] Running ua.carrental.payment.KafkaFailureIntegrationTest
+Bootstrap metadata: BootstrapMetadata(records=[ApiMessageAndVersion(FeatureLevelRecord(name='metadata.version', featureLevel=30) at version 0), ApiMessageAndVersion(FeatureLevelRecord(name='eligible.leader.replicas.version', featureLevel=1) at version 0), ApiMessageAndVersion(FeatureLevelRecord(name='group.version', featureLevel=1) at version 0), ApiMessageAndVersion(FeatureLevelRecord(name='share.version', featureLevel=1) at version 0), ApiMessageAndVersion(FeatureLevelRecord(name='streams.version', featureLevel=1) at version 0), ApiMessageAndVersion(FeatureLevelRecord(name='transaction.version', featureLevel=2) at version 0)], metadataVersionLevel=30, source=format command)
+Formatting metadata directory C:\Users\onill\AppData\Local\Temp\kafka-13760261839958062911\combined_0_0 with metadata.version 4.3-IV0.
+Mockito is currently self-attaching to enable the inline-mock-maker. This will no longer work in future releases of the JDK. Please add Mockito as an agent to your build as described in Mockito's documentation: https://javadoc.io/doc/org.mockito/mockito-core/latest/org.mockito/org/mockito/Mockito.html#0.3
+OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+WARNING: A Java agent has been loaded dynamically (C:\Users\onill\.m2\repository\net\bytebuddy\byte-buddy-agent\1.18.11\byte-buddy-agent-1.18.11.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::invokeCleaner has been called by org.apache.kafka.common.utils.ByteBufferUnmapper (file:/C:/Users/onill/.m2/repository/org/apache/kafka/kafka-clients/4.2.1/kafka-clients-4.2.1.jar)
+WARNING: Please consider reporting this to the maintainers of class org.apache.kafka.common.utils.ByteBufferUnmapper
+WARNING: sun.misc.Unsafe::invokeCleaner will be removed in a future release
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 17.16 s -- in ua.carrental.payment.KafkaFailureIntegrationTest
+[INFO] Running ua.carrental.payment.ObservabilityIntegrationTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.557 s -- in ua.carrental.payment.ObservabilityIntegrationTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --- jar:3.5.1:jar (default-jar) @ payment-service ---
+[INFO] Building jar: C:\Users\onill\Documents\ChatGPT\spring\lab07-car-rental\car-rental-service\payment-service\target\app.jar
+[INFO] 
+[INFO] --- spring-boot:4.1.1:repackage (repackage) @ payment-service ---
+[INFO] Replacing main artifact C:\Users\onill\Documents\ChatGPT\spring\lab07-car-rental\car-rental-service\payment-service\target\app.jar with repackaged archive, adding nested dependencies in BOOT-INF/.
+[INFO] The original artifact has been renamed to C:\Users\onill\Documents\ChatGPT\spring\lab07-car-rental\car-rental-service\payment-service\target\app.jar.original
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for car-rental-service 1.0.0:
+[INFO] 
+[INFO] car-rental-service ................................. SUCCESS [  0.002 s]
+[INFO] event-contracts .................................... SUCCESS [  0.659 s]
+[INFO] observability ...................................... SUCCESS [  1.866 s]
+[INFO] customer-service ................................... SUCCESS [  4.943 s]
+[INFO] fleet-service ...................................... SUCCESS [  5.594 s]
+[INFO] booking-service .................................... SUCCESS [ 18.399 s]
+[INFO] payment-service .................................... SUCCESS [ 24.453 s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  56.121 s
+[INFO] Finished at: 2026-10-24T13:18:39+03:00
+[INFO] ------------------------------------------------------------------------

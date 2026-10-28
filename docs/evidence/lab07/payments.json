@@ -1,0 +1,23 @@
+[
+  {
+    "id": "a9f0174e-9ab3-4942-ae27-3c6175930373",
+    "bookingId": "2820b248-6a31-4fb2-9c13-e3d25253f430",
+    "amount": 2000.0,
+    "currency": "UAH",
+    "status": "PENDING"
+  },
+  {
+    "id": "cc86fda3-a396-4b34-a3f4-006153797146",
+    "bookingId": "1fbaae86-b384-4a35-9242-1103e3ed91c6",
+    "amount": 2000.0,
+    "currency": "UAH",
+    "status": "PENDING"
+  },
+  {
+    "id": "db0f8cc8-dcb6-4924-913d-a6307b9f2180",
+    "bookingId": "36d4fbd8-ff9c-4e0e-820f-256adc284de4",
+    "amount": 2000.0,
+    "currency": "UAH",
+    "status": "PENDING"
+  }
+]
