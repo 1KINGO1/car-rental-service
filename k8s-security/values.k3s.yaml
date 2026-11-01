@@ -1,0 +1,4 @@
+ingress:
+  className: traefik
+  controllerNamespace: kube-system
+  controllerApp: ingress-controller
