@@ -1,0 +1,7 @@
+{
+  "result": "PASS",
+  "checks": 127,
+  "deployments": 9,
+  "networkPolicies": 10,
+  "scope": "static manifests and policy model; not a live CNI test"
+}

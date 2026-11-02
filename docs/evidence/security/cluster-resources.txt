@@ -1,0 +1,41 @@
+NAME                                    READY   STATUS    RESTARTS   AGE     IP           NODE           NOMINATED NODE   READINESS GATES
+pod/booking-db-869cd9c869-5qsnt         1/1     Running   0          3m42s   10.42.0.25   4f98b317ff5e   <none>           <none>
+pod/booking-service-66c9b779bc-qg46s    1/1     Running   0          2m26s   10.42.0.30   4f98b317ff5e   <none>           <none>
+pod/booking-service-66c9b779bc-v8pkh    1/1     Running   0          114s    10.42.0.35   4f98b317ff5e   <none>           <none>
+pod/customer-db-886bc6dc5-h75qz         1/1     Running   0          3m42s   10.42.0.24   4f98b317ff5e   <none>           <none>
+pod/customer-service-547c545b66-8n8jb   1/1     Running   0          2m3s    10.42.0.33   4f98b317ff5e   <none>           <none>
+pod/customer-service-547c545b66-9g7w9   1/1     Running   0          2m26s   10.42.0.28   4f98b317ff5e   <none>           <none>
+pod/fleet-db-848cb99b79-bzfdv           1/1     Running   0          3m42s   10.42.0.26   4f98b317ff5e   <none>           <none>
+pod/fleet-service-745749949d-6f4vm      1/1     Running   0          2m26s   10.42.0.29   4f98b317ff5e   <none>           <none>
+pod/fleet-service-745749949d-wczrm      1/1     Running   0          2m3s    10.42.0.32   4f98b317ff5e   <none>           <none>
+pod/gateway-77f4f57f56-8qf8l            1/1     Running   0          3m42s   10.42.0.20   4f98b317ff5e   <none>           <none>
+pod/gateway-77f4f57f56-9dcjm            1/1     Running   0          3m42s   10.42.0.19   4f98b317ff5e   <none>           <none>
+pod/payment-db-8464b66899-v724l         1/1     Running   0          3m42s   10.42.0.27   4f98b317ff5e   <none>           <none>
+pod/payment-service-548cdd5668-g9qp9    1/1     Running   0          2m26s   10.42.0.31   4f98b317ff5e   <none>           <none>
+pod/payment-service-548cdd5668-rcskt    1/1     Running   0          114s    10.42.0.34   4f98b317ff5e   <none>           <none>
+
+NAME                       TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)    AGE     SELECTOR
+service/booking-db         ClusterIP   10.43.160.19    <none>        5432/TCP   3m42s   app.kubernetes.io/instance=car-rental-security,app.kubernetes.io/name=booking-db,app=booking-db
+service/booking-service    ClusterIP   10.43.109.165   <none>        8080/TCP   3m42s   app.kubernetes.io/instance=car-rental-security,app.kubernetes.io/name=booking-service,app=booking-service
+service/customer-db        ClusterIP   10.43.176.176   <none>        5432/TCP   3m42s   app.kubernetes.io/instance=car-rental-security,app.kubernetes.io/name=customer-db,app=customer-db
+service/customer-service   ClusterIP   10.43.166.78    <none>        8080/TCP   3m42s   app.kubernetes.io/instance=car-rental-security,app.kubernetes.io/name=customer-service,app=customer-service
+service/fleet-db           ClusterIP   10.43.67.110    <none>        5432/TCP   3m42s   app.kubernetes.io/instance=car-rental-security,app.kubernetes.io/name=fleet-db,app=fleet-db
+service/fleet-service      ClusterIP   10.43.236.77    <none>        8080/TCP   3m42s   app.kubernetes.io/instance=car-rental-security,app.kubernetes.io/name=fleet-service,app=fleet-service
+service/gateway            ClusterIP   10.43.100.4     <none>        8080/TCP   3m42s   app=gateway
+service/payment-db         ClusterIP   10.43.102.43    <none>        5432/TCP   3m42s   app.kubernetes.io/instance=car-rental-security,app.kubernetes.io/name=payment-db,app=payment-db
+service/payment-service    ClusterIP   10.43.7.105     <none>        8080/TCP   3m42s   app.kubernetes.io/instance=car-rental-security,app.kubernetes.io/name=payment-service,app=payment-service
+
+NAME                                   CLASS     HOSTS              ADDRESS      PORTS   AGE
+ingress.networking.k8s.io/car-rental   traefik   car-rental.local   172.17.0.2   80      3m42s
+
+NAME                                                               POD-SELECTOR           AGE
+networkpolicy.networking.k8s.io/booking-db-from-owner              app=booking-db         3m42s
+networkpolicy.networking.k8s.io/booking-from-gateway               app=booking-service    3m42s
+networkpolicy.networking.k8s.io/customer-db-from-owner             app=customer-db        3m42s
+networkpolicy.networking.k8s.io/customer-from-gateway              app=customer-service   3m42s
+networkpolicy.networking.k8s.io/default-deny-ingress               <none>                 3m42s
+networkpolicy.networking.k8s.io/fleet-db-from-owner                app=fleet-db           3m42s
+networkpolicy.networking.k8s.io/fleet-from-gateway                 app=fleet-service      3m42s
+networkpolicy.networking.k8s.io/gateway-from-ingress-and-booking   app=gateway            3m42s
+networkpolicy.networking.k8s.io/payment-db-from-owner              app=payment-db         3m42s
+networkpolicy.networking.k8s.io/payment-from-gateway               app=payment-service    3m42s

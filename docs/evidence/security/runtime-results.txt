@@ -1,0 +1,138 @@
+**********************
+PowerShell transcript start
+Start time: 20261101213209
+Username: MAJO\onill
+RunAs User: MAJO\onill
+Configuration Name: 
+Machine: MAJO (Microsoft Windows NT 10.0.26200.0)
+Host Application: C:\Users\onill\.cache\codex-runtimes\codex-primary-runtime\dependencies\native\powershell\pwsh.dll -Command try { [Console]::OutputEncoding=[System.Text.Encoding]::UTF8 } catch {}
+$env:KUBECONFIG=(Resolve-Path work/kubeconfig-security.yaml).Path; ./work/car-rental-service-main/k8s-security/tests/runtime.ps1 -IngressUrl http://127.0.0.1:18080 -Log work/runtime-results.txt *> work/runtime-console.txt
+Process ID: 25840
+PSVersion: 7.6.5
+PSEdition: Core
+GitCommitId: 7.6.5
+OS: Microsoft Windows 10.0.26200
+Platform: Win32NT
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1, 6.0, 7.0
+PSRemotingProtocolVersion: 2.4
+SerializationVersion: 1.1.0.1
+WSManStackVersion: 3.0
+**********************
+deployment "gateway" successfully rolled out
+PASS runtime security gateway
+Waiting for deployment "customer-service" rollout to finish: 0 of 2 updated replicas are available...
+Waiting for deployment spec update to be observed...
+Waiting for deployment spec update to be observed...
+Waiting for deployment "customer-service" rollout to finish: 0 out of 2 new replicas have been updated...
+Waiting for deployment "customer-service" rollout to finish: 1 out of 2 new replicas have been updated...
+Waiting for deployment "customer-service" rollout to finish: 1 out of 2 new replicas have been updated...
+Waiting for deployment "customer-service" rollout to finish: 1 out of 2 new replicas have been updated...
+Waiting for deployment "customer-service" rollout to finish: 1 out of 2 new replicas have been updated...
+Waiting for deployment "customer-service" rollout to finish: 1 out of 2 new replicas have been updated...
+Waiting for deployment "customer-service" rollout to finish: 1 old replicas are pending termination...
+Waiting for deployment "customer-service" rollout to finish: 1 old replicas are pending termination...
+Waiting for deployment "customer-service" rollout to finish: 1 old replicas are pending termination...
+deployment "customer-service" successfully rolled out
+PASS runtime security customer-service
+deployment "fleet-service" successfully rolled out
+PASS runtime security fleet-service
+Waiting for deployment "booking-service" rollout to finish: 1 old replicas are pending termination...
+Waiting for deployment "booking-service" rollout to finish: 1 old replicas are pending termination...
+deployment "booking-service" successfully rolled out
+PASS runtime security booking-service
+deployment "payment-service" successfully rolled out
+PASS runtime security payment-service
+deployment "customer-db" successfully rolled out
+PASS runtime security customer-db
+deployment "fleet-db" successfully rolled out
+PASS runtime security fleet-db
+deployment "booking-db" successfully rolled out
+PASS runtime security booking-db
+deployment "payment-db" successfully rolled out
+PASS runtime security payment-db
+PASS Ingress /api/customers HTTP 200
+PASS Ingress /api/vehicles HTTP 200
+PASS Ingress /api/bookings HTTP 200
+PASS Ingress /api/payments HTTP 200
+pod/security-test-71934bb9 created
+pod/security-test-71934bb9 condition met
+pod/security-test-7ea0333f created
+pod/security-test-7ea0333f condition met
+pod/security-test-84023fd1 created
+pod/security-test-84023fd1 condition met
+PASS expectedAllowed=True security-test-84023fd1 -> customer-db:5432
+command terminated with exit code 1
+PASS expectedAllowed=False security-test-71934bb9 -> customer-db:5432
+command terminated with exit code 1
+PASS expectedAllowed=False security-test-7ea0333f -> customer-db:5432
+PASS expectedAllowed=True security-test-7ea0333f -> customer-service:8080
+command terminated with exit code 1
+PASS expectedAllowed=False security-test-71934bb9 -> customer-service:8080
+command terminated with exit code 1
+PASS expectedAllowed=False security-test-84023fd1 -> fleet-db:5432
+command terminated with exit code 1
+PASS expectedAllowed=False security-test-84023fd1 -> booking-db:5432
+command terminated with exit code 1
+PASS expectedAllowed=False security-test-84023fd1 -> payment-db:5432
+pod/security-test-e7871454 created
+pod/security-test-e7871454 condition met
+PASS expectedAllowed=True security-test-e7871454 -> fleet-db:5432
+command terminated with exit code 1
+PASS expectedAllowed=False security-test-71934bb9 -> fleet-db:5432
+command terminated with exit code 1
+PASS expectedAllowed=False security-test-7ea0333f -> fleet-db:5432
+PASS expectedAllowed=True security-test-7ea0333f -> fleet-service:8080
+command terminated with exit code 1
+PASS expectedAllowed=False security-test-71934bb9 -> fleet-service:8080
+command terminated with exit code 1
+PASS expectedAllowed=False security-test-e7871454 -> customer-db:5432
+command terminated with exit code 1
+PASS expectedAllowed=False security-test-e7871454 -> booking-db:5432
+command terminated with exit code 1
+PASS expectedAllowed=False security-test-e7871454 -> payment-db:5432
+pod/security-test-4e9df0d3 created
+pod/security-test-4e9df0d3 condition met
+PASS expectedAllowed=True security-test-4e9df0d3 -> booking-db:5432
+command terminated with exit code 1
+PASS expectedAllowed=False security-test-71934bb9 -> booking-db:5432
+command terminated with exit code 1
+PASS expectedAllowed=False security-test-7ea0333f -> booking-db:5432
+PASS expectedAllowed=True security-test-7ea0333f -> booking-service:8080
+command terminated with exit code 1
+PASS expectedAllowed=False security-test-71934bb9 -> booking-service:8080
+command terminated with exit code 1
+PASS expectedAllowed=False security-test-4e9df0d3 -> customer-db:5432
+command terminated with exit code 1
+PASS expectedAllowed=False security-test-4e9df0d3 -> fleet-db:5432
+command terminated with exit code 1
+PASS expectedAllowed=False security-test-4e9df0d3 -> payment-db:5432
+PASS expectedAllowed=True security-test-4e9df0d3 -> gateway:8080
+pod/security-test-44413dfe created
+pod/security-test-44413dfe condition met
+PASS expectedAllowed=True security-test-44413dfe -> payment-db:5432
+command terminated with exit code 1
+PASS expectedAllowed=False security-test-71934bb9 -> payment-db:5432
+command terminated with exit code 1
+PASS expectedAllowed=False security-test-7ea0333f -> payment-db:5432
+PASS expectedAllowed=True security-test-7ea0333f -> payment-service:8080
+command terminated with exit code 1
+PASS expectedAllowed=False security-test-71934bb9 -> payment-service:8080
+command terminated with exit code 1
+PASS expectedAllowed=False security-test-44413dfe -> customer-db:5432
+command terminated with exit code 1
+PASS expectedAllowed=False security-test-44413dfe -> fleet-db:5432
+command terminated with exit code 1
+PASS expectedAllowed=False security-test-44413dfe -> booking-db:5432
+command terminated with exit code 1
+PASS expectedAllowed=False security-test-71934bb9 -> gateway:8080
+PASS all runtime tests
+pod "security-test-71934bb9" deleted from car-rental-security namespace
+pod "security-test-7ea0333f" deleted from car-rental-security namespace
+pod "security-test-84023fd1" deleted from car-rental-security namespace
+pod "security-test-e7871454" deleted from car-rental-security namespace
+pod "security-test-4e9df0d3" deleted from car-rental-security namespace
+pod "security-test-44413dfe" deleted from car-rental-security namespace
+**********************
+PowerShell transcript end
+End time: 20261101213401
+**********************

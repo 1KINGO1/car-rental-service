@@ -1,0 +1,7 @@
+{
+  "vehicleId": "c7297170-3877-41fd-9cf5-12b07aa3bfe6",
+  "flow": "Ingress -> gateway -> booking -> gateway -> customer/fleet; database write and read",
+  "bookingId": "247413a1-3de8-4e7e-a828-4c5a4b33bd18",
+  "result": "PASS",
+  "customerId": "87fb23eb-6215-45d7-9726-9d42c764bfcf"
+}

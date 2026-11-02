@@ -1,0 +1,50 @@
+Transcript started, output file is work/runtime-results.txt
+PASS runtime security gateway
+PASS runtime security customer-service
+PASS runtime security fleet-service
+PASS runtime security booking-service
+PASS runtime security payment-service
+PASS runtime security customer-db
+PASS runtime security fleet-db
+PASS runtime security booking-db
+PASS runtime security payment-db
+PASS Ingress /api/customers HTTP 200
+PASS Ingress /api/vehicles HTTP 200
+PASS Ingress /api/bookings HTTP 200
+PASS Ingress /api/payments HTTP 200
+PASS expectedAllowed=True security-test-84023fd1 -> customer-db:5432
+PASS expectedAllowed=False security-test-71934bb9 -> customer-db:5432
+PASS expectedAllowed=False security-test-7ea0333f -> customer-db:5432
+PASS expectedAllowed=True security-test-7ea0333f -> customer-service:8080
+PASS expectedAllowed=False security-test-71934bb9 -> customer-service:8080
+PASS expectedAllowed=False security-test-84023fd1 -> fleet-db:5432
+PASS expectedAllowed=False security-test-84023fd1 -> booking-db:5432
+PASS expectedAllowed=False security-test-84023fd1 -> payment-db:5432
+PASS expectedAllowed=True security-test-e7871454 -> fleet-db:5432
+PASS expectedAllowed=False security-test-71934bb9 -> fleet-db:5432
+PASS expectedAllowed=False security-test-7ea0333f -> fleet-db:5432
+PASS expectedAllowed=True security-test-7ea0333f -> fleet-service:8080
+PASS expectedAllowed=False security-test-71934bb9 -> fleet-service:8080
+PASS expectedAllowed=False security-test-e7871454 -> customer-db:5432
+PASS expectedAllowed=False security-test-e7871454 -> booking-db:5432
+PASS expectedAllowed=False security-test-e7871454 -> payment-db:5432
+PASS expectedAllowed=True security-test-4e9df0d3 -> booking-db:5432
+PASS expectedAllowed=False security-test-71934bb9 -> booking-db:5432
+PASS expectedAllowed=False security-test-7ea0333f -> booking-db:5432
+PASS expectedAllowed=True security-test-7ea0333f -> booking-service:8080
+PASS expectedAllowed=False security-test-71934bb9 -> booking-service:8080
+PASS expectedAllowed=False security-test-4e9df0d3 -> customer-db:5432
+PASS expectedAllowed=False security-test-4e9df0d3 -> fleet-db:5432
+PASS expectedAllowed=False security-test-4e9df0d3 -> payment-db:5432
+PASS expectedAllowed=True security-test-4e9df0d3 -> gateway:8080
+PASS expectedAllowed=True security-test-44413dfe -> payment-db:5432
+PASS expectedAllowed=False security-test-71934bb9 -> payment-db:5432
+PASS expectedAllowed=False security-test-7ea0333f -> payment-db:5432
+PASS expectedAllowed=True security-test-7ea0333f -> payment-service:8080
+PASS expectedAllowed=False security-test-71934bb9 -> payment-service:8080
+PASS expectedAllowed=False security-test-44413dfe -> customer-db:5432
+PASS expectedAllowed=False security-test-44413dfe -> fleet-db:5432
+PASS expectedAllowed=False security-test-44413dfe -> booking-db:5432
+PASS expectedAllowed=False security-test-71934bb9 -> gateway:8080
+PASS all runtime tests
+Transcript stopped, output file is C:\Users\onill\Documents\Codex\2026-11-01\1-ingress-2-networkpolicy-default-deny\work\runtime-results.txt
