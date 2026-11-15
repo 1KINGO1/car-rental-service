@@ -1,0 +1,4 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"><modelVersion>4.0.0</modelVersion><parent><groupId>ua.carrental</groupId><artifactId>car-rental-service</artifactId><version>1.0.0</version></parent>
+<artifactId>grpc-contracts</artifactId><dependencies>
+<dependency><groupId>io.grpc</groupId><artifactId>grpc-protobuf</artifactId></dependency><dependency><groupId>io.grpc</groupId><artifactId>grpc-stub</artifactId></dependency>
+</dependencies><build><plugins><plugin><groupId>io.github.ascopes</groupId><artifactId>protobuf-maven-plugin</artifactId></plugin></plugins></build></project>

@@ -1,0 +1,20 @@
+{
+  "methodConfig": [
+    {
+      "name": [
+        {
+          "service": "carrental.fleet.v1.FleetService"
+        }
+      ],
+      "retryPolicy": {
+        "maxAttempts": 4,
+        "initialBackoff": "0.5s",
+        "maxBackoff": "2s",
+        "backoffMultiplier": 2,
+        "retryableStatusCodes": [
+          "UNAVAILABLE"
+        ]
+      }
+    }
+  ]
+}

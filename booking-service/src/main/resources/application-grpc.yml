@@ -1,0 +1,5 @@
+fleet:
+  grpc:
+    target: ${FLEET_GRPC_TARGET:localhost:9090}
+    plaintext: ${FLEET_GRPC_PLAINTEXT:true}
+    deadline-ms: ${FLEET_GRPC_DEADLINE_MS:5000}

@@ -1,0 +1,37 @@
+syntax = "proto3";
+package carrental.fleet.v1;
+option java_package = "ua.carrental.grpc.v1";
+option java_multiple_files = true;
+
+// Read-only operations: replay before response headers is safe.
+service FleetService {
+  rpc GetVehicle (VehicleRequest) returns (VehicleReply); // Unary
+  rpc ListVehicles (ListVehiclesRequest) returns (stream VehicleReply); // Server streaming
+  rpc CalculateQuote (stream QuoteItem) returns (QuoteSummary); // Client streaming
+  rpc WatchQuotes (stream QuoteItem) returns (stream QuoteLine); // Bidirectional streaming
+}
+message VehicleRequest { string vehicle_id = 1; }
+message ListVehiclesRequest {
+  repeated string vehicle_ids = 1; // At most 100. Empty means first page.
+  int32 limit = 2; // 0 defaults to 100; otherwise 1..100.
+}
+message VehicleReply {
+  string id = 1;
+  string brand = 2;
+  string model = 3;
+  string plate = 4;
+  string daily_rate = 5; // Decimal UAH, never binary floating point.
+}
+message QuoteItem {
+  string request_id = 1; // 1..64 chars, echoed in the bidi response.
+  string vehicle_id = 2;
+  int32 days = 3; // 1..365
+}
+message QuoteLine {
+  string request_id = 1;
+  string vehicle_id = 2;
+  int32 days = 3;
+  string amount = 4;
+  string currency = 5;
+}
+message QuoteSummary { int32 item_count = 1; string total = 2; string currency = 3; }

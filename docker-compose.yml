@@ -141,6 +141,8 @@ services:
       DB_PASSWORD: ${BOOKING_DB_PASSWORD}
       CUSTOMER_URL: http://customer-service:8080
       FLEET_URL: http://fleet-service:8080
+      SPRING_PROFILES_ACTIVE: grpc
+      FLEET_GRPC_TARGET: fleet-service:9090
     ports:
       - "127.0.0.1:${BOOKING_PORT:-8083}:8080"
     depends_on:

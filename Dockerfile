@@ -1,12 +1,16 @@
 FROM maven:3.9.11-eclipse-temurin-25 AS build
 WORKDIR /workspace
 COPY pom.xml ./
+COPY grpc-contracts/pom.xml grpc-contracts/pom.xml
+COPY grpc-client/pom.xml grpc-client/pom.xml
 COPY event-contracts/pom.xml event-contracts/pom.xml
 COPY observability/pom.xml observability/pom.xml
 COPY customer-service/pom.xml customer-service/pom.xml
 COPY fleet-service/pom.xml fleet-service/pom.xml
 COPY booking-service/pom.xml booking-service/pom.xml
 COPY payment-service/pom.xml payment-service/pom.xml
+COPY grpc-contracts/src grpc-contracts/src
+COPY grpc-client/src grpc-client/src
 COPY event-contracts/src event-contracts/src
 COPY observability/src observability/src
 COPY customer-service/src customer-service/src

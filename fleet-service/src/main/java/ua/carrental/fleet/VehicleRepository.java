@@ -36,6 +36,12 @@ public class VehicleRepository {
                 .query((rs, row) -> new Vehicle(rs.getObject("id", UUID.class), rs.getString("brand"), rs.getString("model"), rs.getString("plate"), rs.getBigDecimal("daily_rate"))).list();
     }
 
+    public List<Vehicle> findPage(int limit) {
+        return jdbc.sql("SELECT * FROM vehicles ORDER BY id LIMIT :limit").param("limit", limit)
+                .query((rs, row) -> new Vehicle(rs.getObject("id", UUID.class), rs.getString("brand"),
+                        rs.getString("model"), rs.getString("plate"), rs.getBigDecimal("daily_rate"))).list();
+    }
+
     public List<Vehicle> findByIds(List<UUID> ids) {
         if (ids.isEmpty()) return List.of();
         return jdbc.sql("SELECT * FROM vehicles WHERE id IN (:ids) ORDER BY id")
@@ -44,3 +50,4 @@ public class VehicleRepository {
                         rs.getString("model"), rs.getString("plate"), rs.getBigDecimal("daily_rate"))).list();
     }
 }
+

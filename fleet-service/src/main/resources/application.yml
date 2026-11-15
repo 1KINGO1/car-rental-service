@@ -1,4 +1,7 @@
 spring:
+  grpc:
+    server:
+      port: ${FLEET_GRPC_PORT:9090}
   application:
     name: fleet-service
   datasource:

@@ -12,8 +12,17 @@
     <packaging>pom</packaging>
     <properties>
         <java.version>25</java.version>
+        <h2.scope>test</h2.scope>
     </properties>
+    <profiles>
+        <profile>
+            <id>grpc-demo</id>
+            <properties><h2.scope>runtime</h2.scope></properties>
+        </profile>
+    </profiles>
     <modules>
+        <module>grpc-contracts</module>
+        <module>grpc-client</module>
         <module>event-contracts</module>
         <module>observability</module>
         <module>customer-service</module>

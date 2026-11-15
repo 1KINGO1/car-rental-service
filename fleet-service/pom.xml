@@ -7,11 +7,13 @@
     </parent>
     <artifactId>fleet-service</artifactId>
     <dependencies>
+<dependency><groupId>ua.carrental</groupId><artifactId>grpc-contracts</artifactId><version>${project.version}</version></dependency><dependency><groupId>org.springframework.boot</groupId><artifactId>spring-boot-starter-grpc-server</artifactId></dependency><dependency><groupId>io.grpc</groupId><artifactId>grpc-services</artifactId></dependency>
+<dependency><groupId>ua.carrental</groupId><artifactId>grpc-client</artifactId><version>${project.version}</version><scope>test</scope></dependency>
         <dependency><groupId>ua.carrental</groupId><artifactId>observability</artifactId><version>${project.version}</version></dependency>
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
-            <scope>test</scope>
+            <scope>${h2.scope}</scope>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>

@@ -19,6 +19,7 @@ public class CatalogClientConfiguration {
     }
 
     @Bean
+    @Profile("!grpc")
     CatalogClient catalogClient(@Value("${FLEET_URL:http://localhost:8082}") String url,
             HttpClient http, CorrelationIdInterceptor interceptor) {
         return create(CatalogClient.class, url, http, interceptor);

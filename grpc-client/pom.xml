@@ -1,0 +1,3 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"><modelVersion>4.0.0</modelVersion><parent><groupId>ua.carrental</groupId><artifactId>car-rental-service</artifactId><version>1.0.0</version></parent>
+<artifactId>grpc-client</artifactId><dependencies><dependency><groupId>ua.carrental</groupId><artifactId>grpc-contracts</artifactId><version>${project.version}</version></dependency><dependency><groupId>io.grpc</groupId><artifactId>grpc-netty</artifactId></dependency>
+</dependencies></project>
