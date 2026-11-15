@@ -1,0 +1,544 @@
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] car-rental-service                                                 [pom]
+[INFO] grpc-contracts                                                     [jar]
+[INFO] grpc-client                                                        [jar]
+[INFO] event-contracts                                                    [jar]
+[INFO] observability                                                      [jar]
+[INFO] customer-service                                                   [jar]
+[INFO] fleet-service                                                      [jar]
+[INFO] booking-service                                                    [jar]
+[INFO] payment-service                                                    [jar]
+[INFO] 
+[INFO] ------------------< ua.carrental:car-rental-service >-------------------
+[INFO] Building car-rental-service 1.0.0                                  [1/9]
+[INFO]   from pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --------------------< ua.carrental:grpc-contracts >---------------------
+[INFO] Building grpc-contracts 1.0.0                                      [2/9]
+[INFO]   from grpc-contracts\pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- protobuf:5.1.8:generate (generate) @ grpc-contracts ---
+[INFO] Registering "C:\Users\onill\Documents\Codex\2026-11-09\1-grpc-spring-boot-4-1\work\car-rental-service\grpc-contracts\target\generated-sources\protobuf" as a Maven main source root for compiler plugins
+[INFO] Registering "C:\Users\onill\Documents\Codex\2026-11-09\1-grpc-spring-boot-4-1\work\car-rental-service\grpc-contracts\target\generated-sources\protobuf" as a Maven main source root for compiler plugins
+[INFO] Found 1 proto source file and 0 descriptor files to compile, but all are up-to-date so none will be built this time
+[INFO] NOTHING TO DO: There is nothing to do. If this is unexpected, review the above logs for more details.
+[INFO] 
+[INFO] --- resources:3.5.0:resources (default-resources) @ grpc-contracts ---
+[INFO] skip non existing resourceDirectory C:\Users\onill\Documents\Codex\2026-11-09\1-grpc-spring-boot-4-1\work\car-rental-service\grpc-contracts\src\main\resources
+[INFO] skip non existing resourceDirectory C:\Users\onill\Documents\Codex\2026-11-09\1-grpc-spring-boot-4-1\work\car-rental-service\grpc-contracts\src\main\resources
+[INFO] 
+[INFO] --- compiler:3.15.0:compile (default-compile) @ grpc-contracts ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.5.0:testResources (default-testResources) @ grpc-contracts ---
+[INFO] skip non existing resourceDirectory C:\Users\onill\Documents\Codex\2026-11-09\1-grpc-spring-boot-4-1\work\car-rental-service\grpc-contracts\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.15.0:testCompile (default-testCompile) @ grpc-contracts ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ grpc-contracts ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] --- jar:3.5.1:jar (default-jar) @ grpc-contracts ---
+[INFO] Building jar: C:\Users\onill\Documents\Codex\2026-11-09\1-grpc-spring-boot-4-1\work\car-rental-service\grpc-contracts\target\grpc-contracts-1.0.0.jar
+[INFO] 
+[INFO] ----------------------< ua.carrental:grpc-client >----------------------
+[INFO] Building grpc-client 1.0.0                                         [3/9]
+[INFO]   from grpc-client\pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.5.0:resources (default-resources) @ grpc-client ---
+[INFO] Copying 0 resource from src\main\resources to target\classes
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.15.0:compile (default-compile) @ grpc-client ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 2 source files with javac [debug parameters release 25] to target\classes
+[INFO] 
+[INFO] --- resources:3.5.0:testResources (default-testResources) @ grpc-client ---
+[INFO] skip non existing resourceDirectory C:\Users\onill\Documents\Codex\2026-11-09\1-grpc-spring-boot-4-1\work\car-rental-service\grpc-client\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.15.0:testCompile (default-testCompile) @ grpc-client ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ grpc-client ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] --- jar:3.5.1:jar (default-jar) @ grpc-client ---
+[INFO] Building jar: C:\Users\onill\Documents\Codex\2026-11-09\1-grpc-spring-boot-4-1\work\car-rental-service\grpc-client\target\grpc-client-1.0.0.jar
+[INFO] 
+[INFO] --------------------< ua.carrental:event-contracts >--------------------
+[INFO] Building event-contracts 1.0.0                                     [4/9]
+[INFO]   from event-contracts\pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.5.0:resources (default-resources) @ event-contracts ---
+[INFO] Copying 0 resource from src\main\resources to target\classes
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.15.0:compile (default-compile) @ event-contracts ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.5.0:testResources (default-testResources) @ event-contracts ---
+[INFO] skip non existing resourceDirectory C:\Users\onill\Documents\Codex\2026-11-09\1-grpc-spring-boot-4-1\work\car-rental-service\event-contracts\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.15.0:testCompile (default-testCompile) @ event-contracts ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ event-contracts ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] --- jar:3.5.1:jar (default-jar) @ event-contracts ---
+[INFO] Building jar: C:\Users\onill\Documents\Codex\2026-11-09\1-grpc-spring-boot-4-1\work\car-rental-service\event-contracts\target\event-contracts-1.0.0.jar
+[INFO] 
+[INFO] ---------------------< ua.carrental:observability >---------------------
+[INFO] Building observability 1.0.0                                       [5/9]
+[INFO]   from observability\pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.5.0:resources (default-resources) @ observability ---
+[INFO] skip non existing resourceDirectory C:\Users\onill\Documents\Codex\2026-11-09\1-grpc-spring-boot-4-1\work\car-rental-service\observability\src\main\resources
+[INFO] skip non existing resourceDirectory C:\Users\onill\Documents\Codex\2026-11-09\1-grpc-spring-boot-4-1\work\car-rental-service\observability\src\main\resources
+[INFO] 
+[INFO] --- compiler:3.15.0:compile (default-compile) @ observability ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.5.0:testResources (default-testResources) @ observability ---
+[INFO] skip non existing resourceDirectory C:\Users\onill\Documents\Codex\2026-11-09\1-grpc-spring-boot-4-1\work\car-rental-service\observability\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.15.0:testCompile (default-testCompile) @ observability ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ observability ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running ua.carrental.observability.ApiMetricsFilterTest
+06:58:19.296 [main] INFO ua.carrental.observability.ApiMetricsFilter -- HTTP GET /api/vehicles status=200
+06:58:19.317 [main] INFO ua.carrental.observability.ApiMetricsFilter -- HTTP CUSTOM-USER-ID /api/private-id status=405
+06:58:19.341 [pool-2-thread-1] INFO ua.carrental.observability.ApiMetricsFilter -- HTTP POST /api/customers status=200
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.208 s -- in ua.carrental.observability.ApiMetricsFilterTest
+[INFO] Running ua.carrental.observability.BusinessMetricsTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s -- in ua.carrental.observability.BusinessMetricsTest
+[INFO] Running ua.carrental.observability.DemoWorkControllerTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.193 s -- in ua.carrental.observability.DemoWorkControllerTest
+[INFO] Running ua.carrental.observability.TraceCarrierTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 s -- in ua.carrental.observability.TraceCarrierTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --- jar:3.5.1:jar (default-jar) @ observability ---
+[INFO] Building jar: C:\Users\onill\Documents\Codex\2026-11-09\1-grpc-spring-boot-4-1\work\car-rental-service\observability\target\observability-1.0.0.jar
+[INFO] 
+[INFO] -------------------< ua.carrental:customer-service >--------------------
+[INFO] Building customer-service 1.0.0                                    [6/9]
+[INFO]   from customer-service\pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.5.0:resources (default-resources) @ customer-service ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.15.0:compile (default-compile) @ customer-service ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 6 source files with javac [debug parameters release 25] to target\classes
+[INFO] 
+[INFO] --- resources:3.5.0:testResources (default-testResources) @ customer-service ---
+[INFO] skip non existing resourceDirectory C:\Users\onill\Documents\Codex\2026-11-09\1-grpc-spring-boot-4-1\work\car-rental-service\customer-service\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.15.0:testCompile (default-testCompile) @ customer-service ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 1 source file with javac [debug parameters release 25] to target\test-classes
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ customer-service ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running ua.carrental.customer.ObservabilityIntegrationTest
+{"@timestamp":"2026-11-09T06:58:21.1585295+02:00","@version":"1","message":"Starting ForkedBooter v3.5.6 using Java 25.0.5 with PID 19652 (started by onill in C:\\Users\\onill\\Documents\\Codex\\2026-11-09\\1-grpc-spring-boot-4-1\\work\\car-rental-service\\customer-service)","logger_name":"org.apache.maven.surefire.booter.ForkedBooter","thread_name":"main","level":"INFO","level_value":20000,"tags":["COMMONS-LOGGING"]}
+{"@timestamp":"2026-11-09T06:58:21.164011+02:00","@version":"1","message":"The following 1 profile is active: \"monitoring-demo\"","logger_name":"org.apache.maven.surefire.booter.ForkedBooter","thread_name":"main","level":"INFO","level_value":20000,"tags":["COMMONS-LOGGING"]}
+{"@timestamp":"2026-11-09T06:58:21.9220359+02:00","@version":"1","message":"Tomcat initialized with port 0 (http)","logger_name":"org.springframework.boot.tomcat.TomcatWebServer","thread_name":"main","level":"INFO","level_value":20000,"tags":["COMMONS-LOGGING"]}
+{"@timestamp":"2026-11-09T06:58:21.9305426+02:00","@version":"1","message":"Starting service [Tomcat]","logger_name":"org.apache.catalina.core.StandardService","thread_name":"main","level":"INFO","level_value":20000}
+{"@timestamp":"2026-11-09T06:58:21.9310447+02:00","@version":"1","message":"Starting Servlet engine: [Apache Tomcat/11.0.24]","logger_name":"org.apache.catalina.core.StandardEngine","thread_name":"main","level":"INFO","level_value":20000}
+{"@timestamp":"2026-11-09T06:58:21.9700892+02:00","@version":"1","message":"Root WebApplicationContext: initialization completed in 779 ms","logger_name":"org.springframework.boot.web.context.servlet.WebApplicationContextInitializer","thread_name":"main","level":"INFO","level_value":20000,"tags":["COMMONS-LOGGING"]}
+{"@timestamp":"2026-11-09T06:58:22.1789061+02:00","@version":"1","message":"HikariPool-1 - Starting...","logger_name":"com.zaxxer.hikari.HikariDataSource","thread_name":"main","level":"INFO","level_value":20000}
+{"@timestamp":"2026-11-09T06:58:22.3156129+02:00","@version":"1","message":"HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:observability-customer user=SA","logger_name":"com.zaxxer.hikari.pool.HikariPool","thread_name":"main","level":"INFO","level_value":20000}
+{"@timestamp":"2026-11-09T06:58:22.3171127+02:00","@version":"1","message":"HikariPool-1 - Start completed.","logger_name":"com.zaxxer.hikari.HikariDataSource","thread_name":"main","level":"INFO","level_value":20000}
+{"@timestamp":"2026-11-09T06:58:22.6921517+02:00","@version":"1","message":"Exposing 3 endpoints beneath base path '/actuator'","logger_name":"org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver","thread_name":"main","level":"INFO","level_value":20000,"tags":["COMMONS-LOGGING"]}
+{"@timestamp":"2026-11-09T06:58:22.7357094+02:00","@version":"1","message":"Tomcat started on port 57389 (http) with context path '/'","logger_name":"org.springframework.boot.tomcat.TomcatWebServer","thread_name":"main","level":"INFO","level_value":20000,"tags":["COMMONS-LOGGING"]}
+{"@timestamp":"2026-11-09T06:58:22.7407247+02:00","@version":"1","message":"Started ForkedBooter in 1.828 seconds (process running for 2.274)","logger_name":"org.apache.maven.surefire.booter.ForkedBooter","thread_name":"main","level":"INFO","level_value":20000,"tags":["COMMONS-LOGGING"]}
+{"@timestamp":"2026-11-09T06:58:22.8949376+02:00","@version":"1","message":"Initializing Spring DispatcherServlet 'dispatcherServlet'","logger_name":"org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]","thread_name":"http-nio-auto-1-exec-2","level":"INFO","level_value":20000}
+{"@timestamp":"2026-11-09T06:58:22.8954366+02:00","@version":"1","message":"Initializing Servlet 'dispatcherServlet'","logger_name":"org.springframework.web.servlet.DispatcherServlet","thread_name":"http-nio-auto-1-exec-2","level":"INFO","level_value":20000,"tags":["COMMONS-LOGGING"]}
+{"@timestamp":"2026-11-09T06:58:22.8959345+02:00","@version":"1","message":"Completed initialization in 0 ms","logger_name":"org.springframework.web.servlet.DispatcherServlet","thread_name":"http-nio-auto-1-exec-2","level":"INFO","level_value":20000,"tags":["COMMONS-LOGGING"]}
+{"@timestamp":"2026-11-09T06:58:23.0701882+02:00","@version":"1","message":"HTTP POST /api/customers status=400","logger_name":"ua.carrental.observability.ApiMetricsFilter","thread_name":"http-nio-auto-1-exec-3","level":"INFO","level_value":20000}
+{"@timestamp":"2026-11-09T06:58:25.0790748+02:00","@version":"1","message":"HTTP GET /api/monitoring/demo-work status=200","logger_name":"ua.carrental.observability.ApiMetricsFilter","thread_name":"http-nio-auto-1-exec-4","level":"INFO","level_value":20000}
+{"@timestamp":"2026-11-09T06:58:25.1161047+02:00","@version":"1","message":"Commencing graceful shutdown. Waiting for active requests to complete","logger_name":"org.springframework.boot.tomcat.GracefulShutdown","thread_name":"main","level":"INFO","level_value":20000,"tags":["COMMONS-LOGGING"]}
+{"@timestamp":"2026-11-09T06:58:25.1191142+02:00","@version":"1","message":"Graceful shutdown complete","logger_name":"org.springframework.boot.tomcat.GracefulShutdown","thread_name":"tomcat-shutdown","level":"INFO","level_value":20000,"tags":["COMMONS-LOGGING"]}
+{"@timestamp":"2026-11-09T06:58:25.122118+02:00","@version":"1","message":"HikariPool-1 - Shutdown initiated...","logger_name":"com.zaxxer.hikari.HikariDataSource","thread_name":"main","level":"INFO","level_value":20000}
+{"@timestamp":"2026-11-09T06:58:25.1241284+02:00","@version":"1","message":"HikariPool-1 - Shutdown completed.","logger_name":"com.zaxxer.hikari.HikariDataSource","thread_name":"main","level":"INFO","level_value":20000}
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.343 s -- in ua.carrental.customer.ObservabilityIntegrationTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --- jar:3.5.1:jar (default-jar) @ customer-service ---
+[INFO] Building jar: C:\Users\onill\Documents\Codex\2026-11-09\1-grpc-spring-boot-4-1\work\car-rental-service\customer-service\target\app.jar
+[INFO] 
+[INFO] --- spring-boot:4.1.1:repackage (repackage) @ customer-service ---
+[INFO] Replacing main artifact C:\Users\onill\Documents\Codex\2026-11-09\1-grpc-spring-boot-4-1\work\car-rental-service\customer-service\target\app.jar with repackaged archive, adding nested dependencies in BOOT-INF/.
+[INFO] The original artifact has been renamed to C:\Users\onill\Documents\Codex\2026-11-09\1-grpc-spring-boot-4-1\work\car-rental-service\customer-service\target\app.jar.original
+[INFO] 
+[INFO] ---------------------< ua.carrental:fleet-service >---------------------
+[INFO] Building fleet-service 1.0.0                                       [7/9]
+[INFO]   from fleet-service\pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.5.0:resources (default-resources) @ fleet-service ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.15.0:compile (default-compile) @ fleet-service ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 8 source files with javac [debug parameters release 25] to target\classes
+[INFO] 
+[INFO] --- resources:3.5.0:testResources (default-testResources) @ fleet-service ---
+[INFO] skip non existing resourceDirectory C:\Users\onill\Documents\Codex\2026-11-09\1-grpc-spring-boot-4-1\work\car-rental-service\fleet-service\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.15.0:testCompile (default-testCompile) @ fleet-service ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 3 source files with javac [debug parameters release 25] to target\test-classes
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ fleet-service ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running ua.carrental.fleet.grpc.FleetGrpcIntegrationTest
+2026-11-09T06:58:27.891+02:00  INFO 24348 --- [fleet-service] [           main] o.a.maven.surefire.booter.ForkedBooter   : Starting ForkedBooter v3.5.6 using Java 25.0.5 with PID 24348 (started by onill in C:\Users\onill\Documents\Codex\2026-11-09\1-grpc-spring-boot-4-1\work\car-rental-service\fleet-service)
+2026-11-09T06:58:27.893+02:00  INFO 24348 --- [fleet-service] [           main] o.a.maven.surefire.booter.ForkedBooter   : No active profile set, falling back to 1 default profile: "default"
+2026-11-09T06:58:28.681+02:00  INFO 24348 --- [fleet-service] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 0 (http)
+2026-11-09T06:58:28.691+02:00  INFO 24348 --- [fleet-service] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-11-09T06:58:28.692+02:00  INFO 24348 --- [fleet-service] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.24]
+2026-11-09T06:58:28.746+02:00  INFO 24348 --- [fleet-service] [           main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 828 ms
+2026-11-09T06:58:28.953+02:00  INFO 24348 --- [fleet-service] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-11-09T06:58:29.096+02:00  INFO 24348 --- [fleet-service] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:grpc-fleet user=SA
+2026-11-09T06:58:29.097+02:00  INFO 24348 --- [fleet-service] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-11-09T06:58:29.525+02:00  INFO 24348 --- [fleet-service] [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 3 endpoints beneath base path '/actuator'
+2026-11-09T06:58:29.580+02:00  INFO 24348 --- [fleet-service] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 57394 (http) with context path '/'
+2026-11-09T06:58:29.612+02:00  INFO 24348 --- [fleet-service] [           main] o.s.grpc.server.NettyGrpcServerFactory   : Registered gRPC service: carrental.fleet.v1.FleetService
+2026-11-09T06:58:29.612+02:00  INFO 24348 --- [fleet-service] [           main] o.s.grpc.server.NettyGrpcServerFactory   : Registered gRPC service: grpc.reflection.v1.ServerReflection
+2026-11-09T06:58:29.613+02:00  INFO 24348 --- [fleet-service] [           main] o.s.grpc.server.NettyGrpcServerFactory   : Registered gRPC service: grpc.health.v1.Health
+2026-11-09T06:58:29.707+02:00  INFO 24348 --- [fleet-service] [           main] o.s.g.s.lifecycle.GrpcServerLifecycle    : gRPC Server started, listening on address: [/[0:0:0:0:0:0:0:0]:57395], port: 57395
+2026-11-09T06:58:29.713+02:00  INFO 24348 --- [fleet-service] [           main] o.a.maven.surefire.booter.ForkedBooter   : Started ForkedBooter in 2.069 seconds (process running for 2.59)
+EVIDENCE Spring Boot=4.1.1 Java=25.0.5 transport=TCP port=57395
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::arrayBaseOffset has been called by com.google.protobuf.UnsafeUtil (file:/C:/Users/onill/.m2/repository/com/google/protobuf/protobuf-java/4.35.1/protobuf-java-4.35.1.jar)
+WARNING: Please consider reporting this to the maintainers of class com.google.protobuf.UnsafeUtil
+WARNING: sun.misc.Unsafe::arrayBaseOffset will be removed in a future release
+2026-11-09T06:58:29.936+02:00  INFO 24348 --- [fleet-service] [ault-executor-1] u.c.fleet.grpc.GrpcAttemptLogging        : grpc method=carrental.fleet.v1.FleetService/CalculateQuote previousAttempts=0
+2026-11-09T06:58:29.970+02:00  INFO 24348 --- [fleet-service] [ault-executor-1] u.c.fleet.grpc.GrpcAttemptLogging        : grpc method=carrental.fleet.v1.FleetService/CalculateQuote status=RESOURCE_EXHAUSTED
+2026-11-09T06:58:29.985+02:00  INFO 24348 --- [fleet-service] [ault-executor-1] u.c.fleet.grpc.GrpcAttemptLogging        : grpc method=carrental.fleet.v1.FleetService/ListVehicles previousAttempts=0
+2026-11-09T06:58:29.985+02:00  INFO 24348 --- [fleet-service] [ault-executor-1] u.c.fleet.grpc.GrpcAttemptLogging        : grpc method=carrental.fleet.v1.FleetService/ListVehicles status=INVALID_ARGUMENT
+EVIDENCE method=GetVehicle attempt=1 previous=0 injectedStatus=UNAVAILABLE
+EVIDENCE deadline=100ms final=DEADLINE_EXCEEDED attempts=1
+EVIDENCE method=WatchQuotes attempt=1 previous=0 injectedStatus=NONE
+EVIDENCE committed bidi server stopped; attempts=1 transport closed (no replay)
+EVIDENCE method=ListVehicles attempt=1 previous=0 injectedStatus=NONE
+EVIDENCE committed server-stream messages=1 attempts=1 final=UNAVAILABLE (no replay)
+2026-11-09T06:58:30.133+02:00  INFO 24348 --- [fleet-service] [ault-executor-0] u.c.fleet.grpc.GrpcAttemptLogging        : grpc method=carrental.fleet.v1.FleetService/CalculateQuote previousAttempts=0
+2026-11-09T06:58:30.133+02:00  INFO 24348 --- [fleet-service] [ault-executor-0] u.c.fleet.grpc.GrpcAttemptLogging        : grpc method=carrental.fleet.v1.FleetService/CalculateQuote status=OK
+2026-11-09T06:58:30.135+02:00  INFO 24348 --- [fleet-service] [ault-executor-1] u.c.fleet.grpc.GrpcAttemptLogging        : grpc method=carrental.fleet.v1.FleetService/WatchQuotes previousAttempts=0
+2026-11-09T06:58:30.135+02:00  INFO 24348 --- [fleet-service] [ault-executor-1] u.c.fleet.grpc.GrpcAttemptLogging        : grpc method=carrental.fleet.v1.FleetService/WatchQuotes status=OK
+2026-11-09T06:58:30.138+02:00  INFO 24348 --- [fleet-service] [ault-executor-2] u.c.fleet.grpc.GrpcAttemptLogging        : grpc method=carrental.fleet.v1.FleetService/ListVehicles previousAttempts=0
+2026-11-09T06:58:30.141+02:00  INFO 24348 --- [fleet-service] [ault-executor-2] u.c.fleet.grpc.GrpcAttemptLogging        : grpc method=carrental.fleet.v1.FleetService/ListVehicles status=OK
+2026-11-09T06:58:30.144+02:00  INFO 24348 --- [fleet-service] [ault-executor-0] u.c.fleet.grpc.GrpcAttemptLogging        : grpc method=carrental.fleet.v1.FleetService/ListVehicles previousAttempts=0
+2026-11-09T06:58:30.146+02:00  INFO 24348 --- [fleet-service] [ault-executor-0] u.c.fleet.grpc.GrpcAttemptLogging        : grpc method=carrental.fleet.v1.FleetService/ListVehicles status=OK
+EVIDENCE server-streaming messages=2
+2026-11-09T06:58:30.149+02:00  INFO 24348 --- [fleet-service] [ault-executor-2] u.c.fleet.grpc.GrpcAttemptLogging        : grpc method=carrental.fleet.v1.FleetService/GetVehicle previousAttempts=0
+2026-11-09T06:58:30.150+02:00  INFO 24348 --- [fleet-service] [ault-executor-2] u.c.fleet.grpc.GrpcAttemptLogging        : grpc method=carrental.fleet.v1.FleetService/GetVehicle status=OK
+EVIDENCE unary plate=GRPC100 rate=1200.00
+2026-11-09T06:58:30.153+02:00  INFO 24348 --- [fleet-service] [ault-executor-2] u.c.fleet.grpc.GrpcAttemptLogging        : grpc method=carrental.fleet.v1.FleetService/CalculateQuote previousAttempts=0
+2026-11-09T06:58:30.154+02:00  INFO 24348 --- [fleet-service] [ault-executor-2] u.c.fleet.grpc.GrpcAttemptLogging        : grpc method=carrental.fleet.v1.FleetService/CalculateQuote status=OK
+EVIDENCE client-streaming count=2 total=6900.00 UAH
+EVIDENCE method=GetVehicle attempt=1 previous=0 injectedStatus=INVALID_ARGUMENT
+EVIDENCE non-retryable status=INVALID_ARGUMENT attempts=1
+EVIDENCE method=GetVehicle attempt=1 previous=0 injectedStatus=NOT_FOUND
+EVIDENCE non-retryable status=NOT_FOUND attempts=1
+EVIDENCE method=GetVehicle attempt=1 previous=0 injectedStatus=INTERNAL
+EVIDENCE non-retryable status=INTERNAL attempts=1
+EVIDENCE unavailable-port client-attempt=1 previous=0
+EVIDENCE unavailable-port client-attempt=2 previous=1
+EVIDENCE unavailable-port client-attempt=3 previous=2
+EVIDENCE unavailable-port client-attempt=4 previous=3
+EVIDENCE TCP recovery same logical call attempts=4 result=OK
+EVIDENCE method=GetVehicle attempt=1 previous=0 injectedStatus=UNAVAILABLE
+EVIDENCE method=GetVehicle attempt=2 previous=1 injectedStatus=UNAVAILABLE
+EVIDENCE method=GetVehicle attempt=3 previous=2 injectedStatus=UNAVAILABLE
+EVIDENCE method=GetVehicle attempt=4 previous=3 injectedStatus=UNAVAILABLE
+EVIDENCE retry exhausted attempts=4 final=UNAVAILABLE
+EVIDENCE method=GetVehicle attempt=1 previous=0 injectedStatus=UNAVAILABLE
+EVIDENCE method=GetVehicle attempt=2 previous=1 injectedStatus=UNAVAILABLE
+EVIDENCE method=GetVehicle attempt=3 previous=2 injectedStatus=NONE
+EVIDENCE retry GetVehicle attempts=3 previous=[0,1,2] result=OK
+EVIDENCE method=ListVehicles attempt=1 previous=0 injectedStatus=UNAVAILABLE
+EVIDENCE method=ListVehicles attempt=2 previous=1 injectedStatus=UNAVAILABLE
+EVIDENCE method=ListVehicles attempt=3 previous=2 injectedStatus=NONE
+EVIDENCE retry ListVehicles attempts=3 previous=[0,1,2] result=OK
+EVIDENCE method=CalculateQuote attempt=1 previous=0 injectedStatus=UNAVAILABLE
+EVIDENCE method=CalculateQuote attempt=2 previous=1 injectedStatus=UNAVAILABLE
+EVIDENCE method=CalculateQuote attempt=3 previous=2 injectedStatus=NONE
+EVIDENCE retry CalculateQuote attempts=3 previous=[0,1,2] result=OK
+EVIDENCE method=WatchQuotes attempt=1 previous=0 injectedStatus=UNAVAILABLE
+EVIDENCE method=WatchQuotes attempt=2 previous=1 injectedStatus=UNAVAILABLE
+EVIDENCE method=WatchQuotes attempt=3 previous=2 injectedStatus=NONE
+EVIDENCE retry WatchQuotes attempts=3 previous=[0,1,2] result=OK
+2026-11-09T06:58:44.015+02:00  INFO 24348 --- [fleet-service] [ault-executor-2] u.c.fleet.grpc.GrpcAttemptLogging        : grpc method=carrental.fleet.v1.FleetService/WatchQuotes previousAttempts=0
+2026-11-09T06:58:44.017+02:00  INFO 24348 --- [fleet-service] [ault-executor-0] u.c.fleet.grpc.GrpcAttemptLogging        : grpc method=carrental.fleet.v1.FleetService/WatchQuotes status=OK
+EVIDENCE bidi first response received BEFORE half-close; amounts=2400.00,4500.00
+2026-11-09T06:58:44.019+02:00  INFO 24348 --- [fleet-service] [ault-executor-0] u.c.fleet.grpc.GrpcAttemptLogging        : grpc method=carrental.fleet.v1.FleetService/GetVehicle previousAttempts=0
+2026-11-09T06:58:44.019+02:00  INFO 24348 --- [fleet-service] [ault-executor-0] u.c.fleet.grpc.GrpcAttemptLogging        : grpc method=carrental.fleet.v1.FleetService/GetVehicle status=INVALID_ARGUMENT
+2026-11-09T06:58:44.021+02:00  INFO 24348 --- [fleet-service] [ault-executor-0] u.c.fleet.grpc.GrpcAttemptLogging        : grpc method=carrental.fleet.v1.FleetService/GetVehicle previousAttempts=0
+2026-11-09T06:58:44.021+02:00  INFO 24348 --- [fleet-service] [ault-executor-0] u.c.fleet.grpc.GrpcAttemptLogging        : grpc method=carrental.fleet.v1.FleetService/GetVehicle status=NOT_FOUND
+2026-11-09T06:58:44.021+02:00  INFO 24348 --- [fleet-service] [ault-executor-0] u.c.fleet.grpc.GrpcAttemptLogging        : grpc method=carrental.fleet.v1.FleetService/CalculateQuote previousAttempts=0
+2026-11-09T06:58:44.022+02:00  INFO 24348 --- [fleet-service] [ault-executor-0] u.c.fleet.grpc.GrpcAttemptLogging        : grpc method=carrental.fleet.v1.FleetService/CalculateQuote status=INVALID_ARGUMENT
+2026-11-09T06:58:44.023+02:00  INFO 24348 --- [fleet-service] [ault-executor-1] u.c.fleet.grpc.GrpcAttemptLogging        : grpc method=carrental.fleet.v1.FleetService/CalculateQuote previousAttempts=0
+2026-11-09T06:58:44.023+02:00  INFO 24348 --- [fleet-service] [ault-executor-1] u.c.fleet.grpc.GrpcAttemptLogging        : grpc method=carrental.fleet.v1.FleetService/CalculateQuote status=INVALID_ARGUMENT
+2026-11-09T06:58:44.028+02:00  INFO 24348 --- [fleet-service] [           main] o.s.g.s.lifecycle.GrpcServerLifecycle    : Completed gRPC server shutdown
+2026-11-09T06:58:44.028+02:00  INFO 24348 --- [fleet-service] [           main] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-11-09T06:58:44.032+02:00  INFO 24348 --- [fleet-service] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-11-09T06:58:44.036+02:00  INFO 24348 --- [fleet-service] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-11-09T06:58:44.037+02:00  INFO 24348 --- [fleet-service] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+[INFO] Tests run: 19, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 16.52 s -- in ua.carrental.fleet.grpc.FleetGrpcIntegrationTest
+[INFO] Running ua.carrental.fleet.ObservabilityIntegrationTest
+{"@timestamp":"2026-11-09T06:58:44.08053+02:00","@version":"1","message":"Starting ForkedBooter v3.5.6 using Java 25.0.5 with PID 24348 (started by onill in C:\\Users\\onill\\Documents\\Codex\\2026-11-09\\1-grpc-spring-boot-4-1\\work\\car-rental-service\\fleet-service)","logger_name":"org.apache.maven.surefire.booter.ForkedBooter","thread_name":"main","level":"INFO","level_value":20000,"tags":["COMMONS-LOGGING"]}
+{"@timestamp":"2026-11-09T06:58:44.0845318+02:00","@version":"1","message":"The following 1 profile is active: \"monitoring-demo\"","logger_name":"org.apache.maven.surefire.booter.ForkedBooter","thread_name":"main","level":"INFO","level_value":20000,"tags":["COMMONS-LOGGING"]}
+{"@timestamp":"2026-11-09T06:58:44.2548121+02:00","@version":"1","message":"Tomcat initialized with port 0 (http)","logger_name":"org.springframework.boot.tomcat.TomcatWebServer","thread_name":"main","level":"INFO","level_value":20000,"tags":["COMMONS-LOGGING"]}
+{"@timestamp":"2026-11-09T06:58:44.2558148+02:00","@version":"1","message":"Starting service [Tomcat]","logger_name":"org.apache.catalina.core.StandardService","thread_name":"main","level":"INFO","level_value":20000}
+{"@timestamp":"2026-11-09T06:58:44.2563184+02:00","@version":"1","message":"Starting Servlet engine: [Apache Tomcat/11.0.24]","logger_name":"org.apache.catalina.core.StandardEngine","thread_name":"main","level":"INFO","level_value":20000}
+{"@timestamp":"2026-11-09T06:58:44.2868467+02:00","@version":"1","message":"Root WebApplicationContext: initialization completed in 200 ms","logger_name":"org.springframework.boot.web.context.servlet.WebApplicationContextInitializer","thread_name":"main","level":"INFO","level_value":20000,"tags":["COMMONS-LOGGING"]}
+{"@timestamp":"2026-11-09T06:58:44.3239084+02:00","@version":"1","message":"HikariPool-2 - Starting...","logger_name":"com.zaxxer.hikari.HikariDataSource","thread_name":"main","level":"INFO","level_value":20000}
+{"@timestamp":"2026-11-09T06:58:44.3264094+02:00","@version":"1","message":"HikariPool-2 - Added connection conn5: url=jdbc:h2:mem:observability-fleet user=SA","logger_name":"com.zaxxer.hikari.pool.HikariPool","thread_name":"main","level":"INFO","level_value":20000}
+{"@timestamp":"2026-11-09T06:58:44.3269081+02:00","@version":"1","message":"HikariPool-2 - Start completed.","logger_name":"com.zaxxer.hikari.HikariDataSource","thread_name":"main","level":"INFO","level_value":20000}
+{"@timestamp":"2026-11-09T06:58:44.4065346+02:00","@version":"1","message":"Exposing 3 endpoints beneath base path '/actuator'","logger_name":"org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver","thread_name":"main","level":"INFO","level_value":20000,"tags":["COMMONS-LOGGING"]}
+{"@timestamp":"2026-11-09T06:58:44.4175432+02:00","@version":"1","message":"Tomcat started on port 57427 (http) with context path '/'","logger_name":"org.springframework.boot.tomcat.TomcatWebServer","thread_name":"main","level":"INFO","level_value":20000,"tags":["COMMONS-LOGGING"]}
+{"@timestamp":"2026-11-09T06:58:44.4190554+02:00","@version":"1","message":"Registered gRPC service: carrental.fleet.v1.FleetService","logger_name":"org.springframework.grpc.server.NettyGrpcServerFactory","thread_name":"main","level":"INFO","level_value":20000,"tags":["COMMONS-LOGGING"]}
+{"@timestamp":"2026-11-09T06:58:44.4195538+02:00","@version":"1","message":"Registered gRPC service: grpc.reflection.v1.ServerReflection","logger_name":"org.springframework.grpc.server.NettyGrpcServerFactory","thread_name":"main","level":"INFO","level_value":20000,"tags":["COMMONS-LOGGING"]}
+{"@timestamp":"2026-11-09T06:58:44.4195538+02:00","@version":"1","message":"Registered gRPC service: grpc.health.v1.Health","logger_name":"org.springframework.grpc.server.NettyGrpcServerFactory","thread_name":"main","level":"INFO","level_value":20000,"tags":["COMMONS-LOGGING"]}
+{"@timestamp":"2026-11-09T06:58:44.4215633+02:00","@version":"1","message":"gRPC Server started, listening on address: [/[0:0:0:0:0:0:0:0]:9090], port: 9090","logger_name":"org.springframework.grpc.server.lifecycle.GrpcServerLifecycle","thread_name":"main","level":"INFO","level_value":20000,"tags":["COMMONS-LOGGING"]}
+{"@timestamp":"2026-11-09T06:58:44.4240732+02:00","@version":"1","message":"Started ForkedBooter in 0.378 seconds (process running for 17.3)","logger_name":"org.apache.maven.surefire.booter.ForkedBooter","thread_name":"main","level":"INFO","level_value":20000,"tags":["COMMONS-LOGGING"]}
+{"@timestamp":"2026-11-09T06:58:44.5592676+02:00","@version":"1","message":"Initializing Spring DispatcherServlet 'dispatcherServlet'","logger_name":"org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]","thread_name":"http-nio-auto-2-exec-1","level":"INFO","level_value":20000}
+{"@timestamp":"2026-11-09T06:58:44.5597664+02:00","@version":"1","message":"Initializing Servlet 'dispatcherServlet'","logger_name":"org.springframework.web.servlet.DispatcherServlet","thread_name":"http-nio-auto-2-exec-1","level":"INFO","level_value":20000,"tags":["COMMONS-LOGGING"]}
+{"@timestamp":"2026-11-09T06:58:44.5602703+02:00","@version":"1","message":"Completed initialization in 1 ms","logger_name":"org.springframework.web.servlet.DispatcherServlet","thread_name":"http-nio-auto-2-exec-1","level":"INFO","level_value":20000,"tags":["COMMONS-LOGGING"]}
+{"@timestamp":"2026-11-09T06:58:44.7170154+02:00","@version":"1","message":"HTTP POST /api/vehicles status=400","logger_name":"ua.carrental.observability.ApiMetricsFilter","thread_name":"http-nio-auto-2-exec-3","level":"INFO","level_value":20000}
+{"@timestamp":"2026-11-09T06:58:46.7255936+02:00","@version":"1","message":"HTTP GET /api/monitoring/demo-work status=200","logger_name":"ua.carrental.observability.ApiMetricsFilter","thread_name":"http-nio-auto-2-exec-4","level":"INFO","level_value":20000}
+{"@timestamp":"2026-11-09T06:58:46.7591508+02:00","@version":"1","message":"Completed gRPC server shutdown","logger_name":"org.springframework.grpc.server.lifecycle.GrpcServerLifecycle","thread_name":"main","level":"INFO","level_value":20000,"tags":["COMMONS-LOGGING"]}
+{"@timestamp":"2026-11-09T06:58:46.7596535+02:00","@version":"1","message":"Commencing graceful shutdown. Waiting for active requests to complete","logger_name":"org.springframework.boot.tomcat.GracefulShutdown","thread_name":"main","level":"INFO","level_value":20000,"tags":["COMMONS-LOGGING"]}
+{"@timestamp":"2026-11-09T06:58:46.7621519+02:00","@version":"1","message":"Graceful shutdown complete","logger_name":"org.springframework.boot.tomcat.GracefulShutdown","thread_name":"tomcat-shutdown","level":"INFO","level_value":20000,"tags":["COMMONS-LOGGING"]}
+{"@timestamp":"2026-11-09T06:58:46.7636497+02:00","@version":"1","message":"HikariPool-2 - Shutdown initiated...","logger_name":"com.zaxxer.hikari.HikariDataSource","thread_name":"main","level":"INFO","level_value":20000}
+{"@timestamp":"2026-11-09T06:58:46.7641507+02:00","@version":"1","message":"HikariPool-2 - Shutdown completed.","logger_name":"com.zaxxer.hikari.HikariDataSource","thread_name":"main","level":"INFO","level_value":20000}
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.724 s -- in ua.carrental.fleet.ObservabilityIntegrationTest
+[INFO] Running ua.carrental.fleet.VehicleBatchIntegrationTest
+{"@timestamp":"2026-11-09T06:58:46.7871753+02:00","@version":"1","message":"Starting ForkedBooter v3.5.6 using Java 25.0.5 with PID 24348 (started by onill in C:\\Users\\onill\\Documents\\Codex\\2026-11-09\\1-grpc-spring-boot-4-1\\work\\car-rental-service\\fleet-service)","logger_name":"org.apache.maven.surefire.booter.ForkedBooter","thread_name":"main","level":"INFO","level_value":20000,"tags":["COMMONS-LOGGING"]}
+{"@timestamp":"2026-11-09T06:58:46.7876724+02:00","@version":"1","message":"No active profile set, falling back to 1 default profile: \"default\"","logger_name":"org.apache.maven.surefire.booter.ForkedBooter","thread_name":"main","level":"INFO","level_value":20000,"tags":["COMMONS-LOGGING"]}
+{"@timestamp":"2026-11-09T06:58:46.9428311+02:00","@version":"1","message":"Tomcat initialized with port 0 (http)","logger_name":"org.springframework.boot.tomcat.TomcatWebServer","thread_name":"main","level":"INFO","level_value":20000,"tags":["COMMONS-LOGGING"]}
+{"@timestamp":"2026-11-09T06:58:46.9438283+02:00","@version":"1","message":"Starting service [Tomcat]","logger_name":"org.apache.catalina.core.StandardService","thread_name":"main","level":"INFO","level_value":20000}
+{"@timestamp":"2026-11-09T06:58:46.9438283+02:00","@version":"1","message":"Starting Servlet engine: [Apache Tomcat/11.0.24]","logger_name":"org.apache.catalina.core.StandardEngine","thread_name":"main","level":"INFO","level_value":20000}
+{"@timestamp":"2026-11-09T06:58:46.9728752+02:00","@version":"1","message":"Root WebApplicationContext: initialization completed in 184 ms","logger_name":"org.springframework.boot.web.context.servlet.WebApplicationContextInitializer","thread_name":"main","level":"INFO","level_value":20000,"tags":["COMMONS-LOGGING"]}
+{"@timestamp":"2026-11-09T06:58:46.9969148+02:00","@version":"1","message":"HikariPool-3 - Starting...","logger_name":"com.zaxxer.hikari.HikariDataSource","thread_name":"main","level":"INFO","level_value":20000}
+{"@timestamp":"2026-11-09T06:58:46.9989218+02:00","@version":"1","message":"HikariPool-3 - Added connection conn10: url=jdbc:h2:mem:fleet user=SA","logger_name":"com.zaxxer.hikari.pool.HikariPool","thread_name":"main","level":"INFO","level_value":20000}
+{"@timestamp":"2026-11-09T06:58:46.9994225+02:00","@version":"1","message":"HikariPool-3 - Start completed.","logger_name":"com.zaxxer.hikari.HikariDataSource","thread_name":"main","level":"INFO","level_value":20000}
+{"@timestamp":"2026-11-09T06:58:47.055493+02:00","@version":"1","message":"Exposing 3 endpoints beneath base path '/actuator'","logger_name":"org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver","thread_name":"main","level":"INFO","level_value":20000,"tags":["COMMONS-LOGGING"]}
+{"@timestamp":"2026-11-09T06:58:47.0685082+02:00","@version":"1","message":"Tomcat started on port 57432 (http) with context path '/'","logger_name":"org.springframework.boot.tomcat.TomcatWebServer","thread_name":"main","level":"INFO","level_value":20000,"tags":["COMMONS-LOGGING"]}
+{"@timestamp":"2026-11-09T06:58:47.0695126+02:00","@version":"1","message":"Registered gRPC service: carrental.fleet.v1.FleetService","logger_name":"org.springframework.grpc.server.NettyGrpcServerFactory","thread_name":"main","level":"INFO","level_value":20000,"tags":["COMMONS-LOGGING"]}
+{"@timestamp":"2026-11-09T06:58:47.0695126+02:00","@version":"1","message":"Registered gRPC service: grpc.reflection.v1.ServerReflection","logger_name":"org.springframework.grpc.server.NettyGrpcServerFactory","thread_name":"main","level":"INFO","level_value":20000,"tags":["COMMONS-LOGGING"]}
+{"@timestamp":"2026-11-09T06:58:47.0700129+02:00","@version":"1","message":"Registered gRPC service: grpc.health.v1.Health","logger_name":"org.springframework.grpc.server.NettyGrpcServerFactory","thread_name":"main","level":"INFO","level_value":20000,"tags":["COMMONS-LOGGING"]}
+{"@timestamp":"2026-11-09T06:58:47.0720156+02:00","@version":"1","message":"gRPC Server started, listening on address: [/[0:0:0:0:0:0:0:0]:9090], port: 9090","logger_name":"org.springframework.grpc.server.lifecycle.GrpcServerLifecycle","thread_name":"main","level":"INFO","level_value":20000,"tags":["COMMONS-LOGGING"]}
+{"@timestamp":"2026-11-09T06:58:47.0745159+02:00","@version":"1","message":"Started ForkedBooter in 0.304 seconds (process running for 19.951)","logger_name":"org.apache.maven.surefire.booter.ForkedBooter","thread_name":"main","level":"INFO","level_value":20000,"tags":["COMMONS-LOGGING"]}
+{"@timestamp":"2026-11-09T06:58:47.10605+02:00","@version":"1","message":"Initializing Spring DispatcherServlet 'dispatcherServlet'","logger_name":"org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]","thread_name":"http-nio-auto-3-exec-1","level":"INFO","level_value":20000}
+{"@timestamp":"2026-11-09T06:58:47.10605+02:00","@version":"1","message":"Initializing Servlet 'dispatcherServlet'","logger_name":"org.springframework.web.servlet.DispatcherServlet","thread_name":"http-nio-auto-3-exec-1","level":"INFO","level_value":20000,"tags":["COMMONS-LOGGING"]}
+{"@timestamp":"2026-11-09T06:58:47.1065503+02:00","@version":"1","message":"Completed initialization in 0 ms","logger_name":"org.springframework.web.servlet.DispatcherServlet","thread_name":"http-nio-auto-3-exec-1","level":"INFO","level_value":20000,"tags":["COMMONS-LOGGING"]}
+{"@timestamp":"2026-11-09T06:58:47.1115592+02:00","@version":"1","message":"HTTP GET /api/vehicles/169db94b-f886-4d19-b70a-db3a2e4407b6 status=404","logger_name":"ua.carrental.observability.ApiMetricsFilter","thread_name":"http-nio-auto-3-exec-1","level":"INFO","level_value":20000}
+{"@timestamp":"2026-11-09T06:58:47.1345872+02:00","@version":"1","message":"HTTP POST /api/vehicles/batch status=200","logger_name":"ua.carrental.observability.ApiMetricsFilter","thread_name":"http-nio-auto-3-exec-3","level":"INFO","level_value":20000}
+{"@timestamp":"2026-11-09T06:58:47.1470866+02:00","@version":"1","message":"HTTP POST /api/vehicles/batch status=200","logger_name":"ua.carrental.observability.ApiMetricsFilter","thread_name":"http-nio-auto-3-exec-5","level":"INFO","level_value":20000}
+{"@timestamp":"2026-11-09T06:58:47.1535995+02:00","@version":"1","message":"HTTP POST /api/vehicles/batch status=400","logger_name":"ua.carrental.observability.ApiMetricsFilter","thread_name":"http-nio-auto-3-exec-4","level":"INFO","level_value":20000}
+{"@timestamp":"2026-11-09T06:58:47.1586048+02:00","@version":"1","message":"HTTP POST /api/vehicles/batch status=400","logger_name":"ua.carrental.observability.ApiMetricsFilter","thread_name":"http-nio-auto-3-exec-2","level":"INFO","level_value":20000}
+{"@timestamp":"2026-11-09T06:58:47.160612+02:00","@version":"1","message":"Completed gRPC server shutdown","logger_name":"org.springframework.grpc.server.lifecycle.GrpcServerLifecycle","thread_name":"main","level":"INFO","level_value":20000,"tags":["COMMONS-LOGGING"]}
+{"@timestamp":"2026-11-09T06:58:47.1611125+02:00","@version":"1","message":"Commencing graceful shutdown. Waiting for active requests to complete","logger_name":"org.springframework.boot.tomcat.GracefulShutdown","thread_name":"main","level":"INFO","level_value":20000,"tags":["COMMONS-LOGGING"]}
+{"@timestamp":"2026-11-09T06:58:47.1636151+02:00","@version":"1","message":"Graceful shutdown complete","logger_name":"org.springframework.boot.tomcat.GracefulShutdown","thread_name":"tomcat-shutdown","level":"INFO","level_value":20000,"tags":["COMMONS-LOGGING"]}
+{"@timestamp":"2026-11-09T06:58:47.1656202+02:00","@version":"1","message":"HikariPool-3 - Shutdown initiated...","logger_name":"com.zaxxer.hikari.HikariDataSource","thread_name":"main","level":"INFO","level_value":20000}
+{"@timestamp":"2026-11-09T06:58:47.1941513+02:00","@version":"1","message":"HikariPool-3 - Shutdown completed.","logger_name":"com.zaxxer.hikari.HikariDataSource","thread_name":"main","level":"INFO","level_value":20000}
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.429 s -- in ua.carrental.fleet.VehicleBatchIntegrationTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 23, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --- jar:3.5.1:jar (default-jar) @ fleet-service ---
+[INFO] Building jar: C:\Users\onill\Documents\Codex\2026-11-09\1-grpc-spring-boot-4-1\work\car-rental-service\fleet-service\target\app.jar
+[INFO] 
+[INFO] --- spring-boot:4.1.1:repackage (repackage) @ fleet-service ---
+[INFO] Replacing main artifact C:\Users\onill\Documents\Codex\2026-11-09\1-grpc-spring-boot-4-1\work\car-rental-service\fleet-service\target\app.jar with repackaged archive, adding nested dependencies in BOOT-INF/.
+[INFO] The original artifact has been renamed to C:\Users\onill\Documents\Codex\2026-11-09\1-grpc-spring-boot-4-1\work\car-rental-service\fleet-service\target\app.jar.original
+[INFO] 
+[INFO] --------------------< ua.carrental:booking-service >--------------------
+[INFO] Building booking-service 1.0.0                                     [8/9]
+[INFO]   from booking-service\pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.5.0:resources (default-resources) @ booking-service ---
+[INFO] Copying 4 resources from src\main\resources to target\classes
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.15.0:compile (default-compile) @ booking-service ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 32 source files with javac [debug parameters release 25] to target\classes
+[INFO] /C:/Users/onill/Documents/Codex/2026-11-09/1-grpc-spring-boot-4-1/work/car-rental-service/booking-service/src/main/java/ua/carrental/booking/catalog/RentalCatalog.java: Some input files use or override a deprecated API.
+[INFO] /C:/Users/onill/Documents/Codex/2026-11-09/1-grpc-spring-boot-4-1/work/car-rental-service/booking-service/src/main/java/ua/carrental/booking/catalog/RentalCatalog.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- resources:3.5.0:testResources (default-testResources) @ booking-service ---
+[INFO] Copying 1 resource from src\test\resources to target\test-classes
+[INFO] 
+[INFO] --- compiler:3.15.0:testCompile (default-testCompile) @ booking-service ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 7 source files with javac [debug parameters release 25] to target\test-classes
+[WARNING] /C:/Users/onill/Documents/Codex/2026-11-09/1-grpc-spring-boot-4-1/work/car-rental-service/booking-service/src/test/java/ua/carrental/booking/bookings/OutboxIntegrationTest.java:[60,65] consumerProps(java.lang.String,java.lang.String,org.springframework.kafka.test.EmbeddedKafkaBroker) in org.springframework.kafka.test.utils.KafkaTestUtils has been deprecated and marked for removal
+[WARNING] /C:/Users/onill/Documents/Codex/2026-11-09/1-grpc-spring-boot-4-1/work/car-rental-service/booking-service/src/test/java/ua/carrental/booking/bookings/OutboxIntegrationTest.java:[115,65] consumerProps(java.lang.String,java.lang.String,org.springframework.kafka.test.EmbeddedKafkaBroker) in org.springframework.kafka.test.utils.KafkaTestUtils has been deprecated and marked for removal
+[INFO] /C:/Users/onill/Documents/Codex/2026-11-09/1-grpc-spring-boot-4-1/work/car-rental-service/booking-service/src/test/java/ua/carrental/booking/bookings/OutboxIntegrationTest.java: Some input files use unchecked or unsafe operations.
+[INFO] /C:/Users/onill/Documents/Codex/2026-11-09/1-grpc-spring-boot-4-1/work/car-rental-service/booking-service/src/test/java/ua/carrental/booking/bookings/OutboxIntegrationTest.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ booking-service ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running ua.carrental.booking.bookings.IdempotencyIntegrationTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.396 s -- in ua.carrental.booking.bookings.IdempotencyIntegrationTest
+[INFO] Running ua.carrental.booking.bookings.OutboxIntegrationTest
+Bootstrap metadata: BootstrapMetadata(records=[ApiMessageAndVersion(FeatureLevelRecord(name='metadata.version', featureLevel=30) at version 0), ApiMessageAndVersion(FeatureLevelRecord(name='eligible.leader.replicas.version', featureLevel=1) at version 0), ApiMessageAndVersion(FeatureLevelRecord(name='group.version', featureLevel=1) at version 0), ApiMessageAndVersion(FeatureLevelRecord(name='share.version', featureLevel=1) at version 0), ApiMessageAndVersion(FeatureLevelRecord(name='streams.version', featureLevel=1) at version 0), ApiMessageAndVersion(FeatureLevelRecord(name='transaction.version', featureLevel=2) at version 0)], metadataVersionLevel=30, source=format command)
+Formatting metadata directory C:\Users\onill\AppData\Local\Temp\kafka-7062317298045851397\combined_0_0 with metadata.version 4.3-IV0.
+Mockito is currently self-attaching to enable the inline-mock-maker. This will no longer work in future releases of the JDK. Please add Mockito as an agent to your build as described in Mockito's documentation: https://javadoc.io/doc/org.mockito/mockito-core/latest/org.mockito/org/mockito/Mockito.html#0.3
+OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+WARNING: A Java agent has been loaded dynamically (C:\Users\onill\.m2\repository\net\bytebuddy\byte-buddy-agent\1.18.11\byte-buddy-agent-1.18.11.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::invokeCleaner has been called by org.apache.kafka.common.utils.ByteBufferUnmapper (file:/C:/Users/onill/.m2/repository/org/apache/kafka/kafka-clients/4.2.1/kafka-clients-4.2.1.jar)
+WARNING: Please consider reporting this to the maintainers of class org.apache.kafka.common.utils.ByteBufferUnmapper
+WARNING: sun.misc.Unsafe::invokeCleaner will be removed in a future release
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.424 s -- in ua.carrental.booking.bookings.OutboxIntegrationTest
+[INFO] Running ua.carrental.booking.catalog.CatalogClientTest
+VERIFIED ResourceAccessException / HttpTimeoutException elapsedMs=3003
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.496 s -- in ua.carrental.booking.catalog.CatalogClientTest
+[INFO] Running ua.carrental.booking.grpc.GrpcBookingIntegrationTest
+EVIDENCE booking fleet unavailable HTTP=503 actual-gRPC-attempts=4 (no nested retries)
+EVIDENCE booking created using gRPC catalog total=2400.00
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.550 s -- in ua.carrental.booking.grpc.GrpcBookingIntegrationTest
+[INFO] Running ua.carrental.booking.ObservabilityIntegrationTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.396 s -- in ua.carrental.booking.ObservabilityIntegrationTest
+[INFO] Running ua.carrental.booking.resilience.ResilienceIntegrationTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.019 s -- in ua.carrental.booking.resilience.ResilienceIntegrationTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 28, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --- jar:3.5.1:jar (default-jar) @ booking-service ---
+[INFO] Building jar: C:\Users\onill\Documents\Codex\2026-11-09\1-grpc-spring-boot-4-1\work\car-rental-service\booking-service\target\app.jar
+[INFO] 
+[INFO] --- spring-boot:4.1.1:repackage (repackage) @ booking-service ---
+[INFO] Replacing main artifact C:\Users\onill\Documents\Codex\2026-11-09\1-grpc-spring-boot-4-1\work\car-rental-service\booking-service\target\app.jar with repackaged archive, adding nested dependencies in BOOT-INF/.
+[INFO] The original artifact has been renamed to C:\Users\onill\Documents\Codex\2026-11-09\1-grpc-spring-boot-4-1\work\car-rental-service\booking-service\target\app.jar.original
+[INFO] 
+[INFO] --------------------< ua.carrental:payment-service >--------------------
+[INFO] Building payment-service 1.0.0                                     [9/9]
+[INFO]   from payment-service\pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.5.0:resources (default-resources) @ payment-service ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.15.0:compile (default-compile) @ payment-service ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 10 source files with javac [debug parameters release 25] to target\classes
+[INFO] 
+[INFO] --- resources:3.5.0:testResources (default-testResources) @ payment-service ---
+[INFO] Copying 1 resource from src\test\resources to target\test-classes
+[INFO] 
+[INFO] --- compiler:3.15.0:testCompile (default-testCompile) @ payment-service ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 3 source files with javac [debug parameters release 25] to target\test-classes
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ payment-service ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running ua.carrental.payment.IdempotencyIntegrationTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.517 s -- in ua.carrental.payment.IdempotencyIntegrationTest
+[INFO] Running ua.carrental.payment.KafkaFailureIntegrationTest
+Bootstrap metadata: BootstrapMetadata(records=[ApiMessageAndVersion(FeatureLevelRecord(name='metadata.version', featureLevel=30) at version 0), ApiMessageAndVersion(FeatureLevelRecord(name='eligible.leader.replicas.version', featureLevel=1) at version 0), ApiMessageAndVersion(FeatureLevelRecord(name='group.version', featureLevel=1) at version 0), ApiMessageAndVersion(FeatureLevelRecord(name='share.version', featureLevel=1) at version 0), ApiMessageAndVersion(FeatureLevelRecord(name='streams.version', featureLevel=1) at version 0), ApiMessageAndVersion(FeatureLevelRecord(name='transaction.version', featureLevel=2) at version 0)], metadataVersionLevel=30, source=format command)
+Formatting metadata directory C:\Users\onill\AppData\Local\Temp\kafka-7080069050842994522\combined_0_0 with metadata.version 4.3-IV0.
+Mockito is currently self-attaching to enable the inline-mock-maker. This will no longer work in future releases of the JDK. Please add Mockito as an agent to your build as described in Mockito's documentation: https://javadoc.io/doc/org.mockito/mockito-core/latest/org.mockito/org/mockito/Mockito.html#0.3
+OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+WARNING: A Java agent has been loaded dynamically (C:\Users\onill\.m2\repository\net\bytebuddy\byte-buddy-agent\1.18.11\byte-buddy-agent-1.18.11.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::invokeCleaner has been called by org.apache.kafka.common.utils.ByteBufferUnmapper (file:/C:/Users/onill/.m2/repository/org/apache/kafka/kafka-clients/4.2.1/kafka-clients-4.2.1.jar)
+WARNING: Please consider reporting this to the maintainers of class org.apache.kafka.common.utils.ByteBufferUnmapper
+WARNING: sun.misc.Unsafe::invokeCleaner will be removed in a future release
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 16.70 s -- in ua.carrental.payment.KafkaFailureIntegrationTest
+[INFO] Running ua.carrental.payment.ObservabilityIntegrationTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.527 s -- in ua.carrental.payment.ObservabilityIntegrationTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --- jar:3.5.1:jar (default-jar) @ payment-service ---
+[INFO] Building jar: C:\Users\onill\Documents\Codex\2026-11-09\1-grpc-spring-boot-4-1\work\car-rental-service\payment-service\target\app.jar
+[INFO] 
+[INFO] --- spring-boot:4.1.1:repackage (repackage) @ payment-service ---
+[INFO] Replacing main artifact C:\Users\onill\Documents\Codex\2026-11-09\1-grpc-spring-boot-4-1\work\car-rental-service\payment-service\target\app.jar with repackaged archive, adding nested dependencies in BOOT-INF/.
+[INFO] The original artifact has been renamed to C:\Users\onill\Documents\Codex\2026-11-09\1-grpc-spring-boot-4-1\work\car-rental-service\payment-service\target\app.jar.original
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for car-rental-service 1.0.0:
+[INFO] 
+[INFO] car-rental-service ................................. SUCCESS [  0.002 s]
+[INFO] grpc-contracts ..................................... SUCCESS [  1.657 s]
+[INFO] grpc-client ........................................ SUCCESS [  0.709 s]
+[INFO] event-contracts .................................... SUCCESS [  0.079 s]
+[INFO] observability ...................................... SUCCESS [  1.185 s]
+[INFO] customer-service ................................... SUCCESS [  6.365 s]
+[INFO] fleet-service ...................................... SUCCESS [ 21.797 s]
+[INFO] booking-service .................................... SUCCESS [ 23.872 s]
+[INFO] payment-service .................................... SUCCESS [ 23.759 s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  01:19 min
+[INFO] Finished at: 2026-11-09T06:59:35+02:00
+[INFO] ------------------------------------------------------------------------

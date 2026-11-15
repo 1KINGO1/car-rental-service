@@ -1,0 +1,47 @@
+{
+  "unary": {
+    "id": "024737b6-c5d0-495c-922a-927376a85fa2",
+    "brand": "Toyota",
+    "model": "Corolla",
+    "plate": "GRPC100",
+    "dailyRate": 1200.0
+  },
+  "serverStreaming": [
+    {
+      "id": "024737b6-c5d0-495c-922a-927376a85fa2",
+      "brand": "Toyota",
+      "model": "Corolla",
+      "plate": "GRPC100",
+      "dailyRate": 1200.0
+    },
+    {
+      "id": "af8a8ed7-3e53-4149-9e82-68a7a54d7ded",
+      "brand": "Skoda",
+      "model": "Octavia",
+      "plate": "GRPC200",
+      "dailyRate": 1500.0
+    }
+  ],
+  "clientStreaming": {
+    "itemCount": 2,
+    "currency": "UAH",
+    "total": "6900.00"
+  },
+  "bidirectionalStreaming": [
+    {
+      "vehicleId": "024737b6-c5d0-495c-922a-927376a85fa2",
+      "requestId": "a",
+      "amount": "2400.00",
+      "days": 2,
+      "currency": "UAH"
+    },
+    {
+      "vehicleId": "af8a8ed7-3e53-4149-9e82-68a7a54d7ded",
+      "requestId": "b",
+      "amount": "4500.00",
+      "days": 3,
+      "currency": "UAH"
+    }
+  ]
+}
+PASS: all four gRPC call types between two separate Spring Boot processes.

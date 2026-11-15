@@ -1,0 +1,294 @@
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] car-rental-service                                                 [pom]
+[INFO] grpc-contracts                                                     [jar]
+[INFO] grpc-client                                                        [jar]
+[INFO] event-contracts                                                    [jar]
+[INFO] observability                                                      [jar]
+[INFO] fleet-service                                                      [jar]
+[INFO] booking-service                                                    [jar]
+[INFO] 
+[INFO] ------------------< ua.carrental:car-rental-service >-------------------
+[INFO] Building car-rental-service 1.0.0                                  [1/7]
+[INFO]   from pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --------------------< ua.carrental:grpc-contracts >---------------------
+[INFO] Building grpc-contracts 1.0.0                                      [2/7]
+[INFO]   from grpc-contracts\pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- protobuf:5.1.8:generate (generate) @ grpc-contracts ---
+[INFO] Registering "C:\Users\onill\Documents\Codex\2026-11-09\1-grpc-spring-boot-4-1\work\car-rental-service\grpc-contracts\target\generated-sources\protobuf" as a Maven main source root for compiler plugins
+[INFO] Registering "C:\Users\onill\Documents\Codex\2026-11-09\1-grpc-spring-boot-4-1\work\car-rental-service\grpc-contracts\target\generated-sources\protobuf" as a Maven main source root for compiler plugins
+[INFO] Found 1 proto source file and 0 descriptor files to compile, but all are up-to-date so none will be built this time
+[INFO] NOTHING TO DO: There is nothing to do. If this is unexpected, review the above logs for more details.
+[INFO] 
+[INFO] --- resources:3.5.0:resources (default-resources) @ grpc-contracts ---
+[INFO] skip non existing resourceDirectory C:\Users\onill\Documents\Codex\2026-11-09\1-grpc-spring-boot-4-1\work\car-rental-service\grpc-contracts\src\main\resources
+[INFO] skip non existing resourceDirectory C:\Users\onill\Documents\Codex\2026-11-09\1-grpc-spring-boot-4-1\work\car-rental-service\grpc-contracts\src\main\resources
+[INFO] 
+[INFO] --- compiler:3.15.0:compile (default-compile) @ grpc-contracts ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.5.0:testResources (default-testResources) @ grpc-contracts ---
+[INFO] skip non existing resourceDirectory C:\Users\onill\Documents\Codex\2026-11-09\1-grpc-spring-boot-4-1\work\car-rental-service\grpc-contracts\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.15.0:testCompile (default-testCompile) @ grpc-contracts ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ grpc-contracts ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] ----------------------< ua.carrental:grpc-client >----------------------
+[INFO] Building grpc-client 1.0.0                                         [3/7]
+[INFO]   from grpc-client\pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.5.0:resources (default-resources) @ grpc-client ---
+[INFO] Copying 0 resource from src\main\resources to target\classes
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.15.0:compile (default-compile) @ grpc-client ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.5.0:testResources (default-testResources) @ grpc-client ---
+[INFO] skip non existing resourceDirectory C:\Users\onill\Documents\Codex\2026-11-09\1-grpc-spring-boot-4-1\work\car-rental-service\grpc-client\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.15.0:testCompile (default-testCompile) @ grpc-client ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ grpc-client ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] --------------------< ua.carrental:event-contracts >--------------------
+[INFO] Building event-contracts 1.0.0                                     [4/7]
+[INFO]   from event-contracts\pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.5.0:resources (default-resources) @ event-contracts ---
+[INFO] Copying 0 resource from src\main\resources to target\classes
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.15.0:compile (default-compile) @ event-contracts ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.5.0:testResources (default-testResources) @ event-contracts ---
+[INFO] skip non existing resourceDirectory C:\Users\onill\Documents\Codex\2026-11-09\1-grpc-spring-boot-4-1\work\car-rental-service\event-contracts\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.15.0:testCompile (default-testCompile) @ event-contracts ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ event-contracts ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] ---------------------< ua.carrental:observability >---------------------
+[INFO] Building observability 1.0.0                                       [5/7]
+[INFO]   from observability\pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.5.0:resources (default-resources) @ observability ---
+[INFO] skip non existing resourceDirectory C:\Users\onill\Documents\Codex\2026-11-09\1-grpc-spring-boot-4-1\work\car-rental-service\observability\src\main\resources
+[INFO] skip non existing resourceDirectory C:\Users\onill\Documents\Codex\2026-11-09\1-grpc-spring-boot-4-1\work\car-rental-service\observability\src\main\resources
+[INFO] 
+[INFO] --- compiler:3.15.0:compile (default-compile) @ observability ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.5.0:testResources (default-testResources) @ observability ---
+[INFO] skip non existing resourceDirectory C:\Users\onill\Documents\Codex\2026-11-09\1-grpc-spring-boot-4-1\work\car-rental-service\observability\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.15.0:testCompile (default-testCompile) @ observability ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ observability ---
+[INFO] 
+[INFO] ---------------------< ua.carrental:fleet-service >---------------------
+[INFO] Building fleet-service 1.0.0                                       [6/7]
+[INFO]   from fleet-service\pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.5.0:resources (default-resources) @ fleet-service ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.15.0:compile (default-compile) @ fleet-service ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.5.0:testResources (default-testResources) @ fleet-service ---
+[INFO] skip non existing resourceDirectory C:\Users\onill\Documents\Codex\2026-11-09\1-grpc-spring-boot-4-1\work\car-rental-service\fleet-service\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.15.0:testCompile (default-testCompile) @ fleet-service ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 3 source files with javac [debug parameters release 25] to target\test-classes
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ fleet-service ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running ua.carrental.fleet.grpc.FleetGrpcIntegrationTest
+2026-11-09T06:56:54.045+02:00  INFO 18344 --- [fleet-service] [           main] o.a.maven.surefire.booter.ForkedBooter   : Starting ForkedBooter v3.5.6 using Java 25.0.5 with PID 18344 (started by onill in C:\Users\onill\Documents\Codex\2026-11-09\1-grpc-spring-boot-4-1\work\car-rental-service\fleet-service)
+2026-11-09T06:56:54.048+02:00  INFO 18344 --- [fleet-service] [           main] o.a.maven.surefire.booter.ForkedBooter   : No active profile set, falling back to 1 default profile: "default"
+2026-11-09T06:56:54.993+02:00  INFO 18344 --- [fleet-service] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 0 (http)
+2026-11-09T06:56:55.018+02:00  INFO 18344 --- [fleet-service] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-11-09T06:56:55.018+02:00  INFO 18344 --- [fleet-service] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.24]
+2026-11-09T06:56:55.065+02:00  INFO 18344 --- [fleet-service] [           main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 987 ms
+2026-11-09T06:56:55.304+02:00  INFO 18344 --- [fleet-service] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-11-09T06:56:55.463+02:00  INFO 18344 --- [fleet-service] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:grpc-fleet user=SA
+2026-11-09T06:56:55.465+02:00  INFO 18344 --- [fleet-service] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-11-09T06:56:55.936+02:00  INFO 18344 --- [fleet-service] [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 3 endpoints beneath base path '/actuator'
+2026-11-09T06:56:55.986+02:00  INFO 18344 --- [fleet-service] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 52215 (http) with context path '/'
+2026-11-09T06:56:56.020+02:00  INFO 18344 --- [fleet-service] [           main] o.s.grpc.server.NettyGrpcServerFactory   : Registered gRPC service: carrental.fleet.v1.FleetService
+2026-11-09T06:56:56.020+02:00  INFO 18344 --- [fleet-service] [           main] o.s.grpc.server.NettyGrpcServerFactory   : Registered gRPC service: grpc.reflection.v1.ServerReflection
+2026-11-09T06:56:56.020+02:00  INFO 18344 --- [fleet-service] [           main] o.s.grpc.server.NettyGrpcServerFactory   : Registered gRPC service: grpc.health.v1.Health
+2026-11-09T06:56:56.121+02:00  INFO 18344 --- [fleet-service] [           main] o.s.g.s.lifecycle.GrpcServerLifecycle    : gRPC Server started, listening on address: [/[0:0:0:0:0:0:0:0]:52216], port: 52216
+2026-11-09T06:56:56.127+02:00  INFO 18344 --- [fleet-service] [           main] o.a.maven.surefire.booter.ForkedBooter   : Started ForkedBooter in 2.371 seconds (process running for 2.927)
+EVIDENCE Spring Boot=4.1.1 Java=25.0.5 transport=TCP port=52216
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::arrayBaseOffset has been called by com.google.protobuf.UnsafeUtil (file:/C:/Users/onill/.m2/repository/com/google/protobuf/protobuf-java/4.35.1/protobuf-java-4.35.1.jar)
+WARNING: Please consider reporting this to the maintainers of class com.google.protobuf.UnsafeUtil
+WARNING: sun.misc.Unsafe::arrayBaseOffset will be removed in a future release
+2026-11-09T06:56:56.404+02:00  INFO 18344 --- [fleet-service] [ault-executor-1] u.c.fleet.grpc.GrpcAttemptLogging        : grpc method=carrental.fleet.v1.FleetService/CalculateQuote previousAttempts=0
+2026-11-09T06:56:56.444+02:00  INFO 18344 --- [fleet-service] [ault-executor-1] u.c.fleet.grpc.GrpcAttemptLogging        : grpc method=carrental.fleet.v1.FleetService/CalculateQuote status=RESOURCE_EXHAUSTED
+2026-11-09T06:56:56.463+02:00  INFO 18344 --- [fleet-service] [ault-executor-1] u.c.fleet.grpc.GrpcAttemptLogging        : grpc method=carrental.fleet.v1.FleetService/ListVehicles previousAttempts=0
+2026-11-09T06:56:56.463+02:00  INFO 18344 --- [fleet-service] [ault-executor-1] u.c.fleet.grpc.GrpcAttemptLogging        : grpc method=carrental.fleet.v1.FleetService/ListVehicles status=INVALID_ARGUMENT
+EVIDENCE method=GetVehicle attempt=1 previous=0 injectedStatus=UNAVAILABLE
+EVIDENCE deadline=100ms final=DEADLINE_EXCEEDED attempts=1
+EVIDENCE method=WatchQuotes attempt=1 previous=0 injectedStatus=NONE
+EVIDENCE committed bidi server stopped; attempts=1 transport closed (no replay)
+EVIDENCE method=ListVehicles attempt=1 previous=0 injectedStatus=NONE
+EVIDENCE committed server-stream messages=1 attempts=1 final=UNAVAILABLE (no replay)
+2026-11-09T06:56:56.616+02:00  INFO 18344 --- [fleet-service] [ault-executor-2] u.c.fleet.grpc.GrpcAttemptLogging        : grpc method=carrental.fleet.v1.FleetService/CalculateQuote previousAttempts=0
+2026-11-09T06:56:56.617+02:00  INFO 18344 --- [fleet-service] [ault-executor-2] u.c.fleet.grpc.GrpcAttemptLogging        : grpc method=carrental.fleet.v1.FleetService/CalculateQuote status=OK
+2026-11-09T06:56:56.619+02:00  INFO 18344 --- [fleet-service] [ault-executor-2] u.c.fleet.grpc.GrpcAttemptLogging        : grpc method=carrental.fleet.v1.FleetService/WatchQuotes previousAttempts=0
+2026-11-09T06:56:56.619+02:00  INFO 18344 --- [fleet-service] [ault-executor-2] u.c.fleet.grpc.GrpcAttemptLogging        : grpc method=carrental.fleet.v1.FleetService/WatchQuotes status=OK
+2026-11-09T06:56:56.623+02:00  INFO 18344 --- [fleet-service] [ault-executor-0] u.c.fleet.grpc.GrpcAttemptLogging        : grpc method=carrental.fleet.v1.FleetService/ListVehicles previousAttempts=0
+2026-11-09T06:56:56.626+02:00  INFO 18344 --- [fleet-service] [ault-executor-0] u.c.fleet.grpc.GrpcAttemptLogging        : grpc method=carrental.fleet.v1.FleetService/ListVehicles status=OK
+2026-11-09T06:56:56.630+02:00  INFO 18344 --- [fleet-service] [ault-executor-2] u.c.fleet.grpc.GrpcAttemptLogging        : grpc method=carrental.fleet.v1.FleetService/ListVehicles previousAttempts=0
+2026-11-09T06:56:56.631+02:00  INFO 18344 --- [fleet-service] [ault-executor-2] u.c.fleet.grpc.GrpcAttemptLogging        : grpc method=carrental.fleet.v1.FleetService/ListVehicles status=OK
+EVIDENCE server-streaming messages=2
+2026-11-09T06:56:56.634+02:00  INFO 18344 --- [fleet-service] [ault-executor-2] u.c.fleet.grpc.GrpcAttemptLogging        : grpc method=carrental.fleet.v1.FleetService/GetVehicle previousAttempts=0
+2026-11-09T06:56:56.634+02:00  INFO 18344 --- [fleet-service] [ault-executor-2] u.c.fleet.grpc.GrpcAttemptLogging        : grpc method=carrental.fleet.v1.FleetService/GetVehicle status=OK
+EVIDENCE unary plate=GRPC100 rate=1200.00
+2026-11-09T06:56:56.639+02:00  INFO 18344 --- [fleet-service] [ault-executor-2] u.c.fleet.grpc.GrpcAttemptLogging        : grpc method=carrental.fleet.v1.FleetService/CalculateQuote previousAttempts=0
+2026-11-09T06:56:56.640+02:00  INFO 18344 --- [fleet-service] [ault-executor-2] u.c.fleet.grpc.GrpcAttemptLogging        : grpc method=carrental.fleet.v1.FleetService/CalculateQuote status=OK
+EVIDENCE client-streaming count=2 total=6900.00 UAH
+EVIDENCE method=GetVehicle attempt=1 previous=0 injectedStatus=INVALID_ARGUMENT
+EVIDENCE non-retryable status=INVALID_ARGUMENT attempts=1
+EVIDENCE method=GetVehicle attempt=1 previous=0 injectedStatus=NOT_FOUND
+EVIDENCE non-retryable status=NOT_FOUND attempts=1
+EVIDENCE method=GetVehicle attempt=1 previous=0 injectedStatus=INTERNAL
+EVIDENCE non-retryable status=INTERNAL attempts=1
+EVIDENCE unavailable-port client-attempt=1 previous=0
+EVIDENCE unavailable-port client-attempt=2 previous=1
+EVIDENCE unavailable-port client-attempt=3 previous=2
+EVIDENCE unavailable-port client-attempt=4 previous=3
+EVIDENCE TCP recovery same logical call attempts=4 result=OK
+EVIDENCE method=GetVehicle attempt=1 previous=0 injectedStatus=UNAVAILABLE
+EVIDENCE method=GetVehicle attempt=2 previous=1 injectedStatus=UNAVAILABLE
+EVIDENCE method=GetVehicle attempt=3 previous=2 injectedStatus=UNAVAILABLE
+EVIDENCE method=GetVehicle attempt=4 previous=3 injectedStatus=UNAVAILABLE
+EVIDENCE retry exhausted attempts=4 final=UNAVAILABLE
+EVIDENCE method=GetVehicle attempt=1 previous=0 injectedStatus=UNAVAILABLE
+EVIDENCE method=GetVehicle attempt=2 previous=1 injectedStatus=UNAVAILABLE
+EVIDENCE method=GetVehicle attempt=3 previous=2 injectedStatus=NONE
+EVIDENCE retry GetVehicle attempts=3 previous=[0,1,2] result=OK
+EVIDENCE method=ListVehicles attempt=1 previous=0 injectedStatus=UNAVAILABLE
+EVIDENCE method=ListVehicles attempt=2 previous=1 injectedStatus=UNAVAILABLE
+EVIDENCE method=ListVehicles attempt=3 previous=2 injectedStatus=NONE
+EVIDENCE retry ListVehicles attempts=3 previous=[0,1,2] result=OK
+EVIDENCE method=CalculateQuote attempt=1 previous=0 injectedStatus=UNAVAILABLE
+EVIDENCE method=CalculateQuote attempt=2 previous=1 injectedStatus=UNAVAILABLE
+EVIDENCE method=CalculateQuote attempt=3 previous=2 injectedStatus=NONE
+EVIDENCE retry CalculateQuote attempts=3 previous=[0,1,2] result=OK
+EVIDENCE method=WatchQuotes attempt=1 previous=0 injectedStatus=UNAVAILABLE
+EVIDENCE method=WatchQuotes attempt=2 previous=1 injectedStatus=UNAVAILABLE
+EVIDENCE method=WatchQuotes attempt=3 previous=2 injectedStatus=NONE
+EVIDENCE retry WatchQuotes attempts=3 previous=[0,1,2] result=OK
+2026-11-09T06:57:09.375+02:00  INFO 18344 --- [fleet-service] [ault-executor-0] u.c.fleet.grpc.GrpcAttemptLogging        : grpc method=carrental.fleet.v1.FleetService/WatchQuotes previousAttempts=0
+2026-11-09T06:57:09.377+02:00  INFO 18344 --- [fleet-service] [ault-executor-2] u.c.fleet.grpc.GrpcAttemptLogging        : grpc method=carrental.fleet.v1.FleetService/WatchQuotes status=OK
+EVIDENCE bidi first response received BEFORE half-close; amounts=2400.00,4500.00
+2026-11-09T06:57:09.379+02:00  INFO 18344 --- [fleet-service] [ault-executor-0] u.c.fleet.grpc.GrpcAttemptLogging        : grpc method=carrental.fleet.v1.FleetService/GetVehicle previousAttempts=0
+2026-11-09T06:57:09.380+02:00  INFO 18344 --- [fleet-service] [ault-executor-0] u.c.fleet.grpc.GrpcAttemptLogging        : grpc method=carrental.fleet.v1.FleetService/GetVehicle status=INVALID_ARGUMENT
+2026-11-09T06:57:09.381+02:00  INFO 18344 --- [fleet-service] [ault-executor-0] u.c.fleet.grpc.GrpcAttemptLogging        : grpc method=carrental.fleet.v1.FleetService/GetVehicle previousAttempts=0
+2026-11-09T06:57:09.382+02:00  INFO 18344 --- [fleet-service] [ault-executor-0] u.c.fleet.grpc.GrpcAttemptLogging        : grpc method=carrental.fleet.v1.FleetService/GetVehicle status=NOT_FOUND
+2026-11-09T06:57:09.383+02:00  INFO 18344 --- [fleet-service] [ault-executor-0] u.c.fleet.grpc.GrpcAttemptLogging        : grpc method=carrental.fleet.v1.FleetService/CalculateQuote previousAttempts=0
+2026-11-09T06:57:09.383+02:00  INFO 18344 --- [fleet-service] [ault-executor-0] u.c.fleet.grpc.GrpcAttemptLogging        : grpc method=carrental.fleet.v1.FleetService/CalculateQuote status=INVALID_ARGUMENT
+2026-11-09T06:57:09.384+02:00  INFO 18344 --- [fleet-service] [ault-executor-1] u.c.fleet.grpc.GrpcAttemptLogging        : grpc method=carrental.fleet.v1.FleetService/CalculateQuote previousAttempts=0
+2026-11-09T06:57:09.384+02:00  INFO 18344 --- [fleet-service] [ault-executor-1] u.c.fleet.grpc.GrpcAttemptLogging        : grpc method=carrental.fleet.v1.FleetService/CalculateQuote status=INVALID_ARGUMENT
+2026-11-09T06:57:09.388+02:00  INFO 18344 --- [fleet-service] [           main] o.s.g.s.lifecycle.GrpcServerLifecycle    : Completed gRPC server shutdown
+2026-11-09T06:57:09.389+02:00  INFO 18344 --- [fleet-service] [           main] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-11-09T06:57:09.393+02:00  INFO 18344 --- [fleet-service] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-11-09T06:57:09.396+02:00  INFO 18344 --- [fleet-service] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-11-09T06:57:09.398+02:00  INFO 18344 --- [fleet-service] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+[INFO] Tests run: 19, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 15.79 s -- in ua.carrental.fleet.grpc.FleetGrpcIntegrationTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 19, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --------------------< ua.carrental:booking-service >--------------------
+[INFO] Building booking-service 1.0.0                                     [7/7]
+[INFO]   from booking-service\pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.5.0:resources (default-resources) @ booking-service ---
+[INFO] Copying 4 resources from src\main\resources to target\classes
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.15.0:compile (default-compile) @ booking-service ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 32 source files with javac [debug parameters release 25] to target\classes
+[INFO] /C:/Users/onill/Documents/Codex/2026-11-09/1-grpc-spring-boot-4-1/work/car-rental-service/booking-service/src/main/java/ua/carrental/booking/catalog/RentalCatalog.java: Some input files use or override a deprecated API.
+[INFO] /C:/Users/onill/Documents/Codex/2026-11-09/1-grpc-spring-boot-4-1/work/car-rental-service/booking-service/src/main/java/ua/carrental/booking/catalog/RentalCatalog.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- resources:3.5.0:testResources (default-testResources) @ booking-service ---
+[INFO] Copying 1 resource from src\test\resources to target\test-classes
+[INFO] 
+[INFO] --- compiler:3.15.0:testCompile (default-testCompile) @ booking-service ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 7 source files with javac [debug parameters release 25] to target\test-classes
+[WARNING] /C:/Users/onill/Documents/Codex/2026-11-09/1-grpc-spring-boot-4-1/work/car-rental-service/booking-service/src/test/java/ua/carrental/booking/bookings/OutboxIntegrationTest.java:[60,65] consumerProps(java.lang.String,java.lang.String,org.springframework.kafka.test.EmbeddedKafkaBroker) in org.springframework.kafka.test.utils.KafkaTestUtils has been deprecated and marked for removal
+[WARNING] /C:/Users/onill/Documents/Codex/2026-11-09/1-grpc-spring-boot-4-1/work/car-rental-service/booking-service/src/test/java/ua/carrental/booking/bookings/OutboxIntegrationTest.java:[115,65] consumerProps(java.lang.String,java.lang.String,org.springframework.kafka.test.EmbeddedKafkaBroker) in org.springframework.kafka.test.utils.KafkaTestUtils has been deprecated and marked for removal
+[INFO] /C:/Users/onill/Documents/Codex/2026-11-09/1-grpc-spring-boot-4-1/work/car-rental-service/booking-service/src/test/java/ua/carrental/booking/bookings/OutboxIntegrationTest.java: Some input files use unchecked or unsafe operations.
+[INFO] /C:/Users/onill/Documents/Codex/2026-11-09/1-grpc-spring-boot-4-1/work/car-rental-service/booking-service/src/test/java/ua/carrental/booking/bookings/OutboxIntegrationTest.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ booking-service ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running ua.carrental.booking.grpc.GrpcBookingIntegrationTest
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::arrayBaseOffset has been called by com.google.protobuf.UnsafeUtil (file:/C:/Users/onill/.m2/repository/com/google/protobuf/protobuf-java/4.35.1/protobuf-java-4.35.1.jar)
+WARNING: Please consider reporting this to the maintainers of class com.google.protobuf.UnsafeUtil
+WARNING: sun.misc.Unsafe::arrayBaseOffset will be removed in a future release
+EVIDENCE booking fleet unavailable HTTP=503 actual-gRPC-attempts=4 (no nested retries)
+EVIDENCE booking created using gRPC catalog total=2400.00
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 7.083 s -- in ua.carrental.booking.grpc.GrpcBookingIntegrationTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for car-rental-service 1.0.0:
+[INFO] 
+[INFO] car-rental-service ................................. SUCCESS [  0.002 s]
+[INFO] grpc-contracts ..................................... SUCCESS [  1.071 s]
+[INFO] grpc-client ........................................ SUCCESS [  0.119 s]
+[INFO] event-contracts .................................... SUCCESS [  0.050 s]
+[INFO] observability ...................................... SUCCESS [  0.135 s]
+[INFO] fleet-service ...................................... SUCCESS [ 17.812 s]
+[INFO] booking-service .................................... SUCCESS [ 10.264 s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  29.690 s
+[INFO] Finished at: 2026-11-09T06:57:20+02:00
+[INFO] ------------------------------------------------------------------------

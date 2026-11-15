@@ -1,0 +1,45 @@
+EVIDENCE Spring Boot=4.1.1 Java=25.0.5 transport=TCP port=57395
+EVIDENCE method=GetVehicle attempt=1 previous=0 injectedStatus=UNAVAILABLE
+EVIDENCE deadline=100ms final=DEADLINE_EXCEEDED attempts=1
+EVIDENCE method=WatchQuotes attempt=1 previous=0 injectedStatus=NONE
+EVIDENCE committed bidi server stopped; attempts=1 transport closed (no replay)
+EVIDENCE method=ListVehicles attempt=1 previous=0 injectedStatus=NONE
+EVIDENCE committed server-stream messages=1 attempts=1 final=UNAVAILABLE (no replay)
+EVIDENCE server-streaming messages=2
+EVIDENCE unary plate=GRPC100 rate=1200.00
+EVIDENCE client-streaming count=2 total=6900.00 UAH
+EVIDENCE method=GetVehicle attempt=1 previous=0 injectedStatus=INVALID_ARGUMENT
+EVIDENCE non-retryable status=INVALID_ARGUMENT attempts=1
+EVIDENCE method=GetVehicle attempt=1 previous=0 injectedStatus=NOT_FOUND
+EVIDENCE non-retryable status=NOT_FOUND attempts=1
+EVIDENCE method=GetVehicle attempt=1 previous=0 injectedStatus=INTERNAL
+EVIDENCE non-retryable status=INTERNAL attempts=1
+EVIDENCE unavailable-port client-attempt=1 previous=0
+EVIDENCE unavailable-port client-attempt=2 previous=1
+EVIDENCE unavailable-port client-attempt=3 previous=2
+EVIDENCE unavailable-port client-attempt=4 previous=3
+EVIDENCE TCP recovery same logical call attempts=4 result=OK
+EVIDENCE method=GetVehicle attempt=1 previous=0 injectedStatus=UNAVAILABLE
+EVIDENCE method=GetVehicle attempt=2 previous=1 injectedStatus=UNAVAILABLE
+EVIDENCE method=GetVehicle attempt=3 previous=2 injectedStatus=UNAVAILABLE
+EVIDENCE method=GetVehicle attempt=4 previous=3 injectedStatus=UNAVAILABLE
+EVIDENCE retry exhausted attempts=4 final=UNAVAILABLE
+EVIDENCE method=GetVehicle attempt=1 previous=0 injectedStatus=UNAVAILABLE
+EVIDENCE method=GetVehicle attempt=2 previous=1 injectedStatus=UNAVAILABLE
+EVIDENCE method=GetVehicle attempt=3 previous=2 injectedStatus=NONE
+EVIDENCE retry GetVehicle attempts=3 previous=[0,1,2] result=OK
+EVIDENCE method=ListVehicles attempt=1 previous=0 injectedStatus=UNAVAILABLE
+EVIDENCE method=ListVehicles attempt=2 previous=1 injectedStatus=UNAVAILABLE
+EVIDENCE method=ListVehicles attempt=3 previous=2 injectedStatus=NONE
+EVIDENCE retry ListVehicles attempts=3 previous=[0,1,2] result=OK
+EVIDENCE method=CalculateQuote attempt=1 previous=0 injectedStatus=UNAVAILABLE
+EVIDENCE method=CalculateQuote attempt=2 previous=1 injectedStatus=UNAVAILABLE
+EVIDENCE method=CalculateQuote attempt=3 previous=2 injectedStatus=NONE
+EVIDENCE retry CalculateQuote attempts=3 previous=[0,1,2] result=OK
+EVIDENCE method=WatchQuotes attempt=1 previous=0 injectedStatus=UNAVAILABLE
+EVIDENCE method=WatchQuotes attempt=2 previous=1 injectedStatus=UNAVAILABLE
+EVIDENCE method=WatchQuotes attempt=3 previous=2 injectedStatus=NONE
+EVIDENCE retry WatchQuotes attempts=3 previous=[0,1,2] result=OK
+EVIDENCE bidi first response received BEFORE half-close; amounts=2400.00,4500.00
+EVIDENCE booking fleet unavailable HTTP=503 actual-gRPC-attempts=4 (no nested retries)
+EVIDENCE booking created using gRPC catalog total=2400.00

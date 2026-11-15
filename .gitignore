@@ -15,4 +15,3 @@ k8s/secrets.local.yaml
 !docs/evidence/**/*.log
 !docs/verification/**/*.log
 
-/scripts/

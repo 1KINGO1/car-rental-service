@@ -1,0 +1,19 @@
+2026-11-15T11:40:10.947+02:00  INFO 12296 --- [booking-service] [           main] u.carrental.booking.BookingApplication   : Starting BookingApplication v1.0.0 using Java 25.0.4.1 with PID 12296 (C:\Users\spent\Desktop\car-rental-service\booking-service\target\app.jar started by spent in C:\Users\spent\Desktop\car-rental-service)
+2026-11-15T11:40:10.950+02:00  INFO 12296 --- [booking-service] [           main] u.carrental.booking.BookingApplication   : The following 1 profile is active: "grpc"
+2026-11-15T11:40:12.052+02:00  INFO 12296 --- [booking-service] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 18083 (http)
+2026-11-15T11:40:12.065+02:00  INFO 12296 --- [booking-service] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-11-15T11:40:12.065+02:00  INFO 12296 --- [booking-service] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.24]
+2026-11-15T11:40:12.095+02:00  INFO 12296 --- [booking-service] [           main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 1105 ms
+2026-11-15T11:40:12.370+02:00  INFO 12296 --- [booking-service] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-11-15T11:40:12.615+02:00  INFO 12296 --- [booking-service] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:demo_booking user=SA
+2026-11-15T11:40:12.617+02:00  INFO 12296 --- [booking-service] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-11-15T11:40:13.428+02:00  INFO 12296 --- [booking-service] [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 3 endpoints beneath base path '/actuator'
+2026-11-15T11:40:13.471+02:00  INFO 12296 --- [booking-service] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 18083 (http) with context path '/'
+2026-11-15T11:40:13.477+02:00  INFO 12296 --- [booking-service] [           main] u.carrental.booking.BookingApplication   : Started BookingApplication in 2.881 seconds (process running for 3.274)
+2026-11-15T11:40:13.605+02:00  INFO 12296 --- [booking-service] [io-18083-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-11-15T11:40:13.605+02:00  INFO 12296 --- [booking-service] [io-18083-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-11-15T11:40:13.606+02:00  INFO 12296 --- [booking-service] [io-18083-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2026-11-15T11:40:14.062+02:00  INFO 12296 --- [booking-service] [io-18083-exec-2] u.c.observability.ApiMetricsFilter       : HTTP GET /api/grpc/vehicles/a960418e-46e9-4b61-bd8b-80af0d98c68f status=200
+2026-11-15T11:40:14.077+02:00  INFO 12296 --- [booking-service] [io-18083-exec-3] u.c.observability.ApiMetricsFilter       : HTTP GET /api/grpc/vehicles status=200
+2026-11-15T11:40:14.116+02:00  INFO 12296 --- [booking-service] [io-18083-exec-4] u.c.observability.ApiMetricsFilter       : HTTP POST /api/grpc/quotes/client-stream status=200
+2026-11-15T11:40:14.127+02:00  INFO 12296 --- [booking-service] [io-18083-exec-5] u.c.observability.ApiMetricsFilter       : HTTP POST /api/grpc/quotes/bidi status=200

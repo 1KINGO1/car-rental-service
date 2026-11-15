@@ -1,0 +1,146 @@
+{
+  "totals": {
+    "tests": 71,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "suites": [
+    {
+      "name": "ua.carrental.booking.bookings.IdempotencyIntegrationTest",
+      "tests": "5",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "3.396"
+    },
+    {
+      "name": "ua.carrental.booking.bookings.OutboxIntegrationTest",
+      "tests": "5",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "5.424"
+    },
+    {
+      "name": "ua.carrental.booking.catalog.CatalogClientTest",
+      "tests": "5",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "3.496"
+    },
+    {
+      "name": "ua.carrental.booking.grpc.GrpcBookingIntegrationTest",
+      "tests": "4",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "4.55"
+    },
+    {
+      "name": "ua.carrental.booking.ObservabilityIntegrationTest",
+      "tests": "1",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "2.396"
+    },
+    {
+      "name": "ua.carrental.booking.resilience.ResilienceIntegrationTest",
+      "tests": "8",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "2.019"
+    },
+    {
+      "name": "ua.carrental.customer.ObservabilityIntegrationTest",
+      "tests": "1",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "4.343"
+    },
+    {
+      "name": "ua.carrental.fleet.grpc.FleetGrpcIntegrationTest",
+      "tests": "19",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "16.522"
+    },
+    {
+      "name": "ua.carrental.fleet.ObservabilityIntegrationTest",
+      "tests": "1",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "2.724"
+    },
+    {
+      "name": "ua.carrental.fleet.VehicleBatchIntegrationTest",
+      "tests": "3",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "0.429"
+    },
+    {
+      "name": "ua.carrental.observability.ApiMetricsFilterTest",
+      "tests": "3",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "0.208"
+    },
+    {
+      "name": "ua.carrental.observability.BusinessMetricsTest",
+      "tests": "1",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "0.006"
+    },
+    {
+      "name": "ua.carrental.observability.DemoWorkControllerTest",
+      "tests": "2",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "0.193"
+    },
+    {
+      "name": "ua.carrental.observability.TraceCarrierTest",
+      "tests": "2",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "0.012"
+    },
+    {
+      "name": "ua.carrental.payment.IdempotencyIntegrationTest",
+      "tests": "4",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "2.517"
+    },
+    {
+      "name": "ua.carrental.payment.KafkaFailureIntegrationTest",
+      "tests": "6",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "16.699"
+    },
+    {
+      "name": "ua.carrental.payment.ObservabilityIntegrationTest",
+      "tests": "1",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "2.527"
+    }
+  ]
+}

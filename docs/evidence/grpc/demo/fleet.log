@@ -1,0 +1,29 @@
+2026-11-15T11:40:10.887+02:00  INFO 26780 --- [fleet-service] [           main] ua.carrental.fleet.FleetApplication      : Starting FleetApplication v1.0.0 using Java 25.0.4.1 with PID 26780 (C:\Users\spent\Desktop\car-rental-service\fleet-service\target\app.jar started by spent in C:\Users\spent\Desktop\car-rental-service)
+2026-11-15T11:40:10.894+02:00  INFO 26780 --- [fleet-service] [           main] ua.carrental.fleet.FleetApplication      : No active profile set, falling back to 1 default profile: "default"
+2026-11-15T11:40:11.905+02:00  INFO 26780 --- [fleet-service] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 18082 (http)
+2026-11-15T11:40:11.917+02:00  INFO 26780 --- [fleet-service] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-11-15T11:40:11.918+02:00  INFO 26780 --- [fleet-service] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.24]
+2026-11-15T11:40:11.944+02:00  INFO 26780 --- [fleet-service] [           main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 1013 ms
+2026-11-15T11:40:12.165+02:00  INFO 26780 --- [fleet-service] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-11-15T11:40:12.373+02:00  INFO 26780 --- [fleet-service] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:demo_fleet user=SA
+2026-11-15T11:40:12.375+02:00  INFO 26780 --- [fleet-service] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-11-15T11:40:12.942+02:00  INFO 26780 --- [fleet-service] [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 3 endpoints beneath base path '/actuator'
+2026-11-15T11:40:12.985+02:00  INFO 26780 --- [fleet-service] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 18082 (http) with context path '/'
+2026-11-15T11:40:13.018+02:00  INFO 26780 --- [fleet-service] [           main] o.s.grpc.server.NettyGrpcServerFactory   : Registered gRPC service: carrental.fleet.v1.FleetService
+2026-11-15T11:40:13.019+02:00  INFO 26780 --- [fleet-service] [           main] o.s.grpc.server.NettyGrpcServerFactory   : Registered gRPC service: grpc.reflection.v1.ServerReflection
+2026-11-15T11:40:13.019+02:00  INFO 26780 --- [fleet-service] [           main] o.s.grpc.server.NettyGrpcServerFactory   : Registered gRPC service: grpc.health.v1.Health
+2026-11-15T11:40:13.104+02:00  INFO 26780 --- [fleet-service] [io-18082-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-11-15T11:40:13.104+02:00  INFO 26780 --- [fleet-service] [io-18082-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-11-15T11:40:13.105+02:00  INFO 26780 --- [fleet-service] [io-18082-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2026-11-15T11:40:13.110+02:00  INFO 26780 --- [fleet-service] [           main] o.s.g.s.lifecycle.GrpcServerLifecycle    : gRPC Server started, listening on address: [/[0:0:0:0:0:0:0:0]:19090], port: 19090
+2026-11-15T11:40:13.117+02:00  INFO 26780 --- [fleet-service] [           main] ua.carrental.fleet.FleetApplication      : Started FleetApplication in 2.544 seconds (process running for 2.915)
+2026-11-15T11:40:13.765+02:00  INFO 26780 --- [fleet-service] [io-18082-exec-6] u.c.observability.ApiMetricsFilter       : HTTP POST /api/vehicles status=201
+2026-11-15T11:40:13.772+02:00  INFO 26780 --- [fleet-service] [io-18082-exec-2] u.c.observability.ApiMetricsFilter       : HTTP POST /api/vehicles status=201
+2026-11-15T11:40:14.025+02:00  INFO 26780 --- [fleet-service] [ault-executor-0] u.c.fleet.grpc.GrpcAttemptLogging        : grpc method=carrental.fleet.v1.FleetService/GetVehicle previousAttempts=0
+2026-11-15T11:40:14.042+02:00  INFO 26780 --- [fleet-service] [ault-executor-0] u.c.fleet.grpc.GrpcAttemptLogging        : grpc method=carrental.fleet.v1.FleetService/GetVehicle status=OK
+2026-11-15T11:40:14.070+02:00  INFO 26780 --- [fleet-service] [ault-executor-0] u.c.fleet.grpc.GrpcAttemptLogging        : grpc method=carrental.fleet.v1.FleetService/ListVehicles previousAttempts=0
+2026-11-15T11:40:14.073+02:00  INFO 26780 --- [fleet-service] [ault-executor-0] u.c.fleet.grpc.GrpcAttemptLogging        : grpc method=carrental.fleet.v1.FleetService/ListVehicles status=OK
+2026-11-15T11:40:14.108+02:00  INFO 26780 --- [fleet-service] [ault-executor-0] u.c.fleet.grpc.GrpcAttemptLogging        : grpc method=carrental.fleet.v1.FleetService/CalculateQuote previousAttempts=0
+2026-11-15T11:40:14.111+02:00  INFO 26780 --- [fleet-service] [ault-executor-0] u.c.fleet.grpc.GrpcAttemptLogging        : grpc method=carrental.fleet.v1.FleetService/CalculateQuote status=OK
+2026-11-15T11:40:14.121+02:00  INFO 26780 --- [fleet-service] [ault-executor-0] u.c.fleet.grpc.GrpcAttemptLogging        : grpc method=carrental.fleet.v1.FleetService/WatchQuotes previousAttempts=0
+2026-11-15T11:40:14.125+02:00  INFO 26780 --- [fleet-service] [ault-executor-0] u.c.fleet.grpc.GrpcAttemptLogging        : grpc method=carrental.fleet.v1.FleetService/WatchQuotes status=OK
