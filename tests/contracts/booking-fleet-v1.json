@@ -1,0 +1,23 @@
+{
+  "name": "booking-service consumer expectations of fleet-service v1",
+  "consumer": "booking-service",
+  "provider": "fleet-service",
+  "transport": "gRPC, exercised through the real booking HTTP facade",
+  "providerState": {
+    "vehicles": [
+      {"brand": "Toyota", "model": "Corolla", "plate": "CONTRACT100", "dailyRate": 1200.00},
+      {"brand": "Skoda", "model": "Octavia", "plate": "CONTRACT200", "dailyRate": 1500.00}
+    ]
+  },
+  "expected": {
+    "unaryStatus": 200,
+    "listStatus": 200,
+    "quoteStatus": 200,
+    "itemCount": 2,
+    "total": "6900.00",
+    "currency": "UAH",
+    "lineAmounts": ["2400.00", "4500.00"],
+    "missingVehicleStatus": 422,
+    "invalidDaysStatus": 400
+  }
+}

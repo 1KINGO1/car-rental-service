@@ -6,6 +6,8 @@
 *.log
 dist/
 .tools/
+__pycache__/
+*.pyc
 
 k8s/02-secrets.yaml
 k8s/**/*.secret.yaml
