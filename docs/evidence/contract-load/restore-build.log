@@ -1,0 +1,158 @@
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] car-rental-service                                                 [pom]
+[INFO] grpc-contracts                                                     [jar]
+[INFO] grpc-client                                                        [jar]
+[INFO] observability                                                      [jar]
+[INFO] fleet-service                                                      [jar]
+[INFO] 
+[INFO] ------------------< ua.carrental:car-rental-service >-------------------
+[INFO] Building car-rental-service 1.0.0                                  [1/5]
+[INFO]   from pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.5.0:clean (default-clean) @ car-rental-service ---
+[INFO] 
+[INFO] --------------------< ua.carrental:grpc-contracts >---------------------
+[INFO] Building grpc-contracts 1.0.0                                      [2/5]
+[INFO]   from grpc-contracts\pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.5.0:clean (default-clean) @ grpc-contracts ---
+[INFO] Deleting C:\Users\onill\Documents\Codex\2026-11-15\3\work\car-rental-service\grpc-contracts\target
+[INFO] 
+[INFO] --- protobuf:5.1.8:generate (generate) @ grpc-contracts ---
+[INFO] Registering "C:\Users\onill\Documents\Codex\2026-11-15\3\work\car-rental-service\grpc-contracts\target\generated-sources\protobuf" as a Maven main source root for compiler plugins
+[INFO] Registering "C:\Users\onill\Documents\Codex\2026-11-15\3\work\car-rental-service\grpc-contracts\target\generated-sources\protobuf" as a Maven main source root for compiler plugins
+[INFO] All sources will be compiled, as no previous build data was detected
+[INFO] Generating source code from 1 proto source file and 0 descriptor files (discovered a total of 1 proto source file and 0 descriptor files)
+[INFO] Invoking protoc. Enable debug logs (--debug --errors) for more details
+[INFO] protoc (pid 26488) returned exit code 0 (success) after 541ms
+[INFO] Embedding sources from "C:\Users\onill\Documents\Codex\2026-11-15\3\work\car-rental-service\grpc-contracts\src\main\proto" in Maven main class outputs
+[INFO] PROTOC SUCCEEDED: Protoc invocation succeeded.
+[INFO] 
+[INFO] --- resources:3.5.0:resources (default-resources) @ grpc-contracts ---
+[INFO] skip non existing resourceDirectory C:\Users\onill\Documents\Codex\2026-11-15\3\work\car-rental-service\grpc-contracts\src\main\resources
+[INFO] skip non existing resourceDirectory C:\Users\onill\Documents\Codex\2026-11-15\3\work\car-rental-service\grpc-contracts\src\main\resources
+[INFO] 
+[INFO] --- compiler:3.15.0:compile (default-compile) @ grpc-contracts ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 14 source files with javac [debug parameters release 25] to target\classes
+[INFO] 
+[INFO] --- resources:3.5.0:testResources (default-testResources) @ grpc-contracts ---
+[INFO] skip non existing resourceDirectory C:\Users\onill\Documents\Codex\2026-11-15\3\work\car-rental-service\grpc-contracts\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.15.0:testCompile (default-testCompile) @ grpc-contracts ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ grpc-contracts ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- jar:3.5.1:jar (default-jar) @ grpc-contracts ---
+[INFO] Building jar: C:\Users\onill\Documents\Codex\2026-11-15\3\work\car-rental-service\grpc-contracts\target\grpc-contracts-1.0.0.jar
+[INFO] 
+[INFO] ----------------------< ua.carrental:grpc-client >----------------------
+[INFO] Building grpc-client 1.0.0                                         [3/5]
+[INFO]   from grpc-client\pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.5.0:clean (default-clean) @ grpc-client ---
+[INFO] Deleting C:\Users\onill\Documents\Codex\2026-11-15\3\work\car-rental-service\grpc-client\target
+[INFO] 
+[INFO] --- resources:3.5.0:resources (default-resources) @ grpc-client ---
+[INFO] Copying 0 resource from src\main\resources to target\classes
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.15.0:compile (default-compile) @ grpc-client ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 2 source files with javac [debug parameters release 25] to target\classes
+[INFO] 
+[INFO] --- resources:3.5.0:testResources (default-testResources) @ grpc-client ---
+[INFO] skip non existing resourceDirectory C:\Users\onill\Documents\Codex\2026-11-15\3\work\car-rental-service\grpc-client\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.15.0:testCompile (default-testCompile) @ grpc-client ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ grpc-client ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- jar:3.5.1:jar (default-jar) @ grpc-client ---
+[INFO] Building jar: C:\Users\onill\Documents\Codex\2026-11-15\3\work\car-rental-service\grpc-client\target\grpc-client-1.0.0.jar
+[INFO] 
+[INFO] ---------------------< ua.carrental:observability >---------------------
+[INFO] Building observability 1.0.0                                       [4/5]
+[INFO]   from observability\pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.5.0:clean (default-clean) @ observability ---
+[INFO] Deleting C:\Users\onill\Documents\Codex\2026-11-15\3\work\car-rental-service\observability\target
+[INFO] 
+[INFO] --- resources:3.5.0:resources (default-resources) @ observability ---
+[INFO] skip non existing resourceDirectory C:\Users\onill\Documents\Codex\2026-11-15\3\work\car-rental-service\observability\src\main\resources
+[INFO] skip non existing resourceDirectory C:\Users\onill\Documents\Codex\2026-11-15\3\work\car-rental-service\observability\src\main\resources
+[INFO] 
+[INFO] --- compiler:3.15.0:compile (default-compile) @ observability ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 5 source files with javac [debug parameters release 25] to target\classes
+[INFO] 
+[INFO] --- resources:3.5.0:testResources (default-testResources) @ observability ---
+[INFO] skip non existing resourceDirectory C:\Users\onill\Documents\Codex\2026-11-15\3\work\car-rental-service\observability\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.15.0:testCompile (default-testCompile) @ observability ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 4 source files with javac [debug parameters release 25] to target\test-classes
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ observability ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- jar:3.5.1:jar (default-jar) @ observability ---
+[INFO] Building jar: C:\Users\onill\Documents\Codex\2026-11-15\3\work\car-rental-service\observability\target\observability-1.0.0.jar
+[INFO] 
+[INFO] ---------------------< ua.carrental:fleet-service >---------------------
+[INFO] Building fleet-service 1.0.0                                       [5/5]
+[INFO]   from fleet-service\pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.5.0:clean (default-clean) @ fleet-service ---
+[INFO] Deleting C:\Users\onill\Documents\Codex\2026-11-15\3\work\car-rental-service\fleet-service\target
+[INFO] 
+[INFO] --- resources:3.5.0:resources (default-resources) @ fleet-service ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.15.0:compile (default-compile) @ fleet-service ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 8 source files with javac [debug parameters release 25] to target\classes
+[INFO] 
+[INFO] --- resources:3.5.0:testResources (default-testResources) @ fleet-service ---
+[INFO] skip non existing resourceDirectory C:\Users\onill\Documents\Codex\2026-11-15\3\work\car-rental-service\fleet-service\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.15.0:testCompile (default-testCompile) @ fleet-service ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 3 source files with javac [debug parameters release 25] to target\test-classes
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ fleet-service ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- jar:3.5.1:jar (default-jar) @ fleet-service ---
+[INFO] Building jar: C:\Users\onill\Documents\Codex\2026-11-15\3\work\car-rental-service\fleet-service\target\app.jar
+[INFO] 
+[INFO] --- spring-boot:4.1.1:repackage (repackage) @ fleet-service ---
+[INFO] Replacing main artifact C:\Users\onill\Documents\Codex\2026-11-15\3\work\car-rental-service\fleet-service\target\app.jar with repackaged archive, adding nested dependencies in BOOT-INF/.
+[INFO] The original artifact has been renamed to C:\Users\onill\Documents\Codex\2026-11-15\3\work\car-rental-service\fleet-service\target\app.jar.original
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for car-rental-service 1.0.0:
+[INFO] 
+[INFO] car-rental-service ................................. SUCCESS [  0.087 s]
+[INFO] grpc-contracts ..................................... SUCCESS [  2.751 s]
+[INFO] grpc-client ........................................ SUCCESS [  0.421 s]
+[INFO] observability ...................................... SUCCESS [  0.805 s]
+[INFO] fleet-service ...................................... SUCCESS [  1.398 s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  5.698 s
+[INFO] Finished at: 2026-11-15T12:06:59+02:00
+[INFO] ------------------------------------------------------------------------

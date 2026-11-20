@@ -1,0 +1,11 @@
+test_bidi_quote_contract (__main__.BookingFleetContractTest.test_bidi_quote_contract) ... ok
+test_client_stream_quote_contract (__main__.BookingFleetContractTest.test_client_stream_quote_contract) ... ok
+test_invalid_days_contract (__main__.BookingFleetContractTest.test_invalid_days_contract) ... ok
+test_missing_vehicle_contract (__main__.BookingFleetContractTest.test_missing_vehicle_contract) ... ok
+test_server_stream_vehicle_contract (__main__.BookingFleetContractTest.test_server_stream_vehicle_contract) ... ok
+test_unary_vehicle_contract (__main__.BookingFleetContractTest.test_unary_vehicle_contract) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.375s
+
+OK

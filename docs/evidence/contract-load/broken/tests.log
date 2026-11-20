@@ -1,0 +1,29 @@
+test_bidi_quote_contract (__main__.BookingFleetContractTest.test_bidi_quote_contract) ... ok
+test_client_stream_quote_contract (__main__.BookingFleetContractTest.test_client_stream_quote_contract) ... ok
+test_invalid_days_contract (__main__.BookingFleetContractTest.test_invalid_days_contract) ... ok
+test_missing_vehicle_contract (__main__.BookingFleetContractTest.test_missing_vehicle_contract) ... ok
+test_server_stream_vehicle_contract (__main__.BookingFleetContractTest.test_server_stream_vehicle_contract) ... FAIL
+test_unary_vehicle_contract (__main__.BookingFleetContractTest.test_unary_vehicle_contract) ... FAIL
+
+======================================================================
+FAIL: test_server_stream_vehicle_contract (__main__.BookingFleetContractTest.test_server_stream_vehicle_contract)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\onill\Documents\Codex\2026-11-15\3\work\car-rental-service\tests\contracts\test_booking_fleet_contract.py", line 53, in test_server_stream_vehicle_contract
+    self.assertEqual(status, self.expected['listStatus'], body)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 500 != 200 : {'detail': 'The request could not be completed', 'instance': '/api/grpc/vehicles', 'status': 500, 'title': 'Internal Server Error'}
+
+======================================================================
+FAIL: test_unary_vehicle_contract (__main__.BookingFleetContractTest.test_unary_vehicle_contract)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\onill\Documents\Codex\2026-11-15\3\work\car-rental-service\tests\contracts\test_booking_fleet_contract.py", line 48, in test_unary_vehicle_contract
+    self.assertEqual(status, self.expected['unaryStatus'], body)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 500 != 200 : {'detail': 'The request could not be completed', 'instance': '/api/grpc/vehicles/8f78578a-3974-486d-a238-e46a15cf3e14', 'status': 500, 'title': 'Internal Server Error'}
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.348s
+
+FAILED (failures=2)

@@ -1,0 +1,184 @@
+{
+  "steady": {
+    "scenario": "steady",
+    "requests": 4370,
+    "duration_s": 45.0987244,
+    "requests_per_second": 96.89852779960223,
+    "avg_ms": 2.8174850114416423,
+    "median_ms": 2.5041,
+    "p90_ms": 4.5129,
+    "p95_ms": 5.7913,
+    "p99_ms": 7.0153,
+    "max_ms": 9.9217,
+    "http_errors": 0,
+    "contract_errors": 0,
+    "checks_passed": 8740,
+    "checks_failed": 0,
+    "thresholds": 8,
+    "thresholds_failed": 0,
+    "failed_thresholds": [],
+    "groups": {
+      "operation:list": {
+        "requests": 1093,
+        "avg_ms": 2.815955626715462,
+        "p95_ms": 5.6546,
+        "p99_ms": 7.015732,
+        "max_ms": 9.9217
+      },
+      "phase:steady": {
+        "requests": 4370,
+        "avg_ms": 2.8174850114416476,
+        "p95_ms": 5.7913,
+        "p99_ms": 7.0153,
+        "max_ms": 9.9217
+      },
+      "operation:bidi": {
+        "requests": 1092,
+        "avg_ms": 2.8196542124542123,
+        "p95_ms": 5.793055,
+        "p99_ms": 7.0103,
+        "max_ms": 9.9217
+      },
+      "operation:unary": {
+        "requests": 1092,
+        "avg_ms": 2.820522619047619,
+        "p95_ms": 5.521635000000001,
+        "p99_ms": 7.010624,
+        "max_ms": 9.4172
+      },
+      "operation:client_stream": {
+        "requests": 1093,
+        "avg_ms": 2.813812351326624,
+        "p95_ms": 5.810120000000003,
+        "p99_ms": 7.016571999999999,
+        "max_ms": 9.9217
+      }
+    }
+  },
+  "ramp": {
+    "scenario": "ramp",
+    "requests": 14745,
+    "duration_s": 60.043533000000004,
+    "requests_per_second": 245.57182536210854,
+    "avg_ms": 1.058140217022713,
+    "median_ms": 1.0035,
+    "p90_ms": 1.5212,
+    "p95_ms": 2.0018,
+    "p99_ms": 2.5079,
+    "max_ms": 4.2318,
+    "http_errors": 0,
+    "contract_errors": 0,
+    "checks_passed": 29490,
+    "checks_failed": 0,
+    "thresholds": 8,
+    "thresholds_failed": 0,
+    "failed_thresholds": [],
+    "groups": {
+      "operation:client_stream": {
+        "requests": 3684,
+        "avg_ms": 1.0557969598262757,
+        "p95_ms": 2.001785,
+        "p99_ms": 2.5064550000000003,
+        "max_ms": 4.2318
+      },
+      "phase:ramp": {
+        "requests": 14745,
+        "avg_ms": 1.0581402170227197,
+        "p95_ms": 2.0018,
+        "p99_ms": 2.5079,
+        "max_ms": 4.2318
+      },
+      "operation:bidi": {
+        "requests": 3689,
+        "avg_ms": 1.0800337489834644,
+        "p95_ms": 2.0026,
+        "p99_ms": 2.507936,
+        "max_ms": 4.2318
+      },
+      "operation:unary": {
+        "requests": 3689,
+        "avg_ms": 1.0167466251016535,
+        "p95_ms": 1.8977,
+        "p99_ms": 2.5059639999999996,
+        "max_ms": 4.2318
+      },
+      "operation:list": {
+        "requests": 3683,
+        "avg_ms": 1.0800159380939451,
+        "p95_ms": 2.0032,
+        "p99_ms": 2.5079,
+        "max_ms": 4.2318
+      }
+    }
+  },
+  "spike": {
+    "scenario": "spike",
+    "requests": 15481,
+    "duration_s": 50.0464233,
+    "requests_per_second": 309.3327950171416,
+    "avg_ms": 0.8302788385763245,
+    "median_ms": 0.7416,
+    "p90_ms": 1.5034,
+    "p95_ms": 1.5185,
+    "p99_ms": 2.2747,
+    "max_ms": 3.5048,
+    "http_errors": 0,
+    "contract_errors": 0,
+    "checks_passed": 30962,
+    "checks_failed": 0,
+    "thresholds": 9,
+    "thresholds_failed": 0,
+    "failed_thresholds": [],
+    "groups": {
+      "operation:client_stream": {
+        "requests": 3869,
+        "avg_ms": 0.8466648229516671,
+        "p95_ms": 1.661,
+        "p99_ms": 2.3007800000000134,
+        "max_ms": 3.0577
+      },
+      "phase:baseline": {
+        "requests": 495,
+        "avg_ms": 1.0597957575757575,
+        "p95_ms": 1.4457,
+        "p99_ms": 1.504,
+        "max_ms": 1.5044
+      },
+      "operation:list": {
+        "requests": 3872,
+        "avg_ms": 0.8322393853305785,
+        "p95_ms": 1.5215949999999954,
+        "p99_ms": 2.0827,
+        "max_ms": 2.5122
+      },
+      "operation:unary": {
+        "requests": 3871,
+        "avg_ms": 0.7866983208473263,
+        "p95_ms": 1.5048,
+        "p99_ms": 2.0063,
+        "max_ms": 3.5048
+      },
+      "operation:bidi": {
+        "requests": 3869,
+        "avg_ms": 0.8555338330317911,
+        "p95_ms": 1.5887,
+        "p99_ms": 2.3984000000000005,
+        "max_ms": 3.3101
+      },
+      "phase:spike": {
+        "requests": 14001,
+        "avg_ms": 0.8054390829226484,
+        "p95_ms": 1.6034,
+        "p99_ms": 2.3566,
+        "max_ms": 3.5048
+      },
+      "phase:recovery": {
+        "requests": 985,
+        "avg_ms": 1.0680154314720813,
+        "p95_ms": 1.5034,
+        "p99_ms": 1.89,
+        "max_ms": 3.0577
+      }
+    }
+  }
+}

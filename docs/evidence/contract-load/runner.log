@@ -1,0 +1,16 @@
+2026-11-15T10:06:37.459992+00:00 RUN ['C:\\Users\\onill\\AppData\\Local\\Programs\\Python\\Python313\\python.exe', 'C:\\Users\\onill\\Documents\\Codex\\2026-11-15\\3\\work\\car-rental-service\\tests\\contracts\\test_booking_fleet_contract.py']
+2026-11-15T10:06:38.038884+00:00 EXIT 0: tests.log
+2026-11-15T10:06:38.118805+00:00 RUN ['C:\\Users\\onill\\Documents\\Codex\\2026-11-15\\3\\work\\car-rental-service\\mvnw.cmd', '-B', '-Pgrpc-demo', '-pl', 'fleet-service', '-am', '-DskipTests', 'clean', 'package']
+2026-11-15T10:06:46.228287+00:00 EXIT 0: mutation-build.log
+2026-11-15T10:06:50.575701+00:00 RUN ['C:\\Users\\onill\\AppData\\Local\\Programs\\Python\\Python313\\python.exe', 'C:\\Users\\onill\\Documents\\Codex\\2026-11-15\\3\\work\\car-rental-service\\tests\\contracts\\test_booking_fleet_contract.py']
+2026-11-15T10:06:51.111780+00:00 EXIT 1: tests.log
+2026-11-15T10:06:51.193237+00:00 RUN ['C:\\Users\\onill\\Documents\\Codex\\2026-11-15\\3\\work\\car-rental-service\\mvnw.cmd', '-B', '-Pgrpc-demo', '-pl', 'fleet-service', '-am', '-DskipTests', 'clean', 'package']
+2026-11-15T10:06:59.133520+00:00 EXIT 0: restore-build.log
+2026-11-15T10:07:03.965229+00:00 RUN ['C:\\Users\\onill\\AppData\\Local\\Programs\\Python\\Python313\\python.exe', 'C:\\Users\\onill\\Documents\\Codex\\2026-11-15\\3\\work\\car-rental-service\\tests\\contracts\\test_booking_fleet_contract.py']
+2026-11-15T10:07:04.482428+00:00 EXIT 0: tests.log
+2026-11-15T10:07:11.257264+00:00 RUN ['C:\\Users\\onill\\Documents\\Codex\\2026-11-15\\3\\work\\tools\\k6\\k6-v2.4.0-windows-amd64\\k6.exe', 'run', '--out', 'json=C:\\Users\\onill\\Documents\\Codex\\2026-11-15\\3\\work\\car-rental-service\\docs\\evidence\\contract-load\\load\\steady\\metrics.json', 'C:\\Users\\onill\\Documents\\Codex\\2026-11-15\\3\\work\\car-rental-service\\tests\\load\\scenarios.js']
+2026-11-15T10:07:56.428436+00:00 EXIT 0: k6.log
+2026-11-15T10:07:59.521468+00:00 RUN ['C:\\Users\\onill\\Documents\\Codex\\2026-11-15\\3\\work\\tools\\k6\\k6-v2.4.0-windows-amd64\\k6.exe', 'run', '--out', 'json=C:\\Users\\onill\\Documents\\Codex\\2026-11-15\\3\\work\\car-rental-service\\docs\\evidence\\contract-load\\load\\ramp\\metrics.json', 'C:\\Users\\onill\\Documents\\Codex\\2026-11-15\\3\\work\\car-rental-service\\tests\\load\\scenarios.js']
+2026-11-15T10:08:59.624350+00:00 EXIT 0: k6.log
+2026-11-15T10:09:02.940852+00:00 RUN ['C:\\Users\\onill\\Documents\\Codex\\2026-11-15\\3\\work\\tools\\k6\\k6-v2.4.0-windows-amd64\\k6.exe', 'run', '--out', 'json=C:\\Users\\onill\\Documents\\Codex\\2026-11-15\\3\\work\\car-rental-service\\docs\\evidence\\contract-load\\load\\spike\\metrics.json', 'C:\\Users\\onill\\Documents\\Codex\\2026-11-15\\3\\work\\car-rental-service\\tests\\load\\scenarios.js']
+2026-11-15T10:09:53.052810+00:00 EXIT 0: k6.log

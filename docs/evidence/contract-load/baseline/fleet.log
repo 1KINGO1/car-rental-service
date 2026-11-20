@@ -1,0 +1,25 @@
+2026-11-15T12:06:33.745+02:00  INFO 21556 --- [fleet-service] [           main] ua.carrental.fleet.FleetApplication      : Starting FleetApplication v1.0.0 using Java 25.0.5 with PID 21556 (C:\Users\onill\Documents\Codex\2026-11-15\3\work\car-rental-service\fleet-service\target\app.jar started by onill in C:\Users\onill\Documents\Codex\2026-11-15\3\work\car-rental-service)
+2026-11-15T12:06:33.748+02:00  INFO 21556 --- [fleet-service] [           main] ua.carrental.fleet.FleetApplication      : No active profile set, falling back to 1 default profile: "default"
+2026-11-15T12:06:34.858+02:00  INFO 21556 --- [fleet-service] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 28082 (http)
+2026-11-15T12:06:34.871+02:00  INFO 21556 --- [fleet-service] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-11-15T12:06:34.872+02:00  INFO 21556 --- [fleet-service] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.24]
+2026-11-15T12:06:34.902+02:00  INFO 21556 --- [fleet-service] [           main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 1118 ms
+2026-11-15T12:06:35.171+02:00  INFO 21556 --- [fleet-service] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-11-15T12:06:35.387+02:00  INFO 21556 --- [fleet-service] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:fleet user=SA
+2026-11-15T12:06:35.390+02:00  INFO 21556 --- [fleet-service] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-11-15T12:06:36.319+02:00  INFO 21556 --- [fleet-service] [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 3 endpoints beneath base path '/actuator'
+2026-11-15T12:06:36.387+02:00  INFO 21556 --- [fleet-service] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 28082 (http) with context path '/'
+2026-11-15T12:06:36.426+02:00  INFO 21556 --- [fleet-service] [           main] o.s.grpc.server.NettyGrpcServerFactory   : Registered gRPC service: carrental.fleet.v1.FleetService
+2026-11-15T12:06:36.427+02:00  INFO 21556 --- [fleet-service] [           main] o.s.grpc.server.NettyGrpcServerFactory   : Registered gRPC service: grpc.reflection.v1.ServerReflection
+2026-11-15T12:06:36.427+02:00  INFO 21556 --- [fleet-service] [           main] o.s.grpc.server.NettyGrpcServerFactory   : Registered gRPC service: grpc.health.v1.Health
+2026-11-15T12:06:36.544+02:00  INFO 21556 --- [fleet-service] [           main] o.s.g.s.lifecycle.GrpcServerLifecycle    : gRPC Server started, listening on address: [/[0:0:0:0:0:0:0:0]:29090], port: 29090
+2026-11-15T12:06:36.557+02:00  INFO 21556 --- [fleet-service] [           main] ua.carrental.fleet.FleetApplication      : Started FleetApplication in 3.117 seconds (process running for 3.462)
+2026-11-15T12:06:36.583+02:00  INFO 21556 --- [fleet-service] [.1-28082-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-11-15T12:06:36.583+02:00  INFO 21556 --- [fleet-service] [.1-28082-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-11-15T12:06:36.584+02:00  INFO 21556 --- [fleet-service] [.1-28082-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2026-11-15T12:06:37.394+02:00  INFO 21556 --- [fleet-service] [.1-28082-exec-1] u.c.observability.ApiMetricsFilter       : HTTP POST /api/vehicles status=201
+2026-11-15T12:06:37.399+02:00  INFO 21556 --- [fleet-service] [.1-28082-exec-3] u.c.observability.ApiMetricsFilter       : HTTP POST /api/vehicles status=201
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::arrayBaseOffset has been called by com.google.protobuf.UnsafeUtil (jar:nested:/C:/Users/onill/Documents/Codex/2026-11-15/3/work/car-rental-service/fleet-service/target/app.jar/!BOOT-INF/lib/protobuf-java-4.35.1.jar!/)
+WARNING: Please consider reporting this to the maintainers of class com.google.protobuf.UnsafeUtil
+WARNING: sun.misc.Unsafe::arrayBaseOffset will be removed in a future release

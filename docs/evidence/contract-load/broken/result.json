@@ -1,0 +1,17 @@
+{
+  "tests": 6,
+  "failures": [
+    {
+      "test": "__main__.BookingFleetContractTest.test_server_stream_vehicle_contract",
+      "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\onill\\Documents\\Codex\\2026-11-15\\3\\work\\car-rental-service\\tests\\contracts\\test_booking_fleet_contract.py\", line 53, in test_server_stream_vehicle_contract\n    self.assertEqual(status, self.expected['listStatus'], body)\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 500 != 200 : {'detail': 'The request could not be completed', 'instance': '/api/grpc/vehicles', 'status': 500, 'title': 'Internal Server Error'}\n"
+    },
+    {
+      "test": "__main__.BookingFleetContractTest.test_unary_vehicle_contract",
+      "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\onill\\Documents\\Codex\\2026-11-15\\3\\work\\car-rental-service\\tests\\contracts\\test_booking_fleet_contract.py\", line 48, in test_unary_vehicle_contract\n    self.assertEqual(status, self.expected['unaryStatus'], body)\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 500 != 200 : {'detail': 'The request could not be completed', 'instance': '/api/grpc/vehicles/8f78578a-3974-486d-a238-e46a15cf3e14', 'status': 500, 'title': 'Internal Server Error'}\n"
+    }
+  ],
+  "errors": [],
+  "skipped": 0,
+  "durationSeconds": 0.34826140000950545,
+  "passed": false
+}

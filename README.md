@@ -2,6 +2,8 @@
 
 Командний проєкт із взаємодією gRPC на Spring Boot 4.1.1 та Java 25.
 
+Контрактні та навантажувальні перевірки: [запуск і сценарії](README_CONTRACT_LOAD.md), [звіт із результатами](docs/report/Contract_Load_Report.md).
+
 Почніть із [інструкції gRPC](README_GRPC.md): контракт, чотири типи викликів, retry policy, запуск, тести та демонстрація.
 
 - [Звіт](docs/report/Grpc_Report.md)

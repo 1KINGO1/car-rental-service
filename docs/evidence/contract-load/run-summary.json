@@ -1,0 +1,162 @@
+{
+  "startedAtUtc": "2026-11-15T10:06:31.828216+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "logicalCpus": 16,
+  "python": "3.13.15 (tags/v3.13.15:4061bc4, Aug  5 2026, 13:05:39) [MSC v.1944 64 bit (AMD64)]",
+  "java": "openjdk version \"25.0.5\" 2026-10-20 LTS\nOpenJDK Runtime Environment Temurin-25.0.5+8 (build 25.0.5+8-LTS)\nOpenJDK 64-Bit Server VM Temurin-25.0.5+8 (build 25.0.5+8-LTS, mixed mode, sharing)\n",
+  "commands": [
+    {
+      "command": [
+        "C:\\Users\\onill\\Documents\\Codex\\2026-11-15\\3\\work\\car-rental-service\\mvnw.cmd",
+        "-B",
+        "-Pgrpc-demo",
+        "-pl",
+        "fleet-service",
+        "-am",
+        "-DskipTests",
+        "clean",
+        "package"
+      ],
+      "exitCode": 0,
+      "durationSeconds": 8.109362500021234,
+      "log": "docs\\evidence\\contract-load\\mutation-build.log"
+    },
+    {
+      "command": [
+        "C:\\Users\\onill\\Documents\\Codex\\2026-11-15\\3\\work\\car-rental-service\\mvnw.cmd",
+        "-B",
+        "-Pgrpc-demo",
+        "-pl",
+        "fleet-service",
+        "-am",
+        "-DskipTests",
+        "clean",
+        "package"
+      ],
+      "exitCode": 0,
+      "durationSeconds": 7.940165000007255,
+      "log": "docs\\evidence\\contract-load\\restore-build.log"
+    }
+  ],
+  "ports": [
+    28082,
+    28083,
+    29090
+  ],
+  "consumerJarSha256": "08632cd2d729123b45d86f85e0e1f9034cb50457a0076e131b174cb78e99fd4f",
+  "baseline": {
+    "command": [
+      "C:\\Users\\onill\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+      "C:\\Users\\onill\\Documents\\Codex\\2026-11-15\\3\\work\\car-rental-service\\tests\\contracts\\test_booking_fleet_contract.py"
+    ],
+    "exitCode": 0,
+    "durationSeconds": 0.5787608999817166,
+    "log": "docs\\evidence\\contract-load\\baseline\\tests.log",
+    "result": {
+      "tests": 6,
+      "failures": [],
+      "errors": [],
+      "skipped": 0,
+      "durationSeconds": 0.375642400002107,
+      "passed": true
+    }
+  },
+  "mutation": {
+    "change": "VehicleReply.daily_rate wire field 5 -> 15; field 5 reserved",
+    "side": "fleet-service only; booking JAR not rebuilt",
+    "originalProtoSha256": "4960de9937cbd37b7624525f89e6b47a1ee55c7cb3ae5ac7bc420c8e7d56c196",
+    "mutatedProtoSha256": "8f2bbc328ac06dbbef37c827f5d1588b358fefc816884eaf1bf693e5d8c24fec",
+    "consumerAndExpectationsUnchanged": true,
+    "sourceRestored": true
+  },
+  "broken": {
+    "command": [
+      "C:\\Users\\onill\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+      "C:\\Users\\onill\\Documents\\Codex\\2026-11-15\\3\\work\\car-rental-service\\tests\\contracts\\test_booking_fleet_contract.py"
+    ],
+    "exitCode": 1,
+    "durationSeconds": 0.5359735999954864,
+    "log": "docs\\evidence\\contract-load\\broken\\tests.log",
+    "result": {
+      "tests": 6,
+      "failures": [
+        {
+          "test": "__main__.BookingFleetContractTest.test_server_stream_vehicle_contract",
+          "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\onill\\Documents\\Codex\\2026-11-15\\3\\work\\car-rental-service\\tests\\contracts\\test_booking_fleet_contract.py\", line 53, in test_server_stream_vehicle_contract\n    self.assertEqual(status, self.expected['listStatus'], body)\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 500 != 200 : {'detail': 'The request could not be completed', 'instance': '/api/grpc/vehicles', 'status': 500, 'title': 'Internal Server Error'}\n"
+        },
+        {
+          "test": "__main__.BookingFleetContractTest.test_unary_vehicle_contract",
+          "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\onill\\Documents\\Codex\\2026-11-15\\3\\work\\car-rental-service\\tests\\contracts\\test_booking_fleet_contract.py\", line 48, in test_unary_vehicle_contract\n    self.assertEqual(status, self.expected['unaryStatus'], body)\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 500 != 200 : {'detail': 'The request could not be completed', 'instance': '/api/grpc/vehicles/8f78578a-3974-486d-a238-e46a15cf3e14', 'status': 500, 'title': 'Internal Server Error'}\n"
+        }
+      ],
+      "errors": [],
+      "skipped": 0,
+      "durationSeconds": 0.34826140000950545,
+      "passed": false
+    }
+  },
+  "restored": {
+    "command": [
+      "C:\\Users\\onill\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+      "C:\\Users\\onill\\Documents\\Codex\\2026-11-15\\3\\work\\car-rental-service\\tests\\contracts\\test_booking_fleet_contract.py"
+    ],
+    "exitCode": 0,
+    "durationSeconds": 0.517100400000345,
+    "log": "docs\\evidence\\contract-load\\restored\\tests.log",
+    "result": {
+      "tests": 6,
+      "failures": [],
+      "errors": [],
+      "skipped": 0,
+      "durationSeconds": 0.34852759999921545,
+      "passed": true
+    }
+  },
+  "k6Version": "k6.exe v2.4.0 (commit/dd9395906d, go1.26.11, windows/amd64)",
+  "load": {
+    "steady": {
+      "command": [
+        "C:\\Users\\onill\\Documents\\Codex\\2026-11-15\\3\\work\\tools\\k6\\k6-v2.4.0-windows-amd64\\k6.exe",
+        "run",
+        "--out",
+        "json=C:\\Users\\onill\\Documents\\Codex\\2026-11-15\\3\\work\\car-rental-service\\docs\\evidence\\contract-load\\load\\steady\\metrics.json",
+        "C:\\Users\\onill\\Documents\\Codex\\2026-11-15\\3\\work\\car-rental-service\\tests\\load\\scenarios.js"
+      ],
+      "exitCode": 0,
+      "durationSeconds": 45.17098980001174,
+      "log": "docs\\evidence\\contract-load\\load\\steady\\k6.log",
+      "startedAtUtc": "2026-11-15T10:07:11.257243+00:00",
+      "finishedAtUtc": "2026-11-15T10:07:56.428498+00:00"
+    },
+    "ramp": {
+      "command": [
+        "C:\\Users\\onill\\Documents\\Codex\\2026-11-15\\3\\work\\tools\\k6\\k6-v2.4.0-windows-amd64\\k6.exe",
+        "run",
+        "--out",
+        "json=C:\\Users\\onill\\Documents\\Codex\\2026-11-15\\3\\work\\car-rental-service\\docs\\evidence\\contract-load\\load\\ramp\\metrics.json",
+        "C:\\Users\\onill\\Documents\\Codex\\2026-11-15\\3\\work\\car-rental-service\\tests\\load\\scenarios.js"
+      ],
+      "exitCode": 0,
+      "durationSeconds": 60.102776100015035,
+      "log": "docs\\evidence\\contract-load\\load\\ramp\\k6.log",
+      "startedAtUtc": "2026-11-15T10:07:59.521443+00:00",
+      "finishedAtUtc": "2026-11-15T10:08:59.624393+00:00"
+    },
+    "spike": {
+      "command": [
+        "C:\\Users\\onill\\Documents\\Codex\\2026-11-15\\3\\work\\tools\\k6\\k6-v2.4.0-windows-amd64\\k6.exe",
+        "run",
+        "--out",
+        "json=C:\\Users\\onill\\Documents\\Codex\\2026-11-15\\3\\work\\car-rental-service\\docs\\evidence\\contract-load\\load\\spike\\metrics.json",
+        "C:\\Users\\onill\\Documents\\Codex\\2026-11-15\\3\\work\\car-rental-service\\tests\\load\\scenarios.js"
+      ],
+      "exitCode": 0,
+      "durationSeconds": 50.11185079999268,
+      "log": "docs\\evidence\\contract-load\\load\\spike\\k6.log",
+      "startedAtUtc": "2026-11-15T10:09:02.940827+00:00",
+      "finishedAtUtc": "2026-11-15T10:09:53.052853+00:00"
+    }
+  },
+  "completed": true,
+  "finishedAtUtc": "2026-11-15T10:09:56.423591+00:00"
+}

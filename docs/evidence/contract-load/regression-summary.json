@@ -1,0 +1,129 @@
+{
+  "totals": {
+    "tests": 71,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "suites": [
+    {
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "name": "ua.carrental.observability.ApiMetricsFilterTest"
+    },
+    {
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "name": "ua.carrental.observability.BusinessMetricsTest"
+    },
+    {
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "name": "ua.carrental.observability.DemoWorkControllerTest"
+    },
+    {
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "name": "ua.carrental.observability.TraceCarrierTest"
+    },
+    {
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "name": "ua.carrental.customer.ObservabilityIntegrationTest"
+    },
+    {
+      "tests": 19,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "name": "ua.carrental.fleet.grpc.FleetGrpcIntegrationTest"
+    },
+    {
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "name": "ua.carrental.fleet.ObservabilityIntegrationTest"
+    },
+    {
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "name": "ua.carrental.fleet.VehicleBatchIntegrationTest"
+    },
+    {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "name": "ua.carrental.booking.bookings.IdempotencyIntegrationTest"
+    },
+    {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "name": "ua.carrental.booking.bookings.OutboxIntegrationTest"
+    },
+    {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "name": "ua.carrental.booking.catalog.CatalogClientTest"
+    },
+    {
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "name": "ua.carrental.booking.grpc.GrpcBookingIntegrationTest"
+    },
+    {
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "name": "ua.carrental.booking.ObservabilityIntegrationTest"
+    },
+    {
+      "tests": 8,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "name": "ua.carrental.booking.resilience.ResilienceIntegrationTest"
+    },
+    {
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "name": "ua.carrental.payment.IdempotencyIntegrationTest"
+    },
+    {
+      "tests": 6,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "name": "ua.carrental.payment.KafkaFailureIntegrationTest"
+    },
+    {
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "name": "ua.carrental.payment.ObservabilityIntegrationTest"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "fleetUrl": "http://127.0.0.1:28082",
+  "bookingUrl": "http://127.0.0.1:28083",
+  "grpcPort": 29090,
+  "vehicleIds": [
+    "9e792d00-20b0-4279-a7a4-b6342bfd652f",
+    "ba4a91c2-df82-4746-bde4-0d333ab62140"
+  ],
+  "providerPid": 17080,
+  "consumerPid": 8692,
+  "readyAtUtc": "2026-11-15T10:07:03.908011+00:00",
+  "providerJarSha256": "245d936d5009d452e312457904649f5ed4ce8dd556eb5281585c6ebece46c014",
+  "consumerJarSha256": "08632cd2d729123b45d86f85e0e1f9034cb50457a0076e131b174cb78e99fd4f"
+}

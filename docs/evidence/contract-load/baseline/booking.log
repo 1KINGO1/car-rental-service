@@ -1,0 +1,25 @@
+2026-11-15T12:06:33.846+02:00  INFO 27660 --- [booking-service] [           main] u.carrental.booking.BookingApplication   : Starting BookingApplication v1.0.0 using Java 25.0.5 with PID 27660 (C:\Users\onill\Documents\Codex\2026-11-15\3\work\car-rental-service\booking-service\target\app.jar started by onill in C:\Users\onill\Documents\Codex\2026-11-15\3\work\car-rental-service)
+2026-11-15T12:06:33.850+02:00  INFO 27660 --- [booking-service] [           main] u.carrental.booking.BookingApplication   : The following 1 profile is active: "grpc"
+2026-11-15T12:06:35.017+02:00  INFO 27660 --- [booking-service] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 28083 (http)
+2026-11-15T12:06:35.035+02:00  INFO 27660 --- [booking-service] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-11-15T12:06:35.036+02:00  INFO 27660 --- [booking-service] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.24]
+2026-11-15T12:06:35.072+02:00  INFO 27660 --- [booking-service] [           main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 1169 ms
+2026-11-15T12:06:35.397+02:00  INFO 27660 --- [booking-service] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-11-15T12:06:35.772+02:00  INFO 27660 --- [booking-service] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:booking user=SA
+2026-11-15T12:06:35.774+02:00  INFO 27660 --- [booking-service] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-11-15T12:06:36.849+02:00  INFO 27660 --- [booking-service] [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 3 endpoints beneath base path '/actuator'
+2026-11-15T12:06:36.890+02:00  INFO 27660 --- [booking-service] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 28083 (http) with context path '/'
+2026-11-15T12:06:36.898+02:00  INFO 27660 --- [booking-service] [           main] u.carrental.booking.BookingApplication   : Started BookingApplication in 3.404 seconds (process running for 3.761)
+2026-11-15T12:06:37.234+02:00  INFO 27660 --- [booking-service] [.1-28083-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-11-15T12:06:37.235+02:00  INFO 27660 --- [booking-service] [.1-28083-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-11-15T12:06:37.235+02:00  INFO 27660 --- [booking-service] [.1-28083-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::arrayBaseOffset has been called by com.google.protobuf.UnsafeUtil (jar:nested:/C:/Users/onill/Documents/Codex/2026-11-15/3/work/car-rental-service/booking-service/target/app.jar/!BOOT-INF/lib/protobuf-java-4.35.1.jar!/)
+WARNING: Please consider reporting this to the maintainers of class com.google.protobuf.UnsafeUtil
+WARNING: sun.misc.Unsafe::arrayBaseOffset will be removed in a future release
+2026-11-15T12:06:37.901+02:00  INFO 27660 --- [booking-service] [.1-28083-exec-2] u.c.observability.ApiMetricsFilter       : HTTP POST /api/grpc/quotes/bidi status=200
+2026-11-15T12:06:37.913+02:00  INFO 27660 --- [booking-service] [.1-28083-exec-3] u.c.observability.ApiMetricsFilter       : HTTP POST /api/grpc/quotes/client-stream status=200
+2026-11-15T12:06:37.949+02:00  INFO 27660 --- [booking-service] [.1-28083-exec-7] u.c.observability.ApiMetricsFilter       : HTTP POST /api/grpc/quotes/client-stream status=400
+2026-11-15T12:06:37.982+02:00  INFO 27660 --- [booking-service] [.1-28083-exec-5] u.c.observability.ApiMetricsFilter       : HTTP GET /api/grpc/vehicles/00000000-0000-4000-8000-000000000000 status=422
+2026-11-15T12:06:38.015+02:00  INFO 27660 --- [booking-service] [.1-28083-exec-6] u.c.observability.ApiMetricsFilter       : HTTP GET /api/grpc/vehicles status=200
+2026-11-15T12:06:38.023+02:00  INFO 27660 --- [booking-service] [.1-28083-exec-4] u.c.observability.ApiMetricsFilter       : HTTP GET /api/grpc/vehicles/775d677b-de9b-4b46-9d40-6dbffb9feaa1 status=200
